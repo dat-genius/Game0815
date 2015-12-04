@@ -1,0 +1,8 @@
+Lens of progress:
+Do parts of the game discract players of the main goal?
+	-Later implement sidequests
+
+Lens of Parallelism:
+Are there bottlenecks that prevent the player from continuing?
+	-Endbosses
+
