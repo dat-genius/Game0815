@@ -8,9 +8,10 @@ namespace ProjectGame.Voorbeeld
         public GameObject GameObject { get; set; }
 
         private readonly Vector2[] pathNodes;
+        private int currentNodeIndex;
         private readonly TimeSpan timePerPath;
         private TimeSpan walkTimer;
-        private int currentPathIndex;
+        private Vector2 departurePosition;
 
         public MonsterMovementBehaviourVB()
         {
@@ -22,20 +23,23 @@ namespace ProjectGame.Voorbeeld
                 new Vector2(300, 200),
                 new Vector2(100, 20),
             };
-            currentPathIndex = 0;
-            timePerPath = TimeSpan.FromSeconds(5);
+            currentNodeIndex = 0;
+            timePerPath = TimeSpan.FromSeconds(1);
+            departurePosition = Vector2.Zero;
         }
 
         public void OnUpdate(GameTime gameTime)
         {
             walkTimer += gameTime.ElapsedGameTime;
-            if (Vector2.Distance(GameObject.Position, pathNodes[currentPathIndex]) < 5)
-            {
-                if (++currentPathIndex > pathNodes.Length - 1) currentPathIndex = 0;
-                walkTimer = TimeSpan.FromSeconds(0);
-            }
             var lerpFactor = (float)walkTimer.TotalMilliseconds / (float)timePerPath.TotalMilliseconds;
-            GameObject.Position = Vector2.Lerp(GameObject.Position, pathNodes[currentPathIndex], lerpFactor);
+            if (lerpFactor >= 1.0f)
+            {
+                departurePosition = pathNodes[currentNodeIndex];
+                if (++currentNodeIndex > pathNodes.Length - 1) currentNodeIndex = 0;
+                walkTimer = TimeSpan.FromSeconds(0);
+                lerpFactor = 0;
+            }
+            GameObject.Position = Vector2.Lerp(departurePosition, pathNodes[currentNodeIndex], lerpFactor);
         }
 
         public void OnMessage(IMessage message)
