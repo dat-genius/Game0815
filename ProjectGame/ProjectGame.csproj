@@ -38,11 +38,13 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FollowCamera.cs" />
     <Compile Include="CollisionEnterMessage.cs" />
     <Compile Include="CollisionExitMessage.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="IBehaviour.cs" />
+    <Compile Include="ICamera.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

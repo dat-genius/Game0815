@@ -14,12 +14,14 @@ namespace ProjectGame
     {
         private readonly GraphicsDeviceManager graphics;
         private readonly List<GameObject> gameObjects;
+        private ICamera camera;
         private SpriteBatch spriteBatch;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
             gameObjects = new List<GameObject>();
         }
 
@@ -107,7 +109,7 @@ namespace ProjectGame
             var player = new GameObject(isDrawable: true, isCollidable: true);
             player.Position = new Vector2(100, 100);
             player.Texture = playerTexture;
-            player.AddBehaviour(new InputMovementBehaviourVB(movementSpeed: 5.0f));
+            player.AddBehaviour(new InputMovementBehaviourVB(movementSpeed: 5));
             player.AddBehaviour(new SharedCollisionBehaviourVB());
 
             // Je kan trouwens ook zo je public properties zetten (geen constructor, geen monster.x, monster.y, ...)
@@ -116,11 +118,18 @@ namespace ProjectGame
                 Position = new Vector2(20, 20),
                 Texture = monsterTexture
             };
-            monster.AddBehaviour(new MonsterMovementBehaviourVB());
+           // monster.AddBehaviour(new MonsterMovementBehaviourVB());
             monster.AddBehaviour(new SharedCollisionBehaviourVB());
 
             gameObjects.Add(player);
             gameObjects.Add(monster);
+
+            // Follow player with camera:
+            //  ----> Remove the MonsterMovementBehaviourVB, then uncomment below to get a look at the results
+            //var followCamera = new FollowCamera();
+            //followCamera.Offset = new Vector2((float)GraphicsDevice.Viewport.Width / 2, (float)GraphicsDevice.Viewport.Height / 2);
+            //followCamera.Target = player;
+            //camera = followCamera;
         }
 
         /// <summary>
@@ -148,6 +157,7 @@ namespace ProjectGame
             {
                 gameObject.OnUpdate(gameTime);
             }
+            if(camera != null) camera.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -158,7 +168,7 @@ namespace ProjectGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DarkGray);
-            spriteBatch.Begin();
+            spriteBatch.Begin(transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix);
             foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable))
             {
                 gameObject.Draw(spriteBatch);
