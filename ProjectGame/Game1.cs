@@ -17,7 +17,7 @@ namespace ProjectGame
     {
         private readonly GraphicsDeviceManager graphics;
         private readonly List<GameObject> gameObjects;
-        private ICamera camera;
+        //private ICamera camera;
         private SpriteBatch spriteBatch;
         private Tilemap tilemap;
 
@@ -166,7 +166,7 @@ namespace ProjectGame
             {
                 gameObject.OnUpdate(gameTime);
             }
-            if(camera != null) camera.Update(gameTime);
+            //if(camera != null) camera.Update(gameTime);
             base.Update(gameTime);
         }
 
