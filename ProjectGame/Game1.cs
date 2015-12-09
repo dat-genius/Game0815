@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,6 +19,7 @@ namespace ProjectGame
         private readonly List<GameObject> gameObjects;
         private ICamera camera;
         private SpriteBatch spriteBatch;
+        private Tilemap tilemap;
 
         public Game1()
         {
@@ -23,6 +27,9 @@ namespace ProjectGame
             Content.RootDirectory = "Content";
 
             gameObjects = new List<GameObject>();
+            
+            var xmlSerializer = new XmlSerializer(typeof(Tilemap));
+            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/test_map.tmx", FileMode.Open));
         }
 
 
@@ -101,6 +108,8 @@ namespace ProjectGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: Add game objects that are rendered here
+            if(tilemap != null)
+            tilemap.Build(Content);
 
             // JUST AN EXAMPLE:
             var playerTexture = Content.Load<Texture2D>("ball");
@@ -118,7 +127,7 @@ namespace ProjectGame
                 Position = new Vector2(20, 20),
                 Texture = monsterTexture
             };
-           // monster.AddBehaviour(new MonsterMovementBehaviourVB());
+            monster.AddBehaviour(new MonsterMovementBehaviourVB());
             monster.AddBehaviour(new SharedCollisionBehaviourVB());
 
             gameObjects.Add(player);
@@ -126,10 +135,10 @@ namespace ProjectGame
 
             // Follow player with camera:
             //  ----> Remove the MonsterMovementBehaviourVB, then uncomment below to get a look at the results
-            //var followCamera = new FollowCamera();
-            //followCamera.Offset = new Vector2((float)GraphicsDevice.Viewport.Width / 2, (float)GraphicsDevice.Viewport.Height / 2);
-            //followCamera.Target = player;
-            //camera = followCamera;
+            var followCamera = new FollowCamera();
+            followCamera.Offset = new Vector2((float)GraphicsDevice.Viewport.Width / 2, (float)GraphicsDevice.Viewport.Height / 2);
+            followCamera.Target = player;
+            camera = followCamera;
         }
 
         /// <summary>
@@ -168,7 +177,10 @@ namespace ProjectGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DarkGray);
-            spriteBatch.Begin(transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix);
+            spriteBatch.Begin(
+                transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix, 
+                samplerState: SamplerState.PointClamp);
+            tilemap.Draw(spriteBatch);
             foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable))
             {
                 gameObject.Draw(spriteBatch);

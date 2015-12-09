@@ -1,0 +1,54 @@
+﻿using Microsoft.Xna.Framework;
+
+namespace ProjectGame
+{
+    public class FollowCamera : ICamera
+    {
+        private GameObject target;
+        public GameObject Target
+        {
+            private get { return target; }
+            set
+            {
+                target = value;
+                position = target.Position;
+                viewMatrix = Matrix.CreateTranslation(Offset.X - (target.Position.X + target.Size.X/2),
+                    Offset.Y - (target.Position.Y + target.Size.Y/2), 0);
+            }
+        }
+
+        private Vector2 position;
+        public Vector2 Position
+        {
+            get { return position; }
+            set
+            {
+                if (value == position) return;
+                var difference = value - position;
+                viewMatrix.Translation -= new Vector3(difference.X, difference.Y, 0);
+                position = value;
+            }
+        }
+
+        private Matrix viewMatrix;
+        public Matrix ViewMatrix
+        {
+            get { return viewMatrix; }
+        }
+
+        public float LerpFactor { get; set; }
+        public Vector2 Offset { get; set; }
+
+
+        public FollowCamera(float lerpFactor = 0.1f)
+        {
+            LerpFactor = lerpFactor;
+        }
+
+
+        public void Update(GameTime gameTime)
+        {
+            Position = Vector2.Lerp(Position, Target.Position, LerpFactor);
+        }
+    }
+}
