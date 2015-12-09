@@ -4,7 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Philip/documents/visual studio 2013/Projects/ProjectGame/ProjectGame/Content/ball.png</File>
-    <File>C:/Users/Philip/documents/visual studio 2013/Projects/ProjectGame/ProjectGame/Content/grass.png</File>
+    <File>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/ball.png</File>
+    <File>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/grass.png</File>
+    <File>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/sword1.png</File>
   </SourceFiles>
 </SourceFileCollection>

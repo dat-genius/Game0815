@@ -14,7 +14,7 @@ namespace ProjectGame
     {
         private readonly GraphicsDeviceManager graphics;
         private readonly List<GameObject> gameObjects;
-        private ICamera camera;
+        //private ICamera camera;
         private SpriteBatch spriteBatch;
 
         public Game1()
@@ -157,7 +157,7 @@ namespace ProjectGame
             {
                 gameObject.OnUpdate(gameTime);
             }
-            if(camera != null) camera.Update(gameTime);
+            //if(camera != null) camera.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -168,7 +168,7 @@ namespace ProjectGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DarkGray);
-            spriteBatch.Begin(transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix);
+            spriteBatch.Begin(/*transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix*/);
             foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable))
             {
                 gameObject.Draw(spriteBatch);

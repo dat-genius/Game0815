@@ -25,3 +25,6 @@ c:\users\philip\documents\visual studio 2013\Projects\ProjectGame\ProjectGame\ob
 c:\users\philip\documents\visual studio 2013\Projects\ProjectGame\ProjectGame\obj\x86\Debug\ProjectGame.pdb
 c:\users\philip\documents\visual studio 2013\Projects\ProjectGame\ProjectGame\bin\Windows\Debug\Content\ball.xnb
 c:\users\philip\documents\visual studio 2013\Projects\ProjectGame\ProjectGame\bin\Windows\Debug\Content\grass.xnb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
