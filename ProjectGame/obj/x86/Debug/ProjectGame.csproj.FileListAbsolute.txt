@@ -25,3 +25,4 @@ C:\Users\Philip\documents\visual studio 2013\Projects\ProjectGame\ProjectGame\bi
 C:\Users\Philip\documents\visual studio 2013\Projects\ProjectGame\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\Philip\documents\visual studio 2013\Projects\ProjectGame\ProjectGame\obj\x86\Debug\ProjectGame.exe
 C:\Users\Philip\documents\visual studio 2013\Projects\ProjectGame\ProjectGame\obj\x86\Debug\ProjectGame.pdb
+C:\Users\Philip\documents\visual studio 2013\Projects\ProjectGame\ProjectGame\bin\Windows\Debug\Content\sword1.xnb
