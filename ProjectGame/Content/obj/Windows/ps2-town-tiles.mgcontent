@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Philip/documents/visual studio 2013/Projects/ProjectGame/ProjectGame/Content/ps2-town-tiles.png</SourceFile>
-  <SourceTime>2015-12-08T18:42:53.9366652+01:00</SourceTime>
-  <DestFile>C:/Users/Philip/documents/visual studio 2013/Projects/ProjectGame/ProjectGame/Content/bin/Windows/ps2-town-tiles.xnb</DestFile>
-  <DestTime>2015-12-09T14:05:22.297433+01:00</DestTime>
+  <SourceFile>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/ps2-town-tiles.png</SourceFile>
+  <SourceTime>2015-12-10T10:08:19.4544584+01:00</SourceTime>
+  <DestFile>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/bin/Windows/ps2-town-tiles.xnb</DestFile>
+  <DestTime>2015-12-14T13:14:48.7164039+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

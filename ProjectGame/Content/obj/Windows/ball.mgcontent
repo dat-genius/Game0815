@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Philip/documents/visual studio 2013/Projects/ProjectGame/ProjectGame/Content/ball.png</SourceFile>
-  <SourceTime>2015-11-29T19:38:27.0934861+01:00</SourceTime>
-  <DestFile>C:/Users/Philip/documents/visual studio 2013/Projects/ProjectGame/ProjectGame/Content/bin/Windows/ball.xnb</DestFile>
-  <DestTime>2015-12-09T14:05:22.2404304+01:00</DestTime>
+  <SourceFile>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/ball.png</SourceFile>
+  <SourceTime>2015-12-08T12:26:35.560908+01:00</SourceTime>
+  <DestFile>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/bin/Windows/ball.xnb</DestFile>
+  <DestTime>2015-12-14T13:14:48.560116+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
