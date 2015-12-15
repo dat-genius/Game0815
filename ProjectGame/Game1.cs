@@ -63,10 +63,12 @@ namespace ProjectGame
                         {
                             a.OnMessage(new CollisionEnterMessage(b));
                             a.CollidingGameObjects.Add(b);
+                            //DoNotWalkTrough(a);
                         }
                         if (b.CollidingGameObjects.Contains(a)) continue;
                         b.OnMessage(new CollisionEnterMessage(a));
                         b.CollidingGameObjects.Add(a);
+                        //DoNotWalkTrough(b);
                     }
                     else
                     {
@@ -116,7 +118,7 @@ namespace ProjectGame
             var monsterTexture = Content.Load<Texture2D>("grass");
 
             var player = new GameObject(isDrawable: true, isCollidable: true);
-            player.Position = new Vector2(100, 100);
+            player.Position = new Vector2(200, 300);
             player.Texture = playerTexture;
             player.AddBehaviour(new InputMovementBehaviourVB(movementSpeed: 5));
             player.AddBehaviour(new SharedCollisionBehaviourVB());
@@ -188,5 +190,21 @@ namespace ProjectGame
             spriteBatch.End();
             base.Draw(gameTime);
         }
+
+        private void DoNotWalkTrough(GameObject gameObject)
+        {
+            if(gameObject.HasBehaviourOfType(typeof(InputMovementBehaviourVB)))
+            {
+                var Behaviour = gameObject.GetBehaviourOfType(typeof(InputMovementBehaviourVB));
+                (Behaviour as InputMovementBehaviourVB).MovementSpeed = 0;
+            }
+            if(gameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviourVB)))
+            {
+                var Behaviour = gameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviourVB));
+                (Behaviour as MonsterMovementBehaviourVB).Collision = true;
+            }
+
+        }
     }
 }
+

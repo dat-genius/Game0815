@@ -17,7 +17,7 @@ namespace ProjectGame
     {
         public Vector2 Position { get; set; }
         public GameObject GameObject { get; set; }
-        public bool Defend = false;
+        public bool Defend = false; 
         public Texture2D Texture { get; set; }
 
         public void OnUpdate(GameTime gameTime)
