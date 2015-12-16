@@ -86,3 +86,5 @@ C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.D
 C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
