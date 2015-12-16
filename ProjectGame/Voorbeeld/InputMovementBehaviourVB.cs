@@ -8,7 +8,10 @@ namespace ProjectGame.Voorbeeld
     {
         public GameObject GameObject { get; set; }
         public float MovementSpeed { get; set; }
-        public bool Collision = false;
+        public bool CollisionTop = false;
+        public bool CollisionBottom = false;
+        public bool CollisionLeft = false;
+        public bool CollisionRight= false;
 
         public InputMovementBehaviourVB(float movementSpeed)
         {
@@ -17,23 +20,28 @@ namespace ProjectGame.Voorbeeld
 
         public void OnUpdate(GameTime gameTime)
         {
-            if (Collision)
-                MovementSpeed = 0;
-            else
-                MovementSpeed = 5;
+        
             
             var displacement = Vector2.Zero;
-            displacement.Y -= Keyboard.GetState().IsKeyDown(Keys.W) ? 1 : 0;
-            displacement.X -= Keyboard.GetState().IsKeyDown(Keys.A) ? 1 : 0;
-            displacement.Y += Keyboard.GetState().IsKeyDown(Keys.S) ? 1 : 0;
-            displacement.X += Keyboard.GetState().IsKeyDown(Keys.D) ? 1 : 0;
+            if(!CollisionTop)
+                displacement.Y -= Keyboard.GetState().IsKeyDown(Keys.W) ? 1 : 0;
+            if(!CollisionLeft)
+                displacement.X -= Keyboard.GetState().IsKeyDown(Keys.A) ? 1 : 0;
+            if(!CollisionBottom)
+                displacement.Y += Keyboard.GetState().IsKeyDown(Keys.S) ? 1 : 0;
+            if(!CollisionRight)
+                displacement.X += Keyboard.GetState().IsKeyDown(Keys.D) ? 1 : 0;
 
             if (displacement.Length() > 0)
             {
                 GameObject.Position += Vector2.Normalize(displacement) * MovementSpeed;
             }
 
-            Collision = false;
+            CollisionLeft = false;
+            CollisionRight = false;
+            CollisionTop = false;
+            CollisionBottom = false;
+            
         }
 
         public void OnMessage(IMessage message)

@@ -59,7 +59,6 @@ namespace ProjectGame
                     var rectangleB = new Rectangle((int)b.Position.X, (int)b.Position.Y, b.Size.X, b.Size.Y);
                     if (rectangleA.Intersects(rectangleB))
                     {
-                        PlaceCollision(rectangleA, rectangleB);
                         DoNotWalkTrough(a, PlaceCollision(rectangleA, rectangleB));
                         DoNotWalkTrough(b, PlaceCollision(rectangleB, rectangleA));
                         if (!a.CollidingGameObjects.Contains(b))
@@ -132,7 +131,7 @@ namespace ProjectGame
                 Position = new Vector2(20, 20),
                 Texture = monsterTexture
             };
-            monster.AddBehaviour(new MonsterMovementBehaviourVB());
+            //monster.AddBehaviour(new MonsterMovementBehaviourVB());
             monster.AddBehaviour(new SharedCollisionBehaviourVB());
 
             gameObjects.Add(player);
@@ -194,18 +193,35 @@ namespace ProjectGame
             base.Draw(gameTime);
         }
 
+        /// <summary>
+        /// Makes sure that the objects don't move trough eachother
+        /// </summary>
+        /// <param name="gameObject">Is the object what you want to stop </param>
+        /// <param name="position">An int what provide the side of the collision </param>
         private void DoNotWalkTrough(GameObject gameObject, int position)
         {
             if(gameObject.HasBehaviourOfType(typeof(InputMovementBehaviourVB)))
             {
-                var Behaviour = gameObject.GetBehaviourOfType(typeof(InputMovementBehaviourVB));
-                //(Behaviour as InputMovementBehaviourVB).Collision = true;
+                var behaviour = gameObject.GetBehaviourOfType(typeof(InputMovementBehaviourVB));
+    
                 switch (position)
                 {
-                    case 1: gameObject.Color = Color.Red; break;
-                    case 2: gameObject.Color = Color.Yellow; break;
-                    case 3: gameObject.Color = Color.Blue; break;
-                    case 4: gameObject.Color = Color.Black; break;
+                    case 1: 
+                        gameObject.Color = Color.Red;
+                        (behaviour as InputMovementBehaviourVB).CollisionLeft = true;
+                        break;
+                    case 2: 
+                        gameObject.Color = Color.Yellow;
+                        (behaviour as InputMovementBehaviourVB).CollisionRight = true;
+                        break;
+                    case 3: 
+                        gameObject.Color = Color.Blue;
+                        (behaviour as InputMovementBehaviourVB).CollisionTop = true;
+                        break;
+                    case 4: 
+                        gameObject.Color = Color.Black;
+                        (behaviour as InputMovementBehaviourVB).CollisionBottom = true;
+                        break;
                 }
             }
             if(gameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviourVB)))
