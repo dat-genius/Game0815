@@ -59,16 +59,19 @@ namespace ProjectGame
                     var rectangleB = new Rectangle((int)b.Position.X, (int)b.Position.Y, b.Size.X, b.Size.Y);
                     if (rectangleA.Intersects(rectangleB))
                     {
+                        PlaceCollision(rectangleA, rectangleB);
+                        DoNotWalkTrough(a, PlaceCollision(rectangleA, rectangleB));
+                        DoNotWalkTrough(b, PlaceCollision(rectangleB, rectangleA));
                         if (!a.CollidingGameObjects.Contains(b))
                         {
                             a.OnMessage(new CollisionEnterMessage(b));
                             a.CollidingGameObjects.Add(b);
-                            //DoNotWalkTrough(a);
+                            
                         }
                         if (b.CollidingGameObjects.Contains(a)) continue;
                         b.OnMessage(new CollisionEnterMessage(a));
                         b.CollidingGameObjects.Add(a);
-                        //DoNotWalkTrough(b);
+                        
                     }
                     else
                     {
@@ -191,19 +194,57 @@ namespace ProjectGame
             base.Draw(gameTime);
         }
 
-        private void DoNotWalkTrough(GameObject gameObject)
+        private void DoNotWalkTrough(GameObject gameObject, int position)
         {
             if(gameObject.HasBehaviourOfType(typeof(InputMovementBehaviourVB)))
             {
                 var Behaviour = gameObject.GetBehaviourOfType(typeof(InputMovementBehaviourVB));
-                (Behaviour as InputMovementBehaviourVB).MovementSpeed = 0;
+                //(Behaviour as InputMovementBehaviourVB).Collision = true;
+                switch (position)
+                {
+                    case 1: gameObject.Color = Color.Red; break;
+                    case 2: gameObject.Color = Color.Yellow; break;
+                    case 3: gameObject.Color = Color.Blue; break;
+                    case 4: gameObject.Color = Color.Black; break;
+                }
             }
             if(gameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviourVB)))
             {
                 var Behaviour = gameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviourVB));
-                (Behaviour as MonsterMovementBehaviourVB).Collision = true;
+                //(Behaviour as MonsterMovementBehaviourVB).Collision = true;
+                switch (position)
+                {
+                    case 1: gameObject.Color = Color.Red; break;
+                    case 2: gameObject.Color = Color.Yellow; break;
+                    case 3: gameObject.Color = Color.Blue; break;
+                    case 4: gameObject.Color = Color.Black; break;
+                }
             }
 
+        }
+
+        
+        /// <summary>
+        /// calculates at what side the collision was
+        /// </summary>
+        /// <param name="a">firts rectangle, it wil be calculated for this rectangle</param>
+        /// <param name="b">second rectangle, the rectangle withs collides with a </param>
+        /// <returns>1 = left, 2 = right, 3 = top, 4 = bottom</returns>
+        private int PlaceCollision(Rectangle a, Rectangle b)
+        {
+            var MidAx = (a.Right + a.Left) / 2;
+            var MidAy = (a.Top + a.Bottom) / 2;
+
+            if (b.Right < MidAx)
+                return 1;
+            if (b.Left > MidAx)
+                return 2;
+            if (b.Bottom < MidAy)
+                return 3;
+            if (b.Top > MidAy)
+                return 4;
+
+            return 0;
         }
     }
 }

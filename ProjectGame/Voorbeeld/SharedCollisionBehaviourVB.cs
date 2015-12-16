@@ -26,7 +26,9 @@ namespace ProjectGame.Voorbeeld
                     // other.HasBehaviourOfType(typeof(SomeFuckingBigAssMonsterBehaviour));
 
                     // In this example though the code is shared between the monster and the player, so we'll just set the color:
-                    GameObject.Color = Color.Red;
+                    //GameObject.Color = Color.Red;
+
+
                 }
                 break;
 

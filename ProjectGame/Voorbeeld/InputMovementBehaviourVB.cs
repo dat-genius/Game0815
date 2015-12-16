@@ -8,6 +8,7 @@ namespace ProjectGame.Voorbeeld
     {
         public GameObject GameObject { get; set; }
         public float MovementSpeed { get; set; }
+        public bool Collision = false;
 
         public InputMovementBehaviourVB(float movementSpeed)
         {
@@ -16,6 +17,11 @@ namespace ProjectGame.Voorbeeld
 
         public void OnUpdate(GameTime gameTime)
         {
+            if (Collision)
+                MovementSpeed = 0;
+            else
+                MovementSpeed = 5;
+            
             var displacement = Vector2.Zero;
             displacement.Y -= Keyboard.GetState().IsKeyDown(Keys.W) ? 1 : 0;
             displacement.X -= Keyboard.GetState().IsKeyDown(Keys.A) ? 1 : 0;
@@ -26,6 +32,8 @@ namespace ProjectGame.Voorbeeld
             {
                 GameObject.Position += Vector2.Normalize(displacement) * MovementSpeed;
             }
+
+            Collision = false;
         }
 
         public void OnMessage(IMessage message)
