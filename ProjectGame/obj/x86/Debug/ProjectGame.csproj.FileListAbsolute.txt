@@ -56,3 +56,33 @@ C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGa
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\sword1.xnb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\ball.xnb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\grass.xnb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\ps2-town-tiles.xnb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\shield1.xnb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\ProjectGame.exe
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\ProjectGame.pdb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.dll
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.xml
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml

@@ -41,11 +41,13 @@
     <Compile Include="FollowCamera.cs" />
     <Compile Include="CollisionEnterMessage.cs" />
     <Compile Include="CollisionExitMessage.cs" />
+    <Compile Include="FOVBehavior.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="IBehaviour.cs" />
     <Compile Include="ICamera.cs" />
     <Compile Include="IMessage.cs" />
+    <Compile Include="PlayerBehavior.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShieldBehaviour.cs" />
