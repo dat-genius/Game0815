@@ -56,7 +56,13 @@ namespace ProjectGame
 
         public bool CheckForPLayers(List<GameObject> visibleObjects)
         {
-
+            foreach (GameObject objectInList in visibleObjects)
+            {
+                if (objectInList.HasBehaviourOfType(typeof(PlayerBehaviour)))
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
