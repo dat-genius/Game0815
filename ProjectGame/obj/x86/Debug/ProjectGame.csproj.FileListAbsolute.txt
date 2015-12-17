@@ -88,3 +88,6 @@ C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.R
 C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNicht.xnb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Ninja.xnb
+C:\Users\Erwin\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Roman.xnb

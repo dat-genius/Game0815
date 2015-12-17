@@ -3,7 +3,9 @@
     public enum MessageType
     {
         CollisionEnter,
-        CollisionExit
+        CollisionExit,
+        EnemyEnterFoV,
+        EnemyExitFoV
     }
 
     public interface IMessage

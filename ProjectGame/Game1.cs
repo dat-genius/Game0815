@@ -116,7 +116,7 @@ namespace ProjectGame
             tilemap.Build(Content);
 
             // JUST AN EXAMPLE:
-            var playerTexture = Content.Load<Texture2D>("ball");
+            var playerTexture = Content.Load<Texture2D>("EuropeanNicht");
             var monsterTexture = Content.Load<Texture2D>("grass");
 
             var player = new GameObject(isDrawable: true, isCollidable: true);

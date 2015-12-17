@@ -49,6 +49,8 @@
     <Compile Include="ICamera.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="PlayerBehaviour.cs" />
+    <Compile Include="PlayerEnterFoVMessage.cs" />
+    <Compile Include="PlayerLeaveFoVMessage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShieldBehaviour.cs" />

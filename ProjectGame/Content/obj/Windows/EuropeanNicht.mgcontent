@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/grass.png</SourceFile>
-  <SourceTime>2015-12-09T04:06:37.298907+01:00</SourceTime>
-  <DestFile>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/bin/Windows/grass.xnb</DestFile>
-  <DestTime>2015-12-17T04:22:10.5399299+01:00</DestTime>
+  <SourceFile>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/EuropeanNicht.png</SourceFile>
+  <SourceTime>2015-12-17T04:22:04.5812547+01:00</SourceTime>
+  <DestFile>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/bin/Windows/EuropeanNicht.xnb</DestFile>
+  <DestTime>2015-12-17T04:22:10.5689573+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
