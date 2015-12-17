@@ -59,8 +59,8 @@ namespace ProjectGame
                     var rectangleB = new Rectangle((int)b.Position.X, (int)b.Position.Y, b.Size.X, b.Size.Y);
                     if (rectangleA.Intersects(rectangleB))
                     {
-                        DoNotWalkTrough(a, PlaceCollision(rectangleA, rectangleB));
-                        DoNotWalkTrough(b, PlaceCollision(rectangleB, rectangleA));
+                        //DoNotWalkTrough(a, PlaceCollision(rectangleA, rectangleB));
+                        //DoNotWalkTrough(b, PlaceCollision(rectangleB, rectangleA));
                         if (!a.CollidingGameObjects.Contains(b))
                         {
                             a.OnMessage(new CollisionEnterMessage(b));
@@ -111,37 +111,48 @@ namespace ProjectGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: Add game objects that are rendered here
-            if(tilemap != null)
-            tilemap.Build(Content);
-
-            // JUST AN EXAMPLE:
+            // Load Resources
             var playerTexture = Content.Load<Texture2D>("ball");
             var monsterTexture = Content.Load<Texture2D>("grass");
+            var swordTexture = Content.Load<Texture2D>("sword1");
+            if (tilemap != null)
+                tilemap.Build(Content);
 
-            var player = new GameObject(isDrawable: true, isCollidable: true);
-            player.Position = new Vector2(200, 300);
-            player.Texture = playerTexture;
-            player.AddBehaviour(new InputMovementBehaviourVB(movementSpeed: 5));
-            player.AddBehaviour(new SharedCollisionBehaviourVB());
+            // Add Game Objects
+            var somePlayer = new GameObject
+            {
+                Position = new Vector2(200, 300),
+                Texture = playerTexture
+            };
+            somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5));
+            somePlayer.AddBehaviour(new MovementBehaviour());
 
-            // Je kan trouwens ook zo je public properties zetten (geen constructor, geen monster.x, monster.y, ...)
-            var monster = new GameObject(isDrawable: true, isCollidable: true)
+            var someMonster = new GameObject()
             {
                 Position = new Vector2(20, 20),
                 Texture = monsterTexture
             };
-            //monster.AddBehaviour(new MonsterMovementBehaviourVB());
-            monster.AddBehaviour(new SharedCollisionBehaviourVB());
+            someMonster.AddBehaviour(new MonsterMovementBehaviourVB());
 
-            gameObjects.Add(player);
-            gameObjects.Add(monster);
+
+            var someSword = new GameObject(false, false)
+            {
+                Texture = swordTexture
+            };
+            someSword.AddBehaviour(new WeaponBehaviour()
+            {
+                Wielder = somePlayer
+            });
+
+            gameObjects.Add(somePlayer);
+            gameObjects.Add(someMonster);
+            gameObjects.Add(someSword);
 
             // Follow player with camera:
             //  ----> Remove the MonsterMovementBehaviourVB, then uncomment below to get a look at the results
             var followCamera = new FollowCamera();
             followCamera.Offset = new Vector2((float)GraphicsDevice.Viewport.Width / 2, (float)GraphicsDevice.Viewport.Height / 2);
-            followCamera.Target = player;
+            followCamera.Target = somePlayer;
             camera = followCamera;
         }
 
@@ -200,43 +211,24 @@ namespace ProjectGame
         /// <param name="position">An int what provide the side of the collision </param>
         private void DoNotWalkTrough(GameObject gameObject, int position)
         {
-            if(gameObject.HasBehaviourOfType(typeof(InputMovementBehaviourVB)))
-            {
-                var behaviour = gameObject.GetBehaviourOfType(typeof(InputMovementBehaviourVB));
+            if (!gameObject.HasBehaviourOfType(typeof (InputMovementBehaviour))) return;
+            var behaviour = gameObject.GetBehaviourOfType(typeof(InputMovementBehaviour));
     
-                switch (position)
-                {
-                    case 1: 
-                        gameObject.Color = Color.Red;
-                        (behaviour as InputMovementBehaviourVB).CollisionLeft = true;
-                        break;
-                    case 2: 
-                        gameObject.Color = Color.Yellow;
-                        (behaviour as InputMovementBehaviourVB).CollisionRight = true;
-                        break;
-                    case 3: 
-                        gameObject.Color = Color.Blue;
-                        (behaviour as InputMovementBehaviourVB).CollisionTop = true;
-                        break;
-                    case 4: 
-                        gameObject.Color = Color.Black;
-                        (behaviour as InputMovementBehaviourVB).CollisionBottom = true;
-                        break;
-                }
-            }
-            if(gameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviourVB)))
+            switch (position)
             {
-                var Behaviour = gameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviourVB));
-                //(Behaviour as MonsterMovementBehaviourVB).Collision = true;
-                switch (position)
-                {
-                    case 1: gameObject.Color = Color.Red; break;
-                    case 2: gameObject.Color = Color.Yellow; break;
-                    case 3: gameObject.Color = Color.Blue; break;
-                    case 4: gameObject.Color = Color.Black; break;
-                }
+                case 1: 
+                    (behaviour as InputMovementBehaviour).CollisionLeft = true;
+                    break;
+                case 2: 
+                    (behaviour as InputMovementBehaviour).CollisionRight = true;
+                    break;
+                case 3: 
+                    (behaviour as InputMovementBehaviour).CollisionTop = true;
+                    break;
+                case 4: 
+                    (behaviour as InputMovementBehaviour).CollisionBottom = true;
+                    break;
             }
-
         }
 
         

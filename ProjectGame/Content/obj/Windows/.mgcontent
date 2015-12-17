@@ -4,9 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/ball.png</File>
-    <File>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/grass.png</File>
-    <File>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
-    <File>C:/Users/Erwin/Documents/GitHub/Game0815/ProjectGame/Content/shield1.png</File>
+    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/ball.png</File>
+    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/grass.png</File>
+    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
+    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/shield1.png</File>
   </SourceFiles>
 </SourceFileCollection>

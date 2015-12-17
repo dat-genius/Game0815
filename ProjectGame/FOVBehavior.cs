@@ -58,7 +58,7 @@ namespace ProjectGame
         {
             foreach (GameObject objectInList in visibleObjects)
             {
-                if (objectInList.HasBehaviourOfType(typeof(PlayerBehaviour)))
+                if (objectInList.HasBehaviourOfType(typeof(WeaponBehaviour)))
                 {
                     return true;
                 }

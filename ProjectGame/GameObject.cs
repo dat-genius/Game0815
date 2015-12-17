@@ -13,7 +13,23 @@ namespace ProjectGame
         #region Common Properties
 
         public bool IsDrawable { get; set; }
-        public bool IsCollidable { get; set; }
+
+        private bool isCollidable;
+        public bool IsCollidable
+        {
+            get { return isCollidable; }
+            set
+            {
+                isCollidable = value;
+                if (value) return;
+                foreach (var collidingGameObject in CollidingGameObjects)
+                {
+                    collidingGameObject.OnMessage(new CollisionExitMessage(this));
+                    collidingGameObject.CollidingGameObjects.Remove(this);
+                }
+                CollidingGameObjects.Clear();
+            }
+        }
 
         public Texture2D Texture { get; set; }
         public Vector2 Position { get; set; }
@@ -109,7 +125,7 @@ namespace ProjectGame
         public void Draw(SpriteBatch spriteBatch)
         {
             if (Texture == null) return;
-            spriteBatch.Draw(Texture, Position, SourceRectangle, Color, Rotation, Vector2.Zero, new Vector2(1, 1),
+            spriteBatch.Draw(Texture, Position, SourceRectangle, Color, Rotation, new Vector2(Size.X/2.0f, Size.Y/2.0f), new Vector2(1, 1),
                 SpriteEffects.None, 0);
         }
 

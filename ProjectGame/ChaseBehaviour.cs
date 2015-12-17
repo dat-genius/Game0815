@@ -11,29 +11,31 @@ namespace ProjectGame
     public class ChaseBehaviour : IBehaviour
     {
         public GameObject GameObject { get; set; }
-        private GameObject Player;
-        private float Radius;
+        public GameObject Target { get; set; }
+        public float Radius { get; set; }
+
+        private Vector2 beginPosition;
         private float lerpFactor = 0.01f;
 
-        public ChaseBehaviour(float radius, GameObject player)
+        public ChaseBehaviour(float radius, GameObject target)
         {
             Radius = radius;
-            Player = player;
+            Target = target;
         }
 
         public void OnUpdate(GameTime gameTime)
         {
-            Vector2 beginPosition = GameObject.Position;
-            Vector2 positionDifference = beginPosition - (Player.Position);
-
-            if (positionDifference.X >= -Radius && positionDifference.X <= Radius || positionDifference.Y >= -Radius && positionDifference.Y <= Radius)
+            var positionDifference = Target.Position - beginPosition;
+            if (positionDifference.Length() <= Radius)
             {
-                GameObject.Position = Vector2.Lerp(beginPosition, Player.Position, lerpFactor);
+                GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
             }
         }
 
         public void OnMessage(IMessage message)
         {
+            // OnBeginChaseMessage:
+            // beginPosition = GameObject.Position;
         }
     }
 }

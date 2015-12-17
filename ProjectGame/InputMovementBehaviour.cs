@@ -2,26 +2,37 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace ProjectGame.Voorbeeld
+namespace ProjectGame
 {
-    public class InputMovementBehaviourVB : IBehaviour
+    public class InputMovementBehaviour : IBehaviour
     {
         public GameObject GameObject { get; set; }
         public float MovementSpeed { get; set; }
+        private MovementBehaviour movementBehaviour = null;
+
+
         public bool CollisionTop = false;
         public bool CollisionBottom = false;
         public bool CollisionLeft = false;
         public bool CollisionRight= false;
 
-        public InputMovementBehaviourVB(float movementSpeed)
+        public InputMovementBehaviour(float movementSpeed)
         {
             MovementSpeed = movementSpeed;
         }
 
         public void OnUpdate(GameTime gameTime)
         {
-        
-            
+            if (movementBehaviour == null)
+            {
+                var behaviour = GameObject.GetBehaviourOfType(typeof (MovementBehaviour));
+                if (behaviour != null)
+                {
+                    movementBehaviour = behaviour as MovementBehaviour;
+                }
+                else return;
+            }
+
             var displacement = Vector2.Zero;
             if(!CollisionTop)
                 displacement.Y -= Keyboard.GetState().IsKeyDown(Keys.W) ? 1 : 0;
@@ -32,19 +43,20 @@ namespace ProjectGame.Voorbeeld
             if(!CollisionRight)
                 displacement.X += Keyboard.GetState().IsKeyDown(Keys.D) ? 1 : 0;
 
+            // Rotate player 
             if (displacement.Length() > 0)
             {
-                GameObject.Position += Vector2.Normalize(displacement) * MovementSpeed;
-
                 var dotProduct = Vector2.Dot(new Vector2(0, -1), Vector2.Normalize(displacement));
                 var angleRadians = (float)Math.Acos(dotProduct);
                 var angleDegrees = MathHelper.ToDegrees(angleRadians);
                 if (displacement.X < 0)
                     angleDegrees = 360 - angleDegrees;
                 angleRadians = MathHelper.ToRadians(angleDegrees);
+
                 GameObject.Rotation = angleRadians;
             }
-
+            movementBehaviour.Velocity = Vector2.Normalize(displacement)*MovementSpeed;
+            
             CollisionLeft = false;
             CollisionRight = false;
             CollisionTop = false;
@@ -54,6 +66,6 @@ namespace ProjectGame.Voorbeeld
 
         public void OnMessage(IMessage message)
         {
-        }
+        } 
     }
 }

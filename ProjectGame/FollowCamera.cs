@@ -12,8 +12,8 @@ namespace ProjectGame
             {
                 target = value;
                 position = target.Position;
-                viewMatrix = Matrix.CreateTranslation(Offset.X - (target.Position.X + target.Size.X/2),
-                    Offset.Y - (target.Position.Y + target.Size.Y/2), 0);
+                viewMatrix = Matrix.CreateTranslation(Offset.X - (target.Position.X + target.Size.X/4.0f),
+                    Offset.Y - (target.Position.Y + target.Size.Y/4.0f), 0);
             }
         }
 
