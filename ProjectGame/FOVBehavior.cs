@@ -11,20 +11,9 @@ namespace ProjectGame
     public class FOVBehavior : IBehaviour
     {
         public GameObject GameObject { get; set; }
-        private float foV = 1;
+        private GameObject player;
         private int viewDistance = 300;
-
-        float FoV
-        {
-            get
-            {
-                return foV;
-            }
-            set
-            {
-                foV = value;
-            }
-        }
+        private bool playerInViewLastFrame = false;
 
         int ViewDistance { 
             get 
@@ -39,7 +28,16 @@ namespace ProjectGame
 
         public void OnUpdate(GameTime gameTime)
         {
-
+            bool found = DetectPlayer();
+            if (found && !playerInViewLastFrame)
+            {
+                GameObject.OnMessage(new PlayerEnterFoVMessage(player));
+            }
+            if (!found && playerInViewLastFrame)
+            {
+                GameObject.OnMessage(new PlayerEnterFoVMessage(player));
+            }
+            playerInViewLastFrame = found;
         }
 
         public void OnMessage(IMessage message)
@@ -60,6 +58,7 @@ namespace ProjectGame
             {
                 if (objectInList.HasBehaviourOfType(typeof(WeaponBehaviour)))
                 {
+                    player = objectInList;
                     return true;
                 }
             }
@@ -70,7 +69,7 @@ namespace ProjectGame
         {
             float x = GameObject.Position.X + GameObject.SourceRectangle.Width / 2;
             float y = GameObject.Position.Y + GameObject.SourceRectangle.Height / 2; 
-            float width = 300, height = 300;
+            float width = viewDistance, height = viewDistance;
             double rotation = (double)GameObject.Rotation % 2f*(Math.PI);
             if (rotation < Math.PI)
             {
