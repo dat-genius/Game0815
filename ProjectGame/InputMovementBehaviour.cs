@@ -11,10 +11,7 @@ namespace ProjectGame
         private MovementBehaviour movementBehaviour = null;
 
 
-        public bool CollisionTop = false;
-        public bool CollisionBottom = false;
-        public bool CollisionLeft = false;
-        public bool CollisionRight= false;
+        
 
         public InputMovementBehaviour(float movementSpeed)
         {
@@ -34,13 +31,9 @@ namespace ProjectGame
             }
 
             var displacement = Vector2.Zero;
-            if(!CollisionTop)
                 displacement.Y -= Keyboard.GetState().IsKeyDown(Keys.W) ? 1 : 0;
-            if(!CollisionLeft)
                 displacement.X -= Keyboard.GetState().IsKeyDown(Keys.A) ? 1 : 0;
-            if(!CollisionBottom)
                 displacement.Y += Keyboard.GetState().IsKeyDown(Keys.S) ? 1 : 0;
-            if(!CollisionRight)
                 displacement.X += Keyboard.GetState().IsKeyDown(Keys.D) ? 1 : 0;
 
             // Rotate player 
@@ -56,12 +49,7 @@ namespace ProjectGame
                 GameObject.Rotation = angleRadians;
             }
             movementBehaviour.Velocity = Vector2.Normalize(displacement)*MovementSpeed;
-            
-            CollisionLeft = false;
-            CollisionRight = false;
-            CollisionTop = false;
-            CollisionBottom = false;
-            
+           
         }
 
         public void OnMessage(IMessage message)
