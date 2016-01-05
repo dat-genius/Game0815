@@ -31,11 +31,11 @@ namespace ProjectGame
             bool found = DetectPlayer();
             if (found && !playerInViewLastFrame)
             {
-                GameObject.OnMessage(new PlayerEnterFoVMessage(player));
+                //GameObject.OnMessage(new PlayerEnterFoVMessage(player));
             }
             if (!found && playerInViewLastFrame)
             {
-                GameObject.OnMessage(new PlayerEnterFoVMessage(player));
+               // GameObject.OnMessage(new PlayerEnterFoVMessage(player));
             }
             playerInViewLastFrame = found;
         }

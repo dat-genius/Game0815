@@ -112,8 +112,8 @@ namespace ProjectGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load Resources
-            var playerTexture = Content.Load<Texture2D>("ball");
-            var monsterTexture = Content.Load<Texture2D>("grass");
+            var playerTexture = Content.Load<Texture2D>("EuropeanNicht");
+            var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
             if (tilemap != null)
                 tilemap.Build(Content);
@@ -133,7 +133,7 @@ namespace ProjectGame
                 Texture = monsterTexture
             };
             someMonster.AddBehaviour(new MonsterMovementBehaviourVB());
-
+            //someMonster.AddBehaviour(new ChaseBehaviour(50.0f, somePlayer));
 
             var someSword = new GameObject(false, false)
             {

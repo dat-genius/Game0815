@@ -25,11 +25,12 @@ namespace ProjectGame
 
         public void OnUpdate(GameTime gameTime)
         {
-            var positionDifference = Target.Position - beginPosition;
-            if (positionDifference.Length() <= Radius)
-            {
-                GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
-            }
+            //beginPosition = GameObject.Position;
+            //var positionDifference = Target.Position - beginPosition;
+            //if (positionDifference.X >= -Radius && positionDifference.X <= Radius || positionDifference.Y >= -Radius && positionDifference.Y <= Radius)
+            //{
+            //    GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+            //}
         }
 
         public void OnMessage(IMessage message)

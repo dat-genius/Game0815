@@ -34,7 +34,7 @@ namespace ProjectGame
 
             GameObject.Rotation = Wielder.Rotation;
 
-            const float offset = 100.0f;
+            const float offset = 50.0f;
             var displacement = new Vector2
             {
                 X = (float) Math.Sin(Wielder.Rotation),
