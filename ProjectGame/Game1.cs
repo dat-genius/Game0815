@@ -132,7 +132,7 @@ namespace ProjectGame
                 Position = new Vector2(20, 20),
                 Texture = monsterTexture
             };
-            someMonster.AddBehaviour(new MonsterMovementBehaviourVB());
+            someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
             //someMonster.AddBehaviour(new ChaseBehaviour(50.0f, somePlayer));
 
@@ -230,6 +230,13 @@ namespace ProjectGame
                     (behaviour as MovementBehaviour).CollisionBottom = true;
                     break;
             }
+
+            if (gameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)))
+            {
+                behaviour = gameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
+                (behaviour as MonsterMovementBehaviour).Collision = true;
+            }
+
         }
 
         
