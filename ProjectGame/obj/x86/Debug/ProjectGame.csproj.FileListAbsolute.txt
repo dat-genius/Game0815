@@ -121,6 +121,7 @@ D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming
 D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
 D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
 D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
+<<<<<<< HEAD
 C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
 C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
 C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\sword1.xnb
@@ -155,3 +156,8 @@ C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Sharp
 C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
 C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNichtRechts.xnb
+=======
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNicht.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Ninja.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Roman.xnb
+>>>>>>> origin/master

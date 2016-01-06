@@ -25,18 +25,18 @@ namespace ProjectGame
 
         public void OnUpdate(GameTime gameTime)
         {
-            //beginPosition = GameObject.Position;
-            //var positionDifference = Target.Position - beginPosition;
-            //if (positionDifference.X >= -Radius && positionDifference.X <= Radius || positionDifference.Y >= -Radius && positionDifference.Y <= Radius)
-            //{
-            //    GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
-            //}
+            beginPosition = GameObject.Position;
+            var positionDifference = Target.Position - beginPosition;
+            if (positionDifference.X >= -Radius && positionDifference.X <= Radius || positionDifference.Y >= -Radius && positionDifference.Y <= Radius)
+            {
+                GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+            }
         }
 
         public void OnMessage(IMessage message)
         {
-            // OnBeginChaseMessage:
-            // beginPosition = GameObject.Position;
+            OnBeginChaseMessage:
+            beginPosition = GameObject.Position;
         }
     }
 }
