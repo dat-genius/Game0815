@@ -29,7 +29,7 @@ namespace ProjectGame
         {
             beginPosition = GameObject.Position;
             var positionDifference = Target.Position - beginPosition;
-            if (positionDifference.X >= -Radius && positionDifference.X <= Radius || positionDifference.Y >= -Radius && positionDifference.Y <= Radius)
+            if (positionDifference.Length() > Radius)
             {
                 GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
                 chasing = true;
@@ -51,12 +51,10 @@ namespace ProjectGame
                 GameObject.AddBehaviour(new MonsterMovementBehaviour());
                 transmision = false;
             }
-            
         }
 
         public void OnMessage(IMessage message)
         {
-            OnBeginChaseMessage:
             beginPosition = GameObject.Position;
         }
     }
