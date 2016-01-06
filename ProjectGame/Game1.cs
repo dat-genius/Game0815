@@ -134,7 +134,7 @@ namespace ProjectGame
             };
             someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
-            //someMonster.AddBehaviour(new ChaseBehaviour(50.0f, somePlayer));
+            someMonster.AddBehaviour(new ChaseBehaviour(50.0f, somePlayer));
 
             var someSword = new GameObject(false, false)
             {

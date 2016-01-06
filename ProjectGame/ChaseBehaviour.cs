@@ -16,6 +16,8 @@ namespace ProjectGame
 
         private Vector2 beginPosition;
         private float lerpFactor = 0.01f;
+        private bool chasing = false;
+        private bool transmision = false;
 
         public ChaseBehaviour(float radius, GameObject target)
         {
@@ -30,7 +32,26 @@ namespace ProjectGame
             if (positionDifference.X >= -Radius && positionDifference.X <= Radius || positionDifference.Y >= -Radius && positionDifference.Y <= Radius)
             {
                 GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+                chasing = true;
             }
+            else
+                chasing = false;
+
+            if (chasing)
+            {
+                if (GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)))
+                {
+                    var behaviour = GameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
+                    GameObject.RemoveBehaviour(behaviour);
+                    transmision = true;
+                }
+            }
+            else if (!chasing & transmision)
+            {
+                GameObject.AddBehaviour(new MonsterMovementBehaviour());
+                transmision = false;
+            }
+            
         }
 
         public void OnMessage(IMessage message)
