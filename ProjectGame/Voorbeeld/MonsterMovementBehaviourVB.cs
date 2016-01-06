@@ -13,6 +13,7 @@ namespace ProjectGame.Voorbeeld
         private readonly TimeSpan timePerPath;
         private TimeSpan walkTimer;
         private Vector2 departurePosition;
+        public bool Collision = false;
 
         public MonsterMovementBehaviourVB(int lives = 5)
         {
@@ -47,7 +48,8 @@ namespace ProjectGame.Voorbeeld
             //}
             //else
             //    GameObject.Position = pathNodes[currentNodeIndex];
-
+           
+            Collision = false;
         }
 
         public void OnMessage(IMessage message)

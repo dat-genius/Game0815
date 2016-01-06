@@ -59,8 +59,8 @@ namespace ProjectGame
                     var rectangleB = new Rectangle((int)b.Position.X, (int)b.Position.Y, b.Size.X, b.Size.Y);
                     if (rectangleA.Intersects(rectangleB))
                     {
-                        DoNotWalkTrough(a, PlaceCollision(rectangleA, rectangleB));
-                        DoNotWalkTrough(b, PlaceCollision(rectangleB, rectangleA));
+                        //DoNotWalkTrough(a, PlaceCollision(rectangleA, rectangleB));
+                        //DoNotWalkTrough(b, PlaceCollision(rectangleB, rectangleA));
                         if (!a.CollidingGameObjects.Contains(b))
                         {
                             a.OnMessage(new CollisionEnterMessage(b));
@@ -213,22 +213,22 @@ namespace ProjectGame
         /// <param name="position">An int what provide the side of the collision </param>
         private void DoNotWalkTrough(GameObject gameObject, int position)
         {
-            if (!gameObject.HasBehaviourOfType(typeof (MovementBehaviour))) return;
-            var behaviour = gameObject.GetBehaviourOfType(typeof(MovementBehaviour));
+            if (!gameObject.HasBehaviourOfType(typeof (InputMovementBehaviour))) return;
+            var behaviour = gameObject.GetBehaviourOfType(typeof(InputMovementBehaviour));
     
             switch (position)
             {
                 case 1: 
-                    (behaviour as MovementBehaviour).CollisionLeft = true;
+                    (behaviour as InputMovementBehaviour).CollisionLeft = true;
                     break;
                 case 2: 
-                    (behaviour as MovementBehaviour).CollisionRight = true;
+                    (behaviour as InputMovementBehaviour).CollisionRight = true;
                     break;
                 case 3: 
-                    (behaviour as MovementBehaviour).CollisionTop = true;
+                    (behaviour as InputMovementBehaviour).CollisionTop = true;
                     break;
                 case 4: 
-                    (behaviour as MovementBehaviour).CollisionBottom = true;
+                    (behaviour as InputMovementBehaviour).CollisionBottom = true;
                     break;
             }
 
