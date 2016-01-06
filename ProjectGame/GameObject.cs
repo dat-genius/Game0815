@@ -99,7 +99,7 @@ namespace ProjectGame
         /// <param name="gameTime">The game time.</param>
         public void OnUpdate(GameTime gameTime)
         {
-            foreach (var behaviour in behaviours)
+            foreach (var behaviour in behaviours.ToList())
             {
                 behaviour.OnUpdate(gameTime);
             }
