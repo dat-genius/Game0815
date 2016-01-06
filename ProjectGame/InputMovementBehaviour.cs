@@ -9,8 +9,8 @@ namespace ProjectGame
         public GameObject GameObject { get; set; }
         public float MovementSpeed { get; set; }
         private MovementBehaviour movementBehaviour = null;
-
-
+        public Vector2 whereMouseAt;
+        
         public bool CollisionTop = false;
         public bool CollisionBottom = false;
         public bool CollisionLeft = false;
@@ -43,7 +43,15 @@ namespace ProjectGame
             if(!CollisionRight)
                 displacement.X += Keyboard.GetState().IsKeyDown(Keys.D) ? 1 : 0;
 
-            // Rotate player 
+            // Rotate player
+
+            MouseState mouse = Mouse.GetState();
+            whereMouseAt.Y = mouse.Y - GameObject.Position.Y;
+            whereMouseAt.X = mouse.X - GameObject.Position.X;
+
+            GameObject.Rotation = (float)Math.Atan2(whereMouseAt.Y, whereMouseAt.X) + MathHelper.ToRadians(90);
+
+            /*
             if (displacement.Length() > 0)
             {
                 var dotProduct = Vector2.Dot(new Vector2(0, -1), Vector2.Normalize(displacement));
@@ -55,6 +63,7 @@ namespace ProjectGame
 
                 GameObject.Rotation = angleRadians;
             }
+            */
             movementBehaviour.Velocity = Vector2.Normalize(displacement)*MovementSpeed;
             
             CollisionLeft = false;

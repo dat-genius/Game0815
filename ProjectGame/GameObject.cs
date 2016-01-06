@@ -33,6 +33,7 @@ namespace ProjectGame
 
         public Texture2D Texture { get; set; }
         public Vector2 Position { get; set; }
+        public Vector2 Origin { get; set; }
         public float Rotation { get; set; }
         public Color Color { get; set; }
         public List<GameObject> CollidingGameObjects { get; set; }

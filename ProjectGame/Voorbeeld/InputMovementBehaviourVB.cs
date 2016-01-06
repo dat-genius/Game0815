@@ -38,11 +38,13 @@ namespace ProjectGame.Voorbeeld
 
                 var dotProduct = Vector2.Dot(new Vector2(0, -1), Vector2.Normalize(displacement));
                 var angleRadians = (float)Math.Acos(dotProduct);
+                
                 var angleDegrees = MathHelper.ToDegrees(angleRadians);
                 if (displacement.X < 0)
                     angleDegrees = 360 - angleDegrees;
                 angleRadians = MathHelper.ToRadians(angleDegrees);
                 GameObject.Rotation = angleRadians;
+                
             }
 
             CollisionLeft = false;
