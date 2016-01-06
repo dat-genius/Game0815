@@ -42,14 +42,12 @@
     <Compile Include="FollowCamera.cs" />
     <Compile Include="CollisionEnterMessage.cs" />
     <Compile Include="CollisionExitMessage.cs" />
-    <Compile Include="FOVBehavior.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="IBehaviour.cs" />
     <Compile Include="ICamera.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="InputMovementBehaviour.cs" />
-    <Compile Include="MonsterMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour.cs" />
     <Compile Include="WeaponBehaviour.cs" />
     <Compile Include="Program.cs" />

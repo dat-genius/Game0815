@@ -33,7 +33,6 @@ namespace ProjectGame
 
         public Texture2D Texture { get; set; }
         public Vector2 Position { get; set; }
-        public Vector2 Origin { get; set; }
         public float Rotation { get; set; }
         public Color Color { get; set; }
         public List<GameObject> CollidingGameObjects { get; set; }
@@ -99,7 +98,7 @@ namespace ProjectGame
         /// <param name="gameTime">The game time.</param>
         public void OnUpdate(GameTime gameTime)
         {
-            foreach (var behaviour in behaviours.ToList())
+            foreach (var behaviour in behaviours)
             {
                 behaviour.OnUpdate(gameTime);
             }

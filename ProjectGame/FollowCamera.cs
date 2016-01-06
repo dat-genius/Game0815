@@ -33,7 +33,7 @@ namespace ProjectGame
         private Matrix viewMatrix;
         public Matrix ViewMatrix
         {
-            get { return Matrix.Identity;/*viewMatrix*/ }
+            get { return viewMatrix; }
         }
 
         public float LerpFactor { get; set; }

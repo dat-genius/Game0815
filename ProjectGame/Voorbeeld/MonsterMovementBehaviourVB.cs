@@ -32,18 +32,22 @@ namespace ProjectGame.Voorbeeld
 
         public void OnUpdate(GameTime gameTime)
         {
-                walkTimer += gameTime.ElapsedGameTime;
-                var lerpFactor = (float)walkTimer.TotalMilliseconds / (float)timePerPath.TotalMilliseconds;
-                if (lerpFactor >= 1.0f)
-                {
-                    departurePosition = pathNodes[currentNodeIndex];
-                    if (++currentNodeIndex > pathNodes.Length - 1) currentNodeIndex= 0;
-                    walkTimer = TimeSpan.FromSeconds(0);
-                    lerpFactor = 0;
-                }
-                GameObject.Position = Vector2.Lerp(departurePosition, pathNodes[currentNodeIndex], lerpFactor);
+            //if (!Collision)
+            //{
+            //    walkTimer += gameTime.ElapsedGameTime;
+            //    var lerpFactor = (float)walkTimer.TotalMilliseconds / (float)timePerPath.TotalMilliseconds;
+            //    if (lerpFactor >= 1.0f)
+            //    {
+            //        departurePosition = pathNodes[currentNodeIndex];
+            //        if (++currentNodeIndex > pathNodes.Length - 1) currentNodeIndex = 0;
+            //        walkTimer = TimeSpan.FromSeconds(0);
+            //        lerpFactor = 0;
+            //    }
+            //    GameObject.Position = Vector2.Lerp(departurePosition, pathNodes[currentNodeIndex], lerpFactor);
+            //}
+            //else
+            //    GameObject.Position = pathNodes[currentNodeIndex];
 
-           
         }
 
         public void OnMessage(IMessage message)
