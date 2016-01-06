@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/EuropeanNicht.png</SourceFile>
-  <SourceTime>2015-12-17T10:45:26.9337195+01:00</SourceTime>
-  <DestFile>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/bin/Windows/EuropeanNicht.xnb</DestFile>
-  <DestTime>2015-12-17T10:49:53.4705034+01:00</DestTime>
+<<<<<<< HEAD
+  <SourceFile>C:/Users/Gebruiker/Documents/GitHub/Game0815/ProjectGame/Content/EuropeanNicht.png</SourceFile>
+  <SourceTime>2015-12-17T08:16:57.7242618+01:00</SourceTime>
+  <DestFile>C:/Users/Gebruiker/Documents/GitHub/Game0815/ProjectGame/Content/bin/Windows/EuropeanNicht.xnb</DestFile>
+  <DestTime>2016-01-05T19:30:39.2986676+01:00</DestTime>
+=======
+  <SourceFile>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/EuropeanNicht.png</SourceFile>
+  <SourceTime>2015-12-17T10:35:33.9024887+01:00</SourceTime>
+  <DestFile>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/bin/Windows/EuropeanNicht.xnb</DestFile>
+  <DestTime>2016-01-05T19:29:27.0127475+01:00</DestTime>
+>>>>>>> origin/master
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
