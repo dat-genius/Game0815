@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="320" height="320" tilewidth="32" tileheight="32" nextobjectid="1">
- <tileset firstgid="1" name="grass_dirt_tiles_001_by_supercommanderwolfy-d4dvxb9" tilewidth="32" tileheight="32" spacing="1" tilecount="88">
-  <image source="TileSets/grass_dirt_tiles_001_by_supercommanderwolfy-d4dvxb9.png" width="362" height="263"/>
+ <tileset firstgid="1" name="Light_GrassTiles" tilewidth="32" tileheight="32" spacing="1" tilecount="88">
+  <image source="Light_GrassTiles.png" width="362" height="263"/>
  </tileset>
- <tileset firstgid="89" name="terrain_tiles24" tilewidth="32" tileheight="32" tilecount="64">
-  <image source="TileSets/terrain_tiles24.png" width="256" height="256"/>
+ <tileset firstgid="89" name="Dark_GrassTiles" tilewidth="32" tileheight="32" tilecount="64">
+  <image source="Dark_GrassTiles.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="153" name="8x8CastlePreview" tilewidth="32" tileheight="32" spacing="4" tilecount="40">
-  <image source="TileSets/8x8CastlePreview.png" width="356" height="140"/>
+ <tileset firstgid="153" name="CastleTiles" tilewidth="32" tileheight="32" spacing="4" tilecount="40">
+  <image source="CastleTiles.png" width="356" height="140"/>
  </tileset>
- <tileset firstgid="193" name="rpg_maker_wooden_floor_by_ayene_chan-d587fmi" tilewidth="32" tileheight="32" tilecount="64">
-  <image source="TileSets/rpg_maker_wooden_floor_by_ayene_chan-d587fmi.png" width="256" height="256"/>
+ <tileset firstgid="193" name="WoodTiles" tilewidth="32" tileheight="32" tilecount="64">
+  <image source="WoodTiles.png" width="256" height="256"/>
  </tileset>
  <tileset firstgid="257" name="Tree" tilewidth="32" tileheight="32" tilecount="1">
-  <image source="TileSets/Tree.png" width="32" height="32"/>
+  <image source="Tree.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="258" name="tree_grass" tilewidth="32" tileheight="32" tilecount="1">
-  <image source="TileSets/tree_grass.png" width="32" height="32"/>
+ <tileset firstgid="258" name="Tree_Grass" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="Tree_Grass.png" width="32" height="32"/>
  </tileset>
  <layer name="Tilelaag 1" width="320" height="320">
   <data encoding="csv">
