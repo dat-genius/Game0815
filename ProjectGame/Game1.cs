@@ -59,13 +59,11 @@ namespace ProjectGame
                     var rectangleB = new Rectangle((int)b.Position.X, (int)b.Position.Y, b.Size.X, b.Size.Y);
                     if (rectangleA.Intersects(rectangleB))
                     {
-                        //DoNotWalkTrough(a, PlaceCollision(rectangleA, rectangleB));
-                        //DoNotWalkTrough(b, PlaceCollision(rectangleB, rectangleA));
                         if (!a.CollidingGameObjects.Contains(b))
                         {
                             a.OnMessage(new CollisionEnterMessage(b));
                             a.CollidingGameObjects.Add(b);
-                            
+                   
                         }
                         if (b.CollidingGameObjects.Contains(a)) continue;
                         b.OnMessage(new CollisionEnterMessage(a));
@@ -114,7 +112,7 @@ namespace ProjectGame
 
             // Load Resources
             var playerTexture = Content.Load<Texture2D>("EuropeanNicht");
-            var monsterTexture = Content.Load<Texture2D>("grass");
+            var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
             if (tilemap != null)
                 tilemap.Build(Content);
@@ -125,7 +123,6 @@ namespace ProjectGame
                 Position = new Vector2(200, 300),
                 Texture = playerTexture
             };
-            somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5));
             somePlayer.AddBehaviour(new MovementBehaviour());
 
             var someMonster = new GameObject()
@@ -133,7 +130,7 @@ namespace ProjectGame
                 Position = new Vector2(20, 20),
                 Texture = monsterTexture
             };
-            someMonster.AddBehaviour(new MonsterMovementBehaviour());
+            someMonster.AddBehaviour(new MonsterMovementBehaviourVB());
             someMonster.AddBehaviour(new MovementBehaviour());
             someMonster.AddBehaviour(new ChaseBehaviour(50.0f, somePlayer));
 
@@ -156,6 +153,8 @@ namespace ProjectGame
             followCamera.Offset = new Vector2((float)GraphicsDevice.Viewport.Width / 2, (float)GraphicsDevice.Viewport.Height / 2);
             followCamera.Target = somePlayer;
             camera = followCamera;
+
+            somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5, camera: camera));
         }
 
         /// <summary>
@@ -204,64 +203,6 @@ namespace ProjectGame
             }
             spriteBatch.End();
             base.Draw(gameTime);
-        }
-
-        /// <summary>
-        /// Makes sure that the objects don't move trough eachother
-        /// </summary>
-        /// <param name="gameObject">Is the object what you want to stop </param>
-        /// <param name="position">An int what provide the side of the collision </param>
-        private void DoNotWalkTrough(GameObject gameObject, int position)
-        {
-            if (!gameObject.HasBehaviourOfType(typeof (InputMovementBehaviour))) return;
-            var behaviour = gameObject.GetBehaviourOfType(typeof(InputMovementBehaviour));
-    
-            switch (position)
-            {
-                case 1: 
-                    (behaviour as InputMovementBehaviour).CollisionLeft = true;
-                    break;
-                case 2: 
-                    (behaviour as InputMovementBehaviour).CollisionRight = true;
-                    break;
-                case 3: 
-                    (behaviour as InputMovementBehaviour).CollisionTop = true;
-                    break;
-                case 4: 
-                    (behaviour as InputMovementBehaviour).CollisionBottom = true;
-                    break;
-            }
-
-            if (gameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)))
-            {
-                behaviour = gameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
-                (behaviour as MonsterMovementBehaviour).Collision = true;
-            }
-
-        }
-
-        
-        /// <summary>
-        /// calculates at what side the collision was
-        /// </summary>
-        /// <param name="a">firts rectangle, it wil be calculated for this rectangle</param>
-        /// <param name="b">second rectangle, the rectangle withs collides with a </param>
-        /// <returns>1 = left, 2 = right, 3 = top, 4 = bottom</returns>
-        private int PlaceCollision(Rectangle a, Rectangle b)
-        {
-            var MidAx = (a.Right + a.Left) / 2;
-            var MidAy = (a.Top + a.Bottom) / 2;
-
-            if (b.Right < MidAx)
-                return 1;
-            if (b.Left > MidAx)
-                return 2;
-            if (b.Bottom < MidAy)
-                return 3;
-            if (b.Top > MidAy)
-                return 4;
-
-            return 0;
         }
     }
 }

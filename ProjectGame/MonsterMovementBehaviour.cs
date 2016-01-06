@@ -7,7 +7,6 @@ namespace ProjectGame
     {
         public GameObject GameObject { get; set; }
         public int Lives { get; set; }
-        public bool Collision = false;
 
         private readonly Vector2[] pathNodes;
         private int currentNodeIndex;
@@ -15,7 +14,6 @@ namespace ProjectGame
         private TimeSpan walkTimer;
         private Vector2 departurePosition;
         private MovementBehaviour movementBahaviour = null;
-
 
         public MonsterMovementBehaviour(int lives = 5)
         {
@@ -35,30 +33,27 @@ namespace ProjectGame
 
         public void OnUpdate(GameTime gameTime)
         {
-            if (!Collision)
+            if (movementBahaviour == null)
             {
-                if (movementBahaviour == null)
+                var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
+                if (behaviour != null)
                 {
-                    var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
-                    if (behaviour != null)
-                    {
-                        movementBahaviour = behaviour as MovementBehaviour;
-                    }
-                    else return;
+                    movementBahaviour = behaviour as MovementBehaviour;
                 }
-
-                walkTimer += gameTime.ElapsedGameTime;
-                var lerpFactor = (float)walkTimer.TotalMilliseconds / (float)timePerPath.TotalMilliseconds;
-                if (lerpFactor >= 1.0f)
-                {
-                    departurePosition = pathNodes[currentNodeIndex];
-                    if (++currentNodeIndex > pathNodes.Length - 1) currentNodeIndex = 0;
-                    walkTimer = TimeSpan.FromSeconds(0);
-                    lerpFactor = 0;
-                }
-                GameObject.Position = Vector2.Lerp(departurePosition, pathNodes[currentNodeIndex], lerpFactor);
+                else return;
             }
-            Collision = false;
+            
+            walkTimer += gameTime.ElapsedGameTime;
+            var lerpFactor = (float)walkTimer.TotalMilliseconds / (float)timePerPath.TotalMilliseconds;
+            if (lerpFactor >= 1.0f)
+            {
+                departurePosition = pathNodes[currentNodeIndex];
+                if (++currentNodeIndex > pathNodes.Length - 1) currentNodeIndex = 0;
+                walkTimer = TimeSpan.FromSeconds(0);
+                lerpFactor = 0;
+            }
+           movementBahaviour.Velocity = Vector2.Lerp(departurePosition, pathNodes[currentNodeIndex], lerpFactor);
+
 
         }
 
@@ -76,7 +71,6 @@ namespace ProjectGame
                         if (--Lives <= 0)
                         {
                             GameObject.IsDrawable = false;
-                            GameObject.IsCollidable = false;
                         }
                     }
                     break;

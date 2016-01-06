@@ -34,13 +34,21 @@ namespace ProjectGame
 
             GameObject.Rotation = Wielder.Rotation;
 
-            const float offset = 50.0f;
             var displacement = new Vector2
             {
                 X = (float) Math.Sin(Wielder.Rotation),
                 Y = (float) -Math.Cos(Wielder.Rotation)
             };
-            displacement *= offset;
+            var middleLine = Vector3.Cross(new Vector3(displacement.X, displacement.Y, 0), new Vector3(0, 0, 1));
+
+            // Move sword out of player's center
+            const float offsetCenterToOuter = 50.0f;
+            displacement *= offsetCenterToOuter;        
+            
+            // Move sword 'horizontally' along the player (relative using cross product)
+            const float offsetMiddleToHand = -25.0f;
+            displacement += new Vector2(middleLine.X, middleLine.Y) * offsetMiddleToHand;
+
             GameObject.Position = Wielder.Position + displacement;
 
             if (timeUntilUsable.TotalSeconds <= 0)

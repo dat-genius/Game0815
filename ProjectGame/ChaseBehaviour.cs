@@ -27,10 +27,29 @@ namespace ProjectGame
 
         public void OnUpdate(GameTime gameTime)
         {
+            beginPosition = GameObject.Position;
             var positionDifference = Target.Position - beginPosition;
-            if (positionDifference.Length() <= Radius)
+            if (positionDifference.Length() > Radius)
             {
                 GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+                chasing = true;
+            }
+            else
+                chasing = false;
+
+            if (chasing)
+            {
+                if (GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)))
+                {
+                    var behaviour = GameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
+                    GameObject.RemoveBehaviour(behaviour);
+                    transmision = true;
+                }
+            }
+            else if (!chasing & transmision)
+            {
+                GameObject.AddBehaviour(new MonsterMovementBehaviour());
+                transmision = false;
             }
         }
 

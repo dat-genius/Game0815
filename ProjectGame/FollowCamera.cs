@@ -24,8 +24,10 @@ namespace ProjectGame
             set
             {
                 if (value == position) return;
-                var difference = value - position;
-                viewMatrix.Translation -= new Vector3(difference.X, difference.Y, 0);
+                var difference = position - value;
+                viewMatrix *= Matrix.CreateTranslation(new Vector3(difference.X, difference.Y, 0)) * 
+                            Matrix.CreateRotationZ(0) * 
+                            Matrix.CreateScale(1.0f);
                 position = value;
             }
         }
