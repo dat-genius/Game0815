@@ -9,18 +9,18 @@ namespace ProjectGame
         public GameObject GameObject { get; set; }
         public float MovementSpeed { get; set; }
         private MovementBehaviour movementBehaviour = null;
-
+<<<<<<< HEAD
         public Vector2 whereMouseAt;
         
         public bool CollisionTop = false;
         public bool CollisionBottom = false;
         public bool CollisionLeft = false;
         public bool CollisionRight= false;
-
+=======
 
 
         
-
+>>>>>>> origin/master
 
         public InputMovementBehaviour(float movementSpeed)
         {
