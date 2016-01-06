@@ -36,7 +36,6 @@ namespace ProjectGame
 
         public void OnMessage(IMessage message)
         {
-            OnBeginChaseMessage:
             beginPosition = GameObject.Position;
         }
     }

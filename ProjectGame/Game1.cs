@@ -113,7 +113,7 @@ namespace ProjectGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load Resources
-            var playerTexture = Content.Load<Texture2D>("ball");
+            var playerTexture = Content.Load<Texture2D>("EuropeanNicht");
             var monsterTexture = Content.Load<Texture2D>("grass");
             var swordTexture = Content.Load<Texture2D>("sword1");
             if (tilemap != null)
