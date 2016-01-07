@@ -6,10 +6,11 @@ namespace ProjectGame
     {
         public GameObject GameObject { get; set; }
         public Vector2 Velocity { get; set; }
-        public bool CollisionTop = false;
-        public bool CollisionBottom = false;
-        public bool CollisionRight = false;
-        public bool CollisionLeft = false;
+        public bool CollisionTop { get; set; }
+        public bool CollisionBottom { get; set; }
+        public bool CollisionLeft { get; set; }
+        public bool CollisionRight { get; set; }
+
 
         public void OnUpdate(GameTime gameTime)
         {
