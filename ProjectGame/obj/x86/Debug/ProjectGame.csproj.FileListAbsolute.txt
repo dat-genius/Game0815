@@ -160,3 +160,4 @@ C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb

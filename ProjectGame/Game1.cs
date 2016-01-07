@@ -113,7 +113,7 @@ namespace ProjectGame
 
             // Load Resources
             var playerTexture = Content.Load<Texture2D>("EuropeanNicht");
-            var monsterTexture = Content.Load<Texture2D>("Roman");
+            var monsterTexture = Content.Load<Texture2D>("Head");
             var swordTexture = Content.Load<Texture2D>("sword1");
             if (tilemap != null)
                 tilemap.Build(Content);
@@ -131,9 +131,15 @@ namespace ProjectGame
                 Position = new Vector2(20, 20),
                 Texture = monsterTexture
             };
+
+            /*TEST SHIT FOR FOV*/
+            FOVBehavior testFOV = new FOVBehavior();
+            someMonster.Rotation = 0;
+            someMonster.AddBehaviour(testFOV);
+
             someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
-            //someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
+            someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
             
 
             var swordPlayer = new GameObject(false, false)
