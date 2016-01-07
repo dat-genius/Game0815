@@ -133,7 +133,7 @@ namespace ProjectGame
             };
             someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
-           // someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
+            someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
 
             var someSword = new GameObject(false, false)
             {
@@ -236,6 +236,12 @@ namespace ProjectGame
             {
                 behaviour = gameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
                 (behaviour as MonsterMovementBehaviour).Collision = true;
+            }
+
+            if(gameObject.HasBehaviourOfType(typeof(ChaseBehaviour)))
+            {
+                behaviour = gameObject.GetBehaviourOfType(typeof(ChaseBehaviour));
+                (behaviour as ChaseBehaviour).Collision = true;
             }
         }
 

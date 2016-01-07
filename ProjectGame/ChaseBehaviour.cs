@@ -13,6 +13,7 @@ namespace ProjectGame
         public GameObject GameObject { get; set; }
         public GameObject Target { get; set; }
         public float Radius { get; set; }
+        public bool Collision = false;
 
         private Vector2 beginPosition;
         private float lerpFactor = 0.01f;
@@ -30,7 +31,8 @@ namespace ProjectGame
             var positionDifference = Target.Position - beginPosition;
             if (positionDifference.Length() < Radius)
             {
-                GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+                if(!Collision)
+                    GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
                 chasing = true;
             }
             else
@@ -51,6 +53,7 @@ namespace ProjectGame
                     GameObject.AddBehaviour(new MonsterMovementBehaviour());
                 }
             }
+            Collision = false;
         }
 
         public void OnMessage(IMessage message)
