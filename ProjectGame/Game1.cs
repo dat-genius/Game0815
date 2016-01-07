@@ -98,8 +98,8 @@ namespace ProjectGame
         protected override void Initialize()
         {
             // TODO: Add game objects that aren't rendered here
-            IsMouseVisible = true;
             base.Initialize();
+            IsMouseVisible = true;
         }
 
         /// <summary>
