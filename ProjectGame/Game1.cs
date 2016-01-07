@@ -98,7 +98,7 @@ namespace ProjectGame
         protected override void Initialize()
         {
             // TODO: Add game objects that aren't rendered here
-
+            IsMouseVisible = true;
             base.Initialize();
         }
 
@@ -133,7 +133,7 @@ namespace ProjectGame
             };
             someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
-            someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
+           // someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
 
             var someSword = new GameObject(false, false)
             {

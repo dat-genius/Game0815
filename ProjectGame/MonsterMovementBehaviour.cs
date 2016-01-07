@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace ProjectGame.Voorbeeld
+namespace ProjectGame
 {
     public class MonsterMovementBehaviour : IBehaviour
     {

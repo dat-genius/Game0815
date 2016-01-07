@@ -42,7 +42,7 @@ namespace ProjectGame
             var middleLine = Vector3.Cross(new Vector3(displacement.X, displacement.Y, 0), new Vector3(0, 0, 1));
 
             // Move sword out of player's center
-            const float offsetCenterToOuter = 50.0f;
+            const float offsetCenterToOuter = 60.0f;
             displacement *= offsetCenterToOuter;        
             
             // Move sword 'horizontally' along the player (relative using cross product)
