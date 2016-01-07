@@ -82,9 +82,9 @@ namespace ProjectGame
                 var behaviour = GameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
                 GameObject.RemoveBehaviour(behaviour);
             }
-            else 
+            else
             {
-                if (!GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)))
+                if (!GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)) && !chasing)
                 {
                     GameObject.AddBehaviour(new MonsterMovementBehaviour());
                 }

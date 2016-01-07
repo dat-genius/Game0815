@@ -11,24 +11,19 @@ namespace ProjectGame
     public class FOVBehavior : IBehaviour
     {
         public GameObject GameObject { get; set; }
+        private List<GameObject> gameObjects;
         private GameObject player;
-        private int viewDistance = 300;
         private bool playerInViewLastFrame = false;
+        public int ViewDistance { get; set; }
 
-        int ViewDistance
+        public FOVBehavior()
         {
-            get
-            {
-                return viewDistance;
-            }
-            set
-            {
-                viewDistance = value;
-            }
+            ViewDistance = 300;
         }
 
         public void OnUpdate(GameTime gameTime)
         {
+            gameObjects = GameObject.CollidingGameObjects;
             bool found = DetectPlayer();
             if (found && !playerInViewLastFrame)
             {
@@ -70,9 +65,9 @@ namespace ProjectGame
         {
             float x = GameObject.Position.X + GameObject.SourceRectangle.Width / 2;
             float y = GameObject.Position.Y + GameObject.SourceRectangle.Height / 2;
-            float width = viewDistance, height = viewDistance;
-            double rotation = (double)GameObject.Rotation % 2f * (Math.PI);
-            if (rotation < Math.PI)
+            float width = ViewDistance, height = ViewDistance;
+            double rotation = (double)GameObject.Rotation % (2f * (Math.PI));
+            if (rotation < Math.PI * 2)
             {
                 if (rotation < Math.PI / 8 || rotation > 15 * Math.PI / 8)
                 {
@@ -112,7 +107,7 @@ namespace ProjectGame
         public List<GameObject> CreateVisibleObjectsList(Rectangle visionBox)
         {
             List<GameObject> objectList = new List<GameObject>();
-            foreach (GameObject gameObjectFromList in objectList)
+            foreach (GameObject gameObjectFromList in gameObjects)
             {
                 if (gameObjectFromList.SourceRectangle.Intersects(GameObject.SourceRectangle))
                 {

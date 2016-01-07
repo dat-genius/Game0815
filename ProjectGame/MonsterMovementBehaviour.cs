@@ -39,14 +39,25 @@ namespace ProjectGame
             {
                 if (movementBahaviour == null)
                 {
-                    var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
-                    if (behaviour != null)
+                    try
                     {
-                        movementBahaviour = behaviour as MovementBehaviour;
+                        var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
+                        if (behaviour != null)
+                        {
+                            movementBahaviour = behaviour as MovementBehaviour;
+                        }
                     }
-                    else return;
+                    catch (NullReferenceException)
+                    {
+                        return;
+                    }
+ //                   var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
+ //                   if (behaviour != null)
+ //                   {
+ //                       movementBahaviour = behaviour as MovementBehaviour;
+ //                   }
+ //                   else return;
                 }
-
                 walkTimer += gameTime.ElapsedGameTime;
                 var lerpFactor = (float)walkTimer.TotalMilliseconds / (float)timePerPath.TotalMilliseconds;
                 if (lerpFactor >= 1.0f)

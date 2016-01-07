@@ -127,6 +127,15 @@ namespace ProjectGame
             if (Texture == null) return;
             spriteBatch.Draw(Texture, Position, SourceRectangle, Color, Rotation, new Vector2(Size.X/2.0f, Size.Y/2.0f), new Vector2(1, 1),
                 SpriteEffects.None, 0);
+
+            /*Testshit van erwin voor FOVBehaviour*/
+            if (HasBehaviourOfType(typeof(FOVBehavior)))
+            {
+                FOVBehavior test;
+                test = (FOVBehavior)GetBehaviourOfType(typeof(FOVBehavior));
+                Rectangle testRect = test.createVisionBox();
+                spriteBatch.Draw(Texture, testRect, Color.Red);
+            }
         }
 
 
