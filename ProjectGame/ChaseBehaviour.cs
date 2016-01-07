@@ -79,10 +79,18 @@ namespace ProjectGame
         {
             if (GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)) && chasing)
             {
+<<<<<<< HEAD
                 var behaviour = GameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
                 GameObject.RemoveBehaviour(behaviour);
+=======
+                if (!Collision)
+                {
+                    GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+        }
+                chasing = true;
+>>>>>>> origin/master
             }
-            else
+            else 
             {
                 if (!GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)))
                 {

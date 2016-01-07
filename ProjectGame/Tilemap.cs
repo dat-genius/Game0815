@@ -107,7 +107,7 @@ namespace ProjectGame
             int i = 0;
             foreach (var drawableTile in TileLayers.SelectMany(layer => layer.DrawableTiles))
             {
-                if(++i > 64*64)
+                if(++i > 20*320)
                     return;
                 drawableTile.Draw(spriteBatch);
             }
