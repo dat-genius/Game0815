@@ -130,9 +130,9 @@ namespace ProjectGame
                 Position = new Vector2(20, 20),
                 Texture = monsterTexture
             };
-            someMonster.AddBehaviour(new MonsterMovementBehaviourVB());
+            someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
-            someMonster.AddBehaviour(new ChaseBehaviour(50.0f, somePlayer));
+            someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
 
             var someSword = new GameObject(false, false)
             {

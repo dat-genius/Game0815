@@ -52,7 +52,8 @@ namespace ProjectGame
                 walkTimer = TimeSpan.FromSeconds(0);
                 lerpFactor = 0;
             }
-           movementBahaviour.Velocity = Vector2.Lerp(departurePosition, pathNodes[currentNodeIndex], lerpFactor);
+            if(GameObject != null)
+                GameObject.Position = Vector2.Lerp(departurePosition, pathNodes[currentNodeIndex], lerpFactor);
 
 
         }
