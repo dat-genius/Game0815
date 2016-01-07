@@ -4,12 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/ball.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/grass.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/shield1.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/EuropeanNicht.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Ninja.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Roman.png</File>
+    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/ball.png</File>
+    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/grass.png</File>
+    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
+    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/shield1.png</File>
+    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/EuropeanNicht.png</File>
+    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Ninja.png</File>
+    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Roman.png</File>
   </SourceFiles>
 </SourceFileCollection>

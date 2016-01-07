@@ -30,7 +30,7 @@ namespace TestProjectGame
             GameObject testPlayerObject = new GameObject();
             testPlayerObject.AddBehaviour(new InputMovementBehaviour(5, new FollowCamera()));
             testPlayerObject.Position = new Vector2(100, 200);
-            testObject.OnUpdate();
+            //testObject.OnUpdate();
             
             
         }
