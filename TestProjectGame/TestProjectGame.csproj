@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="FOVBehaviourTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeaponTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectGame\ProjectGame.csproj">
