@@ -42,7 +42,7 @@ namespace ProjectGame
                 {
                     var behaviour = GameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
                     GameObject.RemoveBehaviour(behaviour);
-                }
+        }
             }
             else 
             {

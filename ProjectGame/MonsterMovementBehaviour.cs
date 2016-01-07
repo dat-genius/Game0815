@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace ProjectGame
+namespace ProjectGame.Voorbeeld
 {
     public class MonsterMovementBehaviour : IBehaviour
     {
@@ -33,25 +33,25 @@ namespace ProjectGame
 
         public void OnUpdate(GameTime gameTime)
         {
-            if (movementBahaviour == null)
-            {
-                var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
-                if (behaviour != null)
+                if (movementBahaviour == null)
                 {
-                    movementBahaviour = behaviour as MovementBehaviour;
+                    var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
+                    if (behaviour != null)
+                    {
+                        movementBahaviour = behaviour as MovementBehaviour;
+                    }
+                    else return;
                 }
-                else return;
-            }
-            
-            walkTimer += gameTime.ElapsedGameTime;
-            var lerpFactor = (float)walkTimer.TotalMilliseconds / (float)timePerPath.TotalMilliseconds;
-            if (lerpFactor >= 1.0f)
-            {
-                departurePosition = pathNodes[currentNodeIndex];
-                if (++currentNodeIndex > pathNodes.Length - 1) currentNodeIndex = 0;
-                walkTimer = TimeSpan.FromSeconds(0);
-                lerpFactor = 0;
-            }
+
+                walkTimer += gameTime.ElapsedGameTime;
+                var lerpFactor = (float)walkTimer.TotalMilliseconds / (float)timePerPath.TotalMilliseconds;
+                if (lerpFactor >= 1.0f)
+                {
+                    departurePosition = pathNodes[currentNodeIndex];
+                    if (++currentNodeIndex > pathNodes.Length - 1) currentNodeIndex = 0;
+                    walkTimer = TimeSpan.FromSeconds(0);
+                    lerpFactor = 0;
+                }
             if(GameObject != null)
                 GameObject.Position = Vector2.Lerp(departurePosition, pathNodes[currentNodeIndex], lerpFactor);
 

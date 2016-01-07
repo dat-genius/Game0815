@@ -59,11 +59,13 @@ namespace ProjectGame
                     var rectangleB = new Rectangle((int)b.Position.X, (int)b.Position.Y, b.Size.X, b.Size.Y);
                     if (rectangleA.Intersects(rectangleB))
                     {
+                        DoNotWalkTrough(a, PlaceCollision(rectangleA, rectangleB));
+                        DoNotWalkTrough(b, PlaceCollision(rectangleB, rectangleA));
                         if (!a.CollidingGameObjects.Contains(b))
                         {
                             a.OnMessage(new CollisionEnterMessage(b));
                             a.CollidingGameObjects.Add(b);
-                   
+                            
                         }
                         if (b.CollidingGameObjects.Contains(a)) continue;
                         b.OnMessage(new CollisionEnterMessage(a));
@@ -96,9 +98,8 @@ namespace ProjectGame
         protected override void Initialize()
         {
             // TODO: Add game objects that aren't rendered here
-            this.IsMouseVisible = true;
-            base.Initialize();
 
+            base.Initialize();
         }
 
         /// <summary>
@@ -203,6 +204,57 @@ namespace ProjectGame
             }
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        /// <summary>
+        /// Makes sure that the objects don't move trough eachother
+        /// </summary>
+        /// <param name="gameObject">Is the object what you want to stop </param>
+        /// <param name="position">An int what provide the side of the collision </param>
+        private void DoNotWalkTrough(GameObject gameObject, int position)
+        {
+            if (!gameObject.HasBehaviourOfType(typeof (MovementBehaviour))) return;
+            var behaviour = gameObject.GetBehaviourOfType(typeof(MovementBehaviour));
+    
+            switch (position)
+            {
+                case 1: 
+                    (behaviour as MovementBehaviour).CollisionLeft = true;
+                    break;
+                case 2: 
+                    (behaviour as MovementBehaviour).CollisionRight = true;
+                    break;
+                case 3: 
+                    (behaviour as MovementBehaviour).CollisionTop = true;
+                    break;
+                case 4: 
+                    (behaviour as MovementBehaviour).CollisionBottom = true;
+                    break;
+            }
+        }
+
+        
+        /// <summary>
+        /// calculates at what side the collision was
+        /// </summary>
+        /// <param name="a">firts rectangle, it wil be calculated for this rectangle</param>
+        /// <param name="b">second rectangle, the rectangle withs collides with a </param>
+        /// <returns>1 = left, 2 = right, 3 = top, 4 = bottom</returns>
+        private int PlaceCollision(Rectangle a, Rectangle b)
+        {
+            var MidAx = (a.Right + a.Left) / 2;
+            var MidAy = (a.Top + a.Bottom) / 2;
+
+            if (b.Right < MidAx)
+                return 1;
+            if (b.Left > MidAx)
+                return 2;
+            if (b.Bottom < MidAy)
+                return 3;
+            if (b.Top > MidAy)
+                return 4;
+
+            return 0;
         }
     }
 }
