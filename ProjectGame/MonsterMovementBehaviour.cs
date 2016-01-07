@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace ProjectGame.Voorbeeld
+namespace ProjectGame
 {
     public class MonsterMovementBehaviour : IBehaviour
     {
@@ -14,6 +14,7 @@ namespace ProjectGame.Voorbeeld
         private TimeSpan walkTimer;
         private Vector2 departurePosition;
         private MovementBehaviour movementBahaviour = null;
+        public bool Collision = false;
 
         public MonsterMovementBehaviour(int lives = 5)
         {
@@ -33,6 +34,8 @@ namespace ProjectGame.Voorbeeld
 
         public void OnUpdate(GameTime gameTime)
         {
+            if (!Collision)
+            {
                 if (movementBahaviour == null)
                 {
                     var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
@@ -52,9 +55,10 @@ namespace ProjectGame.Voorbeeld
                     walkTimer = TimeSpan.FromSeconds(0);
                     lerpFactor = 0;
                 }
-            if(GameObject != null)
-                GameObject.Position = Vector2.Lerp(departurePosition, pathNodes[currentNodeIndex], lerpFactor);
-
+                if (GameObject != null)
+                    GameObject.Position = Vector2.Lerp(departurePosition, pathNodes[currentNodeIndex], lerpFactor);
+            }
+            Collision = false;
 
         }
 
