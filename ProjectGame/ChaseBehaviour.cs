@@ -15,6 +15,7 @@ namespace ProjectGame
         public float Radius { get; set; }
         public bool Collision = false;
 
+        private bool found = false;
         private Vector2 beginPosition;
         private float lerpFactor = 0.01f;
         private bool chasing = false;
@@ -28,37 +29,72 @@ namespace ProjectGame
         public void OnUpdate(GameTime gameTime)
         {
             beginPosition = GameObject.Position;
-            var positionDifference = Target.Position - beginPosition;
-            if (positionDifference.Length() < Radius)
+            CheckFOVBehavior();
+            if (found)
             {
-                if(!Collision)
-                    GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
-                chasing = true;
+                Chase();
             }
-            else
-                chasing = false;
 
             if (chasing)
             {
-                if (GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)))
-                {
-                    var behaviour = GameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
-                    GameObject.RemoveBehaviour(behaviour);
-        }
+                ToggleMonsterBehavior();
             }
-            else 
-            {
-                if (!GameObject.HasBehaviourOfType(typeof (MonsterMovementBehaviour)))
-                {
-                    GameObject.AddBehaviour(new MonsterMovementBehaviour());
-                }
-            }
-            Collision = false;
         }
 
         public void OnMessage(IMessage message)
         {
+            if (message.GetType() == typeof(PlayerEnterFoVMessage))
+            {
+                found = true;
+            }
+            if (message.GetType() == typeof(PlayerLeaveFoVMessage))
+            {
+                found = false;
+            }
             beginPosition = GameObject.Position;
+        }
+
+        public void CheckFOVBehavior()
+        {
+            if (!GameObject.HasBehaviourOfType(typeof(FOVBehavior)))
+            {
+                found = true;
+            }
+        }
+
+        public void Chase()
+        {
+            var positionDifference = Target.Position - beginPosition;
+            if (positionDifference.Length() < Radius)
+            {
+                if (!Collision)
+                {
+                    GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+                }
+                chasing = true;
+            }
+            else
+            {
+                chasing = false;
+            }
+        }
+
+        public void ToggleMonsterBehavior()
+        {
+            var positionDifference = Target.Position - beginPosition;
+            if (positionDifference.Length() < Radius)
+            {
+                if (!Collision)
+                {
+                    GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+                }
+                chasing = true;
+            }
+            else
+            {
+                chasing = false;
+            }
+            Collision = false;
         }
     }
 }
