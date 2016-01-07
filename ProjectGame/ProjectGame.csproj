@@ -51,7 +51,6 @@
     <Compile Include="InputMovementBehaviour.cs" />
     <Compile Include="MonsterMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour.cs" />
-    <Compile Include="PlayerBehaviour.cs" />
     <Compile Include="PlayerEnterFoVMessage.cs" />
     <Compile Include="PlayerLeaveFoVMessage.cs" />
     <Compile Include="WeaponBehaviour.cs" />
