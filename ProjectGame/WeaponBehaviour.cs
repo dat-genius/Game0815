@@ -16,13 +16,16 @@ namespace ProjectGame
         // => ParentTransform
         public GameObject Wielder { get; set; }
 
+        public bool BotAttack = false;
+        public bool PlayerSword { get; set; }
         private readonly TimeSpan cooldownTime;
         private readonly TimeSpan durationTime;
         private TimeSpan timeUntilUsable;
         private TimeSpan timeSinceUsage;
 
-        public WeaponBehaviour()
+        public WeaponBehaviour(bool playerSword = false)
         {
+            PlayerSword = playerSword;
             cooldownTime = TimeSpan.FromMilliseconds(500);
             durationTime = TimeSpan.FromMilliseconds(200);
             timeUntilUsable = TimeSpan.FromSeconds(0);
@@ -53,12 +56,25 @@ namespace ProjectGame
 
             if (timeUntilUsable.TotalSeconds <= 0)
             {
-                if (Keyboard.GetState().IsKeyDown(Keys.Space))
+                if (Wielder.HasBehaviourOfType(typeof(InputMovementBehaviour)))
                 {
-                    GameObject.IsDrawable = true;
-                    GameObject.IsCollidable = true;
-                    timeUntilUsable = cooldownTime;
-                    timeSinceUsage = TimeSpan.FromSeconds(0);
+                    if (Keyboard.GetState().IsKeyDown(Keys.Space))
+                    {
+                        GameObject.IsDrawable = true;
+                        GameObject.IsCollidable = true;
+                        timeUntilUsable = cooldownTime;
+                        timeSinceUsage = TimeSpan.FromSeconds(0);
+                    }
+                }
+                else
+                {
+                    if (BotAttack)
+                    {
+                        GameObject.IsDrawable = true;
+                        GameObject.IsCollidable = true;
+                        timeUntilUsable = cooldownTime;
+                        timeSinceUsage = TimeSpan.FromSeconds(0);
+                    }
                 }
             }
 
@@ -66,6 +82,8 @@ namespace ProjectGame
             if (timeSinceUsage < durationTime) return;
             GameObject.IsDrawable = false;
             GameObject.IsCollidable = false;
+
+            BotAttack = false;
         }
 
         public void OnMessage(IMessage message)

@@ -112,9 +112,18 @@ namespace ProjectGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load Resources
-            var playerTexture = Content.Load<Texture2D>("EuropeanNicht");
+            var playerTexture = Content.Load<Texture2D>("basicperson0");
             var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
+            var helmetTexture = Content.Load<Texture2D>("Head");
+
+            List<Texture2D> playerAnimations = new List<Texture2D>();
+            for (int i = 0; i < 7; i++)
+            {
+                playerAnimations.Add(Content.Load<Texture2D>("basicperson" + i));
+            }
+
+
             if (tilemap != null)
                 tilemap.Build(Content);
 
@@ -124,29 +133,58 @@ namespace ProjectGame
                 Position = new Vector2(200, 300),
                 Texture = playerTexture
             };
-            somePlayer.AddBehaviour(new MovementBehaviour());
+            somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
 
             var someMonster = new GameObject()
             {
                 Position = new Vector2(20, 20),
                 Texture = monsterTexture
             };
+
+            var someHelmet = new GameObject()
+            {
+                Texture = helmetTexture
+            };
+
+
+            /*TEST SHIT FOR FOV*/
+            FOVBehavior testFOV = new FOVBehavior();
+            someMonster.Rotation = 0;
+            someMonster.AddBehaviour(testFOV);
+            /* end test shit*/
+
             someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
-            //someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
+            someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
 
-            var someSword = new GameObject(false, false)
+            someHelmet.AddBehaviour(new HelmetBehaviour(){
+                Owner = somePlayer
+            });
+
+            var swordPlayer = new GameObject(false, false)
             {
                 Texture = swordTexture
             };
-            someSword.AddBehaviour(new WeaponBehaviour()
+            swordPlayer.AddBehaviour(new WeaponBehaviour(true)
             {
                 Wielder = somePlayer
             });
 
+            var swordMonster = new GameObject(false, false)
+            {
+                Texture = swordTexture
+            };
+            swordMonster.AddBehaviour(new WeaponBehaviour()
+            {
+                Wielder = someMonster
+            });
+            
+            someMonster.AddBehaviour(new MonsterAttack(somePlayer, swordMonster));
             gameObjects.Add(somePlayer);
+            gameObjects.Add(someHelmet);
             gameObjects.Add(someMonster);
-            gameObjects.Add(someSword);
+            gameObjects.Add(swordPlayer);
+            gameObjects.Add(swordMonster);
 
             // Follow player with camera:
             //  ----> Remove the MonsterMovementBehaviourVB, then uncomment below to get a look at the results

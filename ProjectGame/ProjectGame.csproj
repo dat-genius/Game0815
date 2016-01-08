@@ -45,10 +45,12 @@
     <Compile Include="FOVBehavior.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="HelmetBehaviour.cs" />
     <Compile Include="IBehaviour.cs" />
     <Compile Include="ICamera.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="InputMovementBehaviour.cs" />
+    <Compile Include="MonsterAttack.cs" />
     <Compile Include="MonsterMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour.cs" />
     <Compile Include="PlayerEnterFoVMessage.cs" />

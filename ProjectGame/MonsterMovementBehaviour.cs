@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace ProjectGame
 {
@@ -38,14 +39,25 @@ namespace ProjectGame
             {
                 if (movementBahaviour == null)
                 {
-                    var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
-                    if (behaviour != null)
+                    try
                     {
-                        movementBahaviour = behaviour as MovementBehaviour;
+                        var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
+                        if (behaviour != null)
+                        {
+                            movementBahaviour = behaviour as MovementBehaviour;
+                        }
                     }
-                    else return;
+                    catch (NullReferenceException)
+                    {
+                        return;
+                    }
+ //                   var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
+ //                   if (behaviour != null)
+ //                   {
+ //                       movementBahaviour = behaviour as MovementBehaviour;
+ //                   }
+ //                   else return;
                 }
-
                 walkTimer += gameTime.ElapsedGameTime;
                 var lerpFactor = (float)walkTimer.TotalMilliseconds / (float)timePerPath.TotalMilliseconds;
                 if (lerpFactor >= 1.0f)
@@ -72,10 +84,14 @@ namespace ProjectGame
                         if (collisionEnterMessage == null) return;
                         var other = collisionEnterMessage.CollidingObject;
                         if (!other.HasBehaviourOfType(typeof(WeaponBehaviour))) return;
-                        GameObject.Color = Color.Red;
-                        if (--Lives <= 0)
+                        var enemy = other.GetBehaviourOfType(typeof(WeaponBehaviour));
+                        if ((enemy as WeaponBehaviour).PlayerSword)
                         {
-                            GameObject.IsDrawable = false;
+                            GameObject.Color = Color.Red;
+                            if (--Lives <= 0)
+                            {
+                                GameObject.IsDrawable = false;
+                            }
                         }
                     }
                     break;
