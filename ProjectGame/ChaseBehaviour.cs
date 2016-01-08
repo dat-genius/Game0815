@@ -47,7 +47,7 @@ namespace ProjectGame
             {
                 found = true;
             }
-            if (message.GetType() == typeof(PlayerLeaveFoVMessage))
+            if (message.GetType() == typeof(PlayerFovMessage))
             {
                 found = false;
             }

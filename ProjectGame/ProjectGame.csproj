@@ -52,7 +52,7 @@
     <Compile Include="MonsterMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour.cs" />
     <Compile Include="PlayerEnterFoVMessage.cs" />
-    <Compile Include="PlayerLeaveFoVMessage.cs" />
+    <Compile Include="PlayerFovMessage.cs" />
     <Compile Include="WeaponBehaviour.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

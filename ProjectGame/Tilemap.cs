@@ -104,10 +104,10 @@ namespace ProjectGame
         /// <param name="spriteBatch">The spritebatch to draw the tilemap with.</param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            int i = 0;
+            var i = 0;
             foreach (var drawableTile in TileLayers.SelectMany(layer => layer.DrawableTiles))
             {
-                if(++i > 20*320)
+                if (++i > 20 * 320)
                     return;
                 drawableTile.Draw(spriteBatch);
             }
