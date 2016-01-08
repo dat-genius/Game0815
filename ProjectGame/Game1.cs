@@ -112,10 +112,17 @@ namespace ProjectGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load Resources
-            var playerTexture = Content.Load<Texture2D>("EuropeanNicht");
+            var playerTexture = Content.Load<Texture2D>("basicperson0");
             var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
             var helmetTexture = Content.Load<Texture2D>("Head");
+
+            List<Texture2D> playerAnimations = new List<Texture2D>();
+            for (int i = 0; i < 7; i++)
+            {
+                playerAnimations.Add(Content.Load<Texture2D>("basicperson" + i));
+            }
+
 
             if (tilemap != null)
                 tilemap.Build(Content);
@@ -126,7 +133,7 @@ namespace ProjectGame
                 Position = new Vector2(200, 300),
                 Texture = playerTexture
             };
-            somePlayer.AddBehaviour(new MovementBehaviour());
+            somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
 
             var someMonster = new GameObject()
             {
@@ -144,6 +151,7 @@ namespace ProjectGame
             FOVBehavior testFOV = new FOVBehavior();
             someMonster.Rotation = 0;
             someMonster.AddBehaviour(testFOV);
+            /* end test shit*/
 
             someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
