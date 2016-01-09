@@ -39,13 +39,14 @@ namespace ProjectGame
 
         public void OnMessage(IMessage message)
         {
-            if (message.GetType() == typeof(PlayerEnterFoVMessage))
+            switch (message.MessageType)
             {
-                found = true;
-            }
-            if (message.GetType() == typeof(PlayerFovMessage))
-            {
-                found = false;
+                case MessageType.AreaEntered:
+                    found = true;
+                    break;
+                case MessageType.AreaExited:
+                    found = false;
+                    break;
             }
             beginPosition = GameObject.Position;
         }

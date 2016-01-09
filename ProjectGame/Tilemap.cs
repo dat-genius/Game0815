@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
@@ -37,6 +38,12 @@ namespace ProjectGame
         [XmlElement("layer")]
         public TileLayer[] TileLayers { get; set; }
 
+        [XmlIgnore] 
+        private Vector2 lastCameraPosition;
+
+        [XmlIgnore] 
+        private List<DrawableTile> cullFilteredDrawableTiles;
+
 
         /// <summary>
         /// Processes the tilemap by calculating all the source and destination rectangles only 
@@ -50,6 +57,7 @@ namespace ProjectGame
                 tileset.Texture = contentManager.Load<Texture2D>(tileset.Name);
             }
 
+            cullFilteredDrawableTiles = new List<DrawableTile>();
             foreach (var layer in TileLayers)
             {
                 layer.DrawableTiles = new DrawableTile[Width * Height];
@@ -68,6 +76,7 @@ namespace ProjectGame
                     if (tilesetToUse == null)
                         continue;
 
+    
                     var destinationRectangle = new Rectangle(penX, penY, TileWidth, TileHeight);
                     penX += TileWidth;
                     if (penX >= Width * TileWidth)
@@ -76,7 +85,18 @@ namespace ProjectGame
                         penY += TileHeight;
                     }
 
-                    var tilesInTilesetHorizontal = tilesetToUse.Texture.Width/tilesetToUse.TileWidth;
+
+                    var tilesInTilesetHorizontal = 0;
+                    {
+                        var testPenX = 0;
+                        while (testPenX < tilesetToUse.Texture.Width)
+                        {
+                            testPenX += tilesetToUse.TileWidth;
+                            testPenX += tilesetToUse.Spacing;
+                            ++tilesInTilesetHorizontal;
+                        }
+                    }
+
                     var relativeGid = gid - tilesetToUse.FirstGid;
                     var sourceX = relativeGid;
                     var sourceY = 0;
@@ -102,14 +122,39 @@ namespace ProjectGame
         /// Draws all the layers in the tilemap.
         /// </summary>
         /// <param name="spriteBatch">The spritebatch to draw the tilemap with.</param>
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, ICamera camera)
         {
-            var i = 0;
-            foreach (var drawableTile in TileLayers.SelectMany(layer => layer.DrawableTiles))
+            // 800x480 = hardcoded window resolution
+            // 32x32 = hardcoded tile resolution
+            if ((camera.Position - lastCameraPosition).Length() >= 32)
             {
-                if (++i > 20 * 320)
-                    return;
-                drawableTile.Draw(spriteBatch);
+                cullFilteredDrawableTiles.Clear();
+
+                var renderingRectangle = new Rectangle()
+                {
+                    X = (int)camera.Position.X - 400,
+                    Y = (int)camera.Position.Y - 240,
+                    Width = (int)camera.Position.X + 1200,
+                    Height = (int)camera.Position.Y + 720
+                };
+
+                foreach (var layer in TileLayers)
+                {
+                    foreach (var drawableTile in layer.DrawableTiles)
+                    {
+                        if (drawableTile.DestinationRectangle.Intersects(renderingRectangle))
+                        {
+                            cullFilteredDrawableTiles.Add(drawableTile);
+                        }
+                    }
+                }
+                lastCameraPosition = camera.Position;
+            }
+
+
+            foreach (var tile in cullFilteredDrawableTiles)
+            {
+                tile.Draw(spriteBatch);
             }
         }
     }

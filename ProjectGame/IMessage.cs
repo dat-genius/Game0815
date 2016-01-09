@@ -4,8 +4,8 @@
     {
         CollisionEnter,
         CollisionExit,
-        EnemyEnterFoV,
-        EnemyExitFoV
+        AreaEntered,
+        AreaExited
     }
 
     public interface IMessage

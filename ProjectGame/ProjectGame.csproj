@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AreaExitedMessage.cs" />
     <Compile Include="ChaseBehaviour.cs" />
     <Compile Include="FollowCamera.cs" />
     <Compile Include="CollisionEnterMessage.cs" />
@@ -45,7 +46,7 @@
     <Compile Include="FOVBehavior.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
-    <Compile Include="HelmetBehaviour.cs" />
+    <Compile Include="ChildBehaviour.cs" />
     <Compile Include="IBehaviour.cs" />
     <Compile Include="ICamera.cs" />
     <Compile Include="IMessage.cs" />
@@ -53,8 +54,7 @@
     <Compile Include="MonsterAttack.cs" />
     <Compile Include="MonsterMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour.cs" />
-    <Compile Include="PlayerEnterFoVMessage.cs" />
-    <Compile Include="PlayerFovMessage.cs" />
+    <Compile Include="AreaEnteredMessage.cs" />
     <Compile Include="WeaponBehaviour.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

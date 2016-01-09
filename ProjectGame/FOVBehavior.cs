@@ -24,14 +24,14 @@ namespace ProjectGame
         public void OnUpdate(GameTime gameTime)
         {
             gameObjects = GameObject.CollidingGameObjects;
-            bool found = DetectPlayer();
+            var found = DetectPlayer();
             if (found && !playerInViewLastFrame)
             {
-                GameObject.OnMessage(new PlayerEnterFoVMessage(player));
+                GameObject.OnMessage(new AreaEnteredMessage(player));
             }
             if (!found && playerInViewLastFrame)
             {
-                GameObject.OnMessage(new PlayerEnterFoVMessage(player));
+                GameObject.OnMessage(new AreaEnteredMessage(player));
             }
             playerInViewLastFrame = found;
         }
@@ -43,7 +43,7 @@ namespace ProjectGame
 
         public bool DetectPlayer()
         {
-            Rectangle visionBox = createVisionBox();
+            Rectangle visionBox = CreateVisionBox();
             List<GameObject> visibleObjects = CreateVisibleObjectsList(visionBox);
             return CheckForPLayers(visibleObjects);
         }
@@ -61,7 +61,7 @@ namespace ProjectGame
             return false;
         }
 
-        public Rectangle createVisionBox()
+        public Rectangle CreateVisionBox()
         {
             float x = GameObject.Position.X + GameObject.SourceRectangle.Width / 2;
             float y = GameObject.Position.Y + GameObject.SourceRectangle.Height / 2;

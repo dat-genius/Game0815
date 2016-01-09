@@ -157,8 +157,8 @@ namespace ProjectGame
             someMonster.AddBehaviour(new MovementBehaviour());
             someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
 
-            someHelmet.AddBehaviour(new HelmetBehaviour(){
-                Owner = somePlayer
+            someHelmet.AddBehaviour(new ChildBehaviour(){
+                Parent = somePlayer
             });
 
             var swordPlayer = new GameObject(false, false)
@@ -235,7 +235,7 @@ namespace ProjectGame
             spriteBatch.Begin(
                 transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix, 
                 samplerState: SamplerState.PointClamp);
-            tilemap.Draw(spriteBatch);
+            tilemap.Draw(spriteBatch, camera);
             foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable))
             {
                 gameObject.Draw(spriteBatch);

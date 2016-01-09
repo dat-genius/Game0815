@@ -169,3 +169,12 @@ C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson5.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson6.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson7.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson0.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson1.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson2.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson3.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson4.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson5.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson6.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson7.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb

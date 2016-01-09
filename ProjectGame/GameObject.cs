@@ -133,7 +133,7 @@ namespace ProjectGame
             {
                 FOVBehavior test;
                 test = (FOVBehavior)GetBehaviourOfType(typeof(FOVBehavior));
-                Rectangle testRect = test.createVisionBox();
+                Rectangle testRect = test.CreateVisionBox();
                 spriteBatch.Draw(Texture, testRect, Color.Red);
             }
         }
