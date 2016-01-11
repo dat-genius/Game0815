@@ -155,7 +155,7 @@ namespace ProjectGame
 
             someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
-            someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
+            //someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
 
             someHelmet.AddBehaviour(new ChildBehaviour(){
                 Parent = somePlayer

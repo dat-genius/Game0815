@@ -8,12 +8,14 @@ namespace ProjectGame
     {
         public GameObject GameObject { get; set; }
         public float MovementSpeed { get; set; }
+        private float sprintSpeed;
         private MovementBehaviour movementBehaviour = null;
         private ICamera camera = null;
 
         public InputMovementBehaviour(float movementSpeed, ICamera camera)
         {
             MovementSpeed = movementSpeed;
+            sprintSpeed = movementSpeed * 1.5f;
             this.camera = camera;
         }
 
@@ -58,8 +60,14 @@ namespace ProjectGame
                 GameObject.Rotation = angleRadians;
             }
             */
-            movementBehaviour.Velocity = Vector2.Normalize(displacement) * MovementSpeed;
-           
+
+            
+            // Moet nog wel testosterone van afgehaald worden
+            if (Keyboard.GetState().IsKeyDown(Keys.LeftShift))
+                movementBehaviour.Velocity = Vector2.Normalize(displacement) * sprintSpeed;
+            else
+                movementBehaviour.Velocity = Vector2.Normalize(displacement) * MovementSpeed;
+                   
         }
 
         public void OnMessage(IMessage message)

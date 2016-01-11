@@ -46,6 +46,7 @@ namespace TestProjectGame
             TimeSpan timeSindsUsage = TimeSpan.FromMilliseconds(800);
 
             Monster.AddBehaviour(new MonsterMovementBehaviour());
+            Player.AddBehaviour(new InputMovementBehaviour(5, new FollowCamera()));
             Sword.AddBehaviour(new WeaponBehaviour()
             {
                 Wielder = Player
@@ -53,9 +54,11 @@ namespace TestProjectGame
 
             Monster.Position = new Vector2(100, 100);
             Player.Position = new Vector2(100, 80);
+           
 
-            var weaponBehaviour = Monster.GetBehaviourOfType(typeof(WeaponBehaviour));
+            var weaponBehaviour = Sword.GetBehaviourOfType(typeof(WeaponBehaviour));
             var monsterMovementBehaviour = Monster.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
+            (monsterMovementBehaviour as MonsterMovementBehaviour).Collision = true;
             int Attack = 0;
 
             while(Attack < 5)
@@ -63,13 +66,14 @@ namespace TestProjectGame
                 if (timeSindsUsage == cooldown)
                 {
                     timeSindsUsage = TimeSpan.FromMilliseconds(0);
-                    System.Windows.Forms.SendKeys.SendWait("{BREAK}");
+                    (weaponBehaviour as WeaponBehaviour).Weapontest = true;
                     Attack++;
                 }
                 (weaponBehaviour as WeaponBehaviour).OnUpdate(gameTime);
                 (monsterMovementBehaviour as MonsterMovementBehaviour).OnUpdate(gameTime);
 
                 timeSindsUsage += gameTime.ElapsedGameTime;
+                (weaponBehaviour as WeaponBehaviour).Weapontest = false;
             }
 
             int Lives = (monsterMovementBehaviour as MonsterMovementBehaviour).Lives;
