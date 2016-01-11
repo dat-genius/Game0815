@@ -63,8 +63,9 @@ namespace ProjectGame
 
         public Rectangle CreateVisionBox()
         {
-            float x = GameObject.Position.X + GameObject.SourceRectangle.Width / 2;
-            float y = GameObject.Position.Y + GameObject.SourceRectangle.Height / 2;
+            float x = GameObject.Position.X + GameObject.Size.X / 2;
+            float y = GameObject.Position.Y + GameObject.Size.Y / 2;
+            
             float width = ViewDistance, height = ViewDistance;
             double rotation = MathHelper.ToDegrees(GameObject.Rotation) % 360;
             if (rotation < 360)
@@ -76,28 +77,28 @@ namespace ProjectGame
                 }
                 if (rotation >= 22.5 && rotation < 67.5)
                 {
-                    x -= width;
                     y -= height;
                 }
                 if (rotation >= 67.5 && rotation < 112.5)
                 {
-                    x -= width;
                     y -= height / 2;
-                }
-                if (rotation >= 112.5 && rotation < 157.5)
-                {
-                    x -= width;
                 }
                 if (rotation >= 157.5 && rotation < 202.5)
                 {
                     x -= width / 2;
                 }
+                if (rotation >= 202.5 && rotation < 247.5)
+                {
+                    x -= width;
+                }
                 if (rotation >= 247.5 && rotation < 292.5)
                 {
+                    x -= width;
                     y -= height / 2;
                 }
                 if (rotation >= 292.5 && rotation < 337.5)
                 {
+                    x -= width;
                     y -= height;
                 }
             }
