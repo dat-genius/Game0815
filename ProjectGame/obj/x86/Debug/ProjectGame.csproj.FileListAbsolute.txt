@@ -121,22 +121,46 @@ D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming
 D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
 D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
 D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNichtRechts.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNichtRechts.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNicht.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Ninja.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Roman.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNichtRechts.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\sword1.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson0.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson1.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson2.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson3.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson4.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson5.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson6.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson7.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson0.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson1.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson2.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson3.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson4.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson5.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson6.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson7.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\ball.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson0.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson1.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson2.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson3.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson4.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson5.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson6.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson7.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNicht.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNichtRechts.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\grass.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Ninja.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\ps2-town-tiles.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Roman.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\shield1.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\sword1.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\ProjectGame.exe
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\ProjectGame.pdb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\MonoGame.Framework.dll
@@ -159,30 +183,6 @@ C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson0.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson1.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson2.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson3.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson4.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson5.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson6.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson7.xnb
-D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson0.xnb
-D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson1.xnb
-D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson2.xnb
-D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson3.xnb
-D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson4.xnb
-D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson5.xnb
-D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson6.xnb
-D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson7.xnb
-D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson0.xnb
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson1.xnb
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson2.xnb
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson3.xnb
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson4.xnb
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson5.xnb
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson6.xnb
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson7.xnb
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb

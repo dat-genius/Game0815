@@ -66,39 +66,39 @@ namespace ProjectGame
             float x = GameObject.Position.X + GameObject.SourceRectangle.Width / 2;
             float y = GameObject.Position.Y + GameObject.SourceRectangle.Height / 2;
             float width = ViewDistance, height = ViewDistance;
-            double rotation = (double)GameObject.Rotation % (2f * (Math.PI));
-            if (rotation < Math.PI * 2)
+            double rotation = MathHelper.ToDegrees(GameObject.Rotation) % 360;
+            if (rotation < 360)
             {
-                if (rotation < Math.PI / 8 || rotation > 15 * Math.PI / 8)
-                {
-                    y -= height / 2;
-                }
-                if (rotation >= Math.PI / 8 && rotation < 3 * Math.PI / 8)
-                {
-                    y -= height;
-                }
-                if (rotation >= Math.PI * 3 / 8 && rotation < 5 * Math.PI / 8)
+                if (rotation < 22.5 || rotation >= 337.5)
                 {
                     x -= width / 2;
                     y -= height;
                 }
-                if (rotation >= Math.PI * 5 / 8 && rotation < 7 * Math.PI / 8)
+                if (rotation >= 22.5 && rotation < 67.5)
                 {
                     x -= width;
                     y -= height;
                 }
-                if (rotation >= Math.PI * 7 / 8 && rotation < 9 * Math.PI / 8)
+                if (rotation >= 67.5 && rotation < 112.5)
                 {
                     x -= width;
                     y -= height / 2;
                 }
-                if (rotation >= Math.PI * 9 / 8 && rotation < 11 * Math.PI / 8)
+                if (rotation >= 112.5 && rotation < 157.5)
                 {
                     x -= width;
                 }
-                if (rotation >= Math.PI * 11 / 8 && rotation < 13 * Math.PI / 8)
+                if (rotation >= 157.5 && rotation < 202.5)
                 {
                     x -= width / 2;
+                }
+                if (rotation >= 247.5 && rotation < 292.5)
+                {
+                    y -= height / 2;
+                }
+                if (rotation >= 292.5 && rotation < 337.5)
+                {
+                    y -= height;
                 }
             }
             return new Rectangle((int)x, (int)y, (int)width, (int)height);
