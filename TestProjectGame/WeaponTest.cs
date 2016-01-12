@@ -2,6 +2,7 @@
 using ProjectGame;
 using Microsoft.Xna.Framework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Xna.Framework.Input;
 
 namespace TestProjectGame
 {
@@ -32,6 +33,48 @@ namespace TestProjectGame
 
             Assert.IsTrue((behaviourWeapon as WeaponBehaviour).BotAttack);
             Assert.IsTrue(swordMonster.IsDrawable); 
+        }
+
+        [TestMethod]
+        public void Monsterkilled()
+        {
+            GameObject Player = new GameObject();
+            GameObject Monster = new GameObject();
+            GameObject Sword = new GameObject(false, false);
+            GameTime gameTime = new GameTime();
+            TimeSpan cooldown = TimeSpan.FromMilliseconds(800);
+            TimeSpan timeSindsUsage = TimeSpan.FromMilliseconds(800);
+
+            Monster.AddBehaviour(new MonsterMovementBehaviour());
+            Sword.AddBehaviour(new WeaponBehaviour()
+            {
+                Wielder = Player
+            });
+
+            Monster.Position = new Vector2(100, 100);
+            Player.Position = new Vector2(100, 80);
+
+            var weaponBehaviour = Monster.GetBehaviourOfType(typeof(WeaponBehaviour));
+            var monsterMovementBehaviour = Monster.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
+            int Attack = 0;
+
+            while(Attack < 5)
+            {
+                if (timeSindsUsage == cooldown)
+                {
+                    timeSindsUsage = TimeSpan.FromMilliseconds(0);
+                    System.Windows.Forms.SendKeys.SendWait("{BREAK}");
+                    Attack++;
+                }
+                (weaponBehaviour as WeaponBehaviour).OnUpdate(gameTime);
+                (monsterMovementBehaviour as MonsterMovementBehaviour).OnUpdate(gameTime);
+
+                timeSindsUsage += gameTime.ElapsedGameTime;
+            }
+
+            int Lives = (monsterMovementBehaviour as MonsterMovementBehaviour).Lives;
+            Assert.AreEqual(0, Lives);
+            Assert.IsFalse(Monster.IsDrawable);
         }
     }
 }
