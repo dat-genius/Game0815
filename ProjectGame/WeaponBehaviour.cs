@@ -18,6 +18,7 @@ namespace ProjectGame
 
         public bool BotAttack = false;
         public bool PlayerSword { get; set; }
+        public bool Weapontest { get; set; }
         private readonly TimeSpan cooldownTime;
         private readonly TimeSpan durationTime;
         private TimeSpan timeUntilUsable;
@@ -58,7 +59,7 @@ namespace ProjectGame
             {
                 if (Wielder.HasBehaviourOfType(typeof(InputMovementBehaviour)))
                 {
-                    if (Keyboard.GetState().IsKeyDown(Keys.Space))
+                    if (Keyboard.GetState().IsKeyDown(Keys.Space) || Weapontest)
                     {
                         GameObject.IsDrawable = true;
                         GameObject.IsCollidable = true;

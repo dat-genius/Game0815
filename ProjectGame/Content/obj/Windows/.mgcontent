@@ -4,21 +4,21 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/ball.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/grass.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/shield1.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/EuropeanNicht.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/Ninja.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/Roman.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/head.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson0.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson1.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson2.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson3.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson4.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson5.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson6.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson7.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/ball.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/grass.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/shield1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/EuropeanNicht.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Ninja.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Roman.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/head.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson0.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson2.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson3.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson4.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson5.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson6.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson7.png</File>
   </SourceFiles>
 </SourceFileCollection>
