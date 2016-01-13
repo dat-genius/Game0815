@@ -54,6 +54,7 @@
     <Compile Include="MonsterMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour.cs" />
     <Compile Include="AreaEnteredMessage.cs" />
+    <Compile Include="StatBehaviour.cs" />
     <Compile Include="WeaponBehaviour.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
