@@ -21,13 +21,34 @@ namespace ProjectGame
         private SpriteBatch spriteBatch;
         private Tilemap tilemap;
 
+        //menu
+        private Texture2D startButton;
+        private Texture2D exitButton;
+        private Texture2D saveButton;
+        private Texture2D loadButton;
+
+        private Vector2 startButtonPosition;
+        private Vector2 exitButtonPosition;
+        private Vector2 saveButtonPosition;
+        private Vector2 loadButtonPosition;
+
+        //private Thread backgroundThread;
+        private bool isLoading = false;
+        MouseState mouseState;
+        MouseState previousMouseState;
+
+        enum GameState { StartMenu, Loading, Playing, Saving }
+        private GameState gameState;
+        //endmenu
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
             gameObjects = new List<GameObject>();
-            
+
             var xmlSerializer = new XmlSerializer(typeof(Tilemap));
             tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/Main_level.tmx", FileMode.Open));
         }
@@ -65,12 +86,12 @@ namespace ProjectGame
                         {
                             a.OnMessage(new CollisionEnterMessage(b));
                             a.CollidingGameObjects.Add(b);
-                            
+
                         }
                         if (b.CollidingGameObjects.Contains(a)) continue;
                         b.OnMessage(new CollisionEnterMessage(a));
                         b.CollidingGameObjects.Add(a);
-                        
+
                     }
                     else
                     {
@@ -100,6 +121,14 @@ namespace ProjectGame
             // TODO: Add game objects that aren't rendered here
             base.Initialize();
             IsMouseVisible = true;
+
+            startButtonPosition = new Vector2((GraphicsDevice.DisplayMode.Width / 2) - 50, 200);
+            exitButtonPosition = new Vector2((GraphicsDevice.DisplayMode.Width / 2) - 50, 280);
+            saveButtonPosition = new Vector2((GraphicsDevice.DisplayMode.Width / 2) - 50, 360);
+            loadButtonPosition = new Vector2((GraphicsDevice.DisplayMode.Width / 2) - 50, 440);
+
+            //set the gamestate to start menu
+            gameState = GameState.StartMenu;
         }
 
         /// <summary>
@@ -112,6 +141,10 @@ namespace ProjectGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load Resources
+            startButton = Content.Load<Texture2D>("Start");
+            exitButton = Content.Load<Texture2D>("Exit");
+            saveButton = Content.Load<Texture2D>("Save");
+            loadButton = Content.Load<Texture2D>("Load");
             var playerTexture = Content.Load<Texture2D>("basicperson0");
             var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
@@ -157,7 +190,8 @@ namespace ProjectGame
             someMonster.AddBehaviour(new MovementBehaviour());
             //someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
 
-            someHelmet.AddBehaviour(new ChildBehaviour(){
+            someHelmet.AddBehaviour(new ChildBehaviour()
+            {
                 Parent = somePlayer
             });
 
@@ -178,7 +212,7 @@ namespace ProjectGame
             {
                 Wielder = someMonster
             });
-            
+
             someMonster.AddBehaviour(new MonsterAttack(somePlayer, swordMonster));
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
@@ -212,16 +246,35 @@ namespace ProjectGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed /*|| Keyboard.GetState().IsKeyDown(Keys.Escape)*/)
                 Exit();
 
-            // TODO: Add your update logic here
-            CheckCollisions();
-            foreach (var gameObject in gameObjects)
+            if (gameState == GameState.StartMenu)
             {
-                gameObject.OnUpdate(gameTime);
+                mouseState = Mouse.GetState();
+                if (previousMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
+                {
+                    MouseClicked(mouseState.X, mouseState.Y);
+                }
+                previousMouseState = mouseState;
             }
-            if(camera != null) camera.Update(gameTime);
+
+            if (gameState == GameState.Playing && isLoading)
+            {
+                //LoadGame();
+                isLoading = false;
+            }
+
+            if (gameState == GameState.Playing)
+            {
+                // TODO: Add your update logic here
+                CheckCollisions();
+                foreach (var gameObject in gameObjects)
+                {
+                    gameObject.OnUpdate(gameTime);
+                }
+                if (camera != null) camera.Update(gameTime);
+            }
             base.Update(gameTime);
         }
 
@@ -232,13 +285,28 @@ namespace ProjectGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DarkGray);
-            spriteBatch.Begin(
-                transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix, 
-                samplerState: SamplerState.PointClamp);
-            tilemap.Draw(spriteBatch, camera);
-            foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable))
+
+            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            if (gameState == GameState.StartMenu)
             {
-                gameObject.Draw(spriteBatch);
+                spriteBatch.Draw(startButton, startButtonPosition, Color.White);
+                spriteBatch.Draw(exitButton, exitButtonPosition, Color.White);
+                spriteBatch.Draw(saveButton, saveButtonPosition, Color.White);
+                spriteBatch.Draw(loadButton, loadButtonPosition, Color.White);
+            }
+            //draw the the game when playing
+            if (gameState == GameState.Playing)
+            {
+                spriteBatch.Begin(
+                    transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix,
+                    samplerState: SamplerState.PointClamp);
+
+                tilemap.Draw(spriteBatch, camera);
+                foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable))
+                {
+                    gameObject.Draw(spriteBatch);
+                }
             }
             spriteBatch.End();
             base.Draw(gameTime);
@@ -251,39 +319,39 @@ namespace ProjectGame
         /// <param name="position">An int what provide the side of the collision </param>
         private void DoNotWalkTrough(GameObject gameObject, int position)
         {
-            if (!gameObject.HasBehaviourOfType(typeof (MovementBehaviour))) return;
+            if (!gameObject.HasBehaviourOfType(typeof(MovementBehaviour))) return;
             var behaviour = gameObject.GetBehaviourOfType(typeof(MovementBehaviour));
-    
+
             switch (position)
             {
-                case 1: 
+                case 1:
                     (behaviour as MovementBehaviour).CollisionLeft = true;
                     break;
-                case 2: 
+                case 2:
                     (behaviour as MovementBehaviour).CollisionRight = true;
                     break;
-                case 3: 
+                case 3:
                     (behaviour as MovementBehaviour).CollisionTop = true;
                     break;
-                case 4: 
+                case 4:
                     (behaviour as MovementBehaviour).CollisionBottom = true;
                     break;
             }
 
-            if(gameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)))
+            if (gameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)))
             {
                 behaviour = gameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
                 (behaviour as MonsterMovementBehaviour).Collision = true;
             }
 
-            if(gameObject.HasBehaviourOfType(typeof(ChaseBehaviour)))
+            if (gameObject.HasBehaviourOfType(typeof(ChaseBehaviour)))
             {
                 behaviour = gameObject.GetBehaviourOfType(typeof(ChaseBehaviour));
                 (behaviour as ChaseBehaviour).Collision = true;
             }
         }
 
-        
+
         /// <summary>
         /// calculates at what side the collision was
         /// </summary>
@@ -306,6 +374,36 @@ namespace ProjectGame
 
             return 0;
         }
+
+        private void MouseClicked(int x, int y)
+        {
+            Rectangle mouseClickRect = new Rectangle(x, y, 10, 10);
+
+            if (gameState == GameState.StartMenu)
+            {
+                Rectangle startButtonRect = new Rectangle((int)startButtonPosition.X, (int)startButtonPosition.Y, 200, 50);
+                Rectangle exitButtonRect = new Rectangle((int)exitButtonPosition.X, (int)exitButtonPosition.Y, 200, 50);
+                Rectangle saveButtonRect = new Rectangle((int)saveButtonPosition.X, (int)saveButtonPosition.Y, 200, 50);
+                Rectangle loadButtonRect = new Rectangle((int)loadButtonPosition.X, (int)loadButtonPosition.Y, 200, 50);
+
+                if (mouseClickRect.Intersects(startButtonRect))
+                {
+                    gameState = GameState.Playing;
+                    isLoading = true;
+                }
+                else if (mouseClickRect.Intersects(exitButtonRect))
+                {
+                    Exit();
+                }
+                else if (mouseClickRect.Intersects(saveButtonRect))
+                {
+                    //to be implemented
+                }
+                else if (mouseClickRect.Intersects(loadButtonRect))
+                {
+                    //to be implemented
+                }
+            }
+        }
     }
 }
-
