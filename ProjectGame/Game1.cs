@@ -153,7 +153,7 @@ namespace ProjectGame
             someMonster.AddBehaviour(testFOV);
             /* end test shit*/
 
-            someMonster.AddBehaviour(new MonsterMovementBehaviour());
+            //someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
             //someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
 

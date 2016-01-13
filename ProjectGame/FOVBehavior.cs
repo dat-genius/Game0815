@@ -65,7 +65,7 @@ namespace ProjectGame
         {
             float x = GameObject.Position.X + GameObject.Size.X / 2;
             float y = GameObject.Position.Y + GameObject.Size.Y / 2;
-            
+
             float width = ViewDistance, height = ViewDistance;
             double rotation = MathHelper.ToDegrees(GameObject.Rotation) % 360;
             if (rotation < 360)
