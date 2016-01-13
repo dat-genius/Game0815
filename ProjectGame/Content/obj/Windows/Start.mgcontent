@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Start.png</SourceFile>
-  <SourceTime>2016-01-13T16:21:44.9963524+01:00</SourceTime>
+  <SourceTime>2016-01-13T18:06:03.2097087+01:00</SourceTime>
   <DestFile>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/bin/Windows/Start.xnb</DestFile>
-  <DestTime>2016-01-13T17:36:42.1536349+01:00</DestTime>
+  <DestTime>2016-01-13T18:25:48.0895131+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

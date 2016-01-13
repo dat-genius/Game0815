@@ -16,7 +16,7 @@ namespace ProjectGame
     public class Game1 : Game
     {
         private readonly GraphicsDeviceManager graphics;
-        private readonly List<GameObject> gameObjects;
+        private static List<GameObject> gameObjects;
         private ICamera camera;
         private SpriteBatch spriteBatch;
         private Tilemap tilemap;
@@ -55,6 +55,44 @@ namespace ProjectGame
 
 
         /// <summary>
+        /// Takes a moving object and determines the new position for it based on
+        /// potential collisions in the world.
+        /// </summary>
+        /// <param name="gameObject">The game object</param>
+        /// <param name="displacement">The movement</param>
+        /// <returns>The new position</returns>
+        public static Vector2 ResolveWorldCollision(GameObject gameObject, Vector2 displacement)
+        {
+            var thisRectangle = new Rectangle((int)gameObject.Position.X, (int)gameObject.Position.Y, gameObject.Size.X, gameObject.Size.Y);
+
+            var newPosition = new Vector2(thisRectangle.X, thisRectangle.Y);
+            newPosition += displacement;
+
+            foreach (var otherObject in gameObjects)
+            {
+                if (!otherObject.IsCollidable || otherObject == gameObject)
+                    continue;
+
+                var otherRectangle = new Rectangle((int)otherObject.Position.X, (int)otherObject.Position.Y,
+                        otherObject.Size.X, otherObject.Size.Y);
+
+                displacement.Normalize();
+                bool test = false;
+                while (thisRectangle.Intersects(otherRectangle))
+                {
+                    newPosition -= displacement;
+                    thisRectangle.X = (int)newPosition.X;
+                    thisRectangle.Y = (int)newPosition.Y;
+                    test = true;
+                }
+                if(test)
+                newPosition -= displacement;
+            }
+
+            return newPosition;
+        }
+
+        /// <summary>
         ///     Sends CollisionEnter and CollisionExit messages to the game objects that enter and exit a collision
         ///     with another game object respectively.
         /// </summary>
@@ -80,13 +118,10 @@ namespace ProjectGame
                     var rectangleB = new Rectangle((int)b.Position.X, (int)b.Position.Y, b.Size.X, b.Size.Y);
                     if (rectangleA.Intersects(rectangleB))
                     {
-                        DoNotWalkTrough(a, PlaceCollision(rectangleA, rectangleB));
-                        DoNotWalkTrough(b, PlaceCollision(rectangleB, rectangleA));
                         if (!a.CollidingGameObjects.Contains(b))
                         {
                             a.OnMessage(new CollisionEnterMessage(b));
-                            a.CollidingGameObjects.Add(b);
-
+                            a.CollidingGameObjects.Add(b);     
                         }
                         if (b.CollidingGameObjects.Contains(a)) continue;
                         b.OnMessage(new CollisionEnterMessage(a));
@@ -174,7 +209,7 @@ namespace ProjectGame
                 Texture = monsterTexture
             };
 
-            var someHelmet = new GameObject()
+            var someHelmet = new GameObject(true, false)
             {
                 Texture = helmetTexture
             };
@@ -199,7 +234,7 @@ namespace ProjectGame
             {
                 Texture = swordTexture
             };
-            swordPlayer.AddBehaviour(new WeaponBehaviour(true)
+            swordPlayer.AddBehaviour(new WeaponBehaviour()
             {
                 Wielder = somePlayer
             });
@@ -214,11 +249,12 @@ namespace ProjectGame
             });
 
             someMonster.AddBehaviour(new MonsterAttack(somePlayer, swordMonster));
+
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
             gameObjects.Add(someMonster);
             gameObjects.Add(swordPlayer);
-            gameObjects.Add(swordMonster);
+            //gameObjects.Add(swordMonster);
 
             // Follow player with camera:
             //  ----> Remove the MonsterMovementBehaviourVB, then uncomment below to get a look at the results
