@@ -16,17 +16,13 @@ namespace ProjectGame
         // => ParentTransform
         public GameObject Wielder { get; set; }
 
-        public bool BotAttack = false;
-        public bool PlayerSword { get; set; }
-        public bool Weapontest { get; set; }
         private readonly TimeSpan cooldownTime;
         private readonly TimeSpan durationTime;
         private TimeSpan timeUntilUsable;
         private TimeSpan timeSinceUsage;
 
-        public WeaponBehaviour(bool playerSword = false)
+        public WeaponBehaviour()
         {
-            PlayerSword = playerSword;
             cooldownTime = TimeSpan.FromMilliseconds(500);
             durationTime = TimeSpan.FromMilliseconds(200);
             timeUntilUsable = TimeSpan.FromSeconds(0);
@@ -57,34 +53,19 @@ namespace ProjectGame
 
             if (timeUntilUsable.TotalSeconds <= 0)
             {
-                if (Wielder.HasBehaviourOfType(typeof(InputMovementBehaviour)))
+                if (Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
-                    if (Keyboard.GetState().IsKeyDown(Keys.Space) || Weapontest)
-                    {
-                        GameObject.IsDrawable = true;
-                        GameObject.IsCollidable = true;
-                        timeUntilUsable = cooldownTime;
-                        timeSinceUsage = TimeSpan.FromSeconds(0);
-                    }
-                }
-                else
-                {
-                    if (BotAttack)
-                    {
-                        GameObject.IsDrawable = true;
-                        GameObject.IsCollidable = true;
-                        timeUntilUsable = cooldownTime;
-                        timeSinceUsage = TimeSpan.FromSeconds(0);
-                    }
+                    GameObject.IsDrawable = true;
+                    //GameObject.IsCollidable = true;
+                    timeUntilUsable = cooldownTime;
+                    timeSinceUsage = TimeSpan.FromSeconds(0);
                 }
             }
 
             timeSinceUsage += gameTime.ElapsedGameTime;
             if (timeSinceUsage < durationTime) return;
             GameObject.IsDrawable = false;
-            GameObject.IsCollidable = false;
-
-            BotAttack = false;
+            //GameObject.IsCollidable = false;
         }
 
         public void OnMessage(IMessage message)

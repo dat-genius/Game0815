@@ -51,7 +51,6 @@
     <Compile Include="ICamera.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="InputMovementBehaviour.cs" />
-    <Compile Include="MonsterAttack.cs" />
     <Compile Include="MonsterMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour.cs" />
     <Compile Include="AreaEnteredMessage.cs" />
