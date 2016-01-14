@@ -58,7 +58,9 @@ namespace ProjectGame
                 found = true;
             }
         }
-
+        /// <summary>
+        /// chacking agro radius
+        /// </summary>
         public void Chase()
         {
             var positionDifference = Target.Position - beginPosition;
@@ -67,6 +69,8 @@ namespace ProjectGame
                 if (!Collision)
                 {
                     GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+                    GameObject.Rotation = (float)Math.Atan2(Target.Position.Y, Target.position.X);// +MathHelper.ToRadians(90);
+
                 }
                 chasing = true;
             }
@@ -82,6 +86,9 @@ namespace ProjectGame
             {
                 var behaviour = GameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
                 GameObject.RemoveBehaviour(behaviour);
+
+
+
             }
             else
             {
