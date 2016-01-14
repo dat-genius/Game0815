@@ -42,11 +42,11 @@ namespace ProjectGame
         /// <returns>The new position</returns>
         public static Vector2 ResolveWorldCollision(GameObject gameObject, Vector2 displacement)
         {
-            var thisRectangle = new Rectangle((int)gameObject.Position.X, (int)gameObject.Position.Y, gameObject.Size.X, gameObject.Size.Y);
+            var oldPosition = new Vector2(gameObject.Position.X, gameObject.Position.Y);
+            var newPosition = oldPosition + displacement;
+            var thisRectangle = new Rectangle((int)newPosition.X, (int)newPosition.Y, gameObject.Size.X, gameObject.Size.Y);
 
-            var newPosition = new Vector2(thisRectangle.X, thisRectangle.Y);
-            newPosition += displacement;
-
+            var isColliding = false;
             foreach (var otherObject in gameObjects)
             {
                 if (!otherObject.IsCollidable || otherObject == gameObject)
@@ -55,20 +55,13 @@ namespace ProjectGame
                 var otherRectangle = new Rectangle((int)otherObject.Position.X, (int)otherObject.Position.Y,
                         otherObject.Size.X, otherObject.Size.Y);
 
-                displacement.Normalize();
-                bool test = false;
-                while (thisRectangle.Intersects(otherRectangle))
+                if (thisRectangle.Intersects(otherRectangle))
                 {
-                    newPosition -= displacement;
-                    thisRectangle.X = (int)newPosition.X;
-                    thisRectangle.Y = (int)newPosition.Y;
-                    test = true;
+                    isColliding = true;
+                    break;
                 }
-                if (test)
-                    newPosition -= displacement;
             }
-
-            return newPosition;
+            return isColliding ? oldPosition : newPosition;
         }
 
         /// <summary>
