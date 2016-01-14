@@ -186,3 +186,4 @@ C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
