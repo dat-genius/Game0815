@@ -15,7 +15,8 @@ namespace ProjectGame
         public float RegenSpeed;
         public float Health;
         public float InitialTestos;
-        public bool Regen { set; get; }
+        public bool Regen { get; set; }
+        public bool HealthRegenSword { get; set; }
 
         public GameObject GameObject { get; set; }
         public void OnMessage(IMessage message) { }
@@ -34,8 +35,10 @@ namespace ProjectGame
             {
                 //dood
             }
-            if (Testos < InitialTestos && Regen == true)
+            if (Testos < InitialTestos && Regen)
                 Testos += RegenSpeed;
+            if (HealthRegenSword)
+                Health += RegenSpeed;
         }
 
         /// <summary>
@@ -61,5 +64,14 @@ namespace ProjectGame
             Health -= Damage;
         }
 
+        public void HealthPotion()
+        {
+            Health += 10;
+        }
+
+        public void TestosPotion()
+        {
+            Testos += 10;
+        }
     }
 }

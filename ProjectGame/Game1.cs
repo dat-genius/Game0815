@@ -20,6 +20,7 @@ namespace ProjectGame
         private ICamera camera;
         private SpriteBatch spriteBatch;
         private Tilemap tilemap;
+        private SpriteFont textFont;
 
         //menu
         private Texture2D startButton;
@@ -184,6 +185,7 @@ namespace ProjectGame
             var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
             var helmetTexture = Content.Load<Texture2D>("Head");
+            textFont = Content.Load<SpriteFont>("TextFont");
 
             List<Texture2D> playerAnimations = new List<Texture2D>();
             for (int i = 0; i < 7; i++)
@@ -202,6 +204,7 @@ namespace ProjectGame
                 Texture = playerTexture
             };
             somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
+            somePlayer.AddBehaviour(new StatBehaviour(100, 100, 1));
 
             var someMonster = new GameObject()
             {
@@ -248,7 +251,7 @@ namespace ProjectGame
                 Wielder = someMonster
             });
 
-            someMonster.AddBehaviour(new MonsterAttack(somePlayer, swordMonster));
+            //someMonster.AddBehaviour(new MonsterAttack(somePlayer, swordMonster));
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
@@ -343,6 +346,14 @@ namespace ProjectGame
                 {
                     gameObject.Draw(spriteBatch);
                 }
+
+                foreach(var gameObject in gameObjects)
+                    if (gameObject.HasBehaviourOfType(typeof(StatBehaviour)))
+                    {
+                        StatBehaviour statBehaviour = gameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+
+                        spriteBatch.DrawString(textFont, "health: " + statBehaviour.Health, new Vector2(10, 10), Color.Black);
+                    }
             }
             spriteBatch.End();
             base.Draw(gameTime);
@@ -358,7 +369,7 @@ namespace ProjectGame
             if (!gameObject.HasBehaviourOfType(typeof(MovementBehaviour))) return;
             var behaviour = gameObject.GetBehaviourOfType(typeof(MovementBehaviour));
 
-            switch (position)
+           /* switch (position)
             {
                 case 1:
                     (behaviour as MovementBehaviour).CollisionLeft = true;
@@ -372,7 +383,7 @@ namespace ProjectGame
                 case 4:
                     (behaviour as MovementBehaviour).CollisionBottom = true;
                     break;
-            }
+            }*/
 
             if (gameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)))
             {
