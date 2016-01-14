@@ -15,6 +15,10 @@ namespace ProjectGame
         public float RegenSpeed;
         public float Health;
         public float InitialTestos;
+        public bool Regen { set; get; }
+
+        public GameObject GameObject { get; set; }
+        public void OnMessage(IMessage message) { }
 
         public StatBehaviour(float health, float testos, float regenspeed)
         {
@@ -30,9 +34,32 @@ namespace ProjectGame
             {
                 //dood
             }
-            if (Testos <= InitialTestos) Testos++;
-
-
+            if (Testos < InitialTestos && Regen == true)
+                Testos += RegenSpeed;
         }
+
+        /// <summary>
+        /// Testos decrease when attack
+        /// </summary>
+        /// <param name="TestosLevel"> Different decrease level with different attack method </param>
+
+        public void TestosDown(int TestosLevel)
+        {
+            if (TestosLevel == 1) // stab attack
+                Testos -= 20;
+            if (TestosLevel == 2) // swing attack
+                Testos -= 30;
+        }
+
+        /// <summary>
+        /// Damage if object (player/mob) gets hit
+        /// </summary>
+        /// <param name="Damage"> Hit Power Level </param>
+
+        public void HealthDown(int Damage)
+        {
+            Health -= Damage;
+        }
+
     }
 }

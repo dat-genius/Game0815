@@ -187,3 +187,5 @@ C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
