@@ -188,3 +188,17 @@ C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
 C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
 C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Exit.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Load.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Save.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Start.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\CastleTiles.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Dark_GrassTiles.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Flower.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Flower_Grass.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Fog.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Light_GrassTiles.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\shield2.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Tree.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\Tree_Grass.xnb
+D:\Documents\Loopbaan\Technische Informatica (HHS Delft)\TI-2-DE1.a\KB-24 Gaming minor\Project\Game0815\ProjectGame\bin\Windows\Debug\Content\WoodTiles.xnb

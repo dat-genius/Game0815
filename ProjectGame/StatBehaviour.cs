@@ -11,6 +11,8 @@ namespace ProjectGame
 {
     class StatBehaviour : IBehaviour
     {
+        public GameObject GameObject { get; set; }
+
         public float Testos;
         public float RegenSpeed;
         public float Health;
@@ -31,8 +33,11 @@ namespace ProjectGame
                 //dood
             }
             if (Testos <= InitialTestos) Testos++;
+        }
 
-
+        public void OnMessage(IMessage message)
+        {
+            
         }
     }
 }
