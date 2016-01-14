@@ -63,14 +63,14 @@ namespace ProjectGame
         /// </summary>
         public void Chase()
         {
+            GameObject.Rotation = (float)Math.Atan2(Target.Position.Y - GameObject.Position.Y, Target.Position.X - GameObject.Position.X) + MathHelper.ToRadians(90);
+            
             var positionDifference = Target.Position - beginPosition;
             if (positionDifference.Length() < Radius)
             {
                 if (!Collision)
                 {
-                    GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
-                    GameObject.Rotation = (float)Math.Atan2(Target.Position.Y, Target.position.X);// +MathHelper.ToRadians(90);
-
+                    GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);                   
                 }
                 chasing = true;
             }

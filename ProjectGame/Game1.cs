@@ -222,6 +222,7 @@ namespace ProjectGame
             camera = followCamera;
 
             somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5, camera: camera));
+            someMonster.AddBehaviour(new ChaseBehaviour(250, somePlayer));
         }
 
         /// <summary>

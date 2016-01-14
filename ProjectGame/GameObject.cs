@@ -129,13 +129,13 @@ namespace ProjectGame
                 SpriteEffects.None, 0);
 
             /*Testshit van erwin voor FOVBehaviour*/
-            if (HasBehaviourOfType(typeof(FOVBehavior)))
-            {
-                FOVBehavior test;
-                test = (FOVBehavior)GetBehaviourOfType(typeof(FOVBehavior));
-                Rectangle testRect = test.CreateVisionBox();
-                spriteBatch.Draw(Texture, testRect, Color.Red);
-            }
+            //if (HasBehaviourOfType(typeof(FOVBehavior)))
+            //{
+            //    FOVBehavior test;
+            //    test = (FOVBehavior)GetBehaviourOfType(typeof(FOVBehavior));
+            //    Rectangle testRect = test.CreateVisionBox();
+            //    spriteBatch.Draw(Texture, testRect, Color.Red);
+            //}
         }
 
 
