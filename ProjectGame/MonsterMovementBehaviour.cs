@@ -84,15 +84,11 @@ namespace ProjectGame
                         if (collisionEnterMessage == null) return;
                         var other = collisionEnterMessage.CollidingObject;
                         if (!other.HasBehaviourOfType(typeof(WeaponBehaviour))) return;
-                        var enemy = other.GetBehaviourOfType(typeof(WeaponBehaviour));
-                        if ((enemy as WeaponBehaviour).PlayerSword)
+                        GameObject.Color = Color.Red;
+                        if (--Lives <= 0)
                         {
-                            GameObject.Color = Color.Red;
-                            if (--Lives <= 0)
-                            {
-                                GameObject.IsDrawable = false;
-                            }
-                        }
+                            GameObject.IsDrawable = false;
+                        } 
                     }
                     break;
                 case MessageType.CollisionExit:
