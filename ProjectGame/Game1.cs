@@ -20,7 +20,13 @@ namespace ProjectGame
         private ICamera camera;
         private SpriteBatch spriteBatch;
         private Tilemap tilemap;
+<<<<<<< HEAD
+        private MouseState lastMouseState;
+        private MouseState mouseState;
+        private Menu mainMenu;
+=======
         private SpriteFont textFont;
+>>>>>>> 287a5e304096f12d61d168bcfff866fb7f50f0f0
 
         public Game1()
         {
@@ -141,7 +147,7 @@ namespace ProjectGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load Resources
-            var playerTexture = Content.Load<Texture2D>("basicperson0");
+            var playerTexture = Content.Load<Texture2D>("player/basicperson0");
             var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
             var helmetTexture = Content.Load<Texture2D>("Head");
@@ -150,7 +156,7 @@ namespace ProjectGame
             List<Texture2D> playerAnimations = new List<Texture2D>();
             for (int i = 0; i < 7; i++)
             {
-                playerAnimations.Add(Content.Load<Texture2D>("basicperson" + i));
+                playerAnimations.Add(Content.Load<Texture2D>("player/basicperson" + i));
             }
 
 
@@ -231,6 +237,8 @@ namespace ProjectGame
             camera = followCamera;
 
             somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5, camera: camera));
+
+            mainMenu = new Menu(Content);
         }
 
         /// <summary>
@@ -249,16 +257,34 @@ namespace ProjectGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || mainMenu.state == Menu.GameState.Exit)
                 Exit();
 
-            // TODO: Add your update logic here
-            CheckCollisions();
-            foreach (var gameObject in gameObjects)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && mainMenu.state != Menu.GameState.Menu)
             {
-                gameObject.OnUpdate(gameTime);
+                mainMenu.state = Menu.GameState.Menu;
             }
-            if (camera != null) camera.Update(gameTime);
+            
+
+            // TODO: Add your update logic here
+            if (mainMenu.state != Menu.GameState.Playing)
+            {
+                mouseState = Mouse.GetState();
+                if (lastMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
+                {
+                    mainMenu.MouseClicked(mouseState.X, mouseState.Y);
+                }
+                lastMouseState = mouseState;
+            }
+            else
+            {
+                CheckCollisions();
+                foreach (var gameObject in gameObjects)
+                {
+                    gameObject.OnUpdate(gameTime);
+                }
+                if (camera != null) camera.Update(gameTime);
+            }
             base.Update(gameTime);
         }
 
@@ -269,13 +295,21 @@ namespace ProjectGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DarkGray);
-            spriteBatch.Begin(
-                transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix,
-                samplerState: SamplerState.PointClamp);
-            tilemap.Draw(spriteBatch, camera);
-            foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable))
+            if (mainMenu.state != Menu.GameState.Playing)
             {
-                gameObject.Draw(spriteBatch);
+                spriteBatch.Begin();
+                mainMenu.Draw(spriteBatch);
+            }
+            else
+            {
+                spriteBatch.Begin(
+                    transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix,
+                    samplerState: SamplerState.PointClamp);
+                tilemap.Draw(spriteBatch, camera);
+                foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable))
+                {
+                    gameObject.Draw(spriteBatch);
+                }
             }
             spriteBatch.End();
 
