@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Light_GrassTiles.png</SourceFile>
-  <SourceTime>2016-01-14T14:13:39.165165+01:00</SourceTime>
-  <DestFile>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/bin/Windows/Light_GrassTiles.xnb</DestFile>
-  <DestTime>2016-01-14T23:56:11.5442512+01:00</DestTime>
+  <SourceFile>C:/Users/Gebruiker/Documents/GitHub/Game0815/ProjectGame/Content/Light_GrassTiles.png</SourceFile>
+  <SourceTime>2016-01-13T17:50:24.6838648+01:00</SourceTime>
+  <DestFile>C:/Users/Gebruiker/Documents/GitHub/Game0815/ProjectGame/Content/bin/Windows/Light_GrassTiles.xnb</DestFile>
+  <DestTime>2016-01-15T12:26:57.1157482+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

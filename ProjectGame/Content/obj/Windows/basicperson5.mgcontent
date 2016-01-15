@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/basicperson5.png</SourceFile>
-  <SourceTime>2016-01-14T14:13:39.2291892+01:00</SourceTime>
-  <DestFile>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/bin/Windows/basicperson5.xnb</DestFile>
-  <DestTime>2016-01-14T23:56:10.5101123+01:00</DestTime>
+  <SourceFile>C:/Users/Gebruiker/Documents/GitHub/Game0815/ProjectGame/Content/basicperson5.png</SourceFile>
+  <SourceTime>2016-01-13T17:50:24.7321482+01:00</SourceTime>
+  <DestFile>C:/Users/Gebruiker/Documents/GitHub/Game0815/ProjectGame/Content/bin/Windows/basicperson5.xnb</DestFile>
+  <DestTime>2016-01-15T12:26:56.2362704+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
