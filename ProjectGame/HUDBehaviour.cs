@@ -25,12 +25,9 @@ namespace ProjectGame
         Vector2 PositionTestos;
         string TestosText = "Testosteron: ";
 
-        int BeginPosXHealth;
-        int BeginPosXTestos;
-
         public void OnMessage(IMessage message) { }
 
-        public HUDBehaviour(Texture2D textureHealth, Texture2D textureTestos, SpriteFont text, GameObject gameObject, int ScreenWidth)
+        public HUDBehaviour(Texture2D textureHealth, Texture2D textureTestos, SpriteFont text, GameObject gameObject)
         {
             TextureHealth = textureHealth;
             TextureTestos = textureTestos;
@@ -39,11 +36,8 @@ namespace ProjectGame
             GameObject = gameObject;
             Stats = gameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
 
-            BeginPosXHealth = (ScreenWidth / 2) - ((int)Stats.Health / 2);
-            BeginPosXTestos = (ScreenWidth / 2) - ((int)Stats.Testos / 2);
-
-            PositionHealth = new Vector2(BeginPosXHealth, 5);
-            PositionTestos = new Vector2(BeginPosXTestos, 30);
+            PositionHealth = new Vector2(5, 5);
+            PositionTestos = new Vector2(5, 30);
         }
 
         public void OnUpdate(GameTime gameTime)
@@ -56,8 +50,8 @@ namespace ProjectGame
         {
             spriteBatch.Draw(TextureHealth, RectangleHealth, Color.White);
             spriteBatch.Draw(TextureTestos, RectangleTestos, Color.White);
-            spriteBatch.DrawString(Text, HealthText, new Vector2(BeginPosXHealth + 2, 6), Color.Black);
-            spriteBatch.DrawString(Text, TestosText, new Vector2(BeginPosXTestos + 2, 31), Color.Black);
+            spriteBatch.DrawString(Text, HealthText, new Vector2(PositionHealth.X + 2, 6), Color.Black);
+            spriteBatch.DrawString(Text, TestosText, new Vector2(PositionTestos.X + 2, 31), Color.Black);
         }
     }
 }
