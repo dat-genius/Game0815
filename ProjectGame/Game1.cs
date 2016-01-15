@@ -20,9 +20,13 @@ namespace ProjectGame
         private ICamera camera;
         private SpriteBatch spriteBatch;
         private Tilemap tilemap;
+<<<<<<< HEAD
         private MouseState lastMouseState;
         private MouseState mouseState;
         private Menu mainMenu;
+=======
+        private SpriteFont textFont;
+>>>>>>> 287a5e304096f12d61d168bcfff866fb7f50f0f0
 
         public Game1()
         {
@@ -147,7 +151,8 @@ namespace ProjectGame
             var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
             var helmetTexture = Content.Load<Texture2D>("Head");
-
+            textFont = Content.Load<SpriteFont>("TextFont");
+            
             List<Texture2D> playerAnimations = new List<Texture2D>();
             for (int i = 0; i < 7; i++)
             {
@@ -165,6 +170,13 @@ namespace ProjectGame
                 Texture = playerTexture
             };
             somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
+            somePlayer.AddBehaviour(new StatBehaviour(100, 100, 1));
+            somePlayer.AddBehaviour(new HUDBehaviour(
+                Content.Load<Texture2D>("HealthBar"),
+                Content.Load<Texture2D>("TestosBar"),
+                Content.Load<SpriteFont>("textFont"),
+                somePlayer,
+                GraphicsDevice.Viewport.Width));
 
             var someMonster = new GameObject()
             {
@@ -300,6 +312,18 @@ namespace ProjectGame
                 }
             }
             spriteBatch.End();
+
+            spriteBatch.Begin();
+                foreach (var gameObject in gameObjects)
+                {
+                    if(gameObject.HasBehaviourOfType(typeof(HUDBehaviour)))
+                    {
+                        HUDBehaviour hud = gameObject.GetBehaviourOfType(typeof(HUDBehaviour)) as HUDBehaviour;
+                        hud.draw(spriteBatch);
+                    }
+                }
+            spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }

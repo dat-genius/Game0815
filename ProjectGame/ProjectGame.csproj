@@ -47,6 +47,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="ChildBehaviour.cs" />
+    <Compile Include="HUDBehaviour.cs" />
     <Compile Include="IBehaviour.cs" />
     <Compile Include="ICamera.cs" />
     <Compile Include="IMessage.cs" />

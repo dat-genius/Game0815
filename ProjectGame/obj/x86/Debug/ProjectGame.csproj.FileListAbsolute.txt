@@ -114,6 +114,7 @@ C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGa
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Tree.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Tree_Grass.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\WoodTiles.xnb
+<<<<<<< HEAD
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNichtRechts.xnb
@@ -186,3 +187,127 @@ C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\fullscreen0.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\fullscreen1.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\new.xnb
+=======
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNichtRechts.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\sword1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\ball.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson0.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson3.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson4.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson5.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson6.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson7.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\CastleTiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Dark_GrassTiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNicht.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Exit.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Flower.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Flower_Grass.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Fog.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\grass.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Light_GrassTiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Load.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Ninja.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\ps2-town-tiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Roman.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Save.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\sewer_tileset.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\shield1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Start.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\TextFont.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\tmw_desert_spacing.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Tree.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Tree_Grass.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\WoodTiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\ProjectGame.exe
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\ProjectGame.pdb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\MonoGame.Framework.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XAudio2.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D11.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.DXGI.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct2D1.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\MonoGame.Framework.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XAudio2.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D11.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.DXGI.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct2D1.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\HealthBar.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\TestosBar.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNichtRechts.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\sword1.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\ball.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson0.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson1.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson2.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson3.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson4.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson5.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson6.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\basicperson7.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\CastleTiles.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Dark_GrassTiles.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\EuropeanNicht.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Exit.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Flower.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Flower_Grass.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Fog.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\grass.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\HealthBar.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Light_GrassTiles.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Load.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Ninja.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\ps2-town-tiles.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Roman.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Save.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\sewer_tileset.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\shield1.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Start.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\TestosBar.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\TextFont.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\tmw_desert_spacing.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Tree.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Tree_Grass.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\WoodTiles.xnb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\ProjectGame.exe
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\ProjectGame.pdb
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.dll
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.xml
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Gebruiker\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
+>>>>>>> 287a5e304096f12d61d168bcfff866fb7f50f0f0
