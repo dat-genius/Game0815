@@ -165,7 +165,12 @@ namespace ProjectGame
             };
             somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
             somePlayer.AddBehaviour(new StatBehaviour(100, 100, 1));
-            somePlayer.AddBehaviour(new HUDBehaviour(Content.Load<Texture2D>("HealthBar"), Content.Load<Texture2D>("TestosBar"), somePlayer, GraphicsDevice.Viewport.Width));
+            somePlayer.AddBehaviour(new HUDBehaviour(
+                Content.Load<Texture2D>("HealthBar"),
+                Content.Load<Texture2D>("TestosBar"),
+                Content.Load<SpriteFont>("textFont"),
+                somePlayer,
+                GraphicsDevice.Viewport.Width));
 
             var someMonster = new GameObject()
             {
