@@ -279,6 +279,7 @@ namespace ProjectGame
                 }		
                 if (camera != null) camera.Update(gameTime);		
             }
+            mainMenu.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -288,7 +289,7 @@ namespace ProjectGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.DarkGray);
+            GraphicsDevice.Clear(Color.Black);
             if (mainMenu.state != Menu.GameState.Playing){
                 spriteBatch.Begin();
                 mainMenu.Draw(spriteBatch);
