@@ -210,20 +210,24 @@ namespace ProjectGame
                 Wielder = somePlayer
             });
 
-            //var swordMonster = new GameObject(false, false)
-            //{
-            //    Texture = swordTexture
-            //};
-            //swordMonster.AddBehaviour(new WeaponBehaviour()
-            //{
-            //    Wielder = someMonster
-            //});
+            var swordMonster = new GameObject(false, false)
+            {
+                Texture = swordTexture
+            };
+            swordMonster.AddBehaviour(new WeaponBehaviour()
+            {
+                Wielder = someMonster
+            });
+
+            somePlayer.AddBehaviour(new AttackBehaviour(swordPlayer));
+            someMonster.AddBehaviour(new MonsterAttack(somePlayer));
+            someMonster.AddBehaviour(new AttackBehaviour(swordMonster));
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
             gameObjects.Add(someMonster);
             gameObjects.Add(swordPlayer);
-            //gameObjects.Add(swordMonster);
+            gameObjects.Add(swordMonster);
 
             // Follow player with camera:
             //  ----> Remove the MonsterMovementBehaviourVB, then uncomment below to get a look at the results

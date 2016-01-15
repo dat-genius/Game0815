@@ -47,6 +47,7 @@ namespace ProjectGame
             whereMouseAt -= new Vector2(400, 240);
             GameObject.Rotation = (float)Math.Atan2(whereMouseAt.Y, whereMouseAt.X) + MathHelper.ToRadians(90);
 
+
             /*
             if (displacement.Length() > 0)
             {
@@ -67,7 +68,17 @@ namespace ProjectGame
                 movementBehaviour.Velocity = Vector2.Normalize(displacement) * sprintSpeed;
             else
                 movementBehaviour.Velocity = Vector2.Normalize(displacement) * MovementSpeed;
+
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+                SwingSword();         
                    
+        }
+
+        public void SwingSword()
+        {
+            if (!GameObject.HasBehaviourOfType(typeof(AttackBehaviour))) return;
+            var behaviour = GameObject.GetBehaviourOfType(typeof(AttackBehaviour));
+            (behaviour as AttackBehaviour).Attack = true;
         }
 
         public void OnMessage(IMessage message)
