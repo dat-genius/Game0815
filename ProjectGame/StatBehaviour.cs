@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ProjectGame
 {
-    class StatBehaviour : IBehaviour
+    public class StatBehaviour : IBehaviour
     {
         public float Testos;
         public float RegenSpeed;

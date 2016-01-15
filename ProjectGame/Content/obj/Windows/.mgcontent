@@ -4,37 +4,39 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/ball.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/grass.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/shield1.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/EuropeanNicht.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Ninja.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Roman.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/head.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/basicperson0.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/basicperson1.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/basicperson2.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/basicperson3.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/basicperson4.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/basicperson5.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/basicperson6.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/basicperson7.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Exit.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Load.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Save.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Start.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/TextFont.spritefont</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/CastleTiles.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Dark_GrassTiles.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Flower.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Flower_Grass.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Fog.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Light_GrassTiles.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/sewer_tileset.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/tmw_desert_spacing.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Tree.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Tree_Grass.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/WoodTiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/ball.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/grass.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/shield1.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/EuropeanNicht.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Ninja.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Roman.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/head.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/basicperson0.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/basicperson1.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/basicperson2.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/basicperson3.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/basicperson4.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/basicperson5.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/basicperson6.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/basicperson7.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Exit.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Load.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Save.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Start.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/TextFont.spritefont</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/CastleTiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Dark_GrassTiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Flower.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Flower_Grass.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Fog.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Light_GrassTiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/sewer_tileset.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/tmw_desert_spacing.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Tree.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Tree_Grass.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/WoodTiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/HealthBar.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/TestosBar.png</File>
   </SourceFiles>
 </SourceFileCollection>
