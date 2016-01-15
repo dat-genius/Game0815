@@ -12,18 +12,6 @@
     <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Ninja.png</File>
     <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Roman.png</File>
     <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/head.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson0.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson1.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson2.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson3.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson4.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson5.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson6.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/basicperson7.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Exit.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Load.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Save.png</File>
-    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Start.png</File>
     <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/TextFont.spritefont</File>
     <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/CastleTiles.png</File>
     <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Dark_GrassTiles.png</File>
@@ -38,5 +26,30 @@
     <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/WoodTiles.png</File>
     <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/HealthBar.png</File>
     <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/TestosBar.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/end.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/fullscreen0.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/fullscreen1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/new.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson0.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson2.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson3.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson4.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson5.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson6.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson7.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing0.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing2.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing3.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing4.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing5.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing6.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1Swing8.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1thrust1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1thrust2.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1thrust3.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1thrust4.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1thrust5.png</File>
   </SourceFiles>
 </SourceFileCollection>
