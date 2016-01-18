@@ -74,6 +74,12 @@
     <Report>
       <Path>ProjectGame160109(1).vspx</Path>
     </Report>
+    <Report>
+      <Path>ProjectGame160118.vspx</Path>
+    </Report>
+    <Report>
+      <Path>ProjectGame160118(1).vspx</Path>
+    </Report>
   </Reports>
   <Launches>
     <ProjBinary>

@@ -46,7 +46,7 @@ namespace ProjectGame
             RectangleTestos = new Rectangle((int)PositionTestos.X, (int)PositionTestos.Y, (int)Stats.Testos, TextureTestos.Height);
         }
 
-        public void draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(TextureHealth, RectangleHealth, Color.White);
             spriteBatch.Draw(TextureTestos, RectangleTestos, Color.White);

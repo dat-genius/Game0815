@@ -17,9 +17,9 @@ namespace ProjectGame
     {
         private readonly GraphicsDeviceManager graphics;
         private static List<GameObject> gameObjects;
-        private ICamera camera;
+        private static ICamera camera;
         private SpriteBatch spriteBatch;
-        private Tilemap tilemap;
+        private static Tilemap tilemap;
         private MouseState lastMouseState;
         private MouseState mouseState;
         private Menu mainMenu;
@@ -33,18 +33,18 @@ namespace ProjectGame
             gameObjects = new List<GameObject>();
 
             var xmlSerializer = new XmlSerializer(typeof(Tilemap));
-            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/Main_level.tmx", FileMode.Open));
+            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/bossroom.tmx", FileMode.Open));
         }
 
 
         /// <summary>
         /// Takes a moving object and determines the new position for it based on
-        /// potential collisions in the world.
+        /// potential collisions in the world with other objects.
         /// </summary>
         /// <param name="gameObject">The game object</param>
         /// <param name="displacement">The movement</param>
         /// <returns>The new position</returns>
-        public static Vector2 ResolveWorldCollision(GameObject gameObject, Vector2 displacement)
+        public static bool HasObjectCollision(GameObject gameObject, Vector2 displacement)
         {
             var oldPosition = new Vector2(gameObject.Position.X, gameObject.Position.Y);
             var newPosition = oldPosition + displacement;
@@ -61,11 +61,53 @@ namespace ProjectGame
 
                 if (thisRectangle.Intersects(otherRectangle))
                 {
-                    isColliding = true;
-                    break;
+                    return true;
                 }
             }
-            return isColliding ? oldPosition : newPosition;
+            return false;
+        }
+
+
+        /// <summary>
+        /// Takes a moving object and determines the new position for it based on
+        /// potential collisions in the world with the map.
+        /// </summary>
+        /// <param name="gameObject">The game object</param>
+        /// <param name="displacement">The movement</param>
+        /// <returns>The new position</returns>
+        public static bool HasMapCollision(GameObject gameObject, Vector2 displacement)
+        {
+            var oldPosition = new Vector2(gameObject.Position.X, gameObject.Position.Y);
+            var newPosition = oldPosition + displacement;
+            var thisRectangle = new Rectangle((int)newPosition.X, (int)newPosition.Y, gameObject.Size.X, gameObject.Size.Y);
+
+            var isColliding = false;
+            foreach (var objectGroup in tilemap.ObjectGroups)
+            {
+                foreach (var otherObject in objectGroup.Objects)
+                {
+                    var otherRectangle = new Rectangle(
+                            otherObject.X,
+                            otherObject.Y,
+                            otherObject.Width, 
+                            otherObject.Height);
+
+                    if (thisRectangle.Intersects(otherRectangle))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public static Vector2 ResolveWorldCollision(GameObject gameObject, Vector2 displacement)
+        {
+            if (!HasObjectCollision(gameObject, displacement) && !HasMapCollision(gameObject, displacement))
+            {
+                return gameObject.Position + displacement;
+            }
+            return gameObject.Position;
         }
 
         /// <summary>
@@ -140,7 +182,7 @@ namespace ProjectGame
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
+            // Create a new SpriteBatch, which can be used to Draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load Resources
@@ -163,7 +205,7 @@ namespace ProjectGame
             // Add Game Objects
             var somePlayer = new GameObject
             {
-                Position = new Vector2(200, 300),
+                Position = new Vector2(300, 500),
                 Texture = playerTexture
             };
             somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
@@ -258,16 +300,16 @@ namespace ProjectGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || mainMenu.state == Menu.GameState.Exit)
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || mainMenu.State == Menu.GameState.Exit)
                 Exit();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && mainMenu.state != Menu.GameState.Menu)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && mainMenu.State != Menu.GameState.Menu)
             {
-                mainMenu.state = Menu.GameState.Menu;		
+                mainMenu.State = Menu.GameState.Menu;		
             }
             
             // TODO: Add your update logic here
-            if (mainMenu.state != Menu.GameState.Playing)		
+            if (mainMenu.State != Menu.GameState.Playing)		
             {		         
                 mouseState = Mouse.GetState();	
                 if (lastMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)		
@@ -291,13 +333,15 @@ namespace ProjectGame
 
 
         /// <summary>
-        /// This is called when the game should draw itself.
+        /// This is called when the game should Draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            if (mainMenu.state != Menu.GameState.Playing){
+
+
+            if (mainMenu.State != Menu.GameState.Playing){
                 spriteBatch.Begin();
                 mainMenu.Draw(spriteBatch);
             }
@@ -319,7 +363,7 @@ namespace ProjectGame
                     if(gameObject.HasBehaviourOfType(typeof(HUDBehaviour)))
                     {
                         HUDBehaviour hud = gameObject.GetBehaviourOfType(typeof(HUDBehaviour)) as HUDBehaviour;
-                        hud.draw(spriteBatch);
+                        hud.Draw(spriteBatch);
                     }
                 }
             }

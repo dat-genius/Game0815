@@ -9,23 +9,23 @@ using System.Threading;
 
 namespace ProjectGame
 {
-    class Menu
+    public class Menu
     {
-        ContentManager Content;
+        private readonly ContentManager Content;
         private Texture2D newButton;
         private Texture2D continueButton;
         private List<Texture2D> titleSprites;
         private Texture2D endButton;
 
-        private int deltaTime, listpos =0;
+        private int deltaTime;
+        private int listpos;
 
         private Vector2 newButtonPosition;
         private Vector2 endButtonPosition;
         private Vector2 continueButtonPosition;
 
         public enum GameState { Menu, Loading, New, Playing, Exit }
-        private GameState gameState;
-        public GameState state { get { return gameState; } set { gameState = value; } }
+        public GameState State { get; set; }
 
         private void LoadMenu()
         {
@@ -39,7 +39,7 @@ namespace ProjectGame
             endButtonPosition = new Vector2((0.5f * 800) - 100, newButtonPosition.Y + 80);
             continueButtonPosition = new Vector2(800 - 100, 430);
 
-            state = GameState.Loading;
+            State = GameState.Playing;
         }
 
         public Menu(ContentManager content)
@@ -55,7 +55,7 @@ namespace ProjectGame
 
         public void Update(GameTime gameTime)
         {
-            if (gameState == GameState.Loading)
+            if (State == GameState.Loading)
             {
                 int delta = (int)gameTime.ElapsedGameTime.TotalMilliseconds;
                 if ((deltaTime - delta) > 2000)
@@ -64,13 +64,13 @@ namespace ProjectGame
                     if (listpos >= 3)
                     {
                         listpos = 3;
-                        gameState = GameState.Menu;
+                        State = GameState.Menu;
                     }
                     deltaTime = 0;
                 }
                 deltaTime += delta;
             }
-            if (gameState == GameState.Menu)
+            if (State == GameState.Menu)
             {
                 listpos = 3;
             }
@@ -79,7 +79,7 @@ namespace ProjectGame
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(titleSprites[listpos], new Vector2(0, 0), Color.White);
-            if (gameState == GameState.Menu)
+            if (State == GameState.Menu)
             {
                 Color temp = Color.White;
                 for (int layer = 0; layer < 2; layer++)
@@ -99,7 +99,7 @@ namespace ProjectGame
                     temp = Color.Red;
                 }
             }
-            if (gameState == GameState.New)
+            if (State == GameState.New)
             {
                 spriteBatch.Draw(continueButton, continueButtonPosition, Color.Red);
             }
@@ -109,22 +109,22 @@ namespace ProjectGame
         {
             Rectangle mouseClickRect = new Rectangle(x - 5, y - 5, 10, 10);
 
-            if (gameState == GameState.Menu)
+            if (State == GameState.Menu)
             {
                 Rectangle newButtonRect = new Rectangle((int)newButtonPosition.X, (int)newButtonPosition.Y, 200, 50);
                 Rectangle endButtonRect = new Rectangle((int)endButtonPosition.X, (int)endButtonPosition.Y, 200, 50);
 
                 if (mouseClickRect.Intersects(newButtonRect))
                 {
-                    gameState = GameState.New;
+                    State = GameState.New;
                     listpos = 4;
                 }
                 else if (mouseClickRect.Intersects(endButtonRect))
                 {
-                    gameState = GameState.Exit;
+                    State = GameState.Exit;
                 }
             }
-            if (gameState == GameState.New)
+            if (State == GameState.New)
             {
                 Rectangle continueButtonRect = new Rectangle((int)continueButtonPosition.X, (int)continueButtonPosition.Y, 200, 50);
                 if (mouseClickRect.Intersects(continueButtonRect))
@@ -132,7 +132,7 @@ namespace ProjectGame
                     listpos++;
                     if (listpos >= 7)
                     {
-                        gameState = GameState.Playing;
+                        State = GameState.Playing;
                         listpos = 3;
                     }
                 }

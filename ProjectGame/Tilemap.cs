@@ -38,6 +38,9 @@ namespace ProjectGame
         [XmlElement("layer")]
         public TileLayer[] TileLayers { get; set; }
 
+        [XmlElement("objectgroup")]
+        public ObjectGroup[] ObjectGroups { get; set; }
+
         [XmlIgnore] 
         private Vector2 lastCameraPosition;
 
@@ -47,7 +50,7 @@ namespace ProjectGame
 
         /// <summary>
         /// Processes the tilemap by calculating all the source and destination rectangles only 
-        /// once instead of during every draw call.
+        /// once instead of during every Draw call.
         /// </summary>
         /// <param name="contentManager">The content manager to get the tilemap texture atlas from.</param>
         public void Build(ContentManager contentManager)
@@ -69,7 +72,7 @@ namespace ProjectGame
                     var gid = layer.TileData[i];
 
                     Tileset tilesetToUse = null;
-                    foreach (var tileset in Tilesets.TakeWhile(tileset => tileset.FirstGid <= gid).Where(tileset => tileset.FirstGid <= gid))
+                    foreach (var tileset in Tilesets.TakeWhile(tileset => tileset.FirstGid - 1 <= gid).Where(tileset => tileset.FirstGid - 1 <= gid))
                     {
                         tilesetToUse = tileset;
                     }
@@ -106,7 +109,7 @@ namespace ProjectGame
                         sourceY += tilesetToUse.TileHeight + tilesetToUse.Spacing;
                     }
                     sourceX *= tilesetToUse.TileWidth + tilesetToUse.Spacing;
-                    var sourceRectangle = new Rectangle(sourceX, sourceY, tilesetToUse.TileWidth, tilesetToUse.TileHeight);
+                    var sourceRectangle = new Rectangle(sourceX, sourceY, tilesetToUse.TileWidth, tilesetToUse.TileHeight - 1);
 
                     layer.DrawableTiles[i] = new DrawableTile
                     {
@@ -121,7 +124,7 @@ namespace ProjectGame
         /// <summary>
         /// Draws all the layers in the tilemap.
         /// </summary>
-        /// <param name="spriteBatch">The spritebatch to draw the tilemap with.</param>
+        /// <param name="spriteBatch">The spritebatch to Draw the tilemap with.</param>
         public void Draw(SpriteBatch spriteBatch, ICamera camera)
         {
             // 800x480 = hardcoded window resolution
@@ -142,6 +145,8 @@ namespace ProjectGame
                 {
                     foreach (var drawableTile in layer.DrawableTiles)
                     {
+                        if (drawableTile == null)
+                            continue;
                         if (drawableTile.DestinationRectangle.Intersects(renderingRectangle))
                         {
                             cullFilteredDrawableTiles.Add(drawableTile);
@@ -154,6 +159,8 @@ namespace ProjectGame
 
             foreach (var tile in cullFilteredDrawableTiles)
             {
+                if (tile == null)
+                    continue;
                 tile.Draw(spriteBatch);
             }
         }
@@ -168,11 +175,35 @@ namespace ProjectGame
         /// <summary>
         /// Draws the tile.
         /// </summary>
-        /// <param name="spriteBatch">The spritebatch to draw the tilemap with.</param>
+        /// <param name="spriteBatch">The spritebatch to Draw the tilemap with.</param>
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, destinationRectangle: DestinationRectangle, sourceRectangle: SourceRectangle);
         }
+    }
+
+    public class Object
+    {
+        [XmlAttribute("x")]
+        public int X { get; set;}
+
+        [XmlAttribute("y")]
+        public int Y { get; set; }
+
+        [XmlAttribute("width")]
+        public int Width { get; set; }
+
+        [XmlAttribute("height")]
+        public int Height { get; set; } 
+    }
+
+    public class ObjectGroup
+    {
+        [XmlAttribute("name")]
+        public String Name { get; set; }
+
+        [XmlElement("object")]
+        public List<Object> Objects { get; set; }
     }
 
     public class Tileset
@@ -230,11 +261,10 @@ namespace ProjectGame
         [XmlIgnore]
         public DrawableTile[] DrawableTiles { get; set; }
 
-
         /// <summary>
         /// Draws the tile layer.
         /// </summary>
-        /// <param name="spriteBatch">The spritebatch to draw the tilemap with.</param>
+        /// <param name="spriteBatch">The spritebatch to Draw the tilemap with.</param>
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (var drawableTile in DrawableTiles)
