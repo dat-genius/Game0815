@@ -12,19 +12,19 @@ namespace ProjectGame
     {
         public GameObject GameObject { get; set; }
         private List<GameObject> gameObjects;
-        private GameObject visionBox;
+ //       private GameObject visionBox;
         private GameObject player;
         private bool playerInViewLastFrame = false;
         public int ViewDistance { get; set; }
 
-        public FOVBehavior()
+        public FOVBehavior(List<GameObject> GameObjects)
         {
+            gameObjects = GameObjects;
             ViewDistance = 300;
         }
 
         public void OnUpdate(GameTime gameTime)
         {
-            gameObjects = GameObject.CollidingGameObjects;
             var found = DetectPlayer();
             if (found && !playerInViewLastFrame)
             {
@@ -116,9 +116,9 @@ namespace ProjectGame
             List<GameObject> objectList = new List<GameObject>();
             foreach (GameObject gameObjectFromList in gameObjects)
             {
-                if (gameObjectFromList.SourceRectangle.Intersects(GameObject.SourceRectangle))
+                Rectangle intersection = new Rectangle((int)gameObjectFromList.Position.X, (int)gameObjectFromList.Position.Y, gameObjectFromList.SourceRectangle.Width, gameObjectFromList.SourceRectangle.Height);
+                if (intersection.Intersects(visionBox))
                 {
-                    Rectangle banaan = new Rectangle(10, 10, 10, 10);
                     objectList.Add(gameObjectFromList);
                 }
             }
