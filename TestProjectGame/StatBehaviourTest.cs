@@ -2,8 +2,9 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectGame;
 using Microsoft.Xna.Framework;
+using ProjectGame;
+
 
 namespace TestProjectGame
 {
@@ -13,37 +14,21 @@ namespace TestProjectGame
     [TestClass]
     public class StatBehaviourTest
     {
+        private GameObject player;
+        private StatBehaviour Stats;
 
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
+        [TestInitialize]
+        public void initialize()
+        {
+            player = new GameObject();
+            player.AddBehaviour(new StatBehaviour(100, 100, 1));
+
+            Stats = player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+        }
 
         [TestMethod]
         public void TestStatDecl()
         {
-            var player = new GameObject();
-            player.AddBehaviour(new StatBehaviour(100,100,1));
-
-            var Stats = player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
-
             Assert.AreEqual(100, Stats.Health);
             Assert.AreEqual(100, Stats.Testos);
             Assert.AreEqual(1, Stats.RegenSpeed);
@@ -52,11 +37,6 @@ namespace TestProjectGame
         [TestMethod]
         public void TestStatHealthDownLowDamage()
         {
-            var player = new GameObject();
-            player.AddBehaviour(new StatBehaviour(100, 100, 1));
-
-            var Stats = player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
-
             Stats.HealthDown(20);
 
             Assert.AreEqual(80, Stats.Health);
@@ -67,11 +47,6 @@ namespace TestProjectGame
         [TestMethod]
         public void TestStatHealthDownHighDamage()
         {
-            var player = new GameObject();
-            player.AddBehaviour(new StatBehaviour(100, 100, 1));
-
-            var Stats = player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
-
             Stats.HealthDown(50);
 
             Assert.AreEqual(50, Stats.Health);
@@ -83,11 +58,6 @@ namespace TestProjectGame
         [TestMethod]
         public void TestStatTestosDown()
         {
-            var player = new GameObject();
-            player.AddBehaviour(new StatBehaviour(100, 100, 1));
-
-            var Stats = player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
-
             Stats.TestosDown(1);
 
             Assert.AreEqual(100, Stats.Health);
@@ -98,14 +68,9 @@ namespace TestProjectGame
         [TestMethod]
         public void TestStatTestosRegen()
         {
-            var player = new GameObject();
-            player.AddBehaviour(new StatBehaviour(100, 100, 1));
-
-            var Stats = player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+            Stats.Regen = true;
 
             Stats.TestosDown(1);
-
-            Stats.Regen = true;
 
             Stats.OnUpdate(new GameTime());
 
@@ -117,14 +82,10 @@ namespace TestProjectGame
         [TestMethod]
         public void TestStatTestosRegenCap()
         {
-            var player = new GameObject();
-            player.AddBehaviour(new StatBehaviour(100, 100, 1));
-
-            var Stats = player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
-
-            Stats.TestosDown(1);
 
             Stats.Regen = true;
+
+            Stats.TestosDown(1);
 
             for (int i = 0; i < 30; i++)
                 Stats.OnUpdate(new GameTime());
