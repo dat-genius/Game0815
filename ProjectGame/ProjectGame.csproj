@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AreaExitedMessage.cs" />
+    <Compile Include="AttackBehaviour.cs" />
     <Compile Include="ChaseBehaviour.cs" />
     <Compile Include="FollowCamera.cs" />
     <Compile Include="CollisionEnterMessage.cs" />
@@ -47,10 +48,13 @@
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="ChildBehaviour.cs" />
+    <Compile Include="HUDBehaviour.cs" />
     <Compile Include="IBehaviour.cs" />
     <Compile Include="ICamera.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="InputMovementBehaviour.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="MonsterAttack.cs" />
     <Compile Include="MonsterMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour.cs" />
     <Compile Include="AreaEnteredMessage.cs" />
@@ -72,7 +76,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\shield1.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

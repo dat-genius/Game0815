@@ -15,6 +15,7 @@ namespace ProjectGame
 
         // => ParentTransform
         public GameObject Wielder { get; set; }
+        public bool SwingSword { get; set; }
 
         private readonly TimeSpan cooldownTime;
         private readonly TimeSpan durationTime;
@@ -53,7 +54,7 @@ namespace ProjectGame
 
             if (timeUntilUsable.TotalSeconds <= 0)
             {
-                if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+                if (SwingSword)
                 {
                     GameObject.IsDrawable = true;
                     //GameObject.IsCollidable = true;
@@ -66,6 +67,7 @@ namespace ProjectGame
             if (timeSinceUsage < durationTime) return;
             GameObject.IsDrawable = false;
             //GameObject.IsCollidable = false;
+            SwingSword = false;
         }
 
         public void OnMessage(IMessage message)

@@ -12,6 +12,7 @@ namespace ProjectGame
     {
         public GameObject GameObject { get; set; }
         private List<GameObject> gameObjects;
+        private GameObject visionBox;
         private GameObject player;
         private bool playerInViewLastFrame = false;
         public int ViewDistance { get; set; }
@@ -82,6 +83,11 @@ namespace ProjectGame
                 if (rotation >= 67.5 && rotation < 112.5)
                 {
                     y -= height / 2;
+                }
+                if (rotation >= 112.5 && rotation < 157.5)
+                {
+                    x -= width;
+                    y -= height;
                 }
                 if (rotation >= 157.5 && rotation < 202.5)
                 {

@@ -4,26 +4,57 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/ball.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/grass.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/shield1.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/EuropeanNicht.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/Ninja.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/Roman.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/head.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson0.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson1.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson2.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson3.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson4.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson5.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson6.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/basicperson7.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/Exit.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/Load.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/Save.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/Start.png</File>
-    <File>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/TextFont.spritefont</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/EuropeanNicht.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Roman.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/head.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/TextFont.spritefont</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/CastleTiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Dark_GrassTiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Flower.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Flower_Grass.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Fog.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Light_GrassTiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/sewer_tileset.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/tmw_desert_spacing.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Tree.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/Tree_Grass.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/WoodTiles.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/HealthBar.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/TestosBar.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/end.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/fullscreen0.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/fullscreen1.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/new.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/player/basicperson0.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/player/basicperson1.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/player/basicperson2.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/player/basicperson3.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/player/basicperson4.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/player/basicperson5.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/player/basicperson6.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/player/basicperson7.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1swing0.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1swing1.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1swing2.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1swing3.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1swing4.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1swing5.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1swing6.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1Swing8.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1thrust1.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1thrust2.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1thrust3.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1thrust4.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/swords/Sword1thrust5.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/title0.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/title1.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/title2.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/title3.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/title4.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/title5.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/title6.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/title7.png</File>
+    <File>D:/01 School/Practicum/Jaar 2/Gaming Development (Minor)/Game0815/ProjectGame/Content/menu/continue.png</File>
   </SourceFiles>
 </SourceFileCollection>

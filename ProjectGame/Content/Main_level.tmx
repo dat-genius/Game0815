@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="320" height="320" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="Light_GrassTiles" tilewidth="32" tileheight="32" spacing="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="320" height="320" tilewidth="32" tileheight="32" nextobjectid="72">
+ <tileset firstgid="1" name="Light_GrassTiles" tilewidth="32" tileheight="32" spacing="1" tilecount="88" columns="11">
   <image source="Light_GrassTiles.png" width="362" height="263"/>
  </tileset>
- <tileset firstgid="89" name="Dark_GrassTiles" tilewidth="32" tileheight="32">
+ <tileset firstgid="89" name="Dark_GrassTiles" tilewidth="32" tileheight="32" tilecount="64" columns="8">
   <image source="Dark_GrassTiles.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="153" name="CastleTiles" tilewidth="32" tileheight="32" spacing="4">
+ <tileset firstgid="153" name="CastleTiles" tilewidth="32" tileheight="32" spacing="4" tilecount="40" columns="10">
   <image source="CastleTiles.png" width="356" height="140"/>
  </tileset>
- <tileset firstgid="193" name="WoodTiles" tilewidth="32" tileheight="32">
+ <tileset firstgid="193" name="WoodTiles" tilewidth="32" tileheight="32" tilecount="64" columns="8">
   <image source="WoodTiles.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="257" name="Tree" tilewidth="32" tileheight="32">
+ <tileset firstgid="257" name="Tree" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="Tree.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="258" name="Tree_Grass" tilewidth="32" tileheight="32">
+ <tileset firstgid="258" name="Tree_Grass" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="Tree_Grass.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="259" name="Flower_Grass" tilewidth="32" tileheight="32">
+ <tileset firstgid="259" name="Flower_Grass" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="Flower_Grass.png" width="33" height="32"/>
  </tileset>
- <tileset firstgid="260" name="Flower" tilewidth="32" tileheight="32">
+ <tileset firstgid="260" name="Flower" tilewidth="32" tileheight="32" tilecount="1" columns="1">
   <image source="Flower.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="261" name="Fog" tilewidth="633" tileheight="479">
+ <tileset firstgid="261" name="Fog" tilewidth="633" tileheight="479" tilecount="1" columns="1">
   <image source="Fog.png" width="633" height="479"/>
  </tileset>
  <layer name="Tilelaag 1" width="320" height="320">
@@ -351,9 +351,58 @@
 109,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,112
 </data>
  </layer>
- <objectgroup color="#000000" name="collision" opacity="0.6">
-  <object gid="261" x="7072" y="7968" width="3360" height="5808"/>
-  <object gid="261" x="7236" y="7296" width="3020" height="4480"/>
-  <object x="420" y="422" width="156" height="150"/>
+ <objectgroup color="#000000" name="Objectlaag 1" visible="0" opacity="0.6">
+  <object id="7" gid="261" x="7072" y="7968" width="3360" height="5808"/>
+  <object id="12" gid="261" x="7236" y="7296" width="3020" height="4480"/>
+ </objectgroup>
+ <objectgroup name="collision">
+  <object id="13" x="2396" y="1376" width="96" height="1108"/>
+  <object id="14" x="2400" y="96" width="88" height="1116"/>
+  <object id="15" x="96" y="2396" width="1120" height="96"/>
+  <object id="16" x="1380" y="2400" width="1012" height="88"/>
+  <object id="17" x="12" y="12" width="2324" height="2312"/>
+  <object id="21" x="1780" y="3756" width="372" height="544"/>
+  <object id="24" x="1528" y="5396" width="360" height="528"/>
+  <object id="25" x="1924" y="6180" width="352" height="544"/>
+  <object id="29" x="4" y="7800" width="2328" height="2312"/>
+  <object id="31" x="104" y="7708" width="1116" height="84"/>
+  <object id="32" x="1392" y="7704" width="1100" height="100"/>
+  <object id="33" x="2408" y="7816" width="100" height="996"/>
+  <object id="34" x="2412" y="8996" width="96" height="1108"/>
+  <object id="35" x="2324" y="10036" width="120" height="72"/>
+  <object id="39" x="7860" y="7720" width="2248" height="2380"/>
+  <object id="42" x="7712" y="7728" width="136" height="1096"/>
+  <object id="43" x="7712" y="8976" width="132" height="1144"/>
+  <object id="45" x="3728" y="4024" width="832" height="2216"/>
+  <object id="46" x="3896" y="6240" width="2264" height="344"/>
+  <object id="48" x="5792" y="3888" width="880" height="2328"/>
+  <object id="49" x="4120" y="3504" width="1976" height="544"/>
+  <object id="52" x="7844" y="100" width="2256" height="2216"/>
+  <object id="53" x="9000" y="2396" width="1224" height="92"/>
+  <object id="54" x="7720" y="2320" width="1128" height="168"/>
+  <object id="55" x="7692" y="1368" width="132" height="948"/>
+  <object id="56" x="7724" y="96" width="84" height="1108"/>
+  <object id="59" x="7128" y="1584">
+   <polygon points="0,0 -1752,1008 16,1176"/>
+  </object>
+  <object id="61" x="3072" y="1568">
+   <polygon points="0,0 1840,1032 -8,1200"/>
+  </object>
+  <object id="62" x="3088" y="304" width="4040" height="1008"/>
+  <object id="63" x="3072" y="1296">
+   <polygon points="0,0 4032,40 2056,1160"/>
+  </object>
+  <object id="64" x="1080" y="3408">
+   <polyline points="0,0 16,224 -544,568 -536,784 -72,1224 -64,1600 -528,1912 -528,2304 -144,2600 -152,2944 -528,3400 -808,3400 -456,2888 -440,2664 -816,2304 -848,1896 -392,1624 -360,1320 -856,848 -816,528 -368,112 -328,-32 16,-32"/>
+  </object>
+  <object id="65" x="2876" y="9172" width="4296" height="896"/>
+  <object id="66" x="4856" y="8196">
+   <polygon points="0,0 -28,956 1604,968"/>
+  </object>
+  <object id="67" x="7024" y="7804">
+   <polygon points="0,0 -4,920 -2176,-64"/>
+  </object>
+  <object id="69" x="3048" y="8024" width="1096" height="712"/>
+  <object id="70" x="4168" y="8024" width="412" height="516"/>
  </objectgroup>
 </map>
