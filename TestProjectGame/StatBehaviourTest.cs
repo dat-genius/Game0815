@@ -50,7 +50,7 @@ namespace TestProjectGame
         }
 
         [TestMethod]
-        public void TestStatHealthDown()
+        public void TestStatHealthDownLowDamage()
         {
             var player = new GameObject();
             player.AddBehaviour(new StatBehaviour(100, 100, 1));
@@ -63,6 +63,22 @@ namespace TestProjectGame
             Assert.AreEqual(100, Stats.Testos);
             Assert.AreEqual(1, Stats.RegenSpeed);
         }
+
+        [TestMethod]
+        public void TestStatHealthDownHighDamage()
+        {
+            var player = new GameObject();
+            player.AddBehaviour(new StatBehaviour(100, 100, 1));
+
+            var Stats = player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+
+            Stats.HealthDown(50);
+
+            Assert.AreEqual(50, Stats.Health);
+            Assert.AreEqual(100, Stats.Testos);
+            Assert.AreEqual(1, Stats.RegenSpeed);
+        }
+
 
         [TestMethod]
         public void TestStatTestosDown()
@@ -95,6 +111,26 @@ namespace TestProjectGame
 
             Assert.AreEqual(100, Stats.Health);
             Assert.AreEqual(81, Stats.Testos);
+            Assert.AreEqual(1, Stats.RegenSpeed);
+        }
+
+        [TestMethod]
+        public void TestStatTestosRegenCap()
+        {
+            var player = new GameObject();
+            player.AddBehaviour(new StatBehaviour(100, 100, 1));
+
+            var Stats = player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+
+            Stats.TestosDown(1);
+
+            Stats.Regen = true;
+
+            for (int i = 0; i < 30; i++)
+                Stats.OnUpdate(new GameTime());
+
+            Assert.AreEqual(100, Stats.Health);
+            Assert.AreEqual(100, Stats.Testos);
             Assert.AreEqual(1, Stats.RegenSpeed);
         }
     }
