@@ -224,6 +224,7 @@ namespace ProjectGame
             somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5, camera: camera));
         }
 
+
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// game-specific content.
@@ -232,6 +233,7 @@ namespace ProjectGame
         {
             // TODO: Unload any non ContentManager content here
         }
+
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,
@@ -253,6 +255,7 @@ namespace ProjectGame
             base.Update(gameTime);
         }
 
+
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -273,4 +276,3 @@ namespace ProjectGame
         }
     }
 }
-

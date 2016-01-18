@@ -9,19 +9,20 @@ namespace ProjectGame
     {
         public GameObject GameObject { get; set; }
         public Vector2 Velocity { get; set; }
-        private bool hasTextureList = false;
-        private Texture2D Idle;
-        private List<Texture2D> Texturelist;
+
+        private bool hasTextureList;
+        private Texture2D idle;
+        private List<Texture2D> texturelist;
         private int listpos;
-        private int deltaTime = 0;
+        private int deltaTime;
         
         public MovementBehaviour() { }
 
         public MovementBehaviour(List<Texture2D> textureList)
         {
             hasTextureList = true;
-            Texturelist = textureList;
-            Idle = textureList[0];
+            texturelist = textureList;
+            idle = textureList[0];
         }
 
         public void OnUpdate(GameTime gameTime)
@@ -44,19 +45,19 @@ namespace ProjectGame
                 int delta = (int)gameTime.ElapsedGameTime.TotalMilliseconds;
                 if( (deltaTime - delta) > 50){
                     listpos++;
-                    if (listpos >= Texturelist.Count)
+                    if (listpos >= texturelist.Count)
                     {
                         listpos = 0;
                     }
                     deltaTime = 0;
-                    GameObject.Texture = Texturelist[listpos];
+                    GameObject.Texture = texturelist[listpos];
                 }
                 deltaTime += delta;
                 
             }
             else
             {
-                GameObject.Texture = Idle;
+                GameObject.Texture = idle;
                 listpos = 0;
             }
         }

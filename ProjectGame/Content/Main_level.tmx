@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="320" height="320" tilewidth="32" tileheight="32" nextobjectid="13">
- <tileset firstgid="1" name="Light_GrassTiles" tilewidth="32" tileheight="32" spacing="1" tilecount="88">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="320" height="320" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Light_GrassTiles" tilewidth="32" tileheight="32" spacing="1">
   <image source="Light_GrassTiles.png" width="362" height="263"/>
  </tileset>
- <tileset firstgid="89" name="Dark_GrassTiles" tilewidth="32" tileheight="32" tilecount="64">
+ <tileset firstgid="89" name="Dark_GrassTiles" tilewidth="32" tileheight="32">
   <image source="Dark_GrassTiles.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="153" name="CastleTiles" tilewidth="32" tileheight="32" spacing="4" tilecount="40">
+ <tileset firstgid="153" name="CastleTiles" tilewidth="32" tileheight="32" spacing="4">
   <image source="CastleTiles.png" width="356" height="140"/>
  </tileset>
- <tileset firstgid="193" name="WoodTiles" tilewidth="32" tileheight="32" tilecount="64">
+ <tileset firstgid="193" name="WoodTiles" tilewidth="32" tileheight="32">
   <image source="WoodTiles.png" width="256" height="256"/>
  </tileset>
- <tileset firstgid="257" name="Tree" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="257" name="Tree" tilewidth="32" tileheight="32">
   <image source="Tree.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="258" name="Tree_Grass" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="258" name="Tree_Grass" tilewidth="32" tileheight="32">
   <image source="Tree_Grass.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="259" name="Flower_Grass" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="259" name="Flower_Grass" tilewidth="32" tileheight="32">
   <image source="Flower_Grass.png" width="33" height="32"/>
  </tileset>
- <tileset firstgid="260" name="Flower" tilewidth="32" tileheight="32" tilecount="1">
+ <tileset firstgid="260" name="Flower" tilewidth="32" tileheight="32">
   <image source="Flower.png" width="32" height="32"/>
  </tileset>
- <tileset firstgid="261" name="Fog" tilewidth="633" tileheight="479" tilecount="1">
+ <tileset firstgid="261" name="Fog" tilewidth="633" tileheight="479">
   <image source="Fog.png" width="633" height="479"/>
  </tileset>
  <layer name="Tilelaag 1" width="320" height="320">
@@ -351,8 +351,9 @@
 109,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,113,112
 </data>
  </layer>
- <objectgroup color="#000000" name="Objectlaag 1" opacity="0.6">
-  <object id="7" gid="261" x="7072" y="7968" width="3360" height="5808"/>
-  <object id="12" gid="261" x="7236" y="7296" width="3020" height="4480"/>
+ <objectgroup color="#000000" name="collision" opacity="0.6">
+  <object gid="261" x="7072" y="7968" width="3360" height="5808"/>
+  <object gid="261" x="7236" y="7296" width="3020" height="4480"/>
+  <object x="420" y="422" width="156" height="150"/>
  </objectgroup>
 </map>
