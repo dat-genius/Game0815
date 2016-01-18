@@ -187,7 +187,7 @@ namespace ProjectGame
 
 
             /*TEST SHIT FOR FOV*/
-            FOVBehavior testFOV = new FOVBehavior();
+            FOVBehavior testFOV = new FOVBehavior(gameObjects);
             someMonster.Rotation = 0;
             someMonster.AddBehaviour(testFOV);
             /* end test shit*/

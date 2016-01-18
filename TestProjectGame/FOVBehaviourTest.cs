@@ -25,7 +25,7 @@ namespace TestProjectGame
         public void TestHasFOVBehaviour()
         {
             Assert.IsFalse(testObject.HasBehaviourOfType(typeof(FOVBehavior)));
-            testObject.AddBehaviour(new FOVBehavior());
+            testObject.AddBehaviour(new FOVBehavior(gameObjects));
             Assert.IsTrue(testObject.HasBehaviourOfType(typeof(FOVBehavior)));
         }
 
@@ -33,7 +33,7 @@ namespace TestProjectGame
         public void TestFindNoPlayer()
         {
             GameObject testObject = new GameObject();
-            FOVBehavior testFOV = new FOVBehavior();
+            FOVBehavior testFOV = new FOVBehavior(gameObjects);
             testObject.AddBehaviour(testFOV);
             testObject.Rotation = 0;
             testObject.Position = new Vector2(100, 100);
@@ -47,13 +47,13 @@ namespace TestProjectGame
         public void TestFindOutsideOfBox()
         {
             GameObject testObject = new GameObject();
-            FOVBehavior testFOV = new FOVBehavior();
+            FOVBehavior testFOV = new FOVBehavior(gameObjects);
             testObject.AddBehaviour(testFOV);
             testObject.Rotation = 0;
             testObject.Position = new Vector2(100, 100);
             GameObject testPlayerObject = new GameObject();
             testPlayerObject.AddBehaviour(new InputMovementBehaviour(5, new FollowCamera()));
-            testPlayerObject.Position = new Vector2(100, -200);
+            testPlayerObject.Position = new Vector2(100, 200);
 
             gameObjects.Add(testObject);
             gameObjects.Add(testPlayerObject);
@@ -67,13 +67,13 @@ namespace TestProjectGame
         public void TestFindTrue()
         {
             GameObject testObject = new GameObject();
-            FOVBehavior testFOV = new FOVBehavior();
+            FOVBehavior testFOV = new FOVBehavior(gameObjects);
             testObject.AddBehaviour(testFOV);
             testObject.Rotation = 0;
             testObject.Position = new Vector2(100, 100);
             GameObject testPlayerObject = new GameObject();
             testPlayerObject.AddBehaviour(new InputMovementBehaviour(5, new FollowCamera()));
-            testPlayerObject.Position = new Vector2(100, 200);
+            testPlayerObject.Position = new Vector2(100, 0);
 
             gameObjects.Add(testObject);
             gameObjects.Add(testPlayerObject);
