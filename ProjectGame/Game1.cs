@@ -232,7 +232,7 @@ namespace ProjectGame
 
             //someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());
-            //someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
+            
 
             someHelmet.AddBehaviour(new ChildBehaviour()
             {
@@ -276,6 +276,8 @@ namespace ProjectGame
 
             somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5, camera: camera));
             mainMenu = new Menu(Content);
+            //someMonster.Position = somePlayer.Position - new Vector2(100, 100);
+            someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
         }
 
 
@@ -314,11 +316,9 @@ namespace ProjectGame
                 }		
                 lastMouseState = mouseState;		
             }    
-            else		           
-            {		
+            else{		
                 CheckCollisions();		
-                foreach (var gameObject in gameObjects)		
-                {		
+                foreach (var gameObject in gameObjects){		
                     gameObject.OnUpdate(gameTime);		
                 }		
                 if (camera != null) camera.Update(gameTime);		
