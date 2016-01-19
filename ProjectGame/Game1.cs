@@ -33,7 +33,7 @@ namespace ProjectGame
             gameObjects = new List<GameObject>();
 
             var xmlSerializer = new XmlSerializer(typeof(Tilemap));
-            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/bossroom.tmx", FileMode.Open));
+            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/bossroom2.tmx", FileMode.Open));
         }
 
 

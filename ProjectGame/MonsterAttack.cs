@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace ProjectGame
 {
-    class MonsterAttack : IBehaviour
+    public class MonsterAttack : IBehaviour
     {
         public GameObject GameObject { get; set; }
         public GameObject Target { get; set; }
