@@ -17,6 +17,7 @@ namespace ProjectGame
         public float InitialTestos;
         public bool Regen { get; set; }
         public bool HealthRegenSword { get; set; }
+        public DateTime time;
 
         public GameObject GameObject { get; set; }
         public void OnMessage(IMessage message) { }
@@ -29,14 +30,22 @@ namespace ProjectGame
             Health = health;
         }
 
+        public StatBehaviour(float health)
+        {
+            Health = health;
+        }
+
         public void OnUpdate(GameTime gametime)
         {
             if (Health <= 0)
             {
-                //dood
+                
             }
-            if (Testos < InitialTestos && Regen)
+
+            if (Testos < InitialTestos && (DateTime.Now - time).Seconds > 5)
+            {
                 Testos += RegenSpeed;
+            }
             if (HealthRegenSword)
                 Health += RegenSpeed;
         }
@@ -50,8 +59,14 @@ namespace ProjectGame
         {
             if (TestosLevel == 1) // stab attack
                 Testos -= 20;
-            if (TestosLevel == 2) // swing attack
-                Testos -= 30;
+            if (TestosLevel == 2) // Sprint
+                Testos -= 1;
+
+            if (Testos < 0)
+            {
+                Testos = 0;
+                time = DateTime.Now;
+            }
         }
 
         /// <summary>

@@ -33,6 +33,7 @@ namespace ProjectGame
             if (timeUntilUsage.TotalMilliseconds <= 0 && Attack)
             {
                 (BehaviourSword as WeaponBehaviour).SwingSword = true;
+                (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).TestosDown(1);
                 timeUntilUsage = cooldown;
             }
 

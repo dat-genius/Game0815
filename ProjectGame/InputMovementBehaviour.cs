@@ -64,14 +64,16 @@ namespace ProjectGame
 
             
             // Moet nog wel testosterone van afgehaald worden
-            if (Keyboard.GetState().IsKeyDown(Keys.LeftShift))
+            if (Keyboard.GetState().IsKeyDown(Keys.LeftShift) && (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).Testos > 0 && displacement.Length() > 0)
+            {
                 movementBehaviour.Velocity = Vector2.Normalize(displacement) * sprintSpeed;
+                (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).TestosDown(2);
+            }
             else
                 movementBehaviour.Velocity = Vector2.Normalize(displacement) * MovementSpeed;
 
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-                SwingSword();         
-                   
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed && (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).Testos > 0)
+                SwingSword();
         }
 
         public void SwingSword()

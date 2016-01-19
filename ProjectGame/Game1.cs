@@ -211,7 +211,7 @@ namespace ProjectGame
                 Texture = playerTexture
             };
             somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
-            somePlayer.AddBehaviour(new StatBehaviour(100, 100, 1));
+            somePlayer.AddBehaviour(new StatBehaviour(100, 100, 0.1f));
             somePlayer.AddBehaviour(new HUDBehaviour(
                 Content.Load<Texture2D>("HealthBar"),
                 Content.Load<Texture2D>("TestosBar"),
