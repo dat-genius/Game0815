@@ -227,12 +227,8 @@ namespace ProjectGame
                 Texture = helmetTexture
             };
 
-
-            /*TEST SHIT FOR FOV*/
-            FOVBehavior testFOV = new FOVBehavior(gameObjects);
-            someMonster.Rotation = 0;
-            someMonster.AddBehaviour(testFOV);
-            /* end test shit*/
+            FOVBehavior FOV = new FOVBehavior(gameObjects);
+            someMonster.AddBehaviour(FOV);
 
             //someMonster.AddBehaviour(new MonsterMovementBehaviour());
             someMonster.AddBehaviour(new MovementBehaviour());

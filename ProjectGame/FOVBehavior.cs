@@ -12,7 +12,6 @@ namespace ProjectGame
     {
         public GameObject GameObject { get; set; }
         private List<GameObject> gameObjects;
- //       private GameObject visionBox;
         private GameObject player;
         private bool playerInViewLastFrame = false;
         public int ViewDistance { get; set; }
