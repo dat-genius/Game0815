@@ -39,7 +39,7 @@ namespace ProjectGame
             endButtonPosition = new Vector2((0.5f * 800) - 100, newButtonPosition.Y + 80);
             continueButtonPosition = new Vector2(800 - 100, 430);
 
-            State = GameState.Playing;
+            State = GameState.Loading;
         }
 
         public Menu(ContentManager content)
