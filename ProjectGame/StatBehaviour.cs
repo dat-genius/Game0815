@@ -61,7 +61,7 @@ namespace ProjectGame
             if (TestosLevel == 1) // stab attack
                 Testos -= 20;
             if (TestosLevel == 2) // Sprint
-                Testos -= 1;
+                Testos -= 0.5f;
 
             if (Testos < 0)
             {
