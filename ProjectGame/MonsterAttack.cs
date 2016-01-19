@@ -45,7 +45,7 @@ namespace ProjectGame
 
         }
 
-        private bool CheckRange()
+        public bool CheckRange()
         {
             var positionDifference = Target.Position - GameObject.Position;
             if (positionDifference.Length() <= radius)

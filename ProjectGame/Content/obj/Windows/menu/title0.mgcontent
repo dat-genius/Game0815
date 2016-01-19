@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/title0.png</SourceFile>
-  <SourceTime>2016-01-19T12:13:54.9394551+01:00</SourceTime>
-  <DestFile>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/bin/Windows/menu/title0.xnb</DestFile>
-  <DestTime>2016-01-19T12:19:58.6021299+01:00</DestTime>
+  <SourceFile>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/menu/title0.png</SourceFile>
+  <SourceTime>2016-01-18T18:07:53.7192376+01:00</SourceTime>
+  <DestFile>D:/Documents/Loopbaan/Technische Informatica (HHS Delft)/TI-2-DE1.a/KB-24 Gaming minor/Project/Game0815/ProjectGame/Content/bin/Windows/menu/title0.xnb</DestFile>
+  <DestTime>2016-01-19T12:23:38.236088+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
