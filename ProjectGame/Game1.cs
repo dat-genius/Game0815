@@ -33,7 +33,7 @@ namespace ProjectGame
             gameObjects = new List<GameObject>();
 
             var xmlSerializer = new XmlSerializer(typeof(Tilemap));
-            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/bossroom.tmx", FileMode.Open));
+            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/Main_level.tmx", FileMode.Open));
         }
 
 
@@ -205,7 +205,7 @@ namespace ProjectGame
             // Add Game Objects
             var somePlayer = new GameObject
             {
-                Position = new Vector2(300, 500),
+                Position = new Vector2(1216, 2976),
                 Texture = playerTexture
             };
             somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
