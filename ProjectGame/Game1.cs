@@ -218,22 +218,26 @@ namespace ProjectGame
                 Content.Load<SpriteFont>("textFont"),
                 somePlayer));
 
-            var someMonster = new GameObject()
-            {
-                Position = new Vector2(20, 20),
-                Texture = monsterTexture
-            };
+            LoadMonster(new Vector2(65,160), somePlayer);
+            LoadMonster(new Vector2(40,160), somePlayer);
+            LoadMonster(new Vector2(40,218), somePlayer);
+            LoadMonster(new Vector2(40,110), somePlayer);
+            LoadMonster(new Vector2(104,48), somePlayer);
+            LoadMonster(new Vector2(150,75), somePlayer);
+            LoadMonster(new Vector2(177,71), somePlayer);
+            LoadMonster(new Vector2(219,46), somePlayer);
+            LoadMonster(new Vector2(160,101), somePlayer);
+            LoadMonster(new Vector2(201,113), somePlayer);
+            LoadMonster(new Vector2(224,159), somePlayer);
+            LoadMonster(new Vector2(214,195), somePlayer);
+            LoadMonster(new Vector2(160,225), somePlayer);
+            LoadMonster(new Vector2(150,270), somePlayer);
+
 
             var someHelmet = new GameObject(true, false)
             {
                 Texture = helmetTexture
             };
-
-            FOVBehavior FOV = new FOVBehavior(gameObjects);
-            someMonster.AddBehaviour(FOV);
-
-            //someMonster.AddBehaviour(new MonsterMovementBehaviour());
-            someMonster.AddBehaviour(new MovementBehaviour());
             
 
             someHelmet.AddBehaviour(new ChildBehaviour()
@@ -250,24 +254,12 @@ namespace ProjectGame
                 Wielder = somePlayer
             });
 
-            var swordMonster = new GameObject(false, false)
-            {
-                Texture = swordTexture
-            };
-            swordMonster.AddBehaviour(new WeaponBehaviour()
-            {
-                Wielder = someMonster
-            });
-
             somePlayer.AddBehaviour(new AttackBehaviour(swordPlayer));
-            someMonster.AddBehaviour(new MonsterAttack(somePlayer));
-            someMonster.AddBehaviour(new AttackBehaviour(swordMonster));
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
-            gameObjects.Add(someMonster);
             gameObjects.Add(swordPlayer);
-            gameObjects.Add(swordMonster);
+
 
             // Follow player with camera:
             //  ----> Remove the MonsterMovementBehaviourVB, then uncomment below to get a look at the results
@@ -279,7 +271,7 @@ namespace ProjectGame
             somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5, camera: camera));
             mainMenu = new Menu(Content);
             //someMonster.Position = somePlayer.Position - new Vector2(100, 100);
-            someMonster.AddBehaviour(new ChaseBehaviour(200.0f, somePlayer));
+            
         }
 
 
@@ -368,6 +360,36 @@ namespace ProjectGame
             spriteBatch.End();
             
             base.Draw(gameTime);
+        }
+
+        private void LoadMonster(Vector2 position,GameObject target)
+        {
+            var monsterTexture = Content.Load<Texture2D>("Roman");
+            var swordTexture = Content.Load<Texture2D>("sword1");
+            GameObject someMonster = new GameObject()
+            {
+                Position = new Vector2(position.X *32,position.Y *32),
+                Texture = monsterTexture
+            };
+
+            var swordMonster = new GameObject(false, false)
+            {
+                Texture = swordTexture
+            };
+            swordMonster.AddBehaviour(new WeaponBehaviour()
+            {
+                Wielder = someMonster
+            });
+
+            FOVBehavior FOV = new FOVBehavior(gameObjects);
+            someMonster.AddBehaviour(FOV);
+            someMonster.AddBehaviour(new MovementBehaviour());
+            someMonster.AddBehaviour(new MonsterAttack(target));
+            someMonster.AddBehaviour(new AttackBehaviour(swordMonster));
+            someMonster.AddBehaviour(new ChaseBehaviour(200.0f, target));
+
+            gameObjects.Add(someMonster);
+            gameObjects.Add(swordMonster);
         }
     }
 }
