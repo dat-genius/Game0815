@@ -57,7 +57,7 @@ namespace ProjectGame
                 if (SwingSword)
                 {
                     GameObject.IsDrawable = true;
-                    //GameObject.IsCollidable = true;
+                    GameObject.IsCollidable = true;
                     timeUntilUsable = cooldownTime;
                     timeSinceUsage = TimeSpan.FromSeconds(0);
                 }
@@ -66,7 +66,7 @@ namespace ProjectGame
             timeSinceUsage += gameTime.ElapsedGameTime;
             if (timeSinceUsage < durationTime) return;
             GameObject.IsDrawable = false;
-            //GameObject.IsCollidable = false;
+            GameObject.IsCollidable = false;
             SwingSword = false;
         }
 

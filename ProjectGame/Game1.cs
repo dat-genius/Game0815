@@ -218,20 +218,48 @@ namespace ProjectGame
                 Content.Load<SpriteFont>("textFont"),
                 somePlayer));
 
-            LoadMonster(new Vector2(65,160), somePlayer);
-            LoadMonster(new Vector2(40,160), somePlayer);
-            LoadMonster(new Vector2(40,218), somePlayer);
-            LoadMonster(new Vector2(40,110), somePlayer);
-            LoadMonster(new Vector2(104,48), somePlayer);
-            LoadMonster(new Vector2(150,75), somePlayer);
-            LoadMonster(new Vector2(177,71), somePlayer);
-            LoadMonster(new Vector2(219,46), somePlayer);
-            LoadMonster(new Vector2(160,101), somePlayer);
-            LoadMonster(new Vector2(201,113), somePlayer);
-            LoadMonster(new Vector2(224,159), somePlayer);
-            LoadMonster(new Vector2(214,195), somePlayer);
-            LoadMonster(new Vector2(160,225), somePlayer);
-            LoadMonster(new Vector2(150,270), somePlayer);
+            //------test--------
+            GameObject someMonster = new GameObject()
+            {
+                Position = new Vector2(1216,  3100),
+                Texture = monsterTexture
+            };
+
+            var swordMonster = new GameObject(false, false)
+            {
+                Texture = swordTexture
+            };
+            swordMonster.AddBehaviour(new WeaponBehaviour()
+            {
+                Wielder = someMonster
+            });
+
+            FOVBehavior FOV = new FOVBehavior(gameObjects);
+            someMonster.AddBehaviour(FOV);
+            someMonster.AddBehaviour(new MovementBehaviour());
+            someMonster.AddBehaviour(new MonsterAttack(somePlayer));
+            someMonster.AddBehaviour(new AttackBehaviour(swordMonster));
+            someMonster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
+            someMonster.AddBehaviour(new CollisionBehaviour());
+
+            gameObjects.Add(someMonster);
+            gameObjects.Add(swordMonster);
+            //-----------einde test--------------------------------------
+
+            //LoadMonster(new Vector2(65,160), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(40,160), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(40, 218), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(40, 110), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(104, 48), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(150, 75), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(177, 71), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(219, 46), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(160, 101), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(201, 113), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(224, 159), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(214, 195), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(160, 225), somePlayer, monsterTexture, swordTexture);
+            //LoadMonster(new Vector2(150, 270), somePlayer, monsterTexture, swordTexture);
 
 
             var someHelmet = new GameObject(true, false)
@@ -255,6 +283,7 @@ namespace ProjectGame
             });
 
             somePlayer.AddBehaviour(new AttackBehaviour(swordPlayer));
+            somePlayer.AddBehaviour(new CollisionBehaviour());
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
@@ -362,10 +391,10 @@ namespace ProjectGame
             base.Draw(gameTime);
         }
 
-        private void LoadMonster(Vector2 position,GameObject target)
+        private void LoadMonster(Vector2 position,GameObject target, Texture2D monsterTexture, Texture2D swordTexture)
         {
-            var monsterTexture = Content.Load<Texture2D>("Roman");
-            var swordTexture = Content.Load<Texture2D>("sword1");
+            //var monsterTexture = Content.Load<Texture2D>("Roman");
+            //var swordTexture = Content.Load<Texture2D>("sword1");
             GameObject someMonster = new GameObject()
             {
                 Position = new Vector2(position.X *32,position.Y *32),

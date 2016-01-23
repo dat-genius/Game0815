@@ -39,7 +39,8 @@ namespace ProjectGame
         {
             if (Health <= 0)
             {
-                
+                GameObject.IsDrawable = false;
+                GameObject.IsCollidable = false;
             }
 
             if (Testos < InitialTestos && (DateTime.Now - time).Seconds > 5)

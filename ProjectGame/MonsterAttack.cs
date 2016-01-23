@@ -32,7 +32,7 @@ namespace ProjectGame
                 inSight = true;            
             
 
-            if (/*inSight &&*/ CheckRange())
+            if (inSight && CheckRange())
                 attack = true;
             else
                 attack = false;
