@@ -240,10 +240,10 @@ namespace ProjectGame
             someMonster.AddBehaviour(new MonsterAttack(somePlayer));
             someMonster.AddBehaviour(new AttackBehaviour(swordMonster));
             someMonster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
-            someMonster.AddBehaviour(new MonsterMovementBehaviour(new Vector2(1216, 3100))
-            {
-                Sword = swordMonster
-            });
+            //someMonster.AddBehaviour(new MonsterMovementBehaviour(someMonster.Position)
+            //{
+            //    Sword = swordMonster
+            //});
 
             gameObjects.Add(someMonster);
             gameObjects.Add(swordMonster);
@@ -286,6 +286,7 @@ namespace ProjectGame
             });
 
             somePlayer.AddBehaviour(new AttackBehaviour(swordPlayer));
+            somePlayer.AddBehaviour(new PlayerHitBehaviour(swordPlayer));
             
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
