@@ -94,7 +94,7 @@ namespace ProjectGame
             {
                 if (!GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)) && !chasing)
                 {
-                    GameObject.AddBehaviour(new MonsterMovementBehaviour());
+                    GameObject.AddBehaviour(new MonsterMovementBehaviour(GameObject.Position));
                 }
             }
             Collision = false;

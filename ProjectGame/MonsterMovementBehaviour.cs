@@ -7,7 +7,7 @@ namespace ProjectGame
     public class MonsterMovementBehaviour : IBehaviour
     {
         public GameObject GameObject { get; set; }
-        public int Lives { get; set; }
+        public GameObject Sword { get; set; }
 
         private readonly Vector2[] pathNodes;
         private int currentNodeIndex;
@@ -17,16 +17,17 @@ namespace ProjectGame
         private MovementBehaviour movementBahaviour = null;
         public bool Collision = false;
 
-        public MonsterMovementBehaviour(int lives = 5)
+        public MonsterMovementBehaviour(Vector2 position)
         {
-            Lives = lives;
+            var X = position.X;
+            var Y = position.Y;
             pathNodes = new Vector2[]
             {
-                new Vector2(50, 50),
-                new Vector2(100, 50),
-                new Vector2(300, 300),
-                new Vector2(300, 200),
-                new Vector2(100, 20),
+                new Vector2(X,Y),
+                new Vector2(X+50, Y),
+                new Vector2(X+100, Y+50),
+                new Vector2(X+100,Y+100),
+                new Vector2(X,Y+50), 
             };
             currentNodeIndex = 0;
             timePerPath = TimeSpan.FromSeconds(1);
@@ -84,8 +85,12 @@ namespace ProjectGame
                         if (collisionEnterMessage == null) return;
                         var other = collisionEnterMessage.CollidingObject;
                         if (!other.HasBehaviourOfType(typeof(WeaponBehaviour))) return;
+                        var otherSwordBehaviour = other.GetBehaviourOfType(typeof(WeaponBehaviour));
+                        if ((otherSwordBehaviour as WeaponBehaviour).Wielder == GameObject) return;
                         GameObject.Color = Color.Red;
-                        if (--Lives <= 0)
+                        var behaviourStats = GameObject.GetBehaviourOfType(typeof(StatBehaviour));
+                        (behaviourStats as StatBehaviour).HealthDown(10);
+                        if((behaviourStats as StatBehaviour).Health == 0)
                         {
                             GameObject.IsDrawable = false;
                         } 

@@ -41,7 +41,6 @@
     <Compile Include="AreaExitedMessage.cs" />
     <Compile Include="AttackBehaviour.cs" />
     <Compile Include="ChaseBehaviour.cs" />
-    <Compile Include="CollisionBehaviour.cs" />
     <Compile Include="FollowCamera.cs" />
     <Compile Include="CollisionEnterMessage.cs" />
     <Compile Include="CollisionExitMessage.cs" />
