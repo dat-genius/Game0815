@@ -15,6 +15,7 @@ namespace ProjectGame
             GameObject.SourceRectangle = Parent.SourceRectangle;
             GameObject.Rotation = Parent.Rotation;
             GameObject.Size = Parent.Size;
+            GameObject.IsDrawable = Parent.IsDrawable;
         }
 
         public void OnMessage(IMessage message)

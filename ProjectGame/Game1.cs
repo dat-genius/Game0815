@@ -192,7 +192,21 @@ namespace ProjectGame
             var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
             var helmetTexture = Content.Load<Texture2D>("Head");
+            var mouseHelmet = Content.Load<Texture2D>("mickeyhelm");
+            var olifantHelm = Content.Load<Texture2D>("Olifanthelm");
+            var boss1 = Content.Load<Texture2D>("Boss1");
+            var boss2 = Content.Load<Texture2D>("Boss2");
+            var boss3 = Content.Load<Texture2D>("Boss3");
+            var boss4 = Content.Load<Texture2D>("Boss4");
+            var khan = Content.Load<Texture2D>("khan");
+            var bossStart = Content.Load<Texture2D>("BossLopen/BossLopen0");
             textFont = Content.Load<SpriteFont>("TextFont");
+
+            List<Texture2D> bossAnimations = new List<Texture2D>();
+            for(int i =0; i < 8; i++)
+            {
+                bossAnimations.Add(Content.Load<Texture2D>("BossLopen/BossLopen" + i));
+            }
             
             List<Texture2D> playerAnimations = new List<Texture2D>();
             for (int i = 0; i < 7; i++)
@@ -211,12 +225,33 @@ namespace ProjectGame
                 Texture = playerTexture
             };
             somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
-            somePlayer.AddBehaviour(new StatBehaviour(100, 100, 0.1f));
+            somePlayer.AddBehaviour(new StatBehaviour(100, 200, 0.5f));
             somePlayer.AddBehaviour(new HUDBehaviour(
                 Content.Load<Texture2D>("HealthBar"),
                 Content.Load<Texture2D>("TestosBar"),
                 Content.Load<SpriteFont>("textFont"),
                 somePlayer));
+            var someHelmet = new GameObject(true, false)
+            {
+                Texture = helmetTexture
+            };
+            
+            someHelmet.AddBehaviour(new ChildBehaviour()
+            {
+                Parent = somePlayer
+            });
+
+            var swordPlayer = new GameObject(false, false)
+            {
+                Texture = swordTexture
+            };
+            swordPlayer.AddBehaviour(new WeaponBehaviour()
+            {
+                Wielder = somePlayer
+            });
+
+            somePlayer.AddBehaviour(new AttackBehaviour(swordPlayer));
+            somePlayer.AddBehaviour(new PlayerHitBehaviour(swordPlayer));
 
             //------test--------
             GameObject someMonster = new GameObject()
@@ -240,7 +275,7 @@ namespace ProjectGame
             someMonster.AddBehaviour(new MonsterAttack(somePlayer));
             someMonster.AddBehaviour(new AttackBehaviour(swordMonster));
             someMonster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
-            someMonster.AddBehaviour(new ChaseBehaviour(200, somePlayer));
+            //someMonster.AddBehaviour(new ChaseBehaviour(200, somePlayer));
             //someMonster.AddBehaviour(new MonsterMovementBehaviour(someMonster.Position)
             //{
             //    Sword = swordMonster
@@ -265,33 +300,45 @@ namespace ProjectGame
             //LoadMonster(new Vector2(160, 225), somePlayer, monsterTexture, swordTexture);
             //LoadMonster(new Vector2(150, 270), somePlayer, monsterTexture, swordTexture);
 
-
-            var someHelmet = new GameObject(true, false)
+            var testBoss = new GameObject()
             {
-                Texture = helmetTexture
+                Position = new Vector2(1216,3500),
+                Texture = bossStart
             };
+            var swordboss = new GameObject(false, false)
+                {
+                    Texture = swordTexture
+                };
+            swordboss.AddBehaviour(new WeaponBehaviour()
+                {
+                    Wielder = testBoss
+                });
+            var bossHelmet = new GameObject(true, false)
+            {
+                Texture = boss2
+            };
+            bossHelmet.AddBehaviour(new ChildBehaviour()
+                {
+                    Parent = testBoss
+                });
+
+            testBoss.AddBehaviour(new MovementBehaviour(bossAnimations));
+            testBoss.AddBehaviour(new MonsterAttack(somePlayer));
+            testBoss.AddBehaviour(new AttackBehaviour(swordboss));
+            testBoss.AddBehaviour(new FOVBehavior(gameObjects));
+            testBoss.AddBehaviour(new StatBehaviour(600, 100, 0.1f));
+            testBoss.AddBehaviour(new MonsterMovementBehaviour(testBoss.Position)
+                {
+                    Sword = swordboss
+                });
             
-
-            someHelmet.AddBehaviour(new ChildBehaviour()
-            {
-                Parent = somePlayer
-            });
-
-            var swordPlayer = new GameObject(false, false)
-            {
-                Texture = swordTexture
-            };
-            swordPlayer.AddBehaviour(new WeaponBehaviour()
-            {
-                Wielder = somePlayer
-            });
-
-            somePlayer.AddBehaviour(new AttackBehaviour(swordPlayer));
-            somePlayer.AddBehaviour(new PlayerHitBehaviour(swordPlayer));
             
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
             gameObjects.Add(swordPlayer);
+            gameObjects.Add(swordboss);
+            gameObjects.Add(testBoss);
+            gameObjects.Add(bossHelmet);
 
 
             // Follow player with camera:
@@ -405,7 +452,7 @@ namespace ProjectGame
                 Texture = monsterTexture
             };
 
-            var swordMonster = new GameObject(false, false)
+            GameObject swordMonster = new GameObject(false, false)
             {
                 Texture = swordTexture
             };

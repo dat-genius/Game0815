@@ -15,6 +15,7 @@ namespace ProjectGame
         private List<Texture2D> texturelist;
         private int listpos;
         private int deltaTime;
+        private Vector2 positionLastFrame;
         
         public MovementBehaviour() { }
 
@@ -23,6 +24,7 @@ namespace ProjectGame
             hasTextureList = true;
             texturelist = textureList;
             idle = textureList[0];
+
         }
 
         public void OnUpdate(GameTime gameTime)
@@ -40,7 +42,7 @@ namespace ProjectGame
 
         public void UpdateTexture(GameTime gameTime)
         {
-            if (Math.Abs(Velocity.X) > 0.01 || Math.Abs(Velocity.Y) > 0.01)
+            if (CheckForMovement())
             {
                 int delta = (int)gameTime.ElapsedGameTime.TotalMilliseconds;
                 if( (deltaTime - delta) > 50){
@@ -60,6 +62,32 @@ namespace ProjectGame
                 GameObject.Texture = idle;
                 listpos = 0;
             }
+        }
+
+        private bool CheckBossMovement()
+        {
+            if (GameObject.Position != positionLastFrame)
+            {
+                positionLastFrame = GameObject.Position;
+                return true;
+            }
+            else
+            {
+                positionLastFrame = GameObject.Position;
+                return false;
+            }
+        }
+
+        private bool CheckForMovement()
+        {
+            if(Math.Abs(Velocity.X) > 0.01)
+                return true;
+            if(Math.Abs(Velocity.Y) > 0.01) 
+               return true;
+            if (CheckBossMovement())
+                return true;
+
+            return false;
         }
 
         public void OnMessage(IMessage message)
