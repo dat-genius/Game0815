@@ -240,6 +240,7 @@ namespace ProjectGame
             someMonster.AddBehaviour(new MonsterAttack(somePlayer));
             someMonster.AddBehaviour(new AttackBehaviour(swordMonster));
             someMonster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
+            someMonster.AddBehaviour(new ChaseBehaviour(200, somePlayer));
             //someMonster.AddBehaviour(new MonsterMovementBehaviour(someMonster.Position)
             //{
             //    Sword = swordMonster
