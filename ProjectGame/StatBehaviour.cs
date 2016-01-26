@@ -93,11 +93,12 @@ namespace ProjectGame
                 Health = InitialHealth;
             }
             else { Health += 30; }
+            Potions -= 1;
         }
 
         public void TakePotion()
         {
-            if(Keyboard.GetState().IsKeyDown(Keys.H) && !IsHDown){                
+            if(Keyboard.GetState().IsKeyDown(Keys.H) && !IsHDown && Potions>0){                
                 HealthPotion();
                 IsHDown = true;
             }else if(Keyboard.GetState().IsKeyUp(Keys.H)){

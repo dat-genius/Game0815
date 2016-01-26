@@ -28,7 +28,7 @@ namespace ProjectGame
 
         public void AddPotion()
         {
-            if (RN(0, 10) % 3 == 0)
+            if (RN(0, 10) % 2 == 0)
             {
                 behaviourStat.AddPotion();
             }

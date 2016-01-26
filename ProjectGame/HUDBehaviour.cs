@@ -50,7 +50,7 @@ namespace ProjectGame
         {
             spriteBatch.Draw(TextureHealth, RectangleHealth, Color.White);
             spriteBatch.Draw(TextureTestos, RectangleTestos, Color.White);
-            spriteBatch.DrawString(Text, HealthText, new Vector2(PositionHealth.X + 2, 6), Color.Black);
+            spriteBatch.DrawString(Text, HealthText + Stats.Potions, new Vector2(PositionHealth.X + 2, 6), Color.Black);
             spriteBatch.DrawString(Text, TestosText, new Vector2(PositionTestos.X + 2, 31), Color.Black);
         }
     }
