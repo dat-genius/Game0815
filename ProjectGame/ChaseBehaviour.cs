@@ -92,24 +92,24 @@ namespace ProjectGame
             }
         }
 
-        public void ToggleMonsterBehavior(bool chasing)
-        {
-            if (GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)) && chasing)
-            {
-                var behaviour = GameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
-                GameObject.RemoveBehaviour(behaviour);
+        //public void ToggleMonsterBehavior(bool chasing)
+        //{
+        //    if (GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)) && chasing)
+        //    {
+        //        var behaviour = GameObject.GetBehaviourOfType(typeof(MonsterMovementBehaviour));
+        //        GameObject.RemoveBehaviour(behaviour);
 
 
 
-            }
-            else
-            {
-                if (!GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)) && !chasing)
-                {
-                    GameObject.AddBehaviour(new MonsterMovementBehaviour(GameObject.Position));
-                }
-            }
-            Collision = false;
-        }
+        //    }
+        //    else
+        //    {
+        //        if (!GameObject.HasBehaviourOfType(typeof(MonsterMovementBehaviour)) && !chasing)
+        //        {
+        //            GameObject.AddBehaviour(new MonsterMovementBehaviour(GameObject.Position));
+        //        }
+        //    }
+        //    Collision = false;
+        //}
     }
 }
