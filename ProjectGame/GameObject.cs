@@ -33,6 +33,7 @@ namespace ProjectGame
 
         public Texture2D Texture { get; set; }
         public Vector2 Position { get; set; }
+        public Vector2 Spawn;
         public float Rotation { get; set; }
         public Color Color { get; set; }
         public List<GameObject> CollidingGameObjects { get; set; }
@@ -80,6 +81,11 @@ namespace ProjectGame
             behaviours = new List<IBehaviour>();
             CollidingGameObjects = new List<GameObject>();
             Color = Color.White;
+
+            if (Position.Length() > 0)
+            {
+                Spawn = Position;
+            }
         }
 
         public GameObject(bool isDrawable = true, bool isCollidable = true) : this()

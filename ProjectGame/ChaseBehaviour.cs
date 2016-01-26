@@ -34,7 +34,8 @@ namespace ProjectGame
             {
                 Chase();
             }
-            ToggleMonsterBehavior(chasing);
+            else { GetBack(); }
+            //ToggleMonsterBehavior(chasing);
         }
 
         public void OnMessage(IMessage message)
@@ -68,15 +69,26 @@ namespace ProjectGame
             {
                 if (!Collision)
                 {
-                    GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+                    if (positionDifference.Length() > 90)
+                    {
+                        GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
+                    }                                      
                     GameObject.Rotation = (float)Math.Atan2(Target.Position.Y - GameObject.Position.Y , Target.Position.X - GameObject.Position.X) +MathHelper.ToRadians(90);
 
                 }
                 chasing = true;
             }
             else
+            {               
+                chasing = false;               
+            }
+        }
+
+        public void GetBack()
+        {
+            if (chasing == false)
             {
-                chasing = false;
+                GameObject.Position = Vector2.Lerp(beginPosition, Target.Spawn, lerpFactor);
             }
         }
 

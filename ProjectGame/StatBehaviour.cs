@@ -15,6 +15,8 @@ namespace ProjectGame
         public float RegenSpeed;
         public float Health;
         public float InitialTestos;
+        public float InitialHealth;
+        private bool IsHDown = false;
         public bool Regen { get; set; }
         public bool HealthRegenSword { get; set; }
         public DateTime time;
@@ -28,6 +30,7 @@ namespace ProjectGame
             InitialTestos = testos;
             RegenSpeed = regenspeed;
             Health = health;
+            InitialHealth = health;
         }
 
         public StatBehaviour(float health)
@@ -49,6 +52,7 @@ namespace ProjectGame
             }
             if (HealthRegenSword)
                 Health += RegenSpeed;
+            pb();
         }
 
         /// <summary>
@@ -82,12 +86,23 @@ namespace ProjectGame
 
         public void HealthPotion()
         {
-            Health += 10;
+            if ((Health + 30) >= InitialHealth)
+            {
+                Health = InitialHealth;
+            }
+            else { Health += 30; }
         }
 
-        public void TestosPotion()
+        public void pb()
         {
-            Testos += 10;
+            if(Keyboard.GetState().IsKeyDown(Keys.H) && !IsHDown){                
+                HealthPotion();
+                IsHDown = true;
+            }else if(Keyboard.GetState().IsKeyUp(Keys.H)){
+                    IsHDown = false;
+                }
+            
         }
+
     }
 }
