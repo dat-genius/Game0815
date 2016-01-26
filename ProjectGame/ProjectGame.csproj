@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="AreaExitedMessage.cs" />
     <Compile Include="AttackBehaviour.cs" />
+    <Compile Include="BondBehaviour.cs" />
     <Compile Include="ChaseBehaviour.cs" />
     <Compile Include="FollowCamera.cs" />
     <Compile Include="CollisionEnterMessage.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="InputMovementBehaviour.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MonsterAttack.cs" />
-    <Compile Include="MonsterMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour.cs" />
     <Compile Include="AreaEnteredMessage.cs" />
     <Compile Include="HitBehaviour.cs" />

@@ -255,6 +255,7 @@ namespace ProjectGame
 
             somePlayer.AddBehaviour(new AttackBehaviour(swordPlayer));
             somePlayer.AddBehaviour(new HitBehaviour(swordPlayer));
+            somePlayer.AddBehaviour(new BondBehaviour(swordPlayer, someHelmet));
 
             //------test--------
             GameObject someMonster = new GameObject()
@@ -280,10 +281,6 @@ namespace ProjectGame
             someMonster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
             someMonster.AddBehaviour(new HitBehaviour(swordMonster));
             //someMonster.AddBehaviour(new ChaseBehaviour(200, somePlayer));
-            //someMonster.AddBehaviour(new MonsterMovementBehaviour(someMonster.Position)
-            //{
-            //    Sword = swordMonster
-            //});
 
             gameObjects.Add(someMonster);
             gameObjects.Add(swordMonster);
@@ -319,6 +316,8 @@ namespace ProjectGame
             testBoss.AddBehaviour(new FOVBehavior(gameObjects));
             testBoss.AddBehaviour(new StatBehaviour(600, 100, 0.1f));
             testBoss.AddBehaviour(new HitBehaviour(swordboss));
+            testBoss.AddBehaviour(new ChaseBehaviour(300, somePlayer));
+            testBoss.AddBehaviour(new BondBehaviour(swordboss, bossHelmet));
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
@@ -382,7 +381,8 @@ namespace ProjectGame
                 foreach (var gameObject in gameObjects){		
                     gameObject.OnUpdate(gameTime);		
                 }		
-                if (camera != null) camera.Update(gameTime);		
+                if (camera != null) camera.Update(gameTime);
+                DeleteMonster();
             }
             mainMenu.Update(gameTime);
             base.Update(gameTime);
@@ -429,6 +429,26 @@ namespace ProjectGame
             base.Draw(gameTime);
         }
 
+        public void DeleteMonster()
+        {
+            foreach(var gameObject in gameObjects.ToList())
+            {
+                if(gameObject.HasBehaviourOfType(typeof(StatBehaviour)))
+                {
+                    var behaviour = gameObject.GetBehaviourOfType(typeof(StatBehaviour));
+                    if((behaviour as StatBehaviour).Health <= 0)
+                    {
+                        var behaviour2 = gameObject.GetBehaviourOfType(typeof(BondBehaviour));
+                        var sword = (behaviour2 as BondBehaviour).Sword;
+                        var helmet = (behaviour2 as BondBehaviour).Helmet;
+                        gameObjects.Remove(sword);
+                        gameObjects.Remove(helmet);
+                        gameObjects.Remove(gameObject);
+                    }
+                }
+            }
+        }
+
 
         public void SpawnMonsters(uint i, GameObject target, List<Texture2D> monstertexture, List<Texture2D> helmet, Texture2D swordTexture)
         {
@@ -465,6 +485,7 @@ namespace ProjectGame
                     helmetbehaviour.Parent = monster;
                     Helmet.AddBehaviour(helmetbehaviour);
                     spawnlist.Add(monster);
+                    monster.AddBehaviour(new BondBehaviour(swordMonster, Helmet));
 
                     gameObjects.Add(monster);
                     gameObjects.Add(Helmet);
