@@ -38,6 +38,7 @@ namespace ProjectGame
             {
                 GameObject.Position = Game1.ResolveWorldCollision(GameObject, Velocity);
             }
+
         }
 
         public void UpdateTexture(GameTime gameTime)

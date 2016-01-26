@@ -31,7 +31,7 @@ namespace ProjectGame
             }
             if (!found && playerInViewLastFrame)
             {
-                GameObject.OnMessage(new AreaEnteredMessage(player));
+                GameObject.OnMessage(new AreaExitedMessage(player));
             }
             playerInViewLastFrame = found;
         }

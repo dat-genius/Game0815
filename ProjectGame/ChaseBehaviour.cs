@@ -15,15 +15,20 @@ namespace ProjectGame
         public float Radius { get; set; }
         public bool Collision = false;
 
+        private Vector2 spawnPoint;
         private bool found = false;
         private Vector2 beginPosition;
         private float lerpFactor = 0.01f;
         private bool chasing = false;
+        private bool boss;
+        private int distance;
 
-        public ChaseBehaviour(float radius, GameObject target)
+        public ChaseBehaviour(float radius, GameObject target, Vector2 spawn ,bool _boss = false)
         {
             Radius = radius;
             Target = target;
+            spawnPoint = spawn;
+            boss = _boss;
         }
 
         public void OnUpdate(GameTime gameTime)
@@ -63,12 +68,13 @@ namespace ProjectGame
         /// </summary>
         public void Chase()
         {
+            CalculateDistance();
             var positionDifference = Target.Position - beginPosition;
             if (positionDifference.Length() < Radius)
             {
                 if (!Collision)
                 {
-                    if (positionDifference.Length() > 90)
+                    if (positionDifference.Length() > distance)
                     {
                         GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
                     }                                      
@@ -87,8 +93,16 @@ namespace ProjectGame
         {
             if (chasing == false)
             {
-                GameObject.Position = Vector2.Lerp(beginPosition, Target.Spawn, lerpFactor);
+                GameObject.Position = Vector2.Lerp(beginPosition, spawnPoint, lerpFactor);
             }
+        }
+
+        private void CalculateDistance()
+        {
+            if (boss)
+                distance =  150;
+            else
+                distance =  90;
         }
     }
 }

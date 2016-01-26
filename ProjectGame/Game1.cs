@@ -257,36 +257,7 @@ namespace ProjectGame
             somePlayer.AddBehaviour(new HitBehaviour(swordPlayer));
             somePlayer.AddBehaviour(new BondBehaviour(swordPlayer, someHelmet));
 
-            //------test--------
-            GameObject someMonster = new GameObject()
-            {
-                Position = new Vector2(1216,  3100),
-                Texture = monsterTexture
-            };
-
-            var swordMonster = new GameObject(false, false)
-            {
-                Texture = swordTexture
-            };
-            swordMonster.AddBehaviour(new WeaponBehaviour()
-            {
-                Wielder = someMonster
-            });
-
-            FOVBehavior FOV = new FOVBehavior(gameObjects);
-            someMonster.AddBehaviour(FOV);
-            someMonster.AddBehaviour(new MovementBehaviour());
-            someMonster.AddBehaviour(new MonsterAttack(somePlayer));
-            someMonster.AddBehaviour(new AttackBehaviour(swordMonster));
-            someMonster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
-            someMonster.AddBehaviour(new HitBehaviour(swordMonster));
-            //someMonster.AddBehaviour(new ChaseBehaviour(200, somePlayer));
-
-            gameObjects.Add(someMonster);
-            gameObjects.Add(swordMonster);
-            //-----------einde test--------------------------------------
-
-            SpawnMonsters(10, somePlayer, playerAnimations, monsterHelmets, swordTexture);
+            SpawnMonsters(50, somePlayer, playerAnimations, monsterHelmets, swordTexture);
 
             var testBoss = new GameObject()
             {
@@ -311,12 +282,12 @@ namespace ProjectGame
                 });
 
             testBoss.AddBehaviour(new MovementBehaviour(bossAnimations));
-            testBoss.AddBehaviour(new MonsterAttack(somePlayer));
+            testBoss.AddBehaviour(new MonsterAttack(somePlayer, true));
             testBoss.AddBehaviour(new AttackBehaviour(swordboss));
             testBoss.AddBehaviour(new FOVBehavior(gameObjects));
-            testBoss.AddBehaviour(new StatBehaviour(600, 100, 0.1f));
+            testBoss.AddBehaviour(new StatBehaviour(100, 100, 0.1f));
             testBoss.AddBehaviour(new HitBehaviour(swordboss));
-            testBoss.AddBehaviour(new ChaseBehaviour(300, somePlayer));
+            testBoss.AddBehaviour(new ChaseBehaviour(300, somePlayer,testBoss.Position ,true));
             testBoss.AddBehaviour(new BondBehaviour(swordboss, bossHelmet));
 
             gameObjects.Add(somePlayer);
@@ -476,7 +447,7 @@ namespace ProjectGame
                     monster.AddBehaviour(new MonsterAttack(target));
                     monster.AddBehaviour(new AttackBehaviour(swordMonster));
                     monster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
-                    monster.AddBehaviour(new ChaseBehaviour(200, target));
+                    monster.AddBehaviour(new ChaseBehaviour(200, target,monster.Position));
                     monster.AddBehaviour(new HitBehaviour(swordMonster));
 
                     GameObject Helmet = new GameObject();

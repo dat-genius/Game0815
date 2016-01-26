@@ -14,11 +14,12 @@ namespace ProjectGame
         private float radius;
         private bool attack;
         private bool inSight = false;
+        private bool isBoss;
 
-        public MonsterAttack(GameObject target)
+        public MonsterAttack(GameObject target, bool boss = false)
         {
             Target = target;
-            radius = 90f;
+            CalculateRange();
         }
 
         public void OnUpdate(GameTime gameTime)
@@ -52,6 +53,14 @@ namespace ProjectGame
                 return true;
             else
                 return false;
+        }
+
+         private void CalculateRange()
+        {
+            if (isBoss)
+                radius =  150f;
+            else
+                radius =  90f;
         }
 
         public void OnMessage(IMessage message)
