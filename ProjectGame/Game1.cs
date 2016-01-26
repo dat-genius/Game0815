@@ -7,7 +7,6 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using ProjectGame.Voorbeeld;
 
 namespace ProjectGame
 {
@@ -18,9 +17,11 @@ namespace ProjectGame
     {
         private readonly GraphicsDeviceManager graphics;
         private static List<GameObject> gameObjects;
+        private List<GameObject> portBlocks;
         private static ICamera camera;
         private SpriteBatch spriteBatch;
         private static Tilemap tilemap;
+        private List<Tilemap> bossrooms;
         private MouseState lastMouseState;
         private MouseState mouseState;
         private Menu mainMenu;
@@ -36,7 +37,13 @@ namespace ProjectGame
             var xmlSerializer = new XmlSerializer(typeof(Tilemap));
 
             tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/Main_level.tmx", FileMode.Open));
-
+            /*
+            bossrooms = new List<Tilemap>();
+            for (int i = 0; i < 2; i++)
+            {
+                bossrooms.Add((Tilemap)xmlSerializer.Deserialize(new FileStream("Content/bossroom" + i + ".tmx", FileMode.Open)));
+            }
+             */
         }
 
 
@@ -92,7 +99,7 @@ namespace ProjectGame
                     var otherRectangle = new Rectangle(
                             otherObject.X,
                             otherObject.Y,
-                            otherObject.Width, 
+                            otherObject.Width,
                             otherObject.Height);
 
                     if (thisRectangle.Intersects(otherRectangle))
@@ -122,18 +129,24 @@ namespace ProjectGame
             if (gameObjects.Count < 2)
                 return;
 
-            for (var i = 0; i < gameObjects.Count - 1; ++i)
+            List<GameObject> objectsAndTeleport = gameObjects;
+            foreach (GameObject portBlock in portBlocks)
             {
-                var a = gameObjects[i];
+                objectsAndTeleport.Add(portBlock);
+            }
+
+            for (var i = 0; i < objectsAndTeleport.Count - 1; ++i)
+            {
+                var a = objectsAndTeleport[i];
                 if (!a.IsCollidable)
                     continue;
 
                 var rectangleA = new Rectangle((int)a.Position.X, (int)a.Position.Y, a.Size.X, a.Size.Y);
 
-                for (var j = i + 1; j < gameObjects.Count; ++j)
+                for (var j = i + 1; j < objectsAndTeleport.Count; ++j)
                 {
-                    var b = gameObjects[j];
-                    if (a == b || !b.IsCollidable)
+                    var b = objectsAndTeleport[j];
+                    if (a == b || (!b.IsCollidable && !b.HasBehaviourOfType(typeof(TeleportBlockBehaviour))))
                         continue;
 
                     var rectangleB = new Rectangle((int)b.Position.X, (int)b.Position.Y, b.Size.X, b.Size.Y);
@@ -197,7 +210,7 @@ namespace ProjectGame
             for (int i = 0; i < 3; i++)
             {
                 monsterHelmets.Add(Content.Load<Texture2D>("helmets/helm" + i));
-            }       
+            }
             var boss1 = Content.Load<Texture2D>("Boss1");
             var boss2 = Content.Load<Texture2D>("Boss2");
             var boss3 = Content.Load<Texture2D>("Boss3");
@@ -207,11 +220,11 @@ namespace ProjectGame
             textFont = Content.Load<SpriteFont>("TextFont");
 
             List<Texture2D> bossAnimations = new List<Texture2D>();
-            for(int i =0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 bossAnimations.Add(Content.Load<Texture2D>("BossLopen/BossLopen" + i));
             }
-            
+
             List<Texture2D> playerAnimations = new List<Texture2D>();
             for (int i = 0; i < 7; i++)
             {
@@ -238,7 +251,7 @@ namespace ProjectGame
             {
                 Texture = helmetTexture
             };
-            
+
             someHelmet.AddBehaviour(new ChildBehaviour()
             {
                 Parent = somePlayer
@@ -257,29 +270,37 @@ namespace ProjectGame
             somePlayer.AddBehaviour(new HitBehaviour(swordPlayer));
             somePlayer.AddBehaviour(new BondBehaviour(swordPlayer, someHelmet));
 
+            portBlocks = new List<GameObject>();
+            GameObject teleport = new GameObject();
+            teleport.AddBehaviour(new TeleportBlockBehaviour(new Vector2(40 * 32, 236 * 32)));
+            teleport.Position = new Vector2(39 * 32, 73 * 32);
+            teleport.Size = new Point(96, 32);
+            teleport.IsCollidable = false;
+            portBlocks.Add(teleport);
+
             SpawnMonsters(50, somePlayer, playerAnimations, monsterHelmets, swordTexture);
 
             var testBoss = new GameObject()
             {
-                Position = new Vector2(1216,3500),
+                Position = new Vector2(1216, 3500),
                 Texture = bossStart
             };
             var swordboss = new GameObject(false, false)
-                {
-                    Texture = swordTexture
-                };
+            {
+                Texture = swordTexture
+            };
             swordboss.AddBehaviour(new WeaponBehaviour()
-                {
-                    Wielder = testBoss
-                });
+            {
+                Wielder = testBoss
+            });
             var bossHelmet = new GameObject(true, false)
             {
                 Texture = boss2
             };
             bossHelmet.AddBehaviour(new ChildBehaviour()
-                {
-                    Parent = testBoss
-                });
+            {
+                Parent = testBoss
+            });
 
             testBoss.AddBehaviour(new MovementBehaviour(bossAnimations));
             testBoss.AddBehaviour(new MonsterAttack(somePlayer, true));
@@ -287,8 +308,9 @@ namespace ProjectGame
             testBoss.AddBehaviour(new FOVBehavior(gameObjects));
             testBoss.AddBehaviour(new StatBehaviour(100, 100, 0.1f));
             testBoss.AddBehaviour(new HitBehaviour(swordboss));
-            testBoss.AddBehaviour(new ChaseBehaviour(300, somePlayer,testBoss.Position ,true));
+            testBoss.AddBehaviour(new ChaseBehaviour(300, somePlayer, testBoss.Position, true));
             testBoss.AddBehaviour(new BondBehaviour(swordboss, bossHelmet));
+
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
@@ -308,7 +330,7 @@ namespace ProjectGame
             somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5, camera: camera));
             mainMenu = new Menu(Content);
             //someMonster.Position = somePlayer.Position - new Vector2(100, 100);
-            
+
         }
 
 
@@ -334,24 +356,26 @@ namespace ProjectGame
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape) && mainMenu.State != Menu.GameState.Menu)
             {
-                mainMenu.State = Menu.GameState.Menu;		
+                mainMenu.State = Menu.GameState.Menu;
             }
-            
+
             // TODO: Add your update logic here
-            if (mainMenu.State != Menu.GameState.Playing)		
-            {		         
-                mouseState = Mouse.GetState();	
-                if (lastMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)		
-                {		
-                    mainMenu.MouseClicked(mouseState.X, mouseState.Y);		
-                }		
-                lastMouseState = mouseState;		
-            }    
-            else{		
-                CheckCollisions();		
-                foreach (var gameObject in gameObjects){		
-                    gameObject.OnUpdate(gameTime);		
-                }		
+            if (mainMenu.State != Menu.GameState.Playing)
+            {
+                mouseState = Mouse.GetState();
+                if (lastMouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
+                {
+                    mainMenu.MouseClicked(mouseState.X, mouseState.Y);
+                }
+                lastMouseState = mouseState;
+            }
+            else
+            {
+                CheckCollisions();
+                foreach (var gameObject in gameObjects)
+                {
+                    gameObject.OnUpdate(gameTime);
+                }
                 if (camera != null) camera.Update(gameTime);
                 DeleteMonster();
             }
@@ -369,18 +393,20 @@ namespace ProjectGame
             GraphicsDevice.Clear(Color.Black);
 
 
-            if (mainMenu.State != Menu.GameState.Playing){
+            if (mainMenu.State != Menu.GameState.Playing)
+            {
                 spriteBatch.Begin();
                 mainMenu.Draw(spriteBatch);
             }
-            else {
+            else
+            {
                 spriteBatch.Begin(
                     transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix,
                     samplerState: SamplerState.PointClamp);
-                    tilemap.Draw(spriteBatch, camera);
-            
-            
-                foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable)) {
+                tilemap.Draw(spriteBatch, camera);
+
+                foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable))
+                {
                     gameObject.Draw(spriteBatch);
                 }
                 spriteBatch.End();
@@ -388,7 +414,7 @@ namespace ProjectGame
                 spriteBatch.Begin();
                 foreach (var gameObject in gameObjects)
                 {
-                    if(gameObject.HasBehaviourOfType(typeof(HUDBehaviour)))
+                    if (gameObject.HasBehaviourOfType(typeof(HUDBehaviour)))
                     {
                         HUDBehaviour hud = gameObject.GetBehaviourOfType(typeof(HUDBehaviour)) as HUDBehaviour;
                         hud.Draw(spriteBatch);
@@ -396,18 +422,18 @@ namespace ProjectGame
                 }
             }
             spriteBatch.End();
-            
+
             base.Draw(gameTime);
         }
 
         public void DeleteMonster()
         {
-            foreach(var gameObject in gameObjects.ToList())
+            foreach (var gameObject in gameObjects.ToList())
             {
-                if(gameObject.HasBehaviourOfType(typeof(StatBehaviour)))
+                if (gameObject.HasBehaviourOfType(typeof(StatBehaviour)))
                 {
                     var behaviour = gameObject.GetBehaviourOfType(typeof(StatBehaviour));
-                    if((behaviour as StatBehaviour).Health <= 0)
+                    if ((behaviour as StatBehaviour).Health <= 0)
                     {
                         var behaviour2 = gameObject.GetBehaviourOfType(typeof(BondBehaviour));
                         var sword = (behaviour2 as BondBehaviour).Sword;
@@ -420,7 +446,6 @@ namespace ProjectGame
             }
         }
 
-
         public void SpawnMonsters(uint i, GameObject target, List<Texture2D> monstertexture, List<Texture2D> helmet, Texture2D swordTexture)
         {
             List<GameObject> spawnlist = new List<GameObject>();
@@ -428,7 +453,7 @@ namespace ProjectGame
             while (spawnlist.Count <= i)
             {
                 GameObject monster = new GameObject();
-                monster.Position = new Vector2(r.Next(0, tilemap.Width * 32), r.Next(0, tilemap.Height * 32));
+                monster.Position = new Vector2(r.Next(0, tilemap.Width * tilemap.TileWidth), r.Next(0, tilemap.Height * tilemap.TileHeight));
                 monster.Texture = monstertexture[0];
                 if (CollisionFree(monster))
                 {
@@ -446,12 +471,12 @@ namespace ProjectGame
                     monster.AddBehaviour(new MovementBehaviour());
                     monster.AddBehaviour(new MonsterAttack(target));
                     monster.AddBehaviour(new AttackBehaviour(swordMonster));
-                    monster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
-                    monster.AddBehaviour(new ChaseBehaviour(200, target,monster.Position));
+                    monster.AddBehaviour(new StatBehaviour(5, 100, 0.1f));
+                    monster.AddBehaviour(new ChaseBehaviour(200, target, monster.Position));
                     monster.AddBehaviour(new HitBehaviour(swordMonster));
 
                     GameObject Helmet = new GameObject();
-                    Helmet.Texture = helmet[r.Next(0,helmet.Count)];
+                    Helmet.Texture = helmet[r.Next(0, helmet.Count)];
                     ChildBehaviour helmetbehaviour = new ChildBehaviour();
                     helmetbehaviour.Parent = monster;
                     Helmet.AddBehaviour(helmetbehaviour);
