@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -192,8 +193,11 @@ namespace ProjectGame
             var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
             var helmetTexture = Content.Load<Texture2D>("Head");
-            var mouseHelmet = Content.Load<Texture2D>("mickeyhelm");
-            var olifantHelm = Content.Load<Texture2D>("Olifanthelm");
+            List<Texture2D> monsterHelmets = new List<Texture2D>();
+            for (int i = 0; i < 3; i++)
+            {
+                monsterHelmets.Add(Content.Load<Texture2D>("helmets/helm" + i));
+            }       
             var boss1 = Content.Load<Texture2D>("Boss1");
             var boss2 = Content.Load<Texture2D>("Boss2");
             var boss3 = Content.Load<Texture2D>("Boss3");
@@ -213,7 +217,6 @@ namespace ProjectGame
             {
                 playerAnimations.Add(Content.Load<Texture2D>("player/basicperson" + i));
             }
-
 
             if (tilemap != null)
                 tilemap.Build(Content);
@@ -285,6 +288,7 @@ namespace ProjectGame
             gameObjects.Add(swordMonster);
             //-----------einde test--------------------------------------
 
+            SpawnMonsters(100, somePlayer, playerAnimations, monsterHelmets, swordTexture);
             //LoadMonster(new Vector2(65,160), somePlayer, monsterTexture, swordTexture);
             //LoadMonster(new Vector2(40,160), somePlayer, monsterTexture, swordTexture);
             //LoadMonster(new Vector2(40, 218), somePlayer, monsterTexture, swordTexture);
@@ -470,6 +474,62 @@ namespace ProjectGame
 
             gameObjects.Add(someMonster);
             gameObjects.Add(swordMonster);
+        }
+
+        public void SpawnMonsters(uint i, GameObject target, List<Texture2D> monstertexture, List<Texture2D> helmet, Texture2D swordTexture)
+        {
+            List<GameObject> spawnlist = new List<GameObject>();
+            Random r = new Random();
+            while (spawnlist.Count <= i)
+            {
+                GameObject monster = new GameObject();
+                monster.Position = new Vector2(r.Next(0, tilemap.Width * 32), r.Next(0, tilemap.Height * 32));
+                monster.Texture = monstertexture[0];
+                if (CollisionFree(monster))
+                {
+                    var swordMonster = new GameObject(false, false)
+                    {
+                        Texture = swordTexture
+                    };
+                    swordMonster.AddBehaviour(new WeaponBehaviour()
+                    {
+                        Wielder = monster
+                    });
+
+                    FOVBehavior FOV = new FOVBehavior(gameObjects);
+                    monster.AddBehaviour(FOV);
+                    monster.AddBehaviour(new MovementBehaviour());
+                    monster.AddBehaviour(new MonsterMovementBehaviour(monster.Position) { Sword = swordMonster });
+                    monster.AddBehaviour(new MonsterAttack(target));
+                    monster.AddBehaviour(new AttackBehaviour(swordMonster));
+                    monster.AddBehaviour(new StatBehaviour(5, 100, 0.1f));
+                    monster.AddBehaviour(new ChaseBehaviour(200, target));
+
+                    GameObject Helmet = new GameObject();
+                    Helmet.Texture = helmet[r.Next(0,helmet.Count)];
+                    ChildBehaviour helmetbehaviour = new ChildBehaviour();
+                    helmetbehaviour.Parent = monster;
+                    Helmet.AddBehaviour(helmetbehaviour);
+                    spawnlist.Add(monster);
+
+                    gameObjects.Add(monster);
+                    gameObjects.Add(Helmet);
+                    gameObjects.Add(swordMonster);
+                }
+            }
+        }
+
+        private bool CollisionFree(GameObject botsing)
+        {
+            if (HasMapCollision(botsing, new Vector2(0, 0)))
+            {
+                return false;
+            }
+            if (HasObjectCollision(botsing, new Vector2(0, 0)))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

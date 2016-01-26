@@ -4,72 +4,73 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/EuropeanNicht.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Roman.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/head.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/TextFont.spritefont</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/CastleTiles.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Dark_GrassTiles.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Flower.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Flower_Grass.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Fog.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Light_GrassTiles.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/sewer_tileset.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/tmw_desert_spacing.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Tree.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Tree_Grass.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/WoodTiles.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/HealthBar.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/TestosBar.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/end.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/fullscreen0.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/fullscreen1.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/new.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/player/basicperson0.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/player/basicperson1.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/player/basicperson2.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/player/basicperson3.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/player/basicperson4.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/player/basicperson5.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/player/basicperson6.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/player/basicperson7.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1swing0.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1swing1.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1swing2.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1swing3.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1swing4.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1swing5.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1swing6.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1Swing8.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1thrust1.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1thrust2.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1thrust3.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1thrust4.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/swords/Sword1thrust5.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/title0.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/title1.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/title2.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/title3.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/title4.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/title5.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/title6.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/title7.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/menu/continue.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/BossLopen/BossLopen0.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/BossLopen/BossLopen1.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/BossLopen/BossLopen2.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/BossLopen/BossLopen3.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/BossLopen/BossLopen4.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/BossLopen/BossLopen5.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/BossLopen/BossLopen6.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/BossLopen/BossLopen7.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Boss1.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Boss2.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Boss3.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Boss4.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/khan.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/mickeyhelm.png</File>
-    <File>C:/Users/Thijs/Documents/school/2de jaar/minor gaming/PROJECT/Game0815/ProjectGame/Content/Olifanthelm.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/ps2-town-tiles.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/EuropeanNicht.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Roman.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/head.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/TextFont.spritefont</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/CastleTiles.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Dark_GrassTiles.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Flower.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Flower_Grass.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Fog.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Light_GrassTiles.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/sewer_tileset.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/tmw_desert_spacing.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Tree.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Tree_Grass.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/WoodTiles.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/HealthBar.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/TestosBar.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/end.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/fullscreen0.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/fullscreen1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/new.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson0.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson2.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson3.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson4.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson5.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson6.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/player/basicperson7.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing0.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing2.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing3.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing4.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing5.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1swing6.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1Swing8.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1thrust1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1thrust2.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1thrust3.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1thrust4.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/swords/Sword1thrust5.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/title0.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/title1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/title2.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/title3.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/title4.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/title5.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/title6.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/title7.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/menu/continue.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/BossLopen/BossLopen0.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/BossLopen/BossLopen1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/BossLopen/BossLopen2.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/BossLopen/BossLopen3.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/BossLopen/BossLopen4.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/BossLopen/BossLopen5.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/BossLopen/BossLopen6.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/BossLopen/BossLopen7.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Boss1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Boss2.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Boss3.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/Boss4.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/khan.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/helmets/helm0.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/helmets/helm1.png</File>
+    <File>C:/Users/Genius/Documents/GitHub/Game0815/ProjectGame/Content/helmets/helm2.png</File>
   </SourceFiles>
 </SourceFileCollection>
