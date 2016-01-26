@@ -257,7 +257,7 @@ namespace ProjectGame
             somePlayer.AddBehaviour(new HitBehaviour(swordPlayer));
             somePlayer.AddBehaviour(new BondBehaviour(swordPlayer, someHelmet));
 
-            SpawnMonsters(50, somePlayer, playerAnimations, monsterHelmets, swordTexture);
+            SpawnMonsters(70, somePlayer, playerAnimations, monsterHelmets, swordTexture);
 
             var testBoss = new GameObject()
             {

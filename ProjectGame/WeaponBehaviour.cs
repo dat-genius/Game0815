@@ -64,10 +64,10 @@ namespace ProjectGame
             }
 
             timeSinceUsage += gameTime.ElapsedGameTime;
+            SwingSword = false;
             if (timeSinceUsage < durationTime) return;
             GameObject.IsDrawable = false;
             GameObject.IsCollidable = false;
-            SwingSword = false;
         }
 
         public void OnMessage(IMessage message)

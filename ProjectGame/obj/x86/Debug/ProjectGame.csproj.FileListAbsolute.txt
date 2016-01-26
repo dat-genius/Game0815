@@ -163,7 +163,6 @@ C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGa
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Boss1.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Boss2.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Boss3.xnb
