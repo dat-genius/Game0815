@@ -289,20 +289,6 @@ namespace ProjectGame
             //-----------einde test--------------------------------------
 
             SpawnMonsters(100, somePlayer, playerAnimations, monsterHelmets, swordTexture);
-            //LoadMonster(new Vector2(65,160), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(40,160), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(40, 218), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(40, 110), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(104, 48), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(150, 75), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(177, 71), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(219, 46), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(160, 101), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(201, 113), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(224, 159), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(214, 195), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(160, 225), somePlayer, monsterTexture, swordTexture);
-            //LoadMonster(new Vector2(150, 270), somePlayer, monsterTexture, swordTexture);
 
             var testBoss = new GameObject()
             {
@@ -446,35 +432,6 @@ namespace ProjectGame
             base.Draw(gameTime);
         }
 
-        private void LoadMonster(Vector2 position,GameObject target, Texture2D monsterTexture, Texture2D swordTexture)
-        {
-            //var monsterTexture = Content.Load<Texture2D>("Roman");
-            //var swordTexture = Content.Load<Texture2D>("sword1");
-            GameObject someMonster = new GameObject()
-            {
-                Position = new Vector2(position.X *32,position.Y *32),
-                Texture = monsterTexture
-            };
-
-            GameObject swordMonster = new GameObject(false, false)
-            {
-                Texture = swordTexture
-            };
-            swordMonster.AddBehaviour(new WeaponBehaviour()
-            {
-                Wielder = someMonster
-            });
-
-            FOVBehavior FOV = new FOVBehavior(gameObjects);
-            someMonster.AddBehaviour(FOV);
-            someMonster.AddBehaviour(new MovementBehaviour());
-            someMonster.AddBehaviour(new MonsterAttack(target));
-            someMonster.AddBehaviour(new AttackBehaviour(swordMonster));
-            someMonster.AddBehaviour(new ChaseBehaviour(200.0f, target));
-
-            gameObjects.Add(someMonster);
-            gameObjects.Add(swordMonster);
-        }
 
         public void SpawnMonsters(uint i, GameObject target, List<Texture2D> monstertexture, List<Texture2D> helmet, Texture2D swordTexture)
         {
