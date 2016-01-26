@@ -21,7 +21,7 @@ namespace ProjectGame
         private static ICamera camera;
         private SpriteBatch spriteBatch;
         private static Tilemap tilemap;
-        private List<Tilemap> bossrooms;
+        //private List<Tilemap> bossrooms;
         private MouseState lastMouseState;
         private MouseState mouseState;
         private Menu mainMenu;
@@ -129,23 +129,17 @@ namespace ProjectGame
             if (gameObjects.Count < 2)
                 return;
 
-            List<GameObject> objectsAndTeleport = gameObjects;
-            foreach (GameObject portBlock in portBlocks)
+            for (var i = 0; i < gameObjects.Count - 1; ++i)
             {
-                objectsAndTeleport.Add(portBlock);
-            }
-
-            for (var i = 0; i < objectsAndTeleport.Count - 1; ++i)
-            {
-                var a = objectsAndTeleport[i];
+                var a = gameObjects[i];
                 if (!a.IsCollidable)
                     continue;
 
                 var rectangleA = new Rectangle((int)a.Position.X, (int)a.Position.Y, a.Size.X, a.Size.Y);
 
-                for (var j = i + 1; j < objectsAndTeleport.Count; ++j)
+                for (var j = i + 1; j < gameObjects.Count; ++j)
                 {
-                    var b = objectsAndTeleport[j];
+                    var b = gameObjects[j];
                     if (a == b || (!b.IsCollidable && !b.HasBehaviourOfType(typeof(TeleportBlockBehaviour))))
                         continue;
 
@@ -177,7 +171,28 @@ namespace ProjectGame
             }
         }
 
-
+        private void CheckTeleport()
+        {
+            GameObject player = new GameObject();
+            foreach (GameObject potentialPlayer in gameObjects)
+            {
+                if (potentialPlayer.HasBehaviourOfType(typeof(InputMovementBehaviour)))
+                {
+                    player = potentialPlayer;
+                    break;
+                }
+            }
+            Rectangle playerRect = new Rectangle((int)player.Position.X, (int)player.Position.Y, player.Size.X, player.Size.Y);
+            foreach (GameObject teleportblock in portBlocks)
+            {
+                Rectangle portblockRect = new Rectangle((int)teleportblock.Position.X, (int)teleportblock.Position.Y, teleportblock.Size.X, teleportblock.Size.Y);
+                if (playerRect.Intersects(portblockRect))
+                {
+                    teleportblock.OnMessage(new CollisionEnterMessage(player));
+                    break;
+                }
+            }
+        }
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -372,6 +387,7 @@ namespace ProjectGame
             else
             {
                 CheckCollisions();
+                CheckTeleport();
                 foreach (var gameObject in gameObjects)
                 {
                     gameObject.OnUpdate(gameTime);
