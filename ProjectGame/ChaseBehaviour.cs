@@ -97,6 +97,7 @@ namespace ProjectGame
             }
         }
 
+
         private void CalculateDistance()
         {
             if (boss)
