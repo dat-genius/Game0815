@@ -6,13 +6,13 @@ using Microsoft.Xna.Framework;
 
 namespace ProjectGame
 {
-    public class PlayerHitBehaviour : IBehaviour
+    public class HitBehaviour : IBehaviour
     {
         public GameObject GameObject { get; set; }
         public GameObject OwnSword { get; set; }
         private IBehaviour behaviourStats;
 
-        public PlayerHitBehaviour(GameObject sword)
+        public HitBehaviour(GameObject sword)
         {
             OwnSword = sword;
         }

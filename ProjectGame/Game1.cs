@@ -254,7 +254,7 @@ namespace ProjectGame
             });
 
             somePlayer.AddBehaviour(new AttackBehaviour(swordPlayer));
-            somePlayer.AddBehaviour(new PlayerHitBehaviour(swordPlayer));
+            somePlayer.AddBehaviour(new HitBehaviour(swordPlayer));
 
             //------test--------
             GameObject someMonster = new GameObject()
@@ -278,6 +278,7 @@ namespace ProjectGame
             someMonster.AddBehaviour(new MonsterAttack(somePlayer));
             someMonster.AddBehaviour(new AttackBehaviour(swordMonster));
             someMonster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
+            someMonster.AddBehaviour(new HitBehaviour(swordMonster));
             //someMonster.AddBehaviour(new ChaseBehaviour(200, somePlayer));
             //someMonster.AddBehaviour(new MonsterMovementBehaviour(someMonster.Position)
             //{
@@ -288,7 +289,7 @@ namespace ProjectGame
             gameObjects.Add(swordMonster);
             //-----------einde test--------------------------------------
 
-            SpawnMonsters(100, somePlayer, playerAnimations, monsterHelmets, swordTexture);
+            SpawnMonsters(10, somePlayer, playerAnimations, monsterHelmets, swordTexture);
 
             var testBoss = new GameObject()
             {
@@ -317,12 +318,8 @@ namespace ProjectGame
             testBoss.AddBehaviour(new AttackBehaviour(swordboss));
             testBoss.AddBehaviour(new FOVBehavior(gameObjects));
             testBoss.AddBehaviour(new StatBehaviour(600, 100, 0.1f));
-            testBoss.AddBehaviour(new MonsterMovementBehaviour(testBoss.Position)
-                {
-                    Sword = swordboss
-                });
-            
-            
+            testBoss.AddBehaviour(new HitBehaviour(swordboss));
+
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
             gameObjects.Add(swordPlayer);
@@ -456,11 +453,11 @@ namespace ProjectGame
                     FOVBehavior FOV = new FOVBehavior(gameObjects);
                     monster.AddBehaviour(FOV);
                     monster.AddBehaviour(new MovementBehaviour());
-                    monster.AddBehaviour(new MonsterMovementBehaviour(monster.Position) { Sword = swordMonster });
                     monster.AddBehaviour(new MonsterAttack(target));
                     monster.AddBehaviour(new AttackBehaviour(swordMonster));
-                    monster.AddBehaviour(new StatBehaviour(5, 100, 0.1f));
+                    monster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
                     monster.AddBehaviour(new ChaseBehaviour(200, target));
+                    monster.AddBehaviour(new HitBehaviour(swordMonster));
 
                     GameObject Helmet = new GameObject();
                     Helmet.Texture = helmet[r.Next(0,helmet.Count)];

@@ -58,7 +58,7 @@
     <Compile Include="MonsterMovementBehaviour.cs" />
     <Compile Include="MovementBehaviour.cs" />
     <Compile Include="AreaEnteredMessage.cs" />
-    <Compile Include="PlayerHitBehaviour.cs" />
+    <Compile Include="HitBehaviour.cs" />
     <Compile Include="StatBehaviour.cs" />
     <Compile Include="TeleportBlockBehaviour.cs" />
     <Compile Include="WeaponBehaviour.cs" />
