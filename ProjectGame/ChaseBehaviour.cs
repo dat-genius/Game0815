@@ -35,7 +35,6 @@ namespace ProjectGame
                 Chase();
             }
             else { GetBack(); }
-            //ToggleMonsterBehavior(chasing);
         }
 
         public void OnMessage(IMessage message)
@@ -91,6 +90,7 @@ namespace ProjectGame
                 GameObject.Position = Vector2.Lerp(beginPosition, Target.Spawn, lerpFactor);
             }
         }
+<<<<<<< HEAD
 
         //public void ToggleMonsterBehavior(bool chasing)
         //{
@@ -111,5 +111,7 @@ namespace ProjectGame
         //    }
         //    Collision = false;
         //}
+=======
+>>>>>>> origin/master
     }
 }
