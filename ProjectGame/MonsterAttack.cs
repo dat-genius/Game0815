@@ -19,7 +19,9 @@ namespace ProjectGame
         public MonsterAttack(GameObject target, bool boss = false)
         {
             Target = target;
+            isBoss = boss;
             CalculateRange();
+
         }
 
         public void OnUpdate(GameTime gameTime)

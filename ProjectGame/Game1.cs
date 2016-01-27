@@ -226,12 +226,16 @@ namespace ProjectGame
             {
                 monsterHelmets.Add(Content.Load<Texture2D>("helmets/helm" + i));
             }
-            var boss1 = Content.Load<Texture2D>("Boss1");
-            var boss2 = Content.Load<Texture2D>("Boss2");
-            var boss3 = Content.Load<Texture2D>("Boss3");
-            var boss4 = Content.Load<Texture2D>("Boss4");
-            var khan = Content.Load<Texture2D>("khan");
+            var boss1Texture = Content.Load<Texture2D>("Boss1");
+            var boss2Texture = Content.Load<Texture2D>("Boss2");
+            var boss3Texture = Content.Load<Texture2D>("Boss3");
+            var boss4Texture = Content.Load<Texture2D>("Boss4");
+            var khanTexture = Content.Load<Texture2D>("khan");
             var bossStart = Content.Load<Texture2D>("BossLopen/BossLopen0");
+            var swordBoss1Texture = Content.Load<Texture2D>("Sword_Boss1");
+            var swordBoss2Texture = Content.Load<Texture2D>("Sword_Boss2");
+            var swordBoss3Texture = Content.Load<Texture2D>("Sword_Boss3");
+            var swordBoss4Texture = Content.Load<Texture2D>("Sword_Boss4");
             textFont = Content.Load<SpriteFont>("TextFont");
 
             List<Texture2D> bossAnimations = new List<Texture2D>();
@@ -282,7 +286,7 @@ namespace ProjectGame
             });
 
             somePlayer.AddBehaviour(new AttackBehaviour(swordPlayer));
-            somePlayer.AddBehaviour(new HitBehaviour(swordPlayer));
+            somePlayer.AddBehaviour(new HitBehaviour(swordPlayer, swordBoss1Texture));
             somePlayer.AddBehaviour(new BondBehaviour(swordPlayer, someHelmet));
 
             portBlocks = new List<GameObject>();
@@ -295,6 +299,7 @@ namespace ProjectGame
 
             SpawnMonsters(50, somePlayer, playerAnimations, monsterHelmets, swordTexture);
 
+            //---------------------------------------test-------------------------------------------------
             var testBoss = new GameObject()
             {
                 Position = new Vector2(1216, 3500),
@@ -310,13 +315,12 @@ namespace ProjectGame
             });
             var bossHelmet = new GameObject(true, false)
             {
-                Texture = boss2
+                Texture = boss2Texture
             };
             bossHelmet.AddBehaviour(new ChildBehaviour()
             {
                 Parent = testBoss
             });
-
             testBoss.AddBehaviour(new MovementBehaviour(bossAnimations));
             testBoss.AddBehaviour(new MonsterAttack(somePlayer, true));
             testBoss.AddBehaviour(new AttackBehaviour(swordboss));
@@ -325,14 +329,22 @@ namespace ProjectGame
             testBoss.AddBehaviour(new HitBehaviour(swordboss));
             testBoss.AddBehaviour(new ChaseBehaviour(300, somePlayer, testBoss.Position, true));
             testBoss.AddBehaviour(new BondBehaviour(swordboss, bossHelmet));
+            gameObjects.Add(testBoss);
+            gameObjects.Add(bossHelmet);
+            //--------------------------------------------------------------einde---------------------------------------------
+
+
+            //LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture,1);
+            //LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
+            LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);    //moeten nog wel monsters omheen worden gemaakt
+
 
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
             gameObjects.Add(swordPlayer);
             gameObjects.Add(swordboss);
-            gameObjects.Add(testBoss);
-            gameObjects.Add(bossHelmet);
+
 
 
             // Follow player with camera:
@@ -453,9 +465,12 @@ namespace ProjectGame
                     {
                         var behaviour2 = gameObject.GetBehaviourOfType(typeof(BondBehaviour));
                         var sword = (behaviour2 as BondBehaviour).Sword;
-                        var helmet = (behaviour2 as BondBehaviour).Helmet;
+                        if ((behaviour2 as BondBehaviour).HasHelmet)
+                        {
+                            var helmet = (behaviour2 as BondBehaviour).Helmet;
+                            gameObjects.Remove(helmet);
+                        }
                         gameObjects.Remove(sword);
-                        gameObjects.Remove(helmet);
                         gameObjects.Remove(gameObject);
                     }
                 }
@@ -504,6 +519,76 @@ namespace ProjectGame
                     gameObjects.Add(swordMonster);
                 }
             }
+        }
+
+        public void LoadBoss1_3(GameObject target, Texture2D bosstexture, Texture2D swordtexture, int bossnmmr)
+        {
+            GameObject Boss = new GameObject()
+            {
+                Position = new Vector2(1216, 3700),
+                Texture = bosstexture
+            };
+            var bossSword = new GameObject(false, false)
+            {
+                Texture = swordtexture
+            };
+            bossSword.AddBehaviour(new WeaponBehaviour()
+            {
+                Wielder = Boss
+            });
+
+            Boss.AddBehaviour(new MovementBehaviour());
+            Boss.AddBehaviour(new ChaseBehaviour(300, target, Boss.Position, true));
+            Boss.AddBehaviour(new MonsterAttack(target, true));
+            Boss.AddBehaviour(new AttackBehaviour(bossSword));
+            Boss.AddBehaviour(new FOVBehavior(gameObjects));
+            Boss.AddBehaviour(new StatBehaviour(50 + 50 * bossnmmr, 100, 0.1f));
+            Boss.AddBehaviour(new BondBehaviour(bossSword));
+            Boss.AddBehaviour(new HitBehaviour(bossSword));
+
+            gameObjects.Add(Boss);
+            gameObjects.Add(bossSword);
+        }
+
+        public void LoadBoss2(GameObject target, Texture2D bosstexture,List<Texture2D>movementList, Texture2D swordtexture)
+        {
+            GameObject Boss2 = new GameObject()
+            {
+                Position = new Vector2(1216, 3700),
+                Texture = movementList[0]
+            };
+            var bossSword2 = new GameObject(false, false)
+            {
+                Texture = swordtexture
+            };
+            bossSword2.AddBehaviour(new WeaponBehaviour()
+            {
+                Wielder = Boss2
+            });
+            var bossHelmet = new GameObject(true, false)
+            {
+                Texture = bosstexture
+            };
+            bossHelmet.AddBehaviour(new ChildBehaviour()
+            {
+                Parent = Boss2
+            });
+
+            Boss2.AddBehaviour(new MovementBehaviour());
+            Boss2.AddBehaviour(new ChaseBehaviour(300, target, Boss2.Position, true));
+            Boss2.AddBehaviour(new MonsterAttack(target, true));
+            Boss2.AddBehaviour(new AttackBehaviour(bossSword2));
+            Boss2.AddBehaviour(new FOVBehavior(gameObjects));
+            Boss2.AddBehaviour(new StatBehaviour(120, 100, 0.1f)
+                {
+                    HealthRegenSword = true
+                });
+            Boss2.AddBehaviour(new BondBehaviour(bossSword2));
+            Boss2.AddBehaviour(new HitBehaviour(bossSword2));
+
+            gameObjects.Add(Boss2);
+            gameObjects.Add(bossSword2);
+            gameObjects.Add(bossHelmet);
         }
 
         private bool CollisionFree(GameObject botsing)

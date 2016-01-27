@@ -11,11 +11,19 @@ namespace ProjectGame
         public GameObject GameObject { get; set; }
         public GameObject Sword { get; set; }
         public GameObject Helmet { get; set; }
+        public bool HasHelmet { get; set; }
         
         public BondBehaviour(GameObject sword, GameObject helmet)
         {
             Sword = sword;
             Helmet = helmet;
+            HasHelmet = true;
+        }
+
+        public BondBehaviour(GameObject sword)
+        {
+            Sword = sword;
+            HasHelmet = false;
         }
         
         public void OnUpdate(GameTime gameTime)

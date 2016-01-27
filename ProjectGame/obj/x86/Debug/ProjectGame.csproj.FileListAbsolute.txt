@@ -283,3 +283,7 @@ C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGa
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\helmets\helm1.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\helmets\helm2.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Sword_Boss1.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Sword_Boss2.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Sword_Boss3.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Sword_Boss4.xnb
