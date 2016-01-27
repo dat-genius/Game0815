@@ -105,7 +105,9 @@ namespace ProjectGame
         {
             if (!Chasing)
             {
+                GameObject.Rotation = (float)Math.Atan2(SpawnPoint.Y, SpawnPoint.X) + MathHelper.ToRadians(90);
                 GameObject.Position = Vector2.Lerp(BeginPosition, SpawnPoint, LerpFactor);
+                
             }
         }
 

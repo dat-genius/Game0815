@@ -26,6 +26,7 @@ namespace ProjectGame
         private MouseState mouseState;
         private Menu mainMenu;
         private SpriteFont textFont;
+        public GameObject somePlayer;
 
         public Game1()
         {
@@ -254,7 +255,7 @@ namespace ProjectGame
                 tilemap.Build(Content);
 
             // Add Game Objects
-            var somePlayer = new GameObject
+            somePlayer = new GameObject
             {
                 Position = new Vector2(1216, 2976),
                 Texture = playerTexture
@@ -424,7 +425,6 @@ namespace ProjectGame
         {
             GraphicsDevice.Clear(Color.Black);
 
-
             if (mainMenu.State != Menu.GameState.Playing)
             {
                 spriteBatch.Begin();
@@ -467,12 +467,17 @@ namespace ProjectGame
                     var behaviour = gameObject.GetBehaviourOfType(typeof(StatBehaviour));
                     if ((behaviour as StatBehaviour).Health <= 0)
                     {
+
+                        var Drop = gameObject.GetBehaviourOfType(typeof(DropItem)) as DropItem;
+                        Drop.AddPotion();
+
                         var behaviour2 = gameObject.GetBehaviourOfType(typeof(BondBehaviour));
                         var sword = (behaviour2 as BondBehaviour).Sword;
                         if ((behaviour2 as BondBehaviour).HasHelmet)
                         {
                             var helmet = (behaviour2 as BondBehaviour).Helmet;
                             gameObjects.Remove(helmet);
+                            
                         }
                         gameObjects.Remove(sword);
                         gameObjects.Remove(gameObject);
