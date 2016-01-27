@@ -14,12 +14,12 @@ namespace ProjectGame
         public bool Attack { get; set; }
 
         public TimeSpan Cooldown;
-        private TimeSpan TimeUntilUsage;
+        private TimeSpan timeUntilUsage;
 
         public AttackBehaviour(GameObject sword)
         {
             Sword = sword;
-            TimeUntilUsage = TimeSpan.FromMilliseconds(0);
+            timeUntilUsage = TimeSpan.FromMilliseconds(0);
             if (Sword.HasBehaviourOfType(typeof(WeaponBehaviour)))
                 BehaviourSword = Sword.GetBehaviourOfType(typeof(WeaponBehaviour));
 
@@ -27,12 +27,12 @@ namespace ProjectGame
 
         public void OnUpdate(GameTime gameTime)
         {
-            SetCooldown();
-            TimeUntilUsage -= gameTime.ElapsedGameTime;
+            setCooldown();
+            timeUntilUsage -= gameTime.ElapsedGameTime;
 
-            if (AllowHit(TimeUntilUsage))
+            if (allowHit(timeUntilUsage))
             {
-                Hit();
+                hit();
             }
 
             Attack = false;
@@ -42,29 +42,29 @@ namespace ProjectGame
         {
         }
 
-        private bool AllowHit(TimeSpan time)
+        private void setCooldown()
+        {
+            if (GameObject.HasBehaviourOfType(typeof(MonsterAttack)))
+                setCooldownVar(1050);
+            else
+                setCooldownVar(700);
+        }
+
+        private bool allowHit(TimeSpan time)
         {
             return time.TotalMilliseconds <= 0 && Attack;
         }
 
-        private void Hit()
+        private void setCooldownVar(float i)
+        {
+            Cooldown = TimeSpan.FromMilliseconds(i);
+        }
+
+        private void hit()
         {
             (BehaviourSword as WeaponBehaviour).SwingSword = true;
             (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).TestosDown(1);
-            TimeUntilUsage = Cooldown;
-        }
-
-        private void SetCooldown()
-        {
-            if (GameObject.HasBehaviourOfType(typeof(MonsterAttack)))
-                SetCooldownVar(1050);
-            else
-                SetCooldownVar(700);
-        }
-
-        private void SetCooldownVar(float i)
-        {
-            Cooldown = TimeSpan.FromMilliseconds(i);
+            timeUntilUsage = Cooldown;
         }
     }
 }

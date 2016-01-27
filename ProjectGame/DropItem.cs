@@ -16,7 +16,6 @@ namespace ProjectGame
         {
             GameObject = player;
             behaviourStat = GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
-
         }
 
         public void OnUpdate(GameTime gameTime)
