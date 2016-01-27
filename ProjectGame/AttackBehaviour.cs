@@ -30,26 +30,41 @@ namespace ProjectGame
             SetCooldown();
             timeUntilUsage -= gameTime.ElapsedGameTime;
 
-            if (timeUntilUsage.TotalMilliseconds <= 0 && Attack)
+            if (AllowHit(timeUntilUsage))
             {
-                (BehaviourSword as WeaponBehaviour).SwingSword = true;
-                (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).TestosDown(1);
-                timeUntilUsage = cooldown;
+                Hit();
             }
 
             Attack = false;
         }
 
+        public void OnMessage(IMessage message)
+        {
+        }
+
+        private bool AllowHit(TimeSpan time)
+        {
+            return time.TotalMilliseconds <= 0 && Attack;
+        }
+
+        private void Hit()
+        {
+            (BehaviourSword as WeaponBehaviour).SwingSword = true;
+            (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).TestosDown(1);
+            timeUntilUsage = cooldown;
+        }
+
         private void SetCooldown()
         {
             if (GameObject.HasBehaviourOfType(typeof(MonsterAttack)))
-                cooldown = TimeSpan.FromMilliseconds(1050);
+                SetCooldownVar(1050);
             else
-                cooldown = TimeSpan.FromMilliseconds(700);
+                SetCooldownVar(700);
         }
 
-        public void OnMessage(IMessage message)
+        private void SetCooldownVar(float i)
         {
+            cooldown = TimeSpan.FromMilliseconds(i);
         }
     }
 }
