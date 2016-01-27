@@ -105,7 +105,7 @@ namespace ProjectGame
                 return createRect(7);
             }
 
-            return null;
+            return createRect(0);
         }
 
         private Rectangle createRect(int type)
@@ -116,6 +116,8 @@ namespace ProjectGame
 
             switch(type)
             {
+                case 0:
+                    break;
                 case 1:
                     XY.X -= width / 2;
                     XY.Y -= height;
