@@ -317,22 +317,22 @@ namespace ProjectGame
                 Parent = testBoss
             });
 
-            testBoss.AddBehaviour(new MovementBehaviour(bossAnimations));
-            testBoss.AddBehaviour(new MonsterAttack(somePlayer, true));
-            testBoss.AddBehaviour(new AttackBehaviour(swordboss));
-            testBoss.AddBehaviour(new FOVBehavior(gameObjects));
-            testBoss.AddBehaviour(new StatBehaviour(100, 100, 0.1f));
-            testBoss.AddBehaviour(new HitBehaviour(swordboss));
-            testBoss.AddBehaviour(new ChaseBehaviour(300, somePlayer, testBoss.Position, true));
-            testBoss.AddBehaviour(new BondBehaviour(swordboss, bossHelmet));
+            //testBoss.AddBehaviour(new MovementBehaviour(bossAnimations));
+            //testBoss.AddBehaviour(new MonsterAttack(somePlayer, true));
+            //testBoss.AddBehaviour(new AttackBehaviour(swordboss));
+            //testBoss.AddBehaviour(new FOVBehavior(gameObjects));
+            //testBoss.AddBehaviour(new StatBehaviour(100, 100, 0.1f));
+            //testBoss.AddBehaviour(new HitBehaviour(swordboss));
+            //testBoss.AddBehaviour(new ChaseBehaviour(300, somePlayer, testBoss.Position, true));
+            //testBoss.AddBehaviour(new BondBehaviour(swordboss, bossHelmet));
 
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
             gameObjects.Add(swordPlayer);
-            gameObjects.Add(swordboss);
-            gameObjects.Add(testBoss);
-            gameObjects.Add(bossHelmet);
+            //gameObjects.Add(swordboss);
+            //gameObjects.Add(testBoss);
+            //gameObjects.Add(bossHelmet);
 
 
             // Follow player with camera:
@@ -477,12 +477,13 @@ namespace ProjectGame
                     {
                         Texture = swordTexture
                     };
+
                     swordMonster.AddBehaviour(new WeaponBehaviour()
                     {
                         Wielder = monster
                     });
 
-                    FOVBehavior FOV = new FOVBehavior(gameObjects);
+                    FOVBehavior FOV = new FOVBehavior(gameObjects);                    
                     monster.AddBehaviour(FOV);
                     monster.AddBehaviour(new MovementBehaviour());
                     monster.AddBehaviour(new MonsterAttack(target));
@@ -490,6 +491,7 @@ namespace ProjectGame
                     monster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
                     monster.AddBehaviour(new ChaseBehaviour(200, target, monster.Position));
                     monster.AddBehaviour(new HitBehaviour(swordMonster));
+                    monster.AddBehaviour(new DropItem(target));
 
                     GameObject Helmet = new GameObject();
                     Helmet.Texture = helmet[r.Next(0, helmet.Count)];
