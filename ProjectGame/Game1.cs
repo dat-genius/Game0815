@@ -487,7 +487,7 @@ namespace ProjectGame
                     monster.AddBehaviour(new MovementBehaviour());
                     monster.AddBehaviour(new MonsterAttack(target));
                     monster.AddBehaviour(new AttackBehaviour(swordMonster));
-                    monster.AddBehaviour(new StatBehaviour(5, 100, 0.1f));
+                    monster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
                     monster.AddBehaviour(new ChaseBehaviour(200, target, monster.Position));
                     monster.AddBehaviour(new HitBehaviour(swordMonster));
 
