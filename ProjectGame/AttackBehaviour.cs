@@ -13,13 +13,13 @@ namespace ProjectGame
         public IBehaviour BehaviourSword { get; set; }
         public bool Attack { get; set; }
 
-        public TimeSpan cooldown;
-        private TimeSpan timeUntilUsage;
+        public TimeSpan Cooldown;
+        private TimeSpan TimeUntilUsage;
 
         public AttackBehaviour(GameObject sword)
         {
             Sword = sword;
-            timeUntilUsage = TimeSpan.FromMilliseconds(0);
+            TimeUntilUsage = TimeSpan.FromMilliseconds(0);
             if (Sword.HasBehaviourOfType(typeof(WeaponBehaviour)))
                 BehaviourSword = Sword.GetBehaviourOfType(typeof(WeaponBehaviour));
 
@@ -28,9 +28,9 @@ namespace ProjectGame
         public void OnUpdate(GameTime gameTime)
         {
             SetCooldown();
-            timeUntilUsage -= gameTime.ElapsedGameTime;
+            TimeUntilUsage -= gameTime.ElapsedGameTime;
 
-            if (AllowHit(timeUntilUsage))
+            if (AllowHit(TimeUntilUsage))
             {
                 Hit();
             }
@@ -51,7 +51,7 @@ namespace ProjectGame
         {
             (BehaviourSword as WeaponBehaviour).SwingSword = true;
             (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).TestosDown(1);
-            timeUntilUsage = cooldown;
+            TimeUntilUsage = Cooldown;
         }
 
         private void SetCooldown()
@@ -64,7 +64,7 @@ namespace ProjectGame
 
         private void SetCooldownVar(float i)
         {
-            cooldown = TimeSpan.FromMilliseconds(i);
+            Cooldown = TimeSpan.FromMilliseconds(i);
         }
     }
 }

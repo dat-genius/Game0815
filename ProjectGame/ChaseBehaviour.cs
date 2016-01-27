@@ -15,31 +15,36 @@ namespace ProjectGame
         public float Radius { get; set; }
         public bool Collision = false;
 
-        private Vector2 spawnPoint;
-        private bool found = false;
-        private Vector2 beginPosition;
-        private float lerpFactor = 0.01f;
-        private bool chasing = false;
-        private bool boss;
-        private int distance;
+        private Vector2 SpawnPoint;
+        private Vector2 BeginPosition;
 
-        public ChaseBehaviour(float radius, GameObject target, Vector2 spawn ,bool _boss = false)
+        private bool Found = false;
+        private bool Chasing = false;
+        private bool Boss;
+
+        private float LerpFactor = 0.01f;
+        private int Distance;
+
+        public ChaseBehaviour(float radius, GameObject target, Vector2 spawn ,bool boss = false)
         {
             Radius = radius;
             Target = target;
-            spawnPoint = spawn;
-            boss = _boss;
+            SpawnPoint = spawn;
+            Boss = boss;
         }
 
         public void OnUpdate(GameTime gameTime)
         {
-            beginPosition = GameObject.Position;
+            BeginPosition = GameObject.Position;
             CheckFOVBehavior();
-            if (found)
+            if (Found)
             {
                 Chase();
             }
-            else { GetBack(); }
+            else 
+            { 
+                GetBack();
+            }
         }
 
         public void OnMessage(IMessage message)
@@ -47,63 +52,69 @@ namespace ProjectGame
             switch (message.MessageType)
             {
                 case MessageType.AreaEntered:
-                    found = true;
+                    Found = true;
                     break;
                 case MessageType.AreaExited:
-                    found = false;
+                    Found = false;
                     break;
             }
-            beginPosition = GameObject.Position;
+            BeginPosition = GameObject.Position;
         }
 
         public void CheckFOVBehavior()
         {
             if (!GameObject.HasBehaviourOfType(typeof(FOVBehavior)))
             {
-                found = true;
+                Found = true;
             }
         }
-        /// <summary>
-        /// chacking agro radius
-        /// </summary>
+
         public void Chase()
         {
             CalculateDistance();
-            var positionDifference = Target.Position - beginPosition;
+            var positionDifference = Target.Position - BeginPosition;
             if (positionDifference.Length() < Radius)
             {
-                if (!Collision)
-                {
-                    if (positionDifference.Length() > distance)
-                    {
-                        GameObject.Position = Vector2.Lerp(beginPosition, Target.Position, lerpFactor);
-                    }                                      
-                    GameObject.Rotation = (float)Math.Atan2(Target.Position.Y - GameObject.Position.Y , Target.Position.X - GameObject.Position.X) +MathHelper.ToRadians(90);
-
-                }
-                chasing = true;
+                CaseOfNoCollision(positionDifference);
+                Chasing = true;
             }
             else
-            {               
-                chasing = false;               
-            }
-        }
-
-        public void GetBack()
-        {
-            if (chasing == false)
             {
-                GameObject.Position = Vector2.Lerp(beginPosition, spawnPoint, lerpFactor);
+                Chasing = false;               
             }
         }
 
+        private void CaseOfNoCollision(Vector2 positiondifference)
+        {
+            if (!Collision)
+            {
+                WalkToTarget(positiondifference);
+                GameObject.Rotation = (float)Math.Atan2(Target.Position.Y - GameObject.Position.Y, Target.Position.X - GameObject.Position.X) + MathHelper.ToRadians(90);
+            }
+        }
+
+        private void WalkToTarget(Vector2 difference)
+        {
+            if (difference.Length() > Distance)
+            {
+                GameObject.Position = Vector2.Lerp(BeginPosition, Target.Position, LerpFactor);
+            }
+        }
+
+        private void GetBack()
+        {
+            if (!Chasing)
+            {
+                GameObject.Position = Vector2.Lerp(BeginPosition, SpawnPoint, LerpFactor);
+            }
+        }
 
         private void CalculateDistance()
         {
-            if (boss)
-                distance =  150;
+            if (Boss)
+                Distance = 150;
             else
-                distance =  90;
+                Distance = 90;
         }
     }
 }
