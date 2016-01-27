@@ -9,13 +9,14 @@ namespace ProjectGame
     public class DropItem : IBehaviour
     {
         public GameObject GameObject { get; set; }
-        private StatBehaviour BehaviourStat = null;
+        private StatBehaviour behaviourStat = null;
 
 
         public DropItem(GameObject player)
         {
             GameObject = player;
-            BehaviourStat = GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+            behaviourStat = GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+
         }
 
         public void OnUpdate(GameTime gameTime)
@@ -30,7 +31,7 @@ namespace ProjectGame
         {
             if (RN(0, 10) % 3 == 0)
             {
-                BehaviourStat.AddPotion();
+                behaviourStat.AddPotion();
             }
 
         }
