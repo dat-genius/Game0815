@@ -6,29 +6,30 @@ using System.Text;
 
 namespace ProjectGame
 {
-    class DropItem : IBehaviour
-
+    public class DropItem : IBehaviour
     {
-        GameObject GameObject { get; set; }
+        public GameObject GameObject { get; set; }
         private StatBehaviour behaviourStat = null;
-        
+
 
         public DropItem(GameObject player)
         {
             GameObject = player;
             behaviourStat = GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
-            
+
         }
 
-        void OnUpdate(GameTime gameTime)
+        public void OnUpdate(GameTime gameTime)
+        {            
+        }
+        
+        public void OnMessage(IMessage message)
         {
-
         }
-        void OnMessage(IMessage message);
 
         public void AddPotion()
         {
-            if (RN(0, 10) % 2 == 0)
+            if (RN(0, 10) % 3 == 0)
             {
                 behaviourStat.AddPotion();
             }
@@ -38,9 +39,9 @@ namespace ProjectGame
         private int RN(int min, int max)
         {
             var random = new Random();
-            int randomN = random.Next(min,max);
+            int randomN = random.Next(min, max);
             return randomN;
         }
-               
+
     }
 }
