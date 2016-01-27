@@ -13,30 +13,35 @@ namespace ProjectGame
     {
         private readonly ContentManager Content;
         private Texture2D newButton;
-        private Texture2D continueButton;
+        private Texture2D continueGameButton;
         private List<Texture2D> titleSprites;
         private Texture2D endButton;
+        private Texture2D continueButton;
 
         private int deltaTime;
         private int listpos;
 
         private Vector2 newButtonPosition;
         private Vector2 endButtonPosition;
+        private Vector2 continueGameButtonPosition;
         private Vector2 continueButtonPosition;
 
-        public enum GameState { Menu, Loading, New, Playing, Exit }
+        public enum GameState { Menu, GameLoading, Loading, New, Playing, Exit }
         public GameState State { get; set; }
+        public bool PlayerAlive { get; set; }
 
         private void LoadMenu()
         {
             newButton = Content.Load<Texture2D>("menu/New");
             endButton = Content.Load<Texture2D>("menu/End");
+            continueGameButton = Content.Load<Texture2D>("menu/continuegame");
             continueButton = Content.Load<Texture2D>("menu/continue");
             titleSprites = new List<Texture2D>();
-            for (int i = 0; i < 7; i++) { titleSprites.Add(Content.Load<Texture2D>("menu/title" + i));}
+            for (int i = 0; i < 7; i++) { titleSprites.Add(Content.Load<Texture2D>("menu/title" + i)); }
 
             newButtonPosition = new Vector2((0.5f * 800) - 100, 200);
             endButtonPosition = new Vector2((0.5f * 800) - 100, newButtonPosition.Y + 80);
+            continueGameButtonPosition = new Vector2((0.5f * 800) - 100, newButtonPosition.Y - 80);
             continueButtonPosition = new Vector2(800 - 100, 430);
 
             State = GameState.Loading;
@@ -50,6 +55,7 @@ namespace ProjectGame
 
         public void InitMenu()
         {
+            PlayerAlive = false;
             LoadMenu();
         }
 
@@ -85,16 +91,11 @@ namespace ProjectGame
                 for (int layer = 0; layer < 2; layer++)
                 {
                     spriteBatch.Draw(titleSprites[listpos], new Vector2(0 - layer, 0 - layer), temp);
-                    spriteBatch.Draw(newButton, newButtonPosition - new Vector2(layer, layer), temp);
-                    /*
-                    if (!graphics.IsFullScreen)
+                    if (PlayerAlive)
                     {
-                        spriteBatch.Draw(fullscreenButton[0], fullscreenButtonPosition - new Vector2(layer, layer), temp);
+                        spriteBatch.Draw(continueGameButton, continueGameButtonPosition - new Vector2(layer, layer), temp);
                     }
-                    else
-                    {
-                        spriteBatch.Draw(fullscreenButton[1], fullscreenButtonPosition - new Vector2(layer, layer), temp);
-                    }*/
+                    spriteBatch.Draw(newButton, newButtonPosition - new Vector2(layer, layer), temp);
                     spriteBatch.Draw(endButton, endButtonPosition - new Vector2(layer, layer), temp);
                     temp = Color.Red;
                 }
@@ -112,12 +113,20 @@ namespace ProjectGame
             if (State == GameState.Menu)
             {
                 Rectangle newButtonRect = new Rectangle((int)newButtonPosition.X, (int)newButtonPosition.Y, 200, 50);
+                Rectangle continueGameButtonRect = new Rectangle((int)continueGameButtonPosition.X, (int)continueGameButtonPosition.Y, 200, 50);
                 Rectangle endButtonRect = new Rectangle((int)endButtonPosition.X, (int)endButtonPosition.Y, 200, 50);
-
+                Rectangle continueButtonRect = new Rectangle((int)continueGameButtonPosition.X, (int)continueGameButtonPosition.Y, 200, 50);
                 if (mouseClickRect.Intersects(newButtonRect))
                 {
                     State = GameState.New;
                     listpos = 4;
+                }
+                else if (mouseClickRect.Intersects(continueGameButtonRect))
+                {
+                    if (PlayerAlive)
+                    {
+                        State = GameState.Playing;
+                    }
                 }
                 else if (mouseClickRect.Intersects(endButtonRect))
                 {
@@ -132,7 +141,7 @@ namespace ProjectGame
                     listpos++;
                     if (listpos >= 7)
                     {
-                        State = GameState.Playing;
+                        State = GameState.GameLoading;
                         listpos = 3;
                     }
                 }

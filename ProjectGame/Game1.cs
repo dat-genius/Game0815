@@ -33,8 +33,6 @@ namespace ProjectGame
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            gameObjects = new List<GameObject>();
-
             var xmlSerializer = new XmlSerializer(typeof(Tilemap));
 
             tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/Main_level.tmx", FileMode.Open));
@@ -218,6 +216,13 @@ namespace ProjectGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load Resources
+            mainMenu = new Menu(Content);
+            //someMonster.Position = somePlayer.Position - new Vector2(100, 100);
+        }
+
+        private void LoadGameObjects()
+        {
+            gameObjects = new List<GameObject>();
             var playerTexture = Content.Load<Texture2D>("player/basicperson0");
             var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
@@ -260,6 +265,7 @@ namespace ProjectGame
                 Position = new Vector2(1216, 2976),
                 Texture = playerTexture
             };
+            mainMenu.PlayerAlive = true;
             somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
             somePlayer.AddBehaviour(new StatBehaviour(100, 200, 0.5f));
             somePlayer.AddBehaviour(new HUDBehaviour(
@@ -302,14 +308,13 @@ namespace ProjectGame
             //LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture,1);
             //LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
             //LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);    //moeten nog wel monsters omheen worden gemaakt
-            //LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
-            LoadFinalBoss(somePlayer, khanTexture, bossAnimations, swordBoss1Texture);  // moeten nog wel monsters omheen
+            LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
             gameObjects.Add(swordPlayer);
 
-          
+
 
 
             // Follow player with camera:
@@ -320,8 +325,6 @@ namespace ProjectGame
             camera = followCamera;
 
             somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5, camera: camera));
-            mainMenu = new Menu(Content);
-            //someMonster.Position = somePlayer.Position - new Vector2(100, 100);
 
         }
 
@@ -360,6 +363,11 @@ namespace ProjectGame
                     mainMenu.MouseClicked(mouseState.X, mouseState.Y);
                 }
                 lastMouseState = mouseState;
+                if (mainMenu.State == Menu.GameState.GameLoading)
+                {
+                    LoadGameObjects();
+                    mainMenu.State = Menu.GameState.Playing;
+                }
             }
             else
             {
@@ -427,7 +435,10 @@ namespace ProjectGame
                     var behaviour = gameObject.GetBehaviourOfType(typeof(StatBehaviour));
                     if ((behaviour as StatBehaviour).Health <= 0)
                     {
-
+                        if (gameObject.HasBehaviourOfType(typeof(InputMovementBehaviour)))
+                        {
+                            mainMenu.PlayerAlive = false;
+                        }
                         var Drop = gameObject.GetBehaviourOfType(typeof(DropItem)) as DropItem;
                         Drop.AddPotion();
 
@@ -437,7 +448,7 @@ namespace ProjectGame
                         {
                             var helmet = (behaviour2 as BondBehaviour).Helmet;
                             gameObjects.Remove(helmet);
-                            
+
                         }
                         gameObjects.Remove(sword);
                         gameObjects.Remove(gameObject);
@@ -467,7 +478,7 @@ namespace ProjectGame
                         Wielder = monster
                     });
 
-                    FOVBehavior FOV = new FOVBehavior(gameObjects);                    
+                    FOVBehavior FOV = new FOVBehavior(gameObjects);
                     monster.AddBehaviour(FOV);
                     monster.AddBehaviour(new MovementBehaviour());
                     monster.AddBehaviour(new MonsterAttack(target));
@@ -521,7 +532,7 @@ namespace ProjectGame
             gameObjects.Add(bossSword);
         }
 
-        public void LoadBoss2(GameObject target, Texture2D bosstexture,List<Texture2D>movementList, Texture2D swordtexture)
+        public void LoadBoss2(GameObject target, Texture2D bosstexture, List<Texture2D> movementList, Texture2D swordtexture)
         {
             GameObject Boss2 = new GameObject()
             {
@@ -545,15 +556,15 @@ namespace ProjectGame
                 Parent = Boss2
             });
 
-            Boss2.AddBehaviour(new MovementBehaviour(movementList));
+            Boss2.AddBehaviour(new MovementBehaviour());
             Boss2.AddBehaviour(new ChaseBehaviour(300, target, Boss2.Position, true));
             Boss2.AddBehaviour(new MonsterAttack(target, true));
             Boss2.AddBehaviour(new AttackBehaviour(bossSword2));
             Boss2.AddBehaviour(new FOVBehavior(gameObjects));
             Boss2.AddBehaviour(new StatBehaviour(120, 100, 0.1f)
-                {
-                    HealthRegenSword = true
-                });
+            {
+                HealthRegenSword = true
+            });
             Boss2.AddBehaviour(new BondBehaviour(bossSword2));
             Boss2.AddBehaviour(new HitBehaviour(bossSword2));
 
@@ -590,8 +601,7 @@ namespace ProjectGame
             gameObjects.Add(Boss);
             gameObjects.Add(bossSword);
         }
-
-        public void LoadFinalBoss(GameObject target, Texture2D bosstexture,List<Texture2D>movementList, Texture2D swordtexture)
+        public void LoadFinalBoss(GameObject target, Texture2D bosstexture, List<Texture2D> movementList, Texture2D swordtexture)
         {
             GameObject FinalBoss = new GameObject()
             {
@@ -603,26 +613,26 @@ namespace ProjectGame
                 Texture = bosstexture
             };
             helmet.AddBehaviour(new ChildBehaviour()
-                {
-                    Parent = FinalBoss
-                });
+            {
+                Parent = FinalBoss
+            });
             var bossSword = new GameObject(false, false)
             {
                 Texture = swordtexture
             };
             bossSword.AddBehaviour(new WeaponBehaviour()
-                {
-                    Wielder = FinalBoss
-                });
+            {
+                Wielder = FinalBoss
+            });
 
             FinalBoss.AddBehaviour(new MovementBehaviour(movementList));
             FinalBoss.AddBehaviour(new ChaseBehaviour(300, target, FinalBoss.Position, true));
             FinalBoss.AddBehaviour(new MonsterAttack(target, true));
             FinalBoss.AddBehaviour(new AttackBehaviour(bossSword));
-            FinalBoss.AddBehaviour(new StatBehaviour(250,100,0.1f)
-                {
-                    HealthRegenSword = true
-                });
+            FinalBoss.AddBehaviour(new StatBehaviour(250, 100, 0.1f)
+            {
+                HealthRegenSword = true
+            });
             FinalBoss.AddBehaviour(new FOVBehavior(gameObjects));
             FinalBoss.AddBehaviour(new BondBehaviour(bossSword, helmet));
             FinalBoss.AddBehaviour(new HitBehaviour(bossSword, true));
