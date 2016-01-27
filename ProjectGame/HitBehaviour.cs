@@ -13,7 +13,10 @@ namespace ProjectGame
         public GameObject OwnSword { get; set; }
         private IBehaviour behaviourStats;
         public Texture2D Boss1Swordtexture { get; set; }
+        public Vector2 NewPosition;
         private bool player;
+        private bool canTeleport;
+        private int hitCount = 0;
 
         public HitBehaviour(GameObject sword, Texture2D boss1SwordTexture)
         {
@@ -22,14 +25,39 @@ namespace ProjectGame
             player = true;
         }
         
-        public HitBehaviour(GameObject sword)
+        public HitBehaviour(GameObject sword, bool teleport = false)
         {
             OwnSword = sword;
             player = false;
+            canTeleport = teleport;
         }
 
         public void OnUpdate(GameTime gameTime)
         {
+            if (!canTeleport) return;
+            if (hitCount == 3)
+            {
+                var newX = CreateRandom(384, 1440);
+                var newY = CreateRandom(864, 1536);
+                NewPosition = new Vector2(newX, newY);
+                GameObject.Position = NewPosition;
+                hitCount = 0;
+                SetNewSpwan();
+            }
+        }
+
+        private int CreateRandom(int min, int max)
+        {
+            var random = new Random();
+            int randomN = random.Next(min, max);
+            return randomN;
+        }
+
+        private void SetNewSpwan()
+        {
+            if (!GameObject.HasBehaviourOfType(typeof(ChaseBehaviour))) return;
+            var behaviour = GameObject.GetBehaviourOfType(typeof(ChaseBehaviour));
+            (behaviour as ChaseBehaviour).SpawnPoint = NewPosition;
         }
 
         public void OnMessage(IMessage message)
@@ -47,7 +75,7 @@ namespace ProjectGame
                         {
                             (behaviourStats as StatBehaviour).HealthDown(10);
                             CheckForBossAttack(other);
-
+                            hitCount++;
                         }
                     }
                     break;

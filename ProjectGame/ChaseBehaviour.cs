@@ -15,7 +15,7 @@ namespace ProjectGame
         public float Radius { get; set; }
         public bool Collision = false;
 
-        private Vector2 SpawnPoint;
+        public Vector2 SpawnPoint { get; set; }
         private Vector2 BeginPosition;
 
         private bool Found = false;
