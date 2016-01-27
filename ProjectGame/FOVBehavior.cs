@@ -74,96 +74,51 @@ namespace ProjectGame
 
         public Rectangle CreateVisionBox()
         {
-            while (checkRotation(0)) ;
-
-            if (checkRotation(1, 22.5f, 337.5f))
-            {
-                return createRect(0);
-            }
-            if (checkRotation(2, 22.5f, 67.5f))
-            {
-                return createRect(2);
-            }
-            if (checkRotation(2, 67.5f, 112.5f))
-            {
-                return createRect(3);
-            }
-            if (checkRotation(2, 157.5f, 202.5f))
-            {
-                return createRect(4);
-            }
-            if (checkRotation(2, 202.5f, 247.5f))
-            {
-                return createRect(5);
-            }
-            if (checkRotation(2, 247.5f, 292.5f))
-            {
-                return createRect(6);
-            }
-            if (checkRotation(2, 292.5f, 337.5f))
-            {
-                return createRect(7);
-            }
-
-            return createRect(0);
-        }
-
-        private Rectangle createRect(int type)
-        {
-            Vector2 XY = GameObject.Position;
+            float x = GameObject.Position.X;
+            float y = GameObject.Position.Y;
 
             float width = ViewDistance, height = ViewDistance;
-
-            switch(type)
-            {
-                case 0:
-                    break;
-                case 1:
-                    XY.X -= width / 2;
-                    XY.Y -= height;
-                    break;
-                case 2:
-                    XY.Y -= height;
-                    break;
-                case 3:
-                    XY.Y -= height / 2;
-                    break;
-                case 4:
-                    XY.X -= width / 2;
-                    break;
-                case 5:
-                    XY.X -= width;
-                    break;
-                case 6:
-                    XY.X -= width;
-                    XY.Y -= height / 2;
-                    break;
-                case 7:
-                    XY.X -= width;
-                    XY.Y -= height;
-                    break;
-            }
-            
-            return new Rectangle((int)XY.X, (int)XY.Y, (int)width, (int)height);
-        }
-
-        private bool checkRotation(int type = 0, float r1 = 0, float r2 = 0)
-        {
             double rotation = MathHelper.ToDegrees(GameObject.Rotation) % 360;
-
-            switch (type)
+            while (rotation < 0)
             {
-                case 0:
-                    if (rotation < 0)
-                        rotation += 360;
-                    return false;
-                case (1):
-                    return (rotation < r1 || rotation >= r2);
-                case (2):
-                    return (rotation >= r1 && rotation < r2);
-                default:
-                    return false;
+                rotation += 360;
             }
+            if (rotation < 22.5 || rotation >= 337.5)
+            {
+                x -= width / 2;
+                y -= height;
+            }
+            if (rotation >= 22.5 && rotation < 67.5)
+            {
+                y -= height;
+            }
+            if (rotation >= 67.5 && rotation < 112.5)
+            {
+                y -= height / 2;
+            }
+            if (rotation >= 112.5 && rotation < 157.5)
+            {
+
+            }
+            if (rotation >= 157.5 && rotation < 202.5)
+            {
+                x -= width / 2;
+            }
+            if (rotation >= 202.5 && rotation < 247.5)
+            {
+                x -= width;
+            }
+            if (rotation >= 247.5 && rotation < 292.5)
+            {
+                x -= width;
+                y -= height / 2;
+            }
+            if (rotation >= 292.5 && rotation < 337.5)
+            {
+                x -= width;
+                y -= height;
+            }
+            return new Rectangle((int)x, (int)y, (int)width, (int)height);
         }
 
         public List<GameObject> CreateVisibleObjectsList(Rectangle visionBox)
