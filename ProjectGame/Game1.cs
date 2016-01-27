@@ -299,51 +299,10 @@ namespace ProjectGame
             portBlocks.Add(teleport);
 
             SpawnMonsters(50, somePlayer, playerAnimations, monsterHelmets, swordTexture);
-
-            //---------------------------------------test-------------------------------------------------
-            var testBoss = new GameObject()
-            {
-                Position = new Vector2(1216, 3500),
-                Texture = bossStart
-            };
-            var swordboss = new GameObject(false, false)
-            {
-                Texture = swordTexture
-            };
-            swordboss.AddBehaviour(new WeaponBehaviour()
-            {
-                Wielder = testBoss
-            });
-            var bossHelmet = new GameObject(true, false)
-            {
-                Texture = boss2Texture
-            };
-            bossHelmet.AddBehaviour(new ChildBehaviour()
-            {
-                Parent = testBoss
-            });
-
-            testBoss.AddBehaviour(new MovementBehaviour(bossAnimations));
-            testBoss.AddBehaviour(new MonsterAttack(somePlayer, true));
-            testBoss.AddBehaviour(new AttackBehaviour(swordboss));
-            testBoss.AddBehaviour(new FOVBehavior(gameObjects));
-            testBoss.AddBehaviour(new StatBehaviour(100, 100, 0.1f));
-            testBoss.AddBehaviour(new HitBehaviour(swordboss));
-            testBoss.AddBehaviour(new ChaseBehaviour(300, somePlayer, testBoss.Position, true));
-            testBoss.AddBehaviour(new BondBehaviour(swordboss, bossHelmet));
-            gameObjects.Add(testBoss);
-            gameObjects.Add(bossHelmet);
-            gameObjects.Add(swordboss);
-            //--------------------------------------------------------------einde---------------------------------------------
-
-
             //LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture,1);
             //LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
-            LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);    //moeten nog wel monsters omheen worden gemaakt
-
-
-
-
+            //LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);    //moeten nog wel monsters omheen worden gemaakt
+            LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
@@ -600,6 +559,35 @@ namespace ProjectGame
             gameObjects.Add(Boss2);
             gameObjects.Add(bossSword2);
             gameObjects.Add(bossHelmet);
+        }
+
+        public void LoadBoss4(GameObject target, Texture2D bosstexture, Texture2D swordtexture)
+        {
+            GameObject Boss = new GameObject()
+            {
+                Position = new Vector2(1216, 3700),
+                Texture = bosstexture
+            };
+            var bossSword = new GameObject(false, false)
+            {
+                Texture = swordtexture
+            };
+            bossSword.AddBehaviour(new WeaponBehaviour()
+            {
+                Wielder = Boss
+            });
+
+            Boss.AddBehaviour(new MovementBehaviour());
+            Boss.AddBehaviour(new ChaseBehaviour(300, target, Boss.Position, true));
+            Boss.AddBehaviour(new MonsterAttack(target, true));
+            Boss.AddBehaviour(new AttackBehaviour(bossSword));
+            Boss.AddBehaviour(new FOVBehavior(gameObjects));
+            Boss.AddBehaviour(new StatBehaviour(200, 100, 0.1f));
+            Boss.AddBehaviour(new BondBehaviour(bossSword));
+            Boss.AddBehaviour(new HitBehaviour(bossSword, true));
+
+            gameObjects.Add(Boss);
+            gameObjects.Add(bossSword);
         }
 
         private bool CollisionFree(GameObject botsing)
