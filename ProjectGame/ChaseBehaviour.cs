@@ -71,12 +71,16 @@ namespace ProjectGame
 
         public void Chase()
         {
-            CalculateDistance();
-            var positionDifference = Target.Position - BeginPosition;
+            Vector2 positionDifference = Target.Position - BeginPosition;
+
+            if (Boss)
+                SetDistance(150);
+            else
+                SetDistance(75);
+
             if (positionDifference.Length() < Radius)
             {
                 CaseOfNoCollision(positionDifference);
-                Chasing = true;
             }
             else
             {
@@ -91,6 +95,7 @@ namespace ProjectGame
                 WalkToTarget(positiondifference);
                 GameObject.Rotation = (float)Math.Atan2(Target.Position.Y - GameObject.Position.Y, Target.Position.X - GameObject.Position.X) + MathHelper.ToRadians(90);
             }
+            Chasing = true;
         }
 
         private void WalkToTarget(Vector2 difference)
@@ -109,12 +114,9 @@ namespace ProjectGame
             }
         }
 
-        private void CalculateDistance()
+        private void SetDistance(int dist)
         {
-            if (Boss)
-                Distance = 150;
-            else
-                Distance = 90;
+                Distance = dist;
         }
     }
 }
