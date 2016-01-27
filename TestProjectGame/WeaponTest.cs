@@ -35,7 +35,7 @@ namespace TestProjectGame
             var weaponBehaviour = MonsterSword.GetBehaviourOfType(typeof(WeaponBehaviour));
 
             Assert.IsTrue((monsterAttackBehaviour as MonsterAttack).CheckRange());
-            Assert.AreEqual(TimeSpan.FromMilliseconds(1050), (attackBehaviour as AttackBehaviour).cooldown);
+            Assert.AreEqual(TimeSpan.FromMilliseconds(1050), (attackBehaviour as AttackBehaviour).Cooldown);
             Assert.IsTrue((weaponBehaviour as WeaponBehaviour).SwingSword);
 
             Player.Position = new Vector2(300, 300);
