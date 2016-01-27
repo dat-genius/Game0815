@@ -42,6 +42,7 @@
     <Compile Include="AttackBehaviour.cs" />
     <Compile Include="BondBehaviour.cs" />
     <Compile Include="ChaseBehaviour.cs" />
+    <Compile Include="DropItem.cs" />
     <Compile Include="FollowCamera.cs" />
     <Compile Include="CollisionEnterMessage.cs" />
     <Compile Include="CollisionExitMessage.cs" />
