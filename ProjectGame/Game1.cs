@@ -302,7 +302,8 @@ namespace ProjectGame
             //LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture,1);
             //LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
             //LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);    //moeten nog wel monsters omheen worden gemaakt
-            LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
+            //LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
+            LoadFinalBoss(somePlayer, khanTexture, bossAnimations, swordBoss1Texture);  // moeten nog wel monsters omheen
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
@@ -544,7 +545,7 @@ namespace ProjectGame
                 Parent = Boss2
             });
 
-            Boss2.AddBehaviour(new MovementBehaviour());
+            Boss2.AddBehaviour(new MovementBehaviour(movementList));
             Boss2.AddBehaviour(new ChaseBehaviour(300, target, Boss2.Position, true));
             Boss2.AddBehaviour(new MonsterAttack(target, true));
             Boss2.AddBehaviour(new AttackBehaviour(bossSword2));
@@ -587,6 +588,47 @@ namespace ProjectGame
             Boss.AddBehaviour(new HitBehaviour(bossSword, true));
 
             gameObjects.Add(Boss);
+            gameObjects.Add(bossSword);
+        }
+
+        public void LoadFinalBoss(GameObject target, Texture2D bosstexture,List<Texture2D>movementList, Texture2D swordtexture)
+        {
+            GameObject FinalBoss = new GameObject()
+            {
+                Position = new Vector2(1216, 3600),
+                Texture = movementList[0]
+            };
+            var helmet = new GameObject(true, false)
+            {
+                Texture = bosstexture
+            };
+            helmet.AddBehaviour(new ChildBehaviour()
+                {
+                    Parent = FinalBoss
+                });
+            var bossSword = new GameObject(false, false)
+            {
+                Texture = swordtexture
+            };
+            bossSword.AddBehaviour(new WeaponBehaviour()
+                {
+                    Wielder = FinalBoss
+                });
+
+            FinalBoss.AddBehaviour(new MovementBehaviour(movementList));
+            FinalBoss.AddBehaviour(new ChaseBehaviour(300, target, FinalBoss.Position, true));
+            FinalBoss.AddBehaviour(new MonsterAttack(target, true));
+            FinalBoss.AddBehaviour(new AttackBehaviour(bossSword));
+            FinalBoss.AddBehaviour(new StatBehaviour(250,100,0.1f)
+                {
+                    HealthRegenSword = true
+                });
+            FinalBoss.AddBehaviour(new FOVBehavior(gameObjects));
+            FinalBoss.AddBehaviour(new BondBehaviour(bossSword, helmet));
+            FinalBoss.AddBehaviour(new HitBehaviour(bossSword, true));
+
+            gameObjects.Add(FinalBoss);
+            gameObjects.Add(helmet);
             gameObjects.Add(bossSword);
         }
 
