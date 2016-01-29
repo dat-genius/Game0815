@@ -43,16 +43,16 @@ namespace ProjectGame
             shield.Position = GameObject.Position + displacement;
         }
 
-        private bool allowDraw()
+        public bool AllowDraw()
         {
             stats = GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
 
             return stats.Testos > 0;
         }
         
-        private bool checkToDefend()
+        public bool CheckToDefend()
         {
-            return defend && allowDraw();
+            return defend && AllowDraw();
         }
 
         private void shieldUseTestos()
@@ -69,7 +69,7 @@ namespace ProjectGame
             hitbehavior.defend = i;
         }
 
-        private void defendNow()
+        public void DefendNow()
         {
             calculatePosition();
             shield.IsDrawable = true;
@@ -80,9 +80,9 @@ namespace ProjectGame
 
         public void OnUpdate(GameTime gameTime)
         {
-            if (checkToDefend())
+            if (CheckToDefend())
             {
-                defendNow();
+                DefendNow();
             }
             else
             {

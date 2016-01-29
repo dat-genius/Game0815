@@ -73,7 +73,7 @@ namespace TestProjectGame
             Player.OnUpdate(new GameTime());
 
 
-            Assert.AreEqual(TimeSpan.FromMilliseconds(700), (attackBehaviour as AttackBehaviour).cooldown);
+            Assert.AreEqual(TimeSpan.FromMilliseconds(700), (attackBehaviour as AttackBehaviour).Cooldown);
             Assert.IsTrue((weaponBehaviour as WeaponBehaviour).SwingSword);
         }
     }
