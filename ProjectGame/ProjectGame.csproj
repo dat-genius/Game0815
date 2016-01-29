@@ -60,6 +60,7 @@
     <Compile Include="MovementBehaviour.cs" />
     <Compile Include="AreaEnteredMessage.cs" />
     <Compile Include="HitBehaviour.cs" />
+    <Compile Include="ShieldBehaviour.cs" />
     <Compile Include="StatBehaviour.cs" />
     <Compile Include="TeleportBlockBehaviour.cs" />
     <Compile Include="WeaponBehaviour.cs" />

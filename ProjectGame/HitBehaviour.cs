@@ -16,6 +16,7 @@ namespace ProjectGame
         public Vector2 NewPosition;
         private bool player;
         private bool canTeleport;
+        public bool defend;
         private int hitCount = 0;
 
         public HitBehaviour(GameObject sword, Texture2D boss1SwordTexture)
@@ -68,17 +69,26 @@ namespace ProjectGame
                     {
                         var collisionEnterMessage = message as CollisionEnterMessage;
                         if (collisionEnterMessage == null) return;
-                        var other = collisionEnterMessage.CollidingObject;
+                        GameObject other = collisionEnterMessage.CollidingObject;
                         behaviourStats = GameObject.GetBehaviourOfType(typeof(StatBehaviour));
                         if (!other.HasBehaviourOfType(typeof(WeaponBehaviour))) return;
-                        if (other != OwnSword)
-                        {
-                            (behaviourStats as StatBehaviour).HealthDown(10);
-                            CheckForBossAttack(other);
-                            hitCount++;
+                        if (other != OwnSword) 
+                        { 
+                            hit(other); 
                         }
+
                     }
                     break;
+            }
+        }
+
+        private void hit(GameObject other)
+        {
+            if (!defend)
+            {
+                (behaviourStats as StatBehaviour).HealthDown(10);
+                CheckForBossAttack(other);
+                hitCount++;
             }
         }
 

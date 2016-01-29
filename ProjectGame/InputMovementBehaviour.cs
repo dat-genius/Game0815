@@ -74,6 +74,9 @@ namespace ProjectGame
 
             if (Mouse.GetState().LeftButton == ButtonState.Pressed && (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).Testos > 0)
                 SwingSword();
+
+            Defend();
+
         }
 
         public void SwingSword()
@@ -81,6 +84,18 @@ namespace ProjectGame
             if (!GameObject.HasBehaviourOfType(typeof(AttackBehaviour))) return;
             var behaviour = GameObject.GetBehaviourOfType(typeof(AttackBehaviour));
             (behaviour as AttackBehaviour).Attack = true;
+        }
+
+        public void Defend()
+        {
+            if (!GameObject.HasBehaviourOfType(typeof(ShieldBehaviour))) return;
+            var behaviour = GameObject.GetBehaviourOfType(typeof(ShieldBehaviour)) as ShieldBehaviour;
+
+            if (Mouse.GetState().RightButton == ButtonState.Pressed)
+                behaviour.defend = true;
+            else
+                behaviour.defend = false;
+
         }
 
         public void OnMessage(IMessage message)

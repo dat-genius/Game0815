@@ -226,6 +226,7 @@ namespace ProjectGame
             var playerTexture = Content.Load<Texture2D>("player/basicperson0");
             var monsterTexture = Content.Load<Texture2D>("Roman");
             var swordTexture = Content.Load<Texture2D>("sword1");
+            var shieldTexture = Content.Load<Texture2D>("shield2");
             var helmetTexture = Content.Load<Texture2D>("Head");
             List<Texture2D> monsterHelmets = new List<Texture2D>();
             for (int i = 0; i < 3; i++)
@@ -296,6 +297,9 @@ namespace ProjectGame
             somePlayer.AddBehaviour(new HitBehaviour(swordPlayer, swordBoss1Texture));
             somePlayer.AddBehaviour(new BondBehaviour(swordPlayer, someHelmet));
 
+            var shieldPlayer = new ShieldBehaviour(shieldTexture);
+            somePlayer.AddBehaviour(shieldPlayer);
+
             portBlocks = new List<GameObject>();
             GameObject teleport = new GameObject();
             teleport.AddBehaviour(new TeleportBlockBehaviour(new Vector2(40 * 32, 236 * 32)));
@@ -313,6 +317,7 @@ namespace ProjectGame
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
             gameObjects.Add(swordPlayer);
+            gameObjects.Add(shieldPlayer.shield);
 
 
 
