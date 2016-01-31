@@ -13,8 +13,8 @@ namespace ProjectGame
     {
         private readonly ContentManager Content;
         private Texture2D newButton;
-        private Texture2D continueGameButton;
         private List<Texture2D> titleSprites;
+        private Texture2D howButton;
         private Texture2D endButton;
         private Texture2D continueButton;
 
@@ -23,10 +23,11 @@ namespace ProjectGame
 
         private Vector2 newButtonPosition;
         private Vector2 endButtonPosition;
+        private Vector2 howButtonPosition;
         private Vector2 continueGameButtonPosition;
         private Vector2 continueButtonPosition;
 
-        public enum GameState { Menu, GameLoading, Loading, New, Playing, Exit }
+        public enum GameState { Menu, GameLoading, Loading, New, Playing, How, Exit }
         public GameState State { get; set; }
         public bool PlayerAlive { get; set; }
 
@@ -34,15 +35,16 @@ namespace ProjectGame
         {
             newButton = Content.Load<Texture2D>("menu/New");
             endButton = Content.Load<Texture2D>("menu/End");
-            continueGameButton = Content.Load<Texture2D>("menu/continuegame");
-            continueButton = Content.Load<Texture2D>("menu/continue");
+            howButton = Content.Load<Texture2D>("Menu/How");
+            continueButton = Content.Load<Texture2D>("menu/continuegame");
             titleSprites = new List<Texture2D>();
-            for (int i = 0; i < 7; i++) { titleSprites.Add(Content.Load<Texture2D>("menu/title" + i)); }
+            for (int i = 0; i < 8; i++) { titleSprites.Add(Content.Load<Texture2D>("menu/title" + i)); }
 
             newButtonPosition = new Vector2((0.5f * 800) - 100, 200);
-            endButtonPosition = new Vector2((0.5f * 800) - 100, newButtonPosition.Y + 80);
-            continueGameButtonPosition = new Vector2((0.5f * 800) - 100, newButtonPosition.Y - 80);
-            continueButtonPosition = new Vector2(800 - 100, 430);
+            howButtonPosition = new Vector2((0.5f * 800) - 100, newButtonPosition.Y + 60);
+            endButtonPosition = new Vector2((0.5f * 800) - 100, howButtonPosition.Y + 60);
+            continueGameButtonPosition = new Vector2((0.5f * 800) - 100, newButtonPosition.Y - 60);
+            continueButtonPosition = new Vector2(800 - 200, 445);
 
             State = GameState.Loading;
         }
@@ -93,9 +95,10 @@ namespace ProjectGame
                     spriteBatch.Draw(titleSprites[listpos], new Vector2(0 - layer, 0 - layer), temp);
                     if (PlayerAlive)
                     {
-                        spriteBatch.Draw(continueGameButton, continueGameButtonPosition - new Vector2(layer, layer), temp);
+                        spriteBatch.Draw(continueButton, continueGameButtonPosition - new Vector2(layer, layer), temp);
                     }
                     spriteBatch.Draw(newButton, newButtonPosition - new Vector2(layer, layer), temp);
+                    spriteBatch.Draw(howButton, howButtonPosition - new Vector2(layer, layer), temp);
                     spriteBatch.Draw(endButton, endButtonPosition - new Vector2(layer, layer), temp);
                     temp = Color.Red;
                 }
@@ -103,6 +106,10 @@ namespace ProjectGame
             if (State == GameState.New)
             {
                 spriteBatch.Draw(continueButton, continueButtonPosition, Color.Red);
+            }
+            if (State == GameState.How)
+            {
+                spriteBatch.Draw(titleSprites[7], new Vector2(0, 0), Color.White);
             }
         }
 
@@ -115,6 +122,7 @@ namespace ProjectGame
                 Rectangle newButtonRect = new Rectangle((int)newButtonPosition.X, (int)newButtonPosition.Y, 200, 50);
                 Rectangle continueGameButtonRect = new Rectangle((int)continueGameButtonPosition.X, (int)continueGameButtonPosition.Y, 200, 50);
                 Rectangle endButtonRect = new Rectangle((int)endButtonPosition.X, (int)endButtonPosition.Y, 200, 50);
+                Rectangle howButtonRect = new Rectangle((int)howButtonPosition.X, (int)howButtonPosition.Y, 200, 50);
                 Rectangle continueButtonRect = new Rectangle((int)continueGameButtonPosition.X, (int)continueGameButtonPosition.Y, 200, 50);
                 if (mouseClickRect.Intersects(newButtonRect))
                 {
@@ -131,6 +139,10 @@ namespace ProjectGame
                 else if (mouseClickRect.Intersects(endButtonRect))
                 {
                     State = GameState.Exit;
+                }
+                else if (mouseClickRect.Intersects(howButtonRect))
+                {
+                    State = GameState.How;
                 }
             }
             if (State == GameState.New)
