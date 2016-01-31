@@ -38,13 +38,13 @@ namespace ProjectGame
             howButton = Content.Load<Texture2D>("Menu/How");
             continueButton = Content.Load<Texture2D>("menu/continuegame");
             titleSprites = new List<Texture2D>();
-            for (int i = 0; i < 8; i++) { titleSprites.Add(Content.Load<Texture2D>("menu/title" + i)); }
+            for (int i = 0; i < 9; i++) { titleSprites.Add(Content.Load<Texture2D>("menu/title" + i)); }
 
             newButtonPosition = new Vector2((0.5f * 800) - 100, 200);
             howButtonPosition = new Vector2((0.5f * 800) - 100, newButtonPosition.Y + 60);
             endButtonPosition = new Vector2((0.5f * 800) - 100, howButtonPosition.Y + 60);
             continueGameButtonPosition = new Vector2((0.5f * 800) - 100, newButtonPosition.Y - 60);
-            continueButtonPosition = new Vector2(800 - 200, 445);
+            continueButtonPosition = new Vector2(800 - 100, 450);
 
             State = GameState.Loading;
         }
@@ -105,11 +105,11 @@ namespace ProjectGame
             }
             if (State == GameState.New)
             {
-                spriteBatch.Draw(continueButton, continueButtonPosition, Color.Red);
+                spriteBatch.Draw(continueButton, new Rectangle((int)continueButtonPosition.X, (int)continueButtonPosition.Y, 100, 25), Color.Red);
             }
             if (State == GameState.How)
             {
-                spriteBatch.Draw(titleSprites[7], new Vector2(0, 0), Color.White);
+                spriteBatch.Draw(titleSprites[8], new Vector2(0, 0), Color.White);
             }
         }
 
