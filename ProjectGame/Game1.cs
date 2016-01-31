@@ -21,7 +21,9 @@ namespace ProjectGame
         private static ICamera camera;
         private SpriteBatch spriteBatch;
         private static Tilemap tilemap;
-        //private List<Tilemap> bossrooms;
+        private List<Tilemap> bossrooms;
+        private Tilemap currentMap;
+        private Tilemap lastMap;
         private MouseState lastMouseState;
         private MouseState mouseState;
         private Menu mainMenu;
@@ -36,13 +38,16 @@ namespace ProjectGame
             var xmlSerializer = new XmlSerializer(typeof(Tilemap));
 
             tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/Main_level.tmx", FileMode.Open));
-            /*
+            
             bossrooms = new List<Tilemap>();
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 4; i++)
             {
                 bossrooms.Add((Tilemap)xmlSerializer.Deserialize(new FileStream("Content/bossroom" + i + ".tmx", FileMode.Open)));
             }
-             */
+             
+
+            currentMap = tilemap;
+            lastMap = currentMap;
         }
 
 
@@ -308,11 +313,21 @@ namespace ProjectGame
             teleport.IsCollidable = false;
             portBlocks.Add(teleport);
 
-            SpawnMonsters(50, somePlayer, playerAnimations, monsterHelmets, swordTexture);
+            
+            if(currentMap == tilemap)
+                SpawnMonsters(50, somePlayer, playerAnimations, monsterHelmets, swordTexture);
+            if(currentMap == bossrooms[0])
+                LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
+            if(currentMap == bossrooms[1])
+                LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture, 1);
+            if(currentMap == bossrooms[2])
+                LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
+
             //LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture,1);
             //LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
             //LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);    //moeten nog wel monsters omheen worden gemaakt
-            LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
+            //LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
+            //LoadFinalBoss(somePlayer, khanTexture, bossAnimations, swordBoss1Texture);
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
@@ -397,6 +412,7 @@ namespace ProjectGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
+            var pixelSize = SetPixelSize();
 
             if (mainMenu.State != Menu.GameState.Playing)
             {
@@ -405,10 +421,11 @@ namespace ProjectGame
             }
             else
             {
+                //SetCurrentMap();
                 spriteBatch.Begin(
                     transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix,
                     samplerState: SamplerState.PointClamp);
-                tilemap.Draw(spriteBatch, camera);
+                currentMap.Draw(spriteBatch, camera, pixelSize);
 
                 foreach (var gameObject in gameObjects.Where(gameObject => gameObject.IsDrawable))
                 {
@@ -429,6 +446,14 @@ namespace ProjectGame
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public int SetPixelSize()
+        {
+            if (currentMap == tilemap)
+                return 32;
+            else
+                return 16;
         }
 
         public void DeleteMonster()
@@ -658,6 +683,17 @@ namespace ProjectGame
                 return false;
             }
             return true;
+        }
+
+        private void SetCurrentMap()
+        {
+            var positionPLayer = somePlayer.Position;
+            var differnce = new Vector2(896, 3296).Length() - positionPLayer.Length();
+            if (differnce <= 50)
+            {
+                currentMap = bossrooms[1];
+                LoadGameObjects();
+            }
         }
     }
 }

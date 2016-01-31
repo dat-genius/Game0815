@@ -125,11 +125,11 @@ namespace ProjectGame
         /// Draws all the layers in the tilemap.
         /// </summary>
         /// <param name="spriteBatch">The spritebatch to Draw the tilemap with.</param>
-        public void Draw(SpriteBatch spriteBatch, ICamera camera)
+        public void Draw(SpriteBatch spriteBatch, ICamera camera, int pixelSize)
         {
             // 800x480 = hardcoded window resolution
             // 32x32 = hardcoded tile resolution
-            if ((camera.Position - lastCameraPosition).Length() >= 32)
+            if ((camera.Position - lastCameraPosition).Length() >= pixelSize)
             {
                 cullFilteredDrawableTiles.Clear();
 
