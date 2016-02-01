@@ -24,9 +24,9 @@ namespace TestProjectGame
         [TestMethod]
         public void TestHasFOVBehaviour()
         {
-            Assert.IsFalse(testObject.HasBehaviourOfType(typeof(FOVBehavior)));
-            testObject.AddBehaviour(new FOVBehavior(gameObjects));
-            Assert.IsTrue(testObject.HasBehaviourOfType(typeof(FOVBehavior)));
+            Assert.IsFalse(testObject.HasBehaviourOfType("FOVBehavior"));
+            testObject.AddBehaviour("FOVBehaviour",new FOVBehavior(gameObjects));
+            Assert.IsTrue(testObject.HasBehaviourOfType("FOVBehavior"));
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace TestProjectGame
         {
             GameObject testObject = new GameObject();
             FOVBehavior testFOV = new FOVBehavior(gameObjects);
-            testObject.AddBehaviour(testFOV);
+            testObject.AddBehaviour("FOVBehaviour", testFOV);
             testObject.Rotation = 0;
             testObject.Position = new Vector2(100, 100);
             gameObjects.Add(testObject);
@@ -48,11 +48,11 @@ namespace TestProjectGame
         {
             GameObject testObject = new GameObject();
             FOVBehavior testFOV = new FOVBehavior(gameObjects);
-            testObject.AddBehaviour(testFOV);
+            testObject.AddBehaviour("FOVBehaviour", testFOV);
             testObject.Rotation = 0;
             testObject.Position = new Vector2(100, 100);
             GameObject testPlayerObject = new GameObject();
-            testPlayerObject.AddBehaviour(new InputMovementBehaviour(5, new FollowCamera()));
+            testPlayerObject.AddBehaviour("InputMovementBehaviour", new InputMovementBehaviour(5, new FollowCamera()));
             testPlayerObject.Position = new Vector2(100, 200);
 
             gameObjects.Add(testObject);
@@ -69,11 +69,11 @@ namespace TestProjectGame
             GameObject testObject = new GameObject();
             FOVBehavior testFOV = new FOVBehavior(gameObjects);
             testFOV.ViewDistance = 300;
-            testObject.AddBehaviour(testFOV);
+            testObject.AddBehaviour("FOVBehaviour", testFOV);
             testObject.Rotation = 0;
             testObject.Position = new Vector2(100, 100);
             GameObject testPlayerObject = new GameObject();
-            testPlayerObject.AddBehaviour(new InputMovementBehaviour(5, new FollowCamera()));
+            testPlayerObject.AddBehaviour("InputMovementBehaviour",new InputMovementBehaviour(5, new FollowCamera()));
             testPlayerObject.Position = new Vector2(100, 0);
 
             gameObjects.Add(testObject);
@@ -88,12 +88,12 @@ namespace TestProjectGame
         {
             GameObject testObject = new GameObject();
             FOVBehavior testFOV = new FOVBehavior(gameObjects);
-            testObject.AddBehaviour(testFOV);
+            testObject.AddBehaviour("FOVBehaviour", testFOV);
             testObject.Rotation = 0;
             testObject.Position = new Vector2(100, 100);
             testFOV.ViewDistance = 100;
             GameObject testPlayerObject = new GameObject();
-            testPlayerObject.AddBehaviour(new InputMovementBehaviour(5, new FollowCamera()));
+            testPlayerObject.AddBehaviour("InputMovementBehaviour",new InputMovementBehaviour(5, new FollowCamera()));
             testPlayerObject.Position = new Vector2(51, 50);
             gameObjects.Add(testObject);
             gameObjects.Add(testPlayerObject);
@@ -111,12 +111,12 @@ namespace TestProjectGame
         {
             GameObject testObject = new GameObject();
             FOVBehavior testFOV = new FOVBehavior(gameObjects);
-            testObject.AddBehaviour(testFOV);
+            testObject.AddBehaviour("FOVBehaviour", testFOV);
             testObject.Rotation = 0;
             testObject.Position = new Vector2(100, 100);
             testFOV.ViewDistance = 100;
             GameObject testPlayerObject = new GameObject();
-            testPlayerObject.AddBehaviour(new InputMovementBehaviour(5, new FollowCamera()));
+            testPlayerObject.AddBehaviour("InputMovementBehaviour",new InputMovementBehaviour(5, new FollowCamera()));
             testPlayerObject.Position = new Vector2(50, 50);
             gameObjects.Add(testObject);
             gameObjects.Add(testPlayerObject);
@@ -133,12 +133,12 @@ namespace TestProjectGame
         {
             GameObject testObject = new GameObject();
             FOVBehavior testFOV = new FOVBehavior(gameObjects);
-            testObject.AddBehaviour(testFOV);
+            testObject.AddBehaviour("FOVBehaviour", testFOV);
             testObject.Rotation = 0;
             testObject.Position = new Vector2(100, 100);
             testFOV.ViewDistance = 100;
             GameObject testPlayerObject = new GameObject();
-            testPlayerObject.AddBehaviour(new InputMovementBehaviour(5, new FollowCamera()));
+            testPlayerObject.AddBehaviour("InputMovementBehaviour", new InputMovementBehaviour(5, new FollowCamera()));
             testPlayerObject.Position = new Vector2(51, 1);
             gameObjects.Add(testObject);
             gameObjects.Add(testPlayerObject);
@@ -156,12 +156,12 @@ namespace TestProjectGame
         {
             GameObject testObject = new GameObject();
             FOVBehavior testFOV = new FOVBehavior(gameObjects);
-            testObject.AddBehaviour(testFOV);
+            testObject.AddBehaviour("FOVBehaviour", testFOV);
             testObject.Rotation = 0;
             testObject.Position = new Vector2(100, 100);
             testFOV.ViewDistance = 100;
             GameObject testPlayerObject = new GameObject();
-            testPlayerObject.AddBehaviour(new InputMovementBehaviour(5, new FollowCamera()));
+            testPlayerObject.AddBehaviour("InputMovementBehaviour", new InputMovementBehaviour(5, new FollowCamera()));
             testPlayerObject.Position = new Vector2(50, 0);
             gameObjects.Add(testObject);
             gameObjects.Add(testPlayerObject);

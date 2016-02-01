@@ -21,9 +21,9 @@ namespace TestProjectGame
         public void initialize()
         {
             player = new GameObject();
-            player.AddBehaviour(new StatBehaviour(100, 100, 1));
+            player.AddBehaviour("StatBehaviour",new StatBehaviour(100, 100, 1));
 
-            Stats = player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+            Stats = player.GetBehaviourOfType("StatBehaviour") as StatBehaviour;
         }
 
         [TestMethod]

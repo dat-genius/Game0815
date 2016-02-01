@@ -20,13 +20,13 @@ namespace TestProjectGame
             player = new GameObject(true, true);
 
             shieldBehaviour = new ShieldBehaviour(null);
-            player.AddBehaviour(shieldBehaviour);
+            player.AddBehaviour("ShieldBehaviour",shieldBehaviour);
 
             statBehaviour = new StatBehaviour(100, 100, 0);
-            player.AddBehaviour(statBehaviour);
+            player.AddBehaviour("StatBehaviour",statBehaviour);
 
             hitBehaviour = new HitBehaviour(null);
-            player.AddBehaviour(hitBehaviour);
+            player.AddBehaviour("HitBehaviour",hitBehaviour);
         }
 
         [TestMethod]
@@ -36,7 +36,7 @@ namespace TestProjectGame
 
             Assert.IsTrue(shieldBehaviour.AllowDraw());
 
-            (player.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).Testos = 0;
+            (player.GetBehaviourOfType("StatBehaviour") as StatBehaviour).Testos = 0;
 
             Assert.IsFalse(shieldBehaviour.AllowDraw());
         }
