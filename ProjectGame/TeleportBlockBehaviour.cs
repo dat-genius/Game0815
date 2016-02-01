@@ -22,7 +22,7 @@ namespace ProjectGame
             if (message.GetType() == typeof(CollisionEnterMessage))
             {
                 CollisionEnterMessage temp = (CollisionEnterMessage)message;
-                if (temp.CollidingObject.HasBehaviourOfType(typeof(InputMovementBehaviour)))
+                if (temp.CollidingObject.HasBehaviourOfType("InputMovementBehaviour"))
                 {
                     temp.CollidingObject.Position = TargetLocation;
                 }

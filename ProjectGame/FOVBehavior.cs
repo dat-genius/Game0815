@@ -63,7 +63,7 @@ namespace ProjectGame
         {
             foreach (GameObject objectInList in visibleObjects)
             {
-                if (objectInList.HasBehaviourOfType(typeof(InputMovementBehaviour)))
+                if (objectInList.HasBehaviourOfType("InputMovementBehaviour"))
                 {
                     player = objectInList;
                     return true;

@@ -45,7 +45,7 @@ namespace ProjectGame
 
         public bool AllowDraw()
         {
-            stats = GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+            stats = GameObject.GetBehaviourOfType("StatBehaviour") as StatBehaviour;
 
             return stats.Testos > 0;
         }
@@ -57,14 +57,14 @@ namespace ProjectGame
 
         private void shieldUseTestos()
         {
-            stats = GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+            stats = GameObject.GetBehaviourOfType("StatBehaviour") as StatBehaviour;
 
             stats.TestosDown(2);
         }
 
         private void toggleDefending(bool i)
         {
-            var hitbehavior = GameObject.GetBehaviourOfType(typeof(HitBehaviour)) as HitBehaviour;
+            var hitbehavior = GameObject.GetBehaviourOfType("HitBehaviour") as HitBehaviour;
 
             hitbehavior.defend = i;
         }

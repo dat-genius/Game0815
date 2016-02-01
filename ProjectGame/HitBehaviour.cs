@@ -56,8 +56,8 @@ namespace ProjectGame
 
         private void SetNewSpwan()
         {
-            if (!GameObject.HasBehaviourOfType(typeof(ChaseBehaviour))) return;
-            var behaviour = GameObject.GetBehaviourOfType(typeof(ChaseBehaviour));
+            if (!GameObject.HasBehaviourOfType("ChaseBehaviour")) return;
+            var behaviour = GameObject.GetBehaviourOfType("ChaseBehaviour");
             (behaviour as ChaseBehaviour).SpawnPoint = NewPosition;
         }
 
@@ -70,8 +70,8 @@ namespace ProjectGame
                         var collisionEnterMessage = message as CollisionEnterMessage;
                         if (collisionEnterMessage == null) return;
                         GameObject other = collisionEnterMessage.CollidingObject;
-                        behaviourStats = GameObject.GetBehaviourOfType(typeof(StatBehaviour));
-                        if (!other.HasBehaviourOfType(typeof(WeaponBehaviour))) return;
+                        behaviourStats = GameObject.GetBehaviourOfType("StatBehaviour");
+                        if (!other.HasBehaviourOfType("WeaponBehaviour")) return;
                         if (other != OwnSword) 
                         { 
                             hit(other); 
@@ -98,7 +98,7 @@ namespace ProjectGame
             {
                 if (sword.Texture == Boss1Swordtexture)
                 {
-                    behaviourStats = GameObject.GetBehaviourOfType(typeof(StatBehaviour));
+                    behaviourStats = GameObject.GetBehaviourOfType("StatBehaviour");
                     (behaviourStats as StatBehaviour).TestosDown(1);
                 }
             }

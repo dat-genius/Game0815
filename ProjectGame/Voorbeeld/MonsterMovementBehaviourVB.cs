@@ -61,7 +61,7 @@ namespace ProjectGame.Voorbeeld
                     var collisionEnterMessage = message as CollisionEnterMessage;
                     if (collisionEnterMessage == null) return;
                     var other = collisionEnterMessage.CollidingObject;
-                    if (!other.HasBehaviourOfType(typeof (WeaponBehaviour))) return;
+                    if (!other.HasBehaviourOfType("WeaponBehaviour")) return;
                     GameObject.Color = Color.Red;
                     if (--Lives <= 0)
                     {
@@ -74,7 +74,7 @@ namespace ProjectGame.Voorbeeld
                     var collisionExitMessage = message as CollisionExitMessage;
                     if (collisionExitMessage == null) return;
                     var other = collisionExitMessage.CollidingObject;
-                    if (other.HasBehaviourOfType(typeof (WeaponBehaviour)))
+                    if (other.HasBehaviourOfType("WeaponBehaviour"))
                     {
                         GameObject.Color = Color.White;
                     } 

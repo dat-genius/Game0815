@@ -26,7 +26,7 @@ namespace ProjectGame
 
             if (movementBehaviour == null)
             {
-                var behaviour = GameObject.GetBehaviourOfType(typeof(MovementBehaviour));
+                var behaviour = GameObject.GetBehaviourOfType("MovementBehaviour");
                 if (behaviour != null)
                 {
                     movementBehaviour = behaviour as MovementBehaviour;
@@ -64,15 +64,15 @@ namespace ProjectGame
 
             
             // Moet nog wel testosterone van afgehaald worden
-            if (Keyboard.GetState().IsKeyDown(Keys.LeftShift) && (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).Testos > 0 && displacement.Length() > 0)
+            if (Keyboard.GetState().IsKeyDown(Keys.LeftShift) && (GameObject.GetBehaviourOfType("StatBehaviour") as StatBehaviour).Testos > 0 && displacement.Length() > 0)
             {
                 movementBehaviour.Velocity = Vector2.Normalize(displacement) * sprintSpeed;
-                (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).TestosDown(2);
+                (GameObject.GetBehaviourOfType("StatBehaviour") as StatBehaviour).TestosDown(2);
             }
             else
                 movementBehaviour.Velocity = Vector2.Normalize(displacement) * MovementSpeed;
 
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed && (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).Testos > 0)
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed && (GameObject.GetBehaviourOfType("StatBehaviour") as StatBehaviour).Testos > 0)
                 SwingSword();
 
             Defend();
@@ -81,15 +81,15 @@ namespace ProjectGame
 
         public void SwingSword()
         {
-            if (!GameObject.HasBehaviourOfType(typeof(AttackBehaviour))) return;
-            var behaviour = GameObject.GetBehaviourOfType(typeof(AttackBehaviour));
+            if (!GameObject.HasBehaviourOfType("AttackBehaviour")) return;
+            var behaviour = GameObject.GetBehaviourOfType("AttackBehaviour");
             (behaviour as AttackBehaviour).Attack = true;
         }
 
         public void Defend()
         {
-            if (!GameObject.HasBehaviourOfType(typeof(ShieldBehaviour))) return;
-            var behaviour = GameObject.GetBehaviourOfType(typeof(ShieldBehaviour)) as ShieldBehaviour;
+            if (!GameObject.HasBehaviourOfType("ShieldBehaviour")) return;
+            var behaviour = GameObject.GetBehaviourOfType("ShieldBehaviour") as ShieldBehaviour;
 
             if (Mouse.GetState().RightButton == ButtonState.Pressed)
                 behaviour.defend = true;

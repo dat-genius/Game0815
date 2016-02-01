@@ -64,7 +64,7 @@ namespace ProjectGame
 
         private void CheckFOVBehavior()
         {
-            if (!GameObject.HasBehaviourOfType(typeof(FOVBehavior)))
+            if (!GameObject.HasBehaviourOfType("FOVBehavior"))
             {
                 found = true;
             }

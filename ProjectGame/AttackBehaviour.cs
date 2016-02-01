@@ -20,9 +20,8 @@ namespace ProjectGame
         {
             Sword = sword;
             timeUntilUsage = TimeSpan.FromMilliseconds(0);
-            if (Sword.HasBehaviourOfType(typeof(WeaponBehaviour)))
-                BehaviourSword = Sword.GetBehaviourOfType(typeof(WeaponBehaviour));
-
+            if (Sword.HasBehaviourOfType("WeaponBehaviour"))
+                BehaviourSword = Sword.GetBehaviourOfType("WeaponBehaviour");
         }
 
         public void OnUpdate(GameTime gameTime)
@@ -44,7 +43,7 @@ namespace ProjectGame
 
         private void setCooldown()
         {
-            if (GameObject.HasBehaviourOfType(typeof(MonsterAttack)))
+            if (GameObject.HasBehaviourOfType("MonsterAttack"))
                 setCooldownVar(1050);
             else
                 setCooldownVar(700);
@@ -63,7 +62,7 @@ namespace ProjectGame
         private void hit()
         {
             (BehaviourSword as WeaponBehaviour).SwingSword = true;
-            (GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour).TestosDown(1);
+            (GameObject.GetBehaviourOfType("StatBehaviour") as StatBehaviour).TestosDown(1);
             timeUntilUsage = Cooldown;
         }
     }

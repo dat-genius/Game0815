@@ -4,11 +4,13 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+
 namespace ProjectGame
 {
     public class GameObject
     {
-        private readonly List<IBehaviour> behaviours;
+        private readonly Dictionary<string, IBehaviour> behaviours;
+
 
         #region Common Properties
 
@@ -78,7 +80,7 @@ namespace ProjectGame
 
         private GameObject()
         {
-            behaviours = new List<IBehaviour>();
+            behaviours = new Dictionary<string, IBehaviour>();
             CollidingGameObjects = new List<GameObject>();
             Color = Color.White;
 
@@ -104,9 +106,9 @@ namespace ProjectGame
         /// <param name="gameTime">The game time.</param>
         public void OnUpdate(GameTime gameTime)
         {
-            foreach (var behaviour in behaviours.ToList())
+            foreach (var behaviour in behaviours)
             {
-                behaviour.OnUpdate(gameTime);
+                behaviour.Value.OnUpdate(gameTime);
             }
         }
 
@@ -119,7 +121,7 @@ namespace ProjectGame
         {
             foreach (var behaviour in behaviours)
             {
-                behaviour.OnMessage(message);
+                behaviour.Value.OnMessage(message);
             }
         }
 
@@ -140,10 +142,10 @@ namespace ProjectGame
         ///     Adds a behaviour to the game object.
         /// </summary>
         /// <param name="behaviour">The behaviour to add.</param>
-        public void AddBehaviour(IBehaviour behaviour)
+        public void AddBehaviour(string i, IBehaviour behaviour)
         {
             behaviour.GameObject = this;
-            behaviours.Add(behaviour);
+            behaviours.Add(i, behaviour);
         }
 
 
@@ -151,11 +153,11 @@ namespace ProjectGame
         ///     Removes a behaviour from the game object.
         /// </summary>
         /// <param name="behaviour">The behaviour to remove.</param>
-        public void RemoveBehaviour(IBehaviour behaviour)
+        public void RemoveBehaviour(string i)
         {
-            if (!behaviours.Contains(behaviour)) return;
-            behaviours.Remove(behaviour);
-            behaviour.GameObject = null;
+            if (!behaviours.ContainsKey(i)) return;
+            behaviours[i].GameObject = null;
+            behaviours.Remove(i);
         }
 
 
@@ -164,9 +166,9 @@ namespace ProjectGame
         /// </summary>
         /// <param name="type"></param>
         /// <returns>The behaviour of the type, or null if the game object doesn't have it.</returns>
-        public IBehaviour GetBehaviourOfType(Type type)
+        public IBehaviour GetBehaviourOfType(string i)
         {
-            return behaviours.FirstOrDefault(behaviour => behaviour.GetType() == type);
+            return behaviours[i];
         }
 
 
@@ -175,9 +177,9 @@ namespace ProjectGame
         /// </summary>
         /// <param name="type"></param>
         /// <returns>True if the game object has a behaviour of the type, false otherwise.</returns>
-        public bool HasBehaviourOfType(Type type)
+        public bool HasBehaviourOfType(string i)
         {
-            return behaviours.Any(behaviour => behaviour.GetType() == type);
+            return behaviours.ContainsKey(i);
         }
 
         #endregion

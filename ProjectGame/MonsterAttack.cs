@@ -26,9 +26,9 @@ namespace ProjectGame
 
         public void OnUpdate(GameTime gameTime)
         {
-            if (GameObject.HasBehaviourOfType(typeof(FOVBehavior)))
+            if (GameObject.HasBehaviourOfType("FOVBehavior"))
             {
-                var behaviour = GameObject.GetBehaviourOfType(typeof(FOVBehavior));
+                var behaviour = GameObject.GetBehaviourOfType("FOVBehavior");
                 inSight = (behaviour as FOVBehavior).DetectPlayer();
             }
             else
@@ -40,9 +40,9 @@ namespace ProjectGame
             else
                 attack = false;
 
-            if(GameObject.HasBehaviourOfType(typeof(AttackBehaviour)))
+            if(GameObject.HasBehaviourOfType("AttackBehaviour"))
             {
-                var behaviour = GameObject.GetBehaviourOfType(typeof(AttackBehaviour));
+                var behaviour = GameObject.GetBehaviourOfType("AttackBehaviour");
                 (behaviour as AttackBehaviour).Attack = attack;
             }
 

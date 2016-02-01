@@ -144,7 +144,7 @@ namespace ProjectGame
                 for (var j = i + 1; j < gameObjects.Count; ++j)
                 {
                     var b = gameObjects[j];
-                    if (a == b || (!b.IsCollidable && !b.HasBehaviourOfType(typeof(TeleportBlockBehaviour))))
+                    if (a == b || (!b.IsCollidable && !b.HasBehaviourOfType("TeleportBlockBehaviour")))
                         continue;
 
                     var rectangleB = new Rectangle((int)b.Position.X, (int)b.Position.Y, b.Size.X, b.Size.Y);
@@ -180,7 +180,7 @@ namespace ProjectGame
             GameObject player = new GameObject();
             foreach (GameObject potentialPlayer in gameObjects)
             {
-                if (potentialPlayer.HasBehaviourOfType(typeof(InputMovementBehaviour)))
+                if (potentialPlayer.HasBehaviourOfType("InputMovementBehaviour"))
                 {
                     player = potentialPlayer;
                     break;
@@ -272,9 +272,9 @@ namespace ProjectGame
                 Texture = playerTexture
             };
             mainMenu.PlayerAlive = true;
-            somePlayer.AddBehaviour(new MovementBehaviour(playerAnimations));
-            somePlayer.AddBehaviour(new StatBehaviour(100, 200, 0.5f));
-            somePlayer.AddBehaviour(new HUDBehaviour(
+            somePlayer.AddBehaviour("MovementBehaviour", new MovementBehaviour(playerAnimations));
+            somePlayer.AddBehaviour("StatBehaviour", new StatBehaviour(100, 200, 0.5f));
+            somePlayer.AddBehaviour("HUDBehaviour", new HUDBehaviour(
                 Content.Load<Texture2D>("HealthBar"),
                 Content.Load<Texture2D>("TestosBar"),
                 Content.Load<SpriteFont>("textFont"),
@@ -284,7 +284,7 @@ namespace ProjectGame
                 Texture = helmetTexture
             };
 
-            someHelmet.AddBehaviour(new ChildBehaviour()
+            someHelmet.AddBehaviour("ChildBehaviour", new ChildBehaviour()
             {
                 Parent = somePlayer
             });
@@ -293,21 +293,21 @@ namespace ProjectGame
             {
                 Texture = swordTexture
             };
-            swordPlayer.AddBehaviour(new WeaponBehaviour()
+            swordPlayer.AddBehaviour("WeaponBehaviour", new WeaponBehaviour()
             {
                 Wielder = somePlayer
             });
 
-            somePlayer.AddBehaviour(new AttackBehaviour(swordPlayer));
-            somePlayer.AddBehaviour(new HitBehaviour(swordPlayer, swordBoss1Texture));
-            somePlayer.AddBehaviour(new BondBehaviour(swordPlayer, someHelmet));
+            somePlayer.AddBehaviour("AttackBehaviour", new AttackBehaviour(swordPlayer));
+            somePlayer.AddBehaviour("HitBehaviour", new HitBehaviour(swordPlayer, swordBoss1Texture));
+            somePlayer.AddBehaviour("BondBehaviour", new BondBehaviour(swordPlayer, someHelmet));
 
             var shieldPlayer = new ShieldBehaviour(shieldTexture);
-            somePlayer.AddBehaviour(shieldPlayer);
+            somePlayer.AddBehaviour("ShieldBehaviour", shieldPlayer);
 
             portBlocks = new List<GameObject>();
             GameObject teleport = new GameObject();
-            teleport.AddBehaviour(new TeleportBlockBehaviour(new Vector2(40 * 32, 236 * 32)));
+            teleport.AddBehaviour("TeleportBlockBehaviour", new TeleportBlockBehaviour(new Vector2(40 * 32, 236 * 32)));
             teleport.Position = new Vector2(39 * 32, 73 * 32);
             teleport.Size = new Point(96, 32);
             teleport.IsCollidable = false;
@@ -344,7 +344,7 @@ namespace ProjectGame
             followCamera.Target = somePlayer;
             camera = followCamera;
 
-            somePlayer.AddBehaviour(new InputMovementBehaviour(movementSpeed: 5, camera: camera));
+            somePlayer.AddBehaviour("InputMovementBehaviour", new InputMovementBehaviour(movementSpeed: 5, camera: camera));
 
         }
 
@@ -436,9 +436,9 @@ namespace ProjectGame
                 spriteBatch.Begin();
                 foreach (var gameObject in gameObjects)
                 {
-                    if (gameObject.HasBehaviourOfType(typeof(HUDBehaviour)))
+                    if (gameObject.HasBehaviourOfType("HUDBehaviour"))
                     {
-                        HUDBehaviour hud = gameObject.GetBehaviourOfType(typeof(HUDBehaviour)) as HUDBehaviour;
+                        HUDBehaviour hud = gameObject.GetBehaviourOfType("HUDBehaviour") as HUDBehaviour;
                         hud.Draw(spriteBatch);
                     }
                 }
@@ -460,19 +460,19 @@ namespace ProjectGame
         {
             foreach (var gameObject in gameObjects.ToList())
             {
-                if (gameObject.HasBehaviourOfType(typeof(StatBehaviour)))
+                if (gameObject.HasBehaviourOfType("StatBehaviour"))
                 {
-                    var behaviour = gameObject.GetBehaviourOfType(typeof(StatBehaviour));
+                    var behaviour = gameObject.GetBehaviourOfType("StatBehaviour");
                     if ((behaviour as StatBehaviour).Health <= 0)
                     {
-                        if (gameObject.HasBehaviourOfType(typeof(InputMovementBehaviour)))
+                        if (gameObject.HasBehaviourOfType("InputMovementBehaviour"))
                         {
                             mainMenu.PlayerAlive = false;
                         }
-                        var Drop = gameObject.GetBehaviourOfType(typeof(DropItem)) as DropItem;
+                        var Drop = gameObject.GetBehaviourOfType("DropItem") as DropItem;
                         Drop.AddPotion();
 
-                        var behaviour2 = gameObject.GetBehaviourOfType(typeof(BondBehaviour));
+                        var behaviour2 = gameObject.GetBehaviourOfType("BondBehaviour");
                         var sword = (behaviour2 as BondBehaviour).Sword;
                         if ((behaviour2 as BondBehaviour).HasHelmet)
                         {
@@ -503,28 +503,28 @@ namespace ProjectGame
                         Texture = swordTexture
                     };
 
-                    swordMonster.AddBehaviour(new WeaponBehaviour()
+                    swordMonster.AddBehaviour("WeaponBehaviour", new WeaponBehaviour()
                     {
                         Wielder = monster
                     });
 
                     FOVBehavior FOV = new FOVBehavior(gameObjects);
-                    monster.AddBehaviour(FOV);
-                    monster.AddBehaviour(new MovementBehaviour());
-                    monster.AddBehaviour(new MonsterAttack(target));
-                    monster.AddBehaviour(new AttackBehaviour(swordMonster));
-                    monster.AddBehaviour(new StatBehaviour(50, 100, 0.1f));
-                    monster.AddBehaviour(new ChaseBehaviour(200, target, monster.Position));
-                    monster.AddBehaviour(new HitBehaviour(swordMonster));
-                    monster.AddBehaviour(new DropItem(target));
+                    monster.AddBehaviour("FOVBehavior", FOV);
+                    monster.AddBehaviour("MovementBehaviour", new MovementBehaviour());
+                    monster.AddBehaviour("MonsterAttack", new MonsterAttack(target));
+                    monster.AddBehaviour("AttackBehaviour", new AttackBehaviour(swordMonster));
+                    monster.AddBehaviour("StatBehaviour", new StatBehaviour(50, 100, 0.1f));
+                    monster.AddBehaviour("ChaseBehaviour", new ChaseBehaviour(200, target, monster.Position));
+                    monster.AddBehaviour("HitBehaviour", new HitBehaviour(swordMonster));
+                    monster.AddBehaviour("DropItem", new DropItem(target));
 
                     GameObject Helmet = new GameObject();
                     Helmet.Texture = helmet[r.Next(0, helmet.Count)];
                     ChildBehaviour helmetbehaviour = new ChildBehaviour();
                     helmetbehaviour.Parent = monster;
-                    Helmet.AddBehaviour(helmetbehaviour);
+                    Helmet.AddBehaviour("ChildBehaviour", helmetbehaviour);
                     spawnlist.Add(monster);
-                    monster.AddBehaviour(new BondBehaviour(swordMonster, Helmet));
+                    monster.AddBehaviour("BondBehaviour", new BondBehaviour(swordMonster, Helmet));
 
                     gameObjects.Add(monster);
                     gameObjects.Add(Helmet);
@@ -544,19 +544,18 @@ namespace ProjectGame
             {
                 Texture = swordtexture
             };
-            bossSword.AddBehaviour(new WeaponBehaviour()
+            bossSword.AddBehaviour("WeaponBehaviour", new WeaponBehaviour()
             {
                 Wielder = Boss
             });
 
-            Boss.AddBehaviour(new MovementBehaviour());
-            Boss.AddBehaviour(new ChaseBehaviour(300, target, Boss.Position, true));
-            Boss.AddBehaviour(new MonsterAttack(target, true));
-            Boss.AddBehaviour(new AttackBehaviour(bossSword));
-            Boss.AddBehaviour(new FOVBehavior(gameObjects));
-            Boss.AddBehaviour(new StatBehaviour(50 + 50 * bossnmmr, 100, 0.1f));
-            Boss.AddBehaviour(new BondBehaviour(bossSword));
-            Boss.AddBehaviour(new HitBehaviour(bossSword));
+            Boss.AddBehaviour("MovementBehaviour", new MovementBehaviour());
+            Boss.AddBehaviour("ChaseBehaviour", new ChaseBehaviour(300, target, Boss.Position, true));
+            Boss.AddBehaviour("MonsterAttack", new MonsterAttack(target, true));
+            Boss.AddBehaviour("AttackBehaviour", new AttackBehaviour(bossSword));
+            Boss.AddBehaviour("StatBehaviour", new StatBehaviour(50 + 50 * bossnmmr, 100, 0.1f));
+            Boss.AddBehaviour("BondBehaviour", new BondBehaviour(bossSword));
+            Boss.AddBehaviour("HitBehaviour", new HitBehaviour(bossSword));
 
             gameObjects.Add(Boss);
             gameObjects.Add(bossSword);
@@ -573,7 +572,7 @@ namespace ProjectGame
             {
                 Texture = swordtexture
             };
-            bossSword2.AddBehaviour(new WeaponBehaviour()
+            bossSword2.AddBehaviour("WeaponBehaviour", new WeaponBehaviour()
             {
                 Wielder = Boss2
             });
@@ -581,22 +580,22 @@ namespace ProjectGame
             {
                 Texture = bosstexture
             };
-            bossHelmet.AddBehaviour(new ChildBehaviour()
+            bossHelmet.AddBehaviour("ChildBehaviour", new ChildBehaviour()
             {
                 Parent = Boss2
             });
 
-            Boss2.AddBehaviour(new MovementBehaviour());
-            Boss2.AddBehaviour(new ChaseBehaviour(300, target, Boss2.Position, true));
-            Boss2.AddBehaviour(new MonsterAttack(target, true));
-            Boss2.AddBehaviour(new AttackBehaviour(bossSword2));
-            Boss2.AddBehaviour(new FOVBehavior(gameObjects));
-            Boss2.AddBehaviour(new StatBehaviour(120, 100, 0.1f)
+            Boss2.AddBehaviour("MovementBehaviour", new MovementBehaviour());
+            Boss2.AddBehaviour("ChaseBehaviour", new ChaseBehaviour(300, target, Boss2.Position, true));
+            Boss2.AddBehaviour("MonsterAttack", new MonsterAttack(target, true));
+            Boss2.AddBehaviour("AttackBehaviour", new AttackBehaviour(bossSword2));
+            Boss2.AddBehaviour("FOVBehavior", new FOVBehavior(gameObjects));
+            Boss2.AddBehaviour("StatBehaviour", new StatBehaviour(120, 100, 0.1f)
             {
                 HealthRegenSword = true
             });
-            Boss2.AddBehaviour(new BondBehaviour(bossSword2));
-            Boss2.AddBehaviour(new HitBehaviour(bossSword2));
+            Boss2.AddBehaviour("BondBehaviour", new BondBehaviour(bossSword2));
+            Boss2.AddBehaviour("HitBehaviour", new HitBehaviour(bossSword2));
 
             gameObjects.Add(Boss2);
             gameObjects.Add(bossSword2);
@@ -614,19 +613,19 @@ namespace ProjectGame
             {
                 Texture = swordtexture
             };
-            bossSword.AddBehaviour(new WeaponBehaviour()
+            bossSword.AddBehaviour("WeaponBehaviour", new WeaponBehaviour()
             {
                 Wielder = Boss
             });
 
-            Boss.AddBehaviour(new MovementBehaviour());
-            Boss.AddBehaviour(new ChaseBehaviour(300, target, Boss.Position, true));
-            Boss.AddBehaviour(new MonsterAttack(target, true));
-            Boss.AddBehaviour(new AttackBehaviour(bossSword));
-            Boss.AddBehaviour(new FOVBehavior(gameObjects));
-            Boss.AddBehaviour(new StatBehaviour(200, 100, 0.1f));
-            Boss.AddBehaviour(new BondBehaviour(bossSword));
-            Boss.AddBehaviour(new HitBehaviour(bossSword, true));
+            Boss.AddBehaviour("MovementBehaviour", new MovementBehaviour());
+            Boss.AddBehaviour("ChaseBehaviour", new ChaseBehaviour(300, target, Boss.Position, true));
+            Boss.AddBehaviour("MonsterAttack", new MonsterAttack(target, true));
+            Boss.AddBehaviour("AttackBehaviour", new AttackBehaviour(bossSword));
+            Boss.AddBehaviour("FOVBehavior", new FOVBehavior(gameObjects));
+            Boss.AddBehaviour("StatBehaviour", new StatBehaviour(200, 100, 0.1f));
+            Boss.AddBehaviour("BondBehaviour", new BondBehaviour(bossSword));
+            Boss.AddBehaviour("HitBehaviour", new HitBehaviour(bossSword, true));
 
             gameObjects.Add(Boss);
             gameObjects.Add(bossSword);
@@ -642,7 +641,7 @@ namespace ProjectGame
             {
                 Texture = bosstexture
             };
-            helmet.AddBehaviour(new ChildBehaviour()
+            helmet.AddBehaviour("ChildBehaviour", new ChildBehaviour()
             {
                 Parent = FinalBoss
             });
@@ -650,22 +649,22 @@ namespace ProjectGame
             {
                 Texture = swordtexture
             };
-            bossSword.AddBehaviour(new WeaponBehaviour()
+            bossSword.AddBehaviour("WeaponBehaviour", new WeaponBehaviour()
             {
                 Wielder = FinalBoss
             });
 
-            FinalBoss.AddBehaviour(new MovementBehaviour(movementList));
-            FinalBoss.AddBehaviour(new ChaseBehaviour(300, target, FinalBoss.Position, true));
-            FinalBoss.AddBehaviour(new MonsterAttack(target, true));
-            FinalBoss.AddBehaviour(new AttackBehaviour(bossSword));
-            FinalBoss.AddBehaviour(new StatBehaviour(250, 100, 0.1f)
+            FinalBoss.AddBehaviour("MovementBehaviour", new MovementBehaviour(movementList));
+            FinalBoss.AddBehaviour("ChaseBehaviour", new ChaseBehaviour(300, target, FinalBoss.Position, true));
+            FinalBoss.AddBehaviour("MonsterAttack", new MonsterAttack(target, true));
+            FinalBoss.AddBehaviour("AttackBehaviour", new AttackBehaviour(bossSword));
+            FinalBoss.AddBehaviour("StatBehaviour", new StatBehaviour(250, 100, 0.1f)
             {
                 HealthRegenSword = true
             });
-            FinalBoss.AddBehaviour(new FOVBehavior(gameObjects));
-            FinalBoss.AddBehaviour(new BondBehaviour(bossSword, helmet));
-            FinalBoss.AddBehaviour(new HitBehaviour(bossSword, true));
+            FinalBoss.AddBehaviour("FOVBehavior", new FOVBehavior(gameObjects));
+            FinalBoss.AddBehaviour("BondBehaviour", new BondBehaviour(bossSword, helmet));
+            FinalBoss.AddBehaviour("HitBehaviour", new HitBehaviour(bossSword, true));
 
             gameObjects.Add(FinalBoss);
             gameObjects.Add(helmet);

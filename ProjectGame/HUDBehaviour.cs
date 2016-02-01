@@ -34,7 +34,7 @@ namespace ProjectGame
             Text = text;
 
             GameObject = gameObject;
-            Stats = gameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+            Stats = gameObject.GetBehaviourOfType("StatBehaviour") as StatBehaviour;
 
             PositionHealth = new Vector2(5, 5);
             PositionTestos = new Vector2(5, 30);

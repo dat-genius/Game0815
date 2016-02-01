@@ -15,7 +15,7 @@ namespace ProjectGame
         public DropItem(GameObject player)
         {
             GameObject = player;
-            behaviourStat = GameObject.GetBehaviourOfType(typeof(StatBehaviour)) as StatBehaviour;
+            behaviourStat = GameObject.GetBehaviourOfType("StatBehaviour") as StatBehaviour;
         }
 
         public void OnUpdate(GameTime gameTime)
