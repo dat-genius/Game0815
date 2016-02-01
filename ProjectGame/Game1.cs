@@ -28,6 +28,7 @@ namespace ProjectGame
         private MouseState mouseState;
         private Menu mainMenu;
         private SpriteFont textFont;
+        private Vector2 lastPlayer;
         public GameObject somePlayer;
 
         public Game1()
@@ -37,14 +38,14 @@ namespace ProjectGame
 
             var xmlSerializer = new XmlSerializer(typeof(Tilemap));
 
-            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/Main_Level.tmx", FileMode.Open));
-            
+            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/EchteMap.tmx", FileMode.Open));
+
             bossrooms = new List<Tilemap>();
             for (int i = 0; i < 4; i++)
             {
                 bossrooms.Add((Tilemap)xmlSerializer.Deserialize(new FileStream("Content/bossroom" + i + ".tmx", FileMode.Open)));
             }
-             
+
 
             currentMap = tilemap;
             lastMap = currentMap;
@@ -192,7 +193,15 @@ namespace ProjectGame
                 Rectangle portblockRect = new Rectangle((int)teleportblock.Position.X, (int)teleportblock.Position.Y, teleportblock.Size.X, teleportblock.Size.Y);
                 if (playerRect.Intersects(portblockRect))
                 {
+                    lastPlayer = player.Position;
                     teleportblock.OnMessage(new CollisionEnterMessage(player));
+                    portBlocks.Remove(teleportblock);
+                    GameObject returnport = new GameObject();
+                    returnport.Position = new Vector2(49 * 32, 10 * 32);
+                    returnport.Size = new Point(64, 64);
+                    returnport.AddBehaviour("TeleportBlockBehaviour", new TeleportBlockBehaviour(lastPlayer));
+                    portBlocks.Add(returnport);
+                    LoadBoss1_3(player, Content.Load<Texture2D>("Boss1"), Content.Load<Texture2D>("Sword_Boss1"), 1);
                     break;
                 }
             }
@@ -222,7 +231,6 @@ namespace ProjectGame
 
             // Load Resources
             mainMenu = new Menu(Content);
-            //someMonster.Position = somePlayer.Position - new Vector2(100, 100);
         }
 
         private void LoadGameObjects()
@@ -268,7 +276,7 @@ namespace ProjectGame
             // Add Game Objects
             somePlayer = new GameObject
             {
-                Position = new Vector2(1200, 2700),
+                Position = new Vector2(106 * 32, 166 *32),
                 Texture = playerTexture
             };
             mainMenu.PlayerAlive = true;
@@ -305,43 +313,27 @@ namespace ProjectGame
             var shieldPlayer = new ShieldBehaviour(shieldTexture);
             somePlayer.AddBehaviour("ShieldBehaviour", shieldPlayer);
 
-            portBlocks = new List<GameObject>();
-            GameObject teleport = new GameObject();
-            teleport.AddBehaviour("TeleportBlockBehaviour", new TeleportBlockBehaviour(new Vector2(40 * 32, 236 * 32)));
-            teleport.Position = new Vector2(39 * 32, 73 * 32);
-            teleport.Size = new Point(96, 32);
-            teleport.IsCollidable = false;
-            portBlocks.Add(teleport);
-
-            
-            if(currentMap == tilemap)
+            if (currentMap == tilemap)
+            {
+                LoadAllPorts();
                 SpawnMonsters(50, somePlayer, playerAnimations, monsterHelmets, swordTexture);
-            if(currentMap == bossrooms[0])
+            }
+            if (currentMap == bossrooms[0])
                 LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
-            if(currentMap == bossrooms[1])
+            if (currentMap == bossrooms[1])
                 LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture, 1);
-            if(currentMap == bossrooms[2])
+            if (currentMap == bossrooms[2])
                 LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
-            if(currentMap == bossrooms[3])
+            if (currentMap == bossrooms[3])
             {
                 LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);
                 SpawnMonsters(5, somePlayer, playerAnimations, monsterHelmets, swordTexture);
             }
-                
-
-            //LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture,1);
-            //LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
-            //LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);    //moeten nog wel monsters omheen worden gemaakt
-            //LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
-            //LoadFinalBoss(somePlayer, khanTexture, bossAnimations, swordBoss1Texture);
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
             gameObjects.Add(swordPlayer);
             gameObjects.Add(shieldPlayer.shield);
-
-
-
 
             // Follow player with camera:
             //  ----> Remove the MonsterMovementBehaviourVB, then uncomment below to get a look at the results
@@ -351,7 +343,23 @@ namespace ProjectGame
             camera = followCamera;
 
             somePlayer.AddBehaviour("InputMovementBehaviour", new InputMovementBehaviour(movementSpeed: 5, camera: camera));
+        }
 
+        private void LoadAllPorts()
+        {
+            portBlocks = new List<GameObject>();
+            for (int i = 0; i < 4; i++)
+            {
+                GameObject teleport = new GameObject();
+                teleport.Size = new Point(78 * 32, 78 * 32);
+                teleport.IsCollidable = false;
+                teleport.AddBehaviour("TeleportBlockBehaviour", new TeleportBlockBehaviour(new Vector2(8 * 32, 25 * 32)));
+                portBlocks.Add(teleport);
+            }
+            portBlocks[0].Position = new Vector2(69 * 32, 11 * 32);
+            portBlocks[1].Position = new Vector2(74 * 32, 254 * 32);
+            portBlocks[2].Position = new Vector2(307 * 32, 248 * 32);
+            portBlocks[3].Position = new Vector2(309 * 32, 15 * 32);
         }
 
 
@@ -418,7 +426,7 @@ namespace ProjectGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            var pixelSize = SetPixelSize();
+
 
             if (mainMenu.State != Menu.GameState.Playing)
             {
@@ -427,7 +435,7 @@ namespace ProjectGame
             }
             else
             {
-                SetCurrentMap();
+                var pixelSize = SetPixelSize();
                 spriteBatch.Begin(
                     transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix,
                     samplerState: SamplerState.PointClamp);
@@ -573,10 +581,7 @@ namespace ProjectGame
 
         private Vector2 SetPosition(int bossnmmr)
         {
-            if (bossnmmr == 1)
-                return new Vector2(640, 512);
-            else
-                return new Vector2(352, 288);
+            return new Vector2(34*32, 20*32);            
         }
 
         public void LoadBoss2(GameObject target, Texture2D bosstexture, List<Texture2D> movementList, Texture2D swordtexture)
@@ -701,20 +706,5 @@ namespace ProjectGame
             }
             return true;
         }
-
-        private void SetCurrentMap()
-        {
-            var positionPLayer = somePlayer.Position;
-            var differnce = new Vector2(896, 3296).Length() - positionPLayer.Length();
-            if (differnce <= 20)
-            {
-                currentMap = bossrooms[0];
-                bossrooms[0].Build(Content);
-                LoadGameObjects();
-
-                somePlayer.Position = new Vector2(29 * 16, 47 * 16);
-            }
-        }
-
     }
 }
