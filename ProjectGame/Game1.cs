@@ -268,7 +268,7 @@ namespace ProjectGame
             // Add Game Objects
             somePlayer = new GameObject
             {
-                Position = new Vector2(1216, 2976),
+                Position = new Vector2(200, 200),
                 Texture = playerTexture
             };
             mainMenu.PlayerAlive = true;
@@ -427,7 +427,7 @@ namespace ProjectGame
             }
             else
             {
-                //SetCurrentMap();
+                SetCurrentMap();
                 spriteBatch.Begin(
                     transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix,
                     samplerState: SamplerState.PointClamp);
@@ -709,6 +709,7 @@ namespace ProjectGame
             if (differnce <= 20)
             {
                 currentMap = bossrooms[0];
+                bossrooms[0].Build(Content);
                 LoadGameObjects();
             }
         }

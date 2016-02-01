@@ -131,7 +131,7 @@ namespace ProjectGame
             // 32x32 = hardcoded tile resolution
             if ((camera.Position - lastCameraPosition).Length() >= pixelSize)
             {
-                cullFilteredDrawableTiles.Clear();
+                cullFilteredDrawableTiles = new List<DrawableTile>();
 
                 var renderingRectangle = new Rectangle()
                 {
