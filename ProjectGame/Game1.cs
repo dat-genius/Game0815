@@ -322,6 +322,12 @@ namespace ProjectGame
                 LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture, 1);
             if(currentMap == bossrooms[2])
                 LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
+            if(currentMap == bossrooms[3])
+            {
+                LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);
+                SpawnMonsters(5, somePlayer, playerAnimations, monsterHelmets, swordTexture);
+            }
+                
 
             //LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture,1);
             //LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
@@ -450,10 +456,12 @@ namespace ProjectGame
 
         public int SetPixelSize()
         {
-            if (currentMap == tilemap)
-                return 32;
-            else
+            if (currentMap == bossrooms[0])
                 return 16;
+            if (currentMap == bossrooms[2])
+                return 16;
+
+            return 32;
         }
 
         public void DeleteMonster()
@@ -494,7 +502,7 @@ namespace ProjectGame
             while (spawnlist.Count <= i)
             {
                 GameObject monster = new GameObject();
-                monster.Position = new Vector2(r.Next(0, tilemap.Width * tilemap.TileWidth), r.Next(0, tilemap.Height * tilemap.TileHeight));
+                monster.Position = new Vector2(r.Next(0, currentMap.Width * currentMap.TileWidth), r.Next(0, currentMap.Height * currentMap.TileHeight));
                 monster.Texture = monstertexture[0];
                 if (CollisionFree(monster))
                 {
@@ -537,7 +545,7 @@ namespace ProjectGame
         {
             GameObject Boss = new GameObject()
             {
-                Position = new Vector2(1216, 3700),
+                Position = SetPosition(bossnmmr),
                 Texture = bosstexture
             };
             var bossSword = new GameObject(false, false)
@@ -561,11 +569,19 @@ namespace ProjectGame
             gameObjects.Add(bossSword);
         }
 
+        private Vector2 SetPosition(int bossnmmr)
+        {
+            if (bossnmmr == 1)
+                return new Vector2(640, 512);
+            else
+                return new Vector2(352, 288);
+        }
+
         public void LoadBoss2(GameObject target, Texture2D bosstexture, List<Texture2D> movementList, Texture2D swordtexture)
         {
             GameObject Boss2 = new GameObject()
             {
-                Position = new Vector2(1216, 3700),
+                Position = new Vector2(352, 288),
                 Texture = movementList[0]
             };
             var bossSword2 = new GameObject(false, false)
@@ -606,7 +622,7 @@ namespace ProjectGame
         {
             GameObject Boss = new GameObject()
             {
-                Position = new Vector2(1216, 3700),
+                Position = new Vector2(272, 464),
                 Texture = bosstexture
             };
             var bossSword = new GameObject(false, false)
@@ -634,7 +650,7 @@ namespace ProjectGame
         {
             GameObject FinalBoss = new GameObject()
             {
-                Position = new Vector2(1216, 3600),
+                Position = new Vector2(272, 464),
                 Texture = movementList[0]
             };
             var helmet = new GameObject(true, false)
@@ -688,9 +704,9 @@ namespace ProjectGame
         {
             var positionPLayer = somePlayer.Position;
             var differnce = new Vector2(896, 3296).Length() - positionPLayer.Length();
-            if (differnce <= 50)
+            if (differnce <= 20)
             {
-                currentMap = bossrooms[1];
+                currentMap = bossrooms[0];
                 LoadGameObjects();
             }
         }

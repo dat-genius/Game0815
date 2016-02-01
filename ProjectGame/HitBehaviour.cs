@@ -38,8 +38,8 @@ namespace ProjectGame
             if (!canTeleport) return;
             if (hitCount == 3)
             {
-                var newX = CreateRandom(384, 1440);
-                var newY = CreateRandom(864, 1536);
+                var newX = CreateRandom(192, 736);
+                var newY = CreateRandom(336, 784);
                 NewPosition = new Vector2(newX, newY);
                 GameObject.Position = NewPosition;
                 hitCount = 0;

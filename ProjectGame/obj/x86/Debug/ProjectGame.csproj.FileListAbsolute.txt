@@ -98,7 +98,6 @@ C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGa
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\HealthBar.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Light_GrassTiles.xnb
-C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\continue.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\end.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\fullscreen0.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\fullscreen1.xnb
@@ -400,3 +399,8 @@ C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Sword_Boss4.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\title8.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\how.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\how.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\title8.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\overworld2.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\spectiles.xnb
+C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\underworld.xnb
