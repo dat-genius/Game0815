@@ -75,9 +75,9 @@ namespace ProjectGame
             Vector2 positionDifference = Target.Position - beginPosition;
 
             if (boss)
-                setDistance(150);
+                setDistance(140);
             else
-                setDistance(75);
+                setDistance(90);
 
             if (positionDifference.Length() < Radius)
             {
