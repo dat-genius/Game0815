@@ -37,7 +37,7 @@ namespace ProjectGame
 
             var xmlSerializer = new XmlSerializer(typeof(Tilemap));
 
-            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/Main_level.tmx", FileMode.Open));
+            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/Main_Level.tmx", FileMode.Open));
             
             bossrooms = new List<Tilemap>();
             for (int i = 0; i < 4; i++)
@@ -268,7 +268,7 @@ namespace ProjectGame
             // Add Game Objects
             somePlayer = new GameObject
             {
-                Position = new Vector2(200, 200),
+                Position = new Vector2(1200, 2700),
                 Texture = playerTexture
             };
             mainMenu.PlayerAlive = true;
@@ -711,6 +711,8 @@ namespace ProjectGame
                 currentMap = bossrooms[0];
                 bossrooms[0].Build(Content);
                 LoadGameObjects();
+
+                somePlayer.Position = new Vector2(29 * 16, 47 * 16);
             }
         }
 
