@@ -58,6 +58,7 @@ namespace TestProjectGame
             });
             bool Clicked = true;
             Player.AddBehaviour("InputMovementBehaviour",new InputMovementBehaviour(5f, new FollowCamera()));
+            Player.AddBehaviour("MovementBehaviour", new MovementBehaviour());
             Player.AddBehaviour("AttackBehaviour", new AttackBehaviour(PlayerSword));
             Player.AddBehaviour("StatBehaviour", new StatBehaviour(100, 100, 0.1f));
             var inputBehaviour = Player.GetBehaviourOfType("InputMovementBehaviour");

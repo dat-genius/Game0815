@@ -24,9 +24,9 @@ namespace TestProjectGame
         [TestMethod]
         public void TestHasFOVBehaviour()
         {
-            Assert.IsFalse(testObject.HasBehaviourOfType("FOVBehavior"));
+            Assert.IsFalse(testObject.HasBehaviourOfType("FOVBehaviour"));
             testObject.AddBehaviour("FOVBehaviour",new FOVBehavior(gameObjects));
-            Assert.IsTrue(testObject.HasBehaviourOfType("FOVBehavior"));
+            Assert.IsTrue(testObject.HasBehaviourOfType("FOVBehaviour"));
         }
 
         [TestMethod]
