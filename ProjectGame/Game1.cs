@@ -477,9 +477,11 @@ namespace ProjectGame
                         {
                             mainMenu.PlayerAlive = false;
                         }
-                        var Drop = gameObject.GetBehaviourOfType("DropItem") as DropItem;
-                        Drop.AddPotion();
-
+                        if (gameObject.HasBehaviourOfType("DropItem"))
+                        {
+                            var Drop = gameObject.GetBehaviourOfType("DropItem") as DropItem;
+                            Drop.AddPotion();
+                        }
                         var behaviour2 = gameObject.GetBehaviourOfType("BondBehaviour");
                         var sword = (behaviour2 as BondBehaviour).Sword;
                         if ((behaviour2 as BondBehaviour).HasHelmet)
