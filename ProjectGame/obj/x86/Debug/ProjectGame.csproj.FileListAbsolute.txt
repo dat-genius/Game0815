@@ -276,6 +276,7 @@ C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Tree.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\Tree_Grass.xnb
 C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\WoodTiles.xnb
+C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\helmets\helm0.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\helmets\helm1.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\helmets\helm2.xnb
@@ -285,7 +286,6 @@ C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGa
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\Sword_Boss4.xnb
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.exe
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.pdb
-D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\ball.xnb
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Boss1.xnb
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Boss2.xnb
@@ -324,7 +324,6 @@ D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bi
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\head.xnb
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\HealthBar.xnb
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\Light_GrassTiles.xnb
-D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\continue.xnb
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\end.xnb
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\fullscreen0.xnb
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\fullscreen1.xnb
@@ -402,7 +401,118 @@ C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGa
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\overworld2.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\spectiles.xnb
 C:\Users\Thijs\Documents\school\2de jaar\minor gaming\PROJECT\Game0815\ProjectGame\bin\Windows\Debug\Content\underworld.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\overworld2.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\spectiles.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\underworld.xnb
-C:\Users\Genius\Documents\GitHub\Game0815\ProjectGame\bin\Windows\Debug\Content\perspective_walls.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\how.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\menu\title8.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\overworld2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\spectiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\bin\Windows\Debug\Content\underworld.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\obj\x86\Debug\ProjectGame.exe
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\obj\x86\Debug\ProjectGame.pdb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\ball.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\EuropeanNichtRechts.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\grass.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\mickeyhelm.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Ninja.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Olifanthelm.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\shield1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\sword1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Boss1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Boss2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Boss3.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Boss4.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\BossLopen\BossLopen0.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\BossLopen\BossLopen1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\BossLopen\BossLopen2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\BossLopen\BossLopen3.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\BossLopen\BossLopen4.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\BossLopen\BossLopen5.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\BossLopen\BossLopen6.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\BossLopen\BossLopen7.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\CastleTiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Dark_GrassTiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\EuropeanNicht.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Flower.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Flower_Grass.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Fog.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\head.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\HealthBar.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\helmets\helm0.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\helmets\helm1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\helmets\helm2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\khan.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Light_GrassTiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\continuegame.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\end.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\fullscreen0.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\fullscreen1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\how.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\new.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\title0.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\title1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\title2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\title3.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\title4.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\title5.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\title6.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\title7.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\menu\title8.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\overworld2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\player\basicperson0.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\player\basicperson1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\player\basicperson2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\player\basicperson3.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\player\basicperson4.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\player\basicperson5.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\player\basicperson6.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\player\basicperson7.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\ps2-town-tiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Roman.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\sewer_tileset.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\spectiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1swing0.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1swing1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1swing2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1swing3.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1swing4.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1swing5.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1swing6.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1Swing8.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1thrust1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1thrust2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1thrust3.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1thrust4.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\swords\Sword1thrust5.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Sword_Boss1.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Sword_Boss2.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Sword_Boss3.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Sword_Boss4.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\TestosBar.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\TextFont.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\tmw_desert_spacing.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Tree.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\Tree_Grass.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\underworld.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\Content\WoodTiles.xnb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\ProjectGame.exe
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\ProjectGame.pdb
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\MonoGame.Framework.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.XAudio2.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D11.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.DXGI.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.Direct2D1.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.XInput.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.dll
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\MonoGame.Framework.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.XAudio2.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D11.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.DXGI.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.Direct2D1.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.XInput.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache

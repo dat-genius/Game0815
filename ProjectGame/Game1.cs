@@ -28,8 +28,8 @@ namespace ProjectGame
         private MouseState mouseState;
         private Menu mainMenu;
         private SpriteFont textFont;
-        private Vector2 lastPlayer;
         public GameObject somePlayer;
+        private bool bossDead;
 
         public Game1()
         {
@@ -38,14 +38,14 @@ namespace ProjectGame
 
             var xmlSerializer = new XmlSerializer(typeof(Tilemap));
 
-            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/EchteMap.tmx", FileMode.Open));
-
+            tilemap = (Tilemap)xmlSerializer.Deserialize(new FileStream("Content/Main_Level.tmx", FileMode.Open));
+            
             bossrooms = new List<Tilemap>();
-            for (int i = 0; i < 4; i++)
+            for (int i = 1; i < 5; i++)
             {
                 bossrooms.Add((Tilemap)xmlSerializer.Deserialize(new FileStream("Content/bossroom" + i + ".tmx", FileMode.Open)));
             }
-
+             
 
             currentMap = tilemap;
             lastMap = currentMap;
@@ -90,7 +90,7 @@ namespace ProjectGame
         /// <param name="gameObject">The game object</param>
         /// <param name="displacement">The movement</param>
         /// <returns>The new position</returns>
-        public static bool HasMapCollision(GameObject gameObject, Vector2 displacement)
+        /*public static bool HasMapCollision(GameObject gameObject, Vector2 displacement)
         {
             var oldPosition = new Vector2(gameObject.Position.X, gameObject.Position.Y);
             var newPosition = oldPosition + displacement;
@@ -114,11 +114,11 @@ namespace ProjectGame
                 }
             }
             return false;
-        }
+        }*/
 
         public static Vector2 ResolveWorldCollision(GameObject gameObject, Vector2 displacement)
         {
-            if (!HasObjectCollision(gameObject, displacement) && !HasMapCollision(gameObject, displacement))
+            if (!HasObjectCollision(gameObject, displacement) /*&& !HasMapCollision(gameObject, displacement)*/)
             {
                 return gameObject.Position + displacement;
             }
@@ -193,15 +193,7 @@ namespace ProjectGame
                 Rectangle portblockRect = new Rectangle((int)teleportblock.Position.X, (int)teleportblock.Position.Y, teleportblock.Size.X, teleportblock.Size.Y);
                 if (playerRect.Intersects(portblockRect))
                 {
-                    lastPlayer = player.Position;
                     teleportblock.OnMessage(new CollisionEnterMessage(player));
-                    portBlocks.Remove(teleportblock);
-                    GameObject returnport = new GameObject();
-                    returnport.Position = new Vector2(49 * 32, 10 * 32);
-                    returnport.Size = new Point(64, 64);
-                    returnport.AddBehaviour("TeleportBlockBehaviour", new TeleportBlockBehaviour(lastPlayer));
-                    portBlocks.Add(returnport);
-                    LoadBoss1_3(player, Content.Load<Texture2D>("Boss1"), Content.Load<Texture2D>("Sword_Boss1"), 1);
                     break;
                 }
             }
@@ -231,6 +223,7 @@ namespace ProjectGame
 
             // Load Resources
             mainMenu = new Menu(Content);
+            //someMonster.Position = somePlayer.Position - new Vector2(100, 100);
         }
 
         private void LoadGameObjects()
@@ -276,7 +269,7 @@ namespace ProjectGame
             // Add Game Objects
             somePlayer = new GameObject
             {
-                Position = new Vector2(106 * 32, 166 *32),
+                Position = new Vector2(1312, 5088),
                 Texture = playerTexture
             };
             mainMenu.PlayerAlive = true;
@@ -312,28 +305,45 @@ namespace ProjectGame
 
             var shieldPlayer = new ShieldBehaviour(shieldTexture);
             somePlayer.AddBehaviour("ShieldBehaviour", shieldPlayer);
+            somePlayer.AddBehaviour("TeleportBehaviour", new TeleportBehaviour());
 
-            if (currentMap == tilemap)
-            {
-                LoadAllPorts();
+            portBlocks = new List<GameObject>();
+            GameObject teleport = new GameObject();
+            teleport.AddBehaviour("TeleportBlockBehaviour", new TeleportBlockBehaviour(new Vector2(40 * 32, 236 * 32)));
+            teleport.Position = new Vector2(39 * 32, 73 * 32);
+            teleport.Size = new Point(96, 32);
+            teleport.IsCollidable = false;
+            portBlocks.Add(teleport);
+
+            
+            if(currentMap == tilemap)
                 SpawnMonsters(50, somePlayer, playerAnimations, monsterHelmets, swordTexture);
-            }
-            if (currentMap == bossrooms[0])
+            if(currentMap == bossrooms[0])
                 LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
-            if (currentMap == bossrooms[1])
+            if(currentMap == bossrooms[1])
                 LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture, 1);
-            if (currentMap == bossrooms[2])
+            if(currentMap == bossrooms[2])
                 LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
-            if (currentMap == bossrooms[3])
+            if(currentMap == bossrooms[3])
             {
                 LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);
                 SpawnMonsters(5, somePlayer, playerAnimations, monsterHelmets, swordTexture);
             }
+                
+
+            //LoadBoss1_3(somePlayer, boss1Texture, swordBoss1Texture,1);
+            //LoadBoss2(somePlayer, boss2Texture, bossAnimations, swordBoss2Texture);
+            //LoadBoss1_3(somePlayer, boss3Texture, swordBoss3Texture, 2);    //moeten nog wel monsters omheen worden gemaakt
+            //LoadBoss4(somePlayer, boss4Texture, swordBoss4Texture);
+            //LoadFinalBoss(somePlayer, khanTexture, bossAnimations, swordBoss1Texture);
 
             gameObjects.Add(somePlayer);
             gameObjects.Add(someHelmet);
             gameObjects.Add(swordPlayer);
             gameObjects.Add(shieldPlayer.shield);
+
+
+
 
             // Follow player with camera:
             //  ----> Remove the MonsterMovementBehaviourVB, then uncomment below to get a look at the results
@@ -343,23 +353,7 @@ namespace ProjectGame
             camera = followCamera;
 
             somePlayer.AddBehaviour("InputMovementBehaviour", new InputMovementBehaviour(movementSpeed: 5, camera: camera));
-        }
 
-        private void LoadAllPorts()
-        {
-            portBlocks = new List<GameObject>();
-            for (int i = 0; i < 4; i++)
-            {
-                GameObject teleport = new GameObject();
-                teleport.Size = new Point(78 * 32, 78 * 32);
-                teleport.IsCollidable = false;
-                teleport.AddBehaviour("TeleportBlockBehaviour", new TeleportBlockBehaviour(new Vector2(8 * 32, 25 * 32)));
-                portBlocks.Add(teleport);
-            }
-            portBlocks[0].Position = new Vector2(69 * 32, 11 * 32);
-            portBlocks[1].Position = new Vector2(74 * 32, 254 * 32);
-            portBlocks[2].Position = new Vector2(307 * 32, 248 * 32);
-            portBlocks[3].Position = new Vector2(309 * 32, 15 * 32);
         }
 
 
@@ -426,7 +420,7 @@ namespace ProjectGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
+            var pixelSize = SetPixelSize();
 
             if (mainMenu.State != Menu.GameState.Playing)
             {
@@ -435,7 +429,7 @@ namespace ProjectGame
             }
             else
             {
-                var pixelSize = SetPixelSize();
+                setCurrentMap();
                 spriteBatch.Begin(
                     transformMatrix: camera == null ? Matrix.Identity : camera.ViewMatrix,
                     samplerState: SamplerState.PointClamp);
@@ -455,6 +449,8 @@ namespace ProjectGame
                         HUDBehaviour hud = gameObject.GetBehaviourOfType("HUDBehaviour") as HUDBehaviour;
                         hud.Draw(spriteBatch);
                     }
+
+                    spriteBatch.DrawString(textFont, "x = " + somePlayer.Position.X + " y = " + somePlayer.Position.Y, new Vector2(30, 150), Color.White);
                 }
             }
             spriteBatch.End();
@@ -581,7 +577,10 @@ namespace ProjectGame
 
         private Vector2 SetPosition(int bossnmmr)
         {
-            return new Vector2(34*32, 20*32);            
+            if (bossnmmr == 1)
+                return new Vector2(640, 512);
+            else
+                return new Vector2(352, 288);
         }
 
         public void LoadBoss2(GameObject target, Texture2D bosstexture, List<Texture2D> movementList, Texture2D swordtexture)
@@ -696,15 +695,52 @@ namespace ProjectGame
 
         private bool CollisionFree(GameObject botsing)
         {
-            if (HasMapCollision(botsing, new Vector2(0, 0)))
-            {
-                return false;
-            }
+            //if (HasMapCollision(botsing, new Vector2(0, 0)))
+            //{
+            //    return false;
+            //}
             if (HasObjectCollision(botsing, new Vector2(0, 0)))
             {
                 return false;
             }
             return true;
+        }
+
+        private void setCurrentMap()
+        {
+            var tp = somePlayer.GetBehaviourOfType("TeleportBehaviour") as TeleportBehaviour;
+
+
+            foreach (var a in tp.WhichLevel)
+            {
+                if(a.Value)
+                {
+                    if(a.Key == 0)
+                    {
+                        currentMap = tilemap;
+                        tilemap.Build(Content);
+                        LoadGameObjects();
+                        somePlayer.Position = tp.SpawnPoint[a.Key];
+                    }
+                    else
+                    {
+                        currentMap = bossrooms[a.Key - 1];
+                        bossrooms[a.Key - 1].Build(Content);
+                        LoadGameObjects();
+                        somePlayer.Position = tp.SpawnPoint[a.Key];
+                    }
+                }
+            }
+
+            if(bossDead)
+            {
+                currentMap = tilemap;
+
+                for (int i = 0; i < tp.WhichLevel.Count; i ++)
+                    tp.WhichLevel[i] = false;
+
+                bossDead = false;
+            }
         }
     }
 }

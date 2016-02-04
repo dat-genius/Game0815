@@ -7,9 +7,9 @@ namespace ProjectGame
         public GameObject GameObject { get; set; }
         public Vector2 TargetLocation { get; set; }
 
-        public TeleportBlockBehaviour(Vector2 targetPos)
+        public TeleportBlockBehaviour(Vector2 target)
         {
-            TargetLocation = targetPos;
+            TargetLocation = target;
         }
 
         public void OnUpdate(GameTime gameTime)
