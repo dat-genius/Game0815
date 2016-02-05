@@ -450,8 +450,6 @@ namespace ProjectGame
                         HUDBehaviour hud = gameObject.GetBehaviourOfType("HUDBehaviour") as HUDBehaviour;
                         hud.Draw(spriteBatch);
                     }
-
-                    spriteBatch.DrawString(textFont, "x = " + somePlayer.Position.X + " y = " + somePlayer.Position.Y, new Vector2(30, 150), Color.White);
                 }
             }
             spriteBatch.End();
