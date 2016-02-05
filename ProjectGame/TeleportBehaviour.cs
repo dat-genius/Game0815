@@ -11,14 +11,17 @@ namespace ProjectGame
         public GameObject GameObject { get; set; }
 
         private Dictionary<int, List<Rectangle>> levels;
-        public Dictionary<int, bool> WhichLevel;
+        private Dictionary<int, Rectangle> doors;
+        public Dictionary<int, bool> WhichLevel { get; set; }
         public Dictionary<int, Vector2> SpawnPoint;
-        private List<Rectangle> test;
+        private int currentMap;
 
-
-        public TeleportBehaviour()
+        public TeleportBehaviour(int _currentMap)
         {
+            currentMap = _currentMap;
+
             levels = new Dictionary<int,List<Rectangle>>();
+            doors = new Dictionary<int, Rectangle>();
             WhichLevel = new Dictionary<int,bool>();
             SpawnPoint = new Dictionary<int, Vector2>();
 
@@ -43,7 +46,12 @@ namespace ProjectGame
             levels.Add(3, Level3);
             levels.Add(4, Level4);
 
-            for(int i = 1; i < 5; i++)
+            doors.Add(1, new Rectangle(26 * 16, 52 * 16, 7 * 16, 2 * 16));
+            doors.Add(2, new Rectangle(2 * 32, 15 * 32, 1 * 32, 6 * 32));
+            doors.Add(3, new Rectangle(29 * 16, 58 * 16, 3 * 16, 2 * 16));
+            doors.Add(4, new Rectangle(23 * 32, 48 * 32, 8 * 32, 2 * 32));
+
+            for(int i = 0; i < 5; i++)
                 WhichLevel.Add(i, false);
 
             SpawnPoint.Add(0, new Vector2(1312, 5088));
@@ -55,23 +63,44 @@ namespace ProjectGame
 
         public void OnUpdate(GameTime gameTime)
         {
-            var playerRectangle = new Rectangle((int)GameObject.Position.X, (int)GameObject.Position.Y, (int)GameObject.Texture.Width, (int)GameObject.Texture.Height);
-            for(int i = 1; i <= levels.Keys.Count; i++)
+            if (currentMap != 0)
+                checkDoors(currentMap);
+            else if (currentMap == 0)
             {
-                for (int y = 0; y < levels[i].Count; y++)
+                for (int i = 1; i <= levels.Keys.Count; i++)
                 {
-                    var intersect = Rectangle.Intersect(playerRectangle, levels[i][y]);
-
-                    if(!intersect.IsEmpty)
-                        setMap(i);
+                    for (int y = 0; y < levels[i].Count; y++)
+                    {
+                        if (checkIntersect(levels[i][y]))
+                        {
+                            setMap(i);
+                        }
+                    }
                 }
             }
         }
 
-
-        private void setMap(int i)
+        private void checkDoors(int i)
         {
-            WhichLevel[i] = true;
+            if (checkIntersect(doors[i]))
+                setMap(0);
+        }
+
+        private bool checkIntersect(Rectangle i)
+        {
+            var playerRectangle = new Rectangle((int)GameObject.Position.X, (int)GameObject.Position.Y, (int)GameObject.Texture.Width, (int)GameObject.Texture.Height);
+
+            var intersect = Rectangle.Intersect(playerRectangle, i);
+
+            return (!intersect.IsEmpty);
+        }
+
+        private void setMap(int selectedMap)
+        {
+            for (int i = 0; i < WhichLevel.Count; i++)
+                WhichLevel[i] = false;
+
+            WhichLevel[selectedMap] = true; 
         }
 
         public void OnMessage(IMessage message) { }

@@ -23,13 +23,14 @@ namespace ProjectGame
         private static Tilemap tilemap;
         private List<Tilemap> bossrooms;
         private Tilemap currentMap;
+        private int currentMapInt = 0;
         private Tilemap lastMap;
         private MouseState lastMouseState;
         private MouseState mouseState;
         private Menu mainMenu;
         private SpriteFont textFont;
         public GameObject somePlayer;
-        private bool bossDead;
+
 
         public Game1()
         {
@@ -45,7 +46,7 @@ namespace ProjectGame
             {
                 bossrooms.Add((Tilemap)xmlSerializer.Deserialize(new FileStream("Content/bossroom" + i + ".tmx", FileMode.Open)));
             }
-             
+
 
             currentMap = tilemap;
             lastMap = currentMap;
@@ -305,7 +306,7 @@ namespace ProjectGame
 
             var shieldPlayer = new ShieldBehaviour(shieldTexture);
             somePlayer.AddBehaviour("ShieldBehaviour", shieldPlayer);
-            somePlayer.AddBehaviour("TeleportBehaviour", new TeleportBehaviour());
+            somePlayer.AddBehaviour("TeleportBehaviour", new TeleportBehaviour(currentMapInt));
 
             portBlocks = new List<GameObject>();
             GameObject teleport = new GameObject();
@@ -466,6 +467,7 @@ namespace ProjectGame
                 return 16;
 
             return 32;
+
         }
 
         public void DeleteMonster()
@@ -710,36 +712,27 @@ namespace ProjectGame
         {
             var tp = somePlayer.GetBehaviourOfType("TeleportBehaviour") as TeleportBehaviour;
 
-
             foreach (var a in tp.WhichLevel)
             {
                 if(a.Value)
                 {
-                    if(a.Key == 0)
+                    if(a.Key == 0 && !(currentMap == tilemap))
                     {
-                        currentMap = tilemap;
-                        tilemap.Build(Content);
-                        LoadGameObjects();
-                        somePlayer.Position = tp.SpawnPoint[a.Key];
+                            currentMapInt = 0;
+                            currentMap = tilemap;
+                            tilemap.Build(Content);
+                            LoadGameObjects();
+                            somePlayer.Position = tp.SpawnPoint[a.Key];
                     }
-                    else
+                    else if (a.Key != 0)
                     {
+                        currentMapInt = a.Key;
                         currentMap = bossrooms[a.Key - 1];
                         bossrooms[a.Key - 1].Build(Content);
                         LoadGameObjects();
                         somePlayer.Position = tp.SpawnPoint[a.Key];
                     }
                 }
-            }
-
-            if(bossDead)
-            {
-                currentMap = tilemap;
-
-                for (int i = 0; i < tp.WhichLevel.Count; i ++)
-                    tp.WhichLevel[i] = false;
-
-                bossDead = false;
             }
         }
     }

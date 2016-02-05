@@ -516,3 +516,4 @@ D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.RawInput.xml
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
 D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Local Copy\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
+D:\01 School\Practicum\Jaar 2\Gaming Development (Minor)\Game0815\ProjectGame\obj\x86\Debug\ProjectGame.csprojResolveAssemblyReference.cache
